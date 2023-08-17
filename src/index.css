@@ -1,0 +1,15 @@
+
+
+html{
+   font-size: 22px;
+ }
+ 
+ body{
+   margin: 0;
+   padding: 0;
+ }
+ 
+ .container {
+   max-width: 1280px;
+   margin: 0 auto;
+ }
