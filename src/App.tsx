@@ -1,10 +1,9 @@
 import RoutesApp from './RoutesApp';
-import { Navbar, Footer, Banners } from './components';
+import { Navbar, Footer } from './components';
 
 function App() {
 	return (
 		<div className="container">
-			<Banners />
 			<Navbar />
 			<RoutesApp />
 			<Footer />
