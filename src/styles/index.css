@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import 'variables';
 
 html{
   font-size: 16px;
@@ -14,7 +14,7 @@ html{
 body{
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  color: $black;
+  color: var(--black);
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -25,7 +25,7 @@ a{
 }
 
 a:hover{
-  color: $orange;
+  color:var(--orange);
 }
 
 .container {
@@ -33,40 +33,40 @@ a:hover{
   margin: 0 auto;
 }
 
-// Texts style
+/* Texts style */
 .heading1{
-  font-family: $nunito;
+  font-family: var(--nunito);
   font-size: 3.25rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .heading2{
-  font-family: $nunito;
+  font-family: var(--nunito);
   font-size: 2.5rem;
   font-weight: 600;
 }
 
 .bunner-title{
-  font-family: $nunito;
+  font-family: var(--nunito);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .review-title{
-  font-family: $nunito;
+  font-family: var(--nunito);
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .cards-header{
-  font-family: $open-sans;
+  font-family: var(--open-sans);
   font-size: 1.125rem;
   font-weight: 600;
 }
 
 .elements-header{
-  font-family: $open-sans;
+  font-family: var(--open-sans);
   font-size: 1rem;
   font-weight: 600;
 }
