@@ -1,14 +1,15 @@
 import RoutesApp from './RoutesApp';
-import { Navbar, Footer } from './components';
+import { Navbar, Footer, Banners } from './components';
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <RoutesApp />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="container">
+			<Banners />
+			<Navbar />
+			<RoutesApp />
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
