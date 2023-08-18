@@ -9,8 +9,8 @@ const RoutesApp = () => {
             <Route path='/' element={<HomePage/>}/>
             <Route path='/projects' element={<ProjectsPage/>}/>
             <Route path='/about' element={<AboutPage/>}/>
-            <Route path='./needhelp' element={<NeedHelpPage/>}/>
-            <Route path='./readyneed' element={<ReadyHelpPage/>}/>
+            <Route path='/needhelp' element={<NeedHelpPage/>}/>
+            <Route path='/readyneed' element={<ReadyHelpPage/>}/>
          </Routes>
       </React.Fragment>
    );
