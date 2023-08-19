@@ -1,4 +1,22 @@
 
 .translation{
    display: block;
+   position: relative;
+
+   .list{
+      display: none;
+      position: absolute;
+
+      li{
+         
+      }
+      li.active{
+         
+      }
+   }
+
+   .list.visible{
+      display: flex;
+      flex-direction: column;
+   }
 }
