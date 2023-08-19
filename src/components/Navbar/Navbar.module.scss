@@ -1,0 +1,21 @@
+.nav {
+	&__list {
+		display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+		gap: 4rem;
+
+		list-style: none;
+		font-style: normal;
+		line-height: 1;
+        color: var(--dark-grey);
+
+        padding: 0;
+        cursor: pointer;        
+	}
+
+    &__link {        
+        color: currentColor;
+    }
+}
