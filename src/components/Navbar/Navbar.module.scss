@@ -1,0 +1,22 @@
+.nav {
+	&__list {
+		display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+		gap: 4rem;
+
+		list-style: none;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1rem;
+        color: var(--dark-grey);
+        
+        padding: 0;
+        cursor: pointer;        
+	}
+
+    &__link {        
+        color: currentColor;
+    }
+}
