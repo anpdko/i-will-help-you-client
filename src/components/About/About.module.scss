@@ -1,10 +1,22 @@
 .about{
   display: flex;
   gap: 5.75rem;
-
-  &__buttons{
+  margin-bottom: 7rem;
+  &__tabs{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+
+  &__tab{
+
+  }
+
+  &__items{
+    
+  }
+
+  &__buttons{
+    
   }
 }

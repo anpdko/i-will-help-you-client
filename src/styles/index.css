@@ -21,13 +21,16 @@ body{
   padding: 0;
 }
 
-a{
-  text-decoration: none;
+a:hover
+{
+  color:var(--orange);
+  
 }
 
-a:hover{
-  color:var(--orange);
+a:hover::after{
+  background-color: var(--orange);
 }
+
 
 .container {
   max-width: 1280px;

@@ -1,7 +1,32 @@
 
 .about__item{
-   p{
+   max-width: 49.5rem;
+   height: 30.25rem;
+   padding: 3rem;
+   border-radius: 2.25rem;
+   background-color: var(--milky);
+
+   &_text{
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 1.1rem 0 .6rem 0; 
       white-space: pre-line;
+   }
+   &_link{
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--black);
+      position: relative;
+      &::after{
+         content: "";
+         position: absolute;
+         bottom: -.5rem;
+         left: 0;
+         height: 1px;
+         width: 100%;
+         background-color: var(--black);
+      }
    }
 }
 
