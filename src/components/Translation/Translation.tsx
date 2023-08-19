@@ -34,11 +34,17 @@ const Translation = ({ className }: ITranslation) => {
                 onBlur={handleButtonBlur}
                 className={[s.btn, className].join(" ")}
             >
-                {language === 'ua' ? 'EN' : 'UA'}
+                {language === 'ua' ? 'UA' : 'EN'}
             </button>
             <ul className={[s.list, isButtonFocused?s.visible:""].join(" ")}>
                 {languages.map((lang) => 
-                    <li key={lang} onClick={() => handleLanguageChange(lang)}>{lang}</li>
+                    <li 
+                        className={language === lang?s.active:""}
+                        key={lang} 
+                        onClick={() => handleLanguageChange(lang)}
+                    >
+                        {lang}
+                    </li>
                 )}
             </ul>
         </div>
