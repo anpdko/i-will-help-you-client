@@ -1,6 +1,14 @@
+import mission from '../assets/icons/mission.svg';
+import vision from '../assets/icons/vision.svg';
+import objectives from '../assets/icons/objectives.svg';
+import values from '../assets/icons/values.svg';
+import impact from '../assets/icons/impact.svg';
+import journey from '../assets/icons/journey.svg';
+
 export interface ITabName {
 	id: string;
 	tabName: string;
+	tabIcon: string;
 	title: string;
 	link: string;
 	description: string;
@@ -10,6 +18,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'mission',
 		tabName: 'Mission',
+		tabIcon: mission,
 		title: 'Our Mission',
 		link: '#',
 		description:
@@ -18,6 +27,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'vision',
 		tabName: 'Vision',
+		tabIcon: vision,
 		title: 'Our Vision',
 		link: '#',
 		description:
@@ -26,6 +36,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'objectives',
 		tabName: 'Key Objectives',
+		tabIcon: objectives,
 		title: 'Key Objectives',
 		link: '#',
 		description: `1. Holistic Legal Assistance: Providing legal guidance to navigate foreign systems.
@@ -38,6 +49,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'values',
 		tabName: 'Core Values',
+		tabIcon: values,
 		title: 'Core Values',
 		link: '#',
 		description:
@@ -46,6 +58,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'impact',
 		tabName: 'Our Impact',
+		tabIcon: impact,
 		title: 'Our Impact',
 		link: '#',
 		description:
@@ -54,6 +67,7 @@ const aboutTab: ITabName[] = [
 	{
 		id: 'journey',
 		tabName: 'Join Our Journey',
+		tabIcon: journey,
 		title: 'Make a Difference Today!',
 		link: '#',
 		description:

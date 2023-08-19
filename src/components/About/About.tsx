@@ -17,9 +17,12 @@ const About = () => {
 					{aboutTab.map((tab) => (
 						<button
 							key={tab.id}
-							className={s.about__tab}
+							className={`${s.about__tab} ${
+								activeTab === tab.id ? s.about__active : ''
+							}`}
 							onClick={() => handleTabChange(tab.id)}
 						>
+							<img className={s.about__icon} src={tab.tabIcon} />
 							{tab.tabName}
 						</button>
 					))}
@@ -29,9 +32,6 @@ const About = () => {
 						(tab) =>
 							activeTab === tab.id && <AboutItem key={tab.id} tab={tab} />
 					)}
-				</div>
-				<div className={s.about__buttons}>
-					{/* Місце для button компонента*/}
 				</div>
 			</div>
 		</div>
