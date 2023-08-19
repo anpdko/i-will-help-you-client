@@ -27,7 +27,8 @@ const aboutTab:ITabName[] = [
       tabName: "Key Objectives",
       title: "Key Objectives",
       link: "#",
-      description:" 1. Provide comprehensive assistance to Ukrainian refugees. 2. Empower individuals to rebuild with dignity and resilience."
+      description:`1. Provide comprehensive assistance to Ukrainian refugees. 
+      2. Empower individuals to rebuild with dignity and resilience.`
    },
    {
       id: "values",
