@@ -1,0 +1,67 @@
+.orange {
+    border: none;
+	background: var(--orange);
+	&:hover,
+	:focus {
+		background: var(--orange-for-states);
+	}
+	&:active {
+		font-weight: 700;
+	}
+}
+
+.white {
+	border-radius: 10px;
+	border: 2px solid var(--orange);
+    background: var(--total-white);
+	&:hover,
+	:focus {
+		border: 2px solid var(--orange-for-states);
+        color: var(--light-black);
+	}
+	&:active {
+		font-weight: 700;
+        color: var(--black);
+	}
+}
+
+.small {
+	width: 180px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.standard {
+	width: 204px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.medium {
+	width: 300px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.large {
+	width: 336px;
+	padding-top: 22px;
+	padding-bottom: 22px;
+}
+
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1rem;
+	border-radius: 8px;
+	outline: none;
+    color: var(--black);
+	cursor: pointer;
+
+	transition: background 0.5s ease-in;
+}

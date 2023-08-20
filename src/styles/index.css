@@ -21,21 +21,14 @@ body{
   padding: 0;
 }
 
-a{
-  text-decoration: none;
-}
-
-a:hover{
+a:hover
+{
   color:var(--orange);
+  
 }
 
-ul {
-padding: 0;
-list-style: none;
-}
-
-button {
-  padding: 0;
+a:hover::after{
+  background-color: var(--orange);
 }
 
 .container {
@@ -80,5 +73,14 @@ button {
   font-family: var(--open-sans);
   font-size: 1rem;
   font-weight: 600;
+}
+
+ul {
+padding: 0;
+list-style: none;
+}
+
+button {
+  padding: 0;
 }
 

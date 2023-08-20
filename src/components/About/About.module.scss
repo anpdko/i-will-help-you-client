@@ -1,10 +1,46 @@
 .about{
   display: flex;
   gap: 5.75rem;
-
-  &__buttons{
+  margin-bottom: 7rem;
+  &__tabs{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
   }
+
+  &__tab{
+    width: 9.25rem;
+    height: 9.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.12rem;
+    border: 0;
+    border-radius: 1.25rem;
+    background-color: var(--milky);
+    color: var(--black);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    transition: color .2s linear, box-shadow .2s linear;
+    &:hover{
+      color: var(--orange);
+    }
+  }
+
+  &__items{
+    
+  }
+
+  &__icon{
+    filter: var(--orange);
+  }
+
+  &__active{
+    color: var(--orange);
+    box-shadow: 0px 4px 20px 0px rgba(14, 14, 14, 0.10);
+  }
 }
+
