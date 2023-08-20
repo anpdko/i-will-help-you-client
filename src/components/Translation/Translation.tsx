@@ -20,19 +20,11 @@ const Translation = ({ className }: ITranslation) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
 		setIsButtonFocused(false);
-		// setTimeout(() => setIsButtonFocused(false), 500);
 	};
 
-	// const handleListLanguage = () => {
-	// 	setTimeout(
-	// 		() => setIsButtonFocused((isButtonFocused) => !isButtonFocused),
-	// 		300
-	// 	);
-	// };
-
-	const handleButtonFocus = () => {
-	    setIsButtonFocused(true);
-	  };
+	const handleListLanguage = () => {
+		setIsButtonFocused((isButtonFocused) => !isButtonFocused)
+	};
 	const handleButtonBlur = () => {
 	    setTimeout(() => setIsButtonFocused(false), 300)
 	};
@@ -40,8 +32,7 @@ const Translation = ({ className }: ITranslation) => {
 	return (
 		<div className={s.translation}>
 			<button
-				// onClick={handleListLanguage}
-				onFocus={handleButtonFocus}
+				onClick={handleListLanguage}
 				onBlur={handleButtonBlur}
 				className={[s.translation__btn, className].join(' ')}
 			>
