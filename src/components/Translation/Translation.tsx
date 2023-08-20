@@ -19,30 +19,30 @@ const Translation = ({ className }: ITranslation) => {
 	const handleLanguageChange = (lang: ILang) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
-		// setIsButtonFocused(false);
-		setTimeout(() => setIsButtonFocused(false), 500);
+		setIsButtonFocused(false);
+		// setTimeout(() => setIsButtonFocused(false), 500);
 	};
 
-	const handleListLanguage = () => {
-		setTimeout(
-			() => setIsButtonFocused((isButtonFocused) => !isButtonFocused),
-			300
-		);
-	};
-
-	// const handleButtonFocus = () => {
-	//     setIsButtonFocused(true);
-	//   };
-	// const handleButtonBlur = () => {
-	//     setTimeout(() => setIsButtonFocused(false), 100)
+	// const handleListLanguage = () => {
+	// 	setTimeout(
+	// 		() => setIsButtonFocused((isButtonFocused) => !isButtonFocused),
+	// 		300
+	// 	);
 	// };
+
+	const handleButtonFocus = () => {
+	    setIsButtonFocused(true);
+	  };
+	const handleButtonBlur = () => {
+	    setTimeout(() => setIsButtonFocused(false), 300)
+	};
 
 	return (
 		<div className={s.translation}>
 			<button
-				// onFocus={handleButtonFocus}
-				// onBlur={handleButtonBlur}
-				onClick={handleListLanguage}
+				// onClick={handleListLanguage}
+				onFocus={handleButtonFocus}
+				onBlur={handleButtonBlur}
 				className={[s.translation__btn, className].join(' ')}
 			>
 				{language === 'ua' ? 'ua' : 'en'}
@@ -52,11 +52,7 @@ const Translation = ({ className }: ITranslation) => {
 			</button>
 			<ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>
 				{languages.map((lang) => (
-					<li
-						// className={language === lang?s.active:""}
-						key={lang}
-						// onClick={() => handleLanguageChange(lang)}
-					>
+					<li key={lang}>
 						<button
 							className={[s.list__btn, language === lang ? s.active : ''].join(' ')}
 							onClick={() => handleLanguageChange(lang)}
