@@ -20,14 +20,11 @@ const Translation = ({ className }: ITranslation) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
 		// setIsButtonFocused(false);
-		setTimeout(() => setIsButtonFocused(false), 500);
+		setIsButtonFocused(false);
 	};
 
 	const handleListLanguage = () => {
-		setTimeout(
-			() => setIsButtonFocused((isButtonFocused) => !isButtonFocused),
-			300
-		);
+        setIsButtonFocused((isButtonFocused) => !isButtonFocused)
 	};
 
 	// const handleButtonFocus = () => {
