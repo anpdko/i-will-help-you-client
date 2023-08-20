@@ -26,7 +26,7 @@ const Translation = ({ className }: ITranslation) => {
 		setIsButtonFocused((isButtonFocused) => !isButtonFocused)
 	};
 	const handleButtonBlur = () => {
-	    setTimeout(() => setIsButtonFocused(false), 300)
+		setTimeout(() => setIsButtonFocused(false), 300)
 	};
 
 	return (

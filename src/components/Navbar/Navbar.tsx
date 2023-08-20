@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Translation } from '../../components'
 import { useTranslation } from "react-i18next";
 import logoImg from '../../assets/logo.svg'
+import ButtonApp from '../UI/ButtonApp/ButtonApp';
 
 interface ILinks {
   text: string;
@@ -49,6 +50,7 @@ const Navbar = () => {
                 : null}
             </ul>
             <Translation />
+            <ButtonApp>Donate</ButtonApp>
           </div>
         </nav>
       </div>
