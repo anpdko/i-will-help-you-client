@@ -39,13 +39,9 @@
     padding: .25rem;
     border-radius: .6rem;
     background-color: var(--bg);
-    img{
-      fill: var(--orange);
-    }
   }
 
   &:hover .banner__content{
-
     transform: translateY(0);
   }
   &:hover .banner__description{
