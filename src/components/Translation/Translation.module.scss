@@ -1,22 +1,73 @@
+.translation {
+	display: block;
+	position: relative;
 
-.translation{
-   display: block;
-   position: relative;
+	&__btn {
+		display: flex;
+		justify-content: center;
+      align-items: center;
+		gap: 0.125rem;
+		width: 2.125rem;
+		height: 1rem;
 
-   .list{
-      display: none;
-      position: absolute;
+      font-family: inherit;
+		font-size: inherit;
+      line-height: 1;
+      text-transform: capitalize;
+      border:none;
+		color: var(--dark-grey);
 
-      li{
-         color: black;
+      &:hover {
+         color: var(--black);;
       }
-      li.active{
-         color: red;
-      }
-   }
 
-   .list.visible{
-      display: flex;
-      flex-direction: column;
-   }
+      &__icon {
+         width: 0.75rem;
+         height: 0.75rem;
+         transform: rotate(90deg);
+         fill: currentColor;
+      }
+	}
+
+	.list {
+		display: none;
+		position: absolute;
+
+		width: 3.25rem;
+		height: 6.125rem;
+		padding: 0.37rem 0.38rem;
+		border-radius: 0.375rem;
+		border: 1px solid var(--black);
+		background: var(--bg);
+
+		&__btn {
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 0.5rem;
+			border: 2px solid var(--black);
+			color: var(--black);
+
+			text-align: center;
+			font-family: inherit;
+			font-size: inherit;
+			line-height: 1;
+			text-transform: capitalize;
+		}
+
+		&__btn.active {
+			background-color: var(--orange);
+			font-weight: 600;
+		}
+	}
+
+	.list.visible {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.37rem;
+      
+      top:1.5rem;
+      left: -0.625em;
+	}
 }

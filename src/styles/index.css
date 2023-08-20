@@ -29,6 +29,15 @@ a:hover{
   color:var(--orange);
 }
 
+ul {
+padding: 0;
+list-style: none;
+}
+
+button {
+  padding: 0;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
