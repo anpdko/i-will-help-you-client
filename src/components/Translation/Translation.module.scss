@@ -5,28 +5,29 @@
 	&__btn {
 		display: flex;
 		justify-content: center;
-      align-items: center;
+		align-items: center;
 		gap: 0.125rem;
 		width: 2.125rem;
 		height: 1rem;
 
-      font-family: inherit;
+		font-family: inherit;
 		font-size: inherit;
-      line-height: 1;
-      text-transform: capitalize;
-      border:none;
+		line-height: 1;
+		text-transform: capitalize;
+		border: none;
 		color: var(--dark-grey);
 
-      &:hover {
-         color: var(--black);;
-      }
+		&:hover {
+			color: var(--black);
+			;
+		}
 
-      &__icon {
-         width: 0.75rem;
-         height: 0.75rem;
-         transform: rotate(90deg);
-         fill: currentColor;
-      }
+		&_icon {
+			width: 0.75rem;
+			height: 0.75rem;
+			// transform: rotate(90deg);
+			fill: currentColor;
+		}
 	}
 
 	.list {
@@ -67,8 +68,8 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.37rem;
-      
-      top:1.5rem;
-      left: -0.625em;
+
+		top: 1.5rem;
+		left: -0.625em;
 	}
 }

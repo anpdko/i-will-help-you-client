@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Translation } from '../../components'
 import { useTranslation } from "react-i18next";
 import logoImg from '../../assets/logo.svg'
+import ButtonApp from '../UI/ButtonApp/ButtonApp';
 
 interface ILinks {
   text: string;
@@ -32,10 +33,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div className={s.box_nav}>
+    <header className={s.box_nav}>
       <div className='container'>
         <nav className={s.nav}>
-          <img src={logoImg} alt="" />
+          <img className={s.logo} src={logoImg} alt="" />
           <div className={s.left}>
             <ul className={s.nav__list}>
               {links
@@ -49,10 +50,11 @@ const Navbar = () => {
                 : null}
             </ul>
             <Translation />
+            <ButtonApp>Donate</ButtonApp>
           </div>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 export default Navbar

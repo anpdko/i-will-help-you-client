@@ -26,7 +26,7 @@ const Translation = ({ className }: ITranslation) => {
 		setIsButtonFocused((isButtonFocused) => !isButtonFocused)
 	};
 	const handleButtonBlur = () => {
-	    setTimeout(() => setIsButtonFocused(false), 300)
+		setTimeout(() => setIsButtonFocused(false), 300)
 	};
 
 	return (
@@ -37,7 +37,7 @@ const Translation = ({ className }: ITranslation) => {
 				className={[s.translation__btn, className].join(' ')}
 			>
 				{language === 'ua' ? 'ua' : 'en'}
-				<svg className={[s.btn__icon, className].join(' ')}>
+				<svg className={[s.translation__btn_icon, className].join(' ')}>
 					<use href={icons + '#ios-arrow'} />
 				</svg>
 			</button>

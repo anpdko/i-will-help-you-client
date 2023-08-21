@@ -1,5 +1,13 @@
 .box_nav {
+    padding: 0rem 7.5rem;
     box-shadow: 0px 2px 8px 0px rgba(81, 81, 81, 0.08);
+
+    .logo {
+        &:hover {
+            opacity: 0.7;
+        }
+
+    }
 
     .nav {
         display: flex;
@@ -7,8 +15,11 @@
         justify-content: space-between;
         padding: 1rem 0;
 
-        .left{
-            display: flex; 
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         &__list {
@@ -30,6 +41,10 @@
 
         &__link {
             color: currentColor;
+
+            &:hover {
+                color: var(--orange);
+            }
         }
     }
 }
