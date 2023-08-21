@@ -23,6 +23,7 @@ body{
 
 a{
   text-decoration: none;
+  transition: color .2s linear;
 }
 
 a:hover{
