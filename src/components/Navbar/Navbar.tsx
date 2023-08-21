@@ -33,10 +33,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div className={s.box_nav}>
+    <header className={s.box_nav}>
       <div className='container'>
         <nav className={s.nav}>
-          <img src={logoImg} alt="" />
+          <img className={s.logo} src={logoImg} alt="" />
           <div className={s.left}>
             <ul className={s.nav__list}>
               {links
@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 export default Navbar
