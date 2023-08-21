@@ -2,7 +2,8 @@ import { useState } from 'react';
 import s from './Translation.module.scss';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import i18n from '../../translation/i18n';
-import icons from '../../assets/icons.svg';
+import sprite from '../../assets/sprite.svg';
+// import icons from '../../assets/icons.svg';
 
 type ILang = 'en' | 'ua';
 
@@ -38,7 +39,7 @@ const Translation = ({ className }: ITranslation) => {
 			>
 				{language === 'ua' ? 'ua' : 'en'}
 				<svg className={[s.translation__btn_icon, className].join(' ')}>
-					<use href={icons + '#ios-arrow'} />
+					<use href={sprite + '#arrow-ctrl-down'} />
 				</svg>
 			</button>
 			<ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>
