@@ -1,3 +1,5 @@
+import projectsData from '../../data/projectsData';
+import Project from './Project/Project';
 import s from './Projects.module.scss';
 
 // const data = [
@@ -6,10 +8,12 @@ import s from './Projects.module.scss';
 
 const Projects = () => {
 	return (
-		<div className={s.projects}>
-			<h1>Projects</h1>
-			{/* example img */}
-			{/* <img src="http://localhost:8080/static/images/getty.png" alt="" /> */}
+		<div className="container">
+			<div className={s.projects}>
+				{projectsData.map((project) => (
+					<Project key={project.id} project={project} />
+				))}
+			</div>
 		</div>
 	);
 };

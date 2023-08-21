@@ -2,11 +2,11 @@ import s from './AboutItem.module.scss';
 import { ITabName } from '../../../data/aboutTab';
 import { Link } from 'react-router-dom';
 
-interface ProjectProps {
+interface AboutProps {
 	tab: ITabName;
 }
 
-const AboutItem = ({ tab }: ProjectProps) => {
+const AboutItem = ({ tab }: AboutProps) => {
 	return (
 		<div className={s.about__item}>
 			<div>
