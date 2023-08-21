@@ -1,5 +1,5 @@
 import s from './Banner.module.scss';
-import arrow_icon from '../../../assets/icons/arrow.svg';
+import icons from '../../../assets/icons.svg';
 
 interface BunnerProps {
 	img: string;
@@ -18,7 +18,9 @@ const Bunner = (props: BunnerProps) => {
 				<p className={s.banner__discription}>{props.description}</p>
 			</div>
 			<a className={s.banner__btn} href={s.banner__link}>
-				<img src={arrow_icon} />
+				<svg className={s.banner__icon}>
+					<use href={icons + '#ios-arrow'} />
+				</svg>
 			</a>
 		</div>
 	);

@@ -40,6 +40,10 @@
     border-radius: .6rem;
     background-color: var(--bg);
   }
+  &__icon{
+    color: red;
+    fill: red;
+  }
 
   &:hover .banner__content{
     transform: translateY(0);
