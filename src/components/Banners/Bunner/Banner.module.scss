@@ -49,6 +49,8 @@
     fill:currentColor;
     transition: color .2s linear;
   }
+  &__icon{
+  }
 
   &:hover .banner__content{
     transform: translateY(0);
