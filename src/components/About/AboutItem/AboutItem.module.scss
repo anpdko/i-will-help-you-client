@@ -32,5 +32,11 @@
          transition: background-color .2s linear;
       }
    }
+
+   &_buttons{
+      margin-top:1.5rem ;
+      display: flex;
+      gap: 1.5rem;
+   }
 }
 

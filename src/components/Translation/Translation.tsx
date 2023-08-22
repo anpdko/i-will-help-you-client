@@ -2,7 +2,8 @@ import { useState } from 'react';
 import s from './Translation.module.scss';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import i18n from '../../translation/i18n';
-import icons from '../../assets/icons.svg';
+import sprite from '../../assets/sprite.svg';
+// import icons from '../../assets/icons.svg';
 
 type ILang = 'en' | 'ua';
 
@@ -26,7 +27,7 @@ const Translation = ({ className }: ITranslation) => {
 		setIsButtonFocused((isButtonFocused) => !isButtonFocused)
 	};
 	const handleButtonBlur = () => {
-	    setTimeout(() => setIsButtonFocused(false), 300)
+		setTimeout(() => setIsButtonFocused(false), 300)
 	};
 
 	return (
@@ -37,8 +38,8 @@ const Translation = ({ className }: ITranslation) => {
 				className={[s.translation__btn, className].join(' ')}
 			>
 				{language === 'ua' ? 'ua' : 'en'}
-				<svg className={[s.btn__icon, className].join(' ')}>
-					<use href={icons + '#ios-arrow'} />
+				<svg className={[s.translation__btn_icon, className].join(' ')}>
+					<use href={sprite + '#arrow-ctrl-down'} />
 				</svg>
 			</button>
 			<ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>

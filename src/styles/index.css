@@ -23,11 +23,20 @@ body{
 
 a{
   text-decoration: none;
+<<<<<<< HEAD
   transition: color .2s linear;
 }
 
 a:hover{
   color: var(--orange);
+=======
+}
+
+a:hover
+{
+  color:var(--orange);
+  
+>>>>>>> ea80bfaaecded28cd4f4fa9511927e7ffe64e2d1
 }
 
 a:hover::after{
@@ -46,7 +55,11 @@ a:hover::after{
   font-size: 3.25rem;
   font-weight: 600;
   text-transform: uppercase;
+<<<<<<< HEAD
   margin-bottom: 3rem;
+=======
+  margin-bottom: 7rem;
+>>>>>>> ea80bfaaecded28cd4f4fa9511927e7ffe64e2d1
 }
 
 .heading2{

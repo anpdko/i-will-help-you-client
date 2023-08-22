@@ -1,14 +1,30 @@
 .box_nav {
+    padding: 0rem 7.5rem;
     box-shadow: 0px 2px 8px 0px rgba(81, 81, 81, 0.08);
 
     .nav {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         padding: 1rem 0;
 
-        .left{
-            display: flex; 
+
+        &__logo {
+            width: 7.63rem;
+            height: 3rem;
+            display: flex;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        &__left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         &__list {
@@ -30,6 +46,10 @@
 
         &__link {
             color: currentColor;
+
+            &:hover {
+                color: var(--orange);
+            }
         }
     }
 }

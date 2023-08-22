@@ -39,6 +39,15 @@
     padding: .25rem;
     border-radius: .6rem;
     background-color: var(--bg);
+    &:hover{
+      color: var(--orange)
+    }
+  }
+  &__icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    fill:currentColor;
+    transition: color .2s linear;
   }
   &__icon{
   }
