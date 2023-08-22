@@ -5,7 +5,7 @@ import s from './Project.module.scss';
 interface ProjectProps {
 	project: IProjectsData;
 }
-
+const API_URL = import.meta.env.VITE_API_URL;
 const Project = ({ project }: ProjectProps) => {
 	return (
 		<div className={s.project}>
@@ -16,7 +16,7 @@ const Project = ({ project }: ProjectProps) => {
 			</div>
 
 			<div className={s.project__img}>
-				<img src={project.img} alt="project image" />
+				<img src={API_URL + project.img} alt="project image" />
 			</div>
 		</div>
 	);
