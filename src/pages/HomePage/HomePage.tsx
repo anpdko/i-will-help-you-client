@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 const HomePage = () => {
 	const { t } = useTranslation();
 	return (
+		<>
 		<div className="container">
 			<div className={s.home}>
 				<Banners />
@@ -14,9 +15,10 @@ const HomePage = () => {
 				<About />
 				<h1 className="heading1">Stories of Hope and Gratitude</h1>
 				<Reviews />
-				<Volunteer/>
 			</div>
 		</div>
+		<Volunteer/>
+		</>
 	);
 };
 export default HomePage;
