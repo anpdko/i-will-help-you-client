@@ -5,6 +5,7 @@ import About from "./About/About"
 import Reviews from "./Reviews/Reviews";
 import Footer from "./Footer/Footer"
 import Translation from './Translation/Translation'
+import Volunteer from './Volunteer/Volunteer'
 
 export {
    Banners,
@@ -13,5 +14,6 @@ export {
    About,
    Reviews,
    Footer,
-   Translation
+   Translation,
+   Volunteer
 }

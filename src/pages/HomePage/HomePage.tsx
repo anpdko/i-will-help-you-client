@@ -1,5 +1,5 @@
 import s from './HomePage.module.scss';
-import { Banners, Projects, About, Reviews } from '../../components';
+import { Banners, Projects, About, Reviews, Volunteer } from '../../components';
 import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
@@ -14,7 +14,7 @@ const HomePage = () => {
 				<About />
 				<h1 className="heading1">Stories of Hope and Gratitude</h1>
 				<Reviews />
-				{/* VOLUNTEER NEEDED */}
+				<Volunteer/>
 			</div>
 		</div>
 	);
