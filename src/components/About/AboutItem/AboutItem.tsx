@@ -1,6 +1,7 @@
 import s from './AboutItem.module.scss';
 import { ITabName } from '../../../data/aboutTab';
 import { Link } from 'react-router-dom';
+import ButtonApp from '../../UI/ButtonApp/ButtonApp';
 
 interface AboutProps {
 	tab: ITabName;
@@ -19,7 +20,10 @@ const AboutItem = ({ tab }: AboutProps) => {
 					Share Your Story
 				</Link>
 				<div className={s.about__item_buttons}>
-					{/* Місце для button компонента*/}
+					<ButtonApp size="large">Donate Now</ButtonApp>
+					<ButtonApp size="large" color="white">
+						Become a Volunteer
+					</ButtonApp>
 				</div>
 			</div>
 		</div>

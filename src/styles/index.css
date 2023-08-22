@@ -47,6 +47,7 @@ a:hover::after{
   font-size: 3.25rem;
   font-weight: 600;
   text-transform: uppercase;
+  margin-bottom: 7rem;
 }
 
 .heading2{
