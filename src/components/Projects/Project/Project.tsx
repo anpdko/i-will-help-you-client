@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { IProjectsData } from '../../../data/projectsData';
 import s from './Project.module.scss';
+import {subText} from '../../../services/text.services'
 
 import sprite from '../../../assets/sprite.svg';
 
@@ -14,7 +15,7 @@ const Project = ({ project }: ProjectProps) => {
 			<div className={s.project__content}>
 				<div>
 					<h2 className={`${s.project__title} heading2`}>{project.title}</h2>
-					<p className={s.project__description}>{project.description}</p>
+					<p className={s.project__description}>{subText(project.description, 800)}</p>
 				</div>
 				<div>
 					<Link className={s.project__btn} to={project.link}>

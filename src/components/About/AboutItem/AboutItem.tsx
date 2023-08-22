@@ -2,14 +2,22 @@ import s from './AboutItem.module.scss';
 import { ITabName } from '../../../data/aboutTab';
 import { Link } from 'react-router-dom';
 import ButtonApp from '../../UI/ButtonApp/ButtonApp';
+import { useGsapFrom } from '../../../hooks/useGsap';
 
 interface AboutProps {
 	tab: ITabName;
 }
 
 const AboutItem = ({ tab }: AboutProps) => {
+	const refAboutItem =  useGsapFrom({
+      opacity: 0, 
+		x: -60, 
+		delay: 0, 
+		duration: 1,
+   })
+
 	return (
-		<div className={s.about__item}>
+		<div className={s.about__item} ref={refAboutItem}>
 			<div>
 				<h2 className={`${s.about__item_title} heading2`}>{tab.title}</h2>
 				<p className={s.about__item_text}>{tab.description}</p>
