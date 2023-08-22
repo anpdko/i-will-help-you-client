@@ -32,12 +32,8 @@
     }
   }
 
-  &__items{
-    
-  }
-
   &__icon{
-    filter: var(--orange);
+    fill:currentColor;
   }
 
   &__active{

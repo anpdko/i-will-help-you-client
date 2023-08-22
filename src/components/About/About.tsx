@@ -2,6 +2,7 @@ import { useState } from 'react';
 import s from './About.module.scss';
 import AboutItem from './AboutItem/AboutItem';
 import aboutTab from '../../data/aboutTab';
+import sprite from '../../assets/sprite.svg';
 
 const About = () => {
 	const [activeTab, setActiveTab] = useState('mission');
@@ -22,7 +23,9 @@ const About = () => {
 							}`}
 							onClick={() => handleTabChange(tab.id)}
 						>
-							<img className={s.about__icon} src={tab.tabIcon} />
+							<svg className={s.about__icon}>
+								<use href={sprite + tab.tabIcon} />
+							</svg>
 							{tab.tabName}
 						</button>
 					))}
