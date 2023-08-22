@@ -13,7 +13,7 @@
 .white {
 	border-radius: 10px;
 	border: 2px solid var(--orange);
-    background: var(--total-white);
+    background: transparent;
 	&:hover,
 	:focus {
 		border: 2px solid var(--orange-for-states);
