@@ -2,14 +2,14 @@ import s from './Banners.module.scss';
 import Bunner from './Bunner/Banner';
 
 const API_URL = import.meta.env.VITE_API_URL;
+
 const Banners = () => {
 	return (
 		<div className="container">
 			<div className={s.banners}>
 				<Bunner
 					img={API_URL + '/static/images/banners/banner-1.png'}
-					title='"Be the Change – Volunteer
-               with Us!"'
+					title='"Be the Change – Volunteer with Us!"'
 					description="Embrace the power of giving back and join
                our compassionate team of volunteers.
                Together, we can make a difference
