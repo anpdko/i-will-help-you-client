@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import s from './Reviews.module.scss';
 import reviewData from '../../data/reviewData';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
