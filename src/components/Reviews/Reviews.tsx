@@ -1,37 +1,44 @@
+import { useState } from 'react';
 import s from './Reviews.module.scss';
+import reviewData from '../../data/reviewData';
+import ReviewBlock from './ReviewBlock/ReviewBlock';
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Reviews = () => {
-	return <div className={s.reviews}></div>;
+	const [activeTab, setActiveTab] = useState(1);
+
+	const handleTabChange = (tab: number) => {
+		setActiveTab(tab);
+	};
+	return (
+		// спробувати  swiper thumbs
+		<div className="container">
+			<div className={s.reviews}>
+				<div className={s.reviews__tabs}>
+					{reviewData.map((tab) => (
+						<div
+							key={tab.id}
+							className={`${s.reviews__tab} ${
+								activeTab === tab.id ? s.reviews__active : ''
+							}`}
+							onClick={() => handleTabChange(tab.id)}
+						>
+							<img src={API_URL + tab.tabImg} alt="review img" />
+							<h3>{tab.tabName}</h3>
+							<p>{tab.tabStatus}</p>
+						</div>
+					))}
+				</div>
+
+				<div className={s.reviews__text}>
+					{reviewData.map(
+						(tab) =>
+							activeTab === tab.id && <ReviewBlock key={tab.id} tab={tab} />
+					)}
+				</div>
+			</div>
+		</div>
+	);
 };
+
 export default Reviews;
-// // import { Swiper, SwiperSlide } from 'swiper/react'
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-// // Import Swiper styles
-// import 'swiper/scss';
-// import 'swiper/scss/navigation';
-// import 'swiper/scss/pagination';
-// import 'swiper/scss/scrollbar';
-//
-// interface SwiperSliderProps {
-// 	images: string[];
-// }
-//
-// export const SwiperSlider: React.FC<SwiperSliderProps> = () => {
-// 	return (
-// 		<Swiper
-// 			modules={[Navigation, Pagination, Scrollbar, A11y]}
-// 			spaceBetween={50}
-// 			slidesPerView={3}
-// 			navigation
-// 			pagination={{ clickable: true }}
-// 			scrollbar={{ draggable: true }}
-// 			onSwiper={(swiper) => console.log(swiper)}
-// 			onSlideChange={() => console.log('slide change')}
-// 		>
-// 			<SwiperSlide>Slide 1</SwiperSlide>
-// 			<SwiperSlide>Slide 2</SwiperSlide>
-// 			<SwiperSlide>Slide 3</SwiperSlide>
-// 			<SwiperSlide>Slide 4</SwiperSlide>
-// 		</Swiper>
-// 	);
-// };
