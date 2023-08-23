@@ -1,3 +1,94 @@
 .reviews{
   display: flex;
+  gap: 2.5rem;
+  margin-bottom: 7rem;
+  &__tabs{
+    display: flex;
+    flex-direction: column;
+    height: 22.5rem;
+    gap: 1rem;
+    width: 22rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    direction: rtl;
+    padding-left: .5rem;
+    border-radius: .94rem;
+    &::-webkit-scrollbar{
+      width: .5rem;
+      border-radius: 0.5rem;
+      background-color: var(--dark-grey);
+    }
+    &::-webkit-scrollbar-track{
+      background-color: var(--light-grey);
+      border-radius: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+      border-radius: .5rem;
+      background-color: var(--dark-grey);
+    }
+  }
+
+  &__tab{
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 22rem;
+    padding: 1.05rem 2rem;
+    background-color: var(--total-white);
+    border-radius: .94rem;
+    cursor: pointer;
+    transition: all .2s linear;
+
+  }
+  &__img{
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    img{
+      object-fit: cover;
+    }
+  }
+
+  &__status{
+    color: var(--dark-grey);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 22.5rem;
+    padding: 2rem 2.7rem;
+    max-width: 49.5rem;
+    border-radius: 1.25rem;
+    background: var(--milky);
+  }
+
+  &__active{
+    padding-left: 3.5rem;
+    border: 2px solid var(--orange);
+  }
+}
+
+.slide_navigation{
+  display: flex;
+  justify-content: space-between;
+  &__button{
+    background: none;
+    border: none;
+    color: var(--orange);
+    transition: color .2s linear;
+    svg{
+      fill: currentColor;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+  &__disabled{
+    color: var(--light-grey);
+  }
 }

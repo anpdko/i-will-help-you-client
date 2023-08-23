@@ -1,4 +1,8 @@
 .review_block{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  &__description{
+    color: var(--black);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 1rem 0;
+  }
 }

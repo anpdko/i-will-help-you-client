@@ -44,6 +44,24 @@ const reviewData: IReviewData[] = [
 		description:
 			'Join us in weaving a future of possibility, where every life is cherished, and every dream is nurtured. Together, we can change the trajectory of countless lives, one act of kindness at a time.',
 	},
+	{
+		id: 5,
+		tabName: 'Olena Ivanenko',
+		tabStatus: 'Volunteer',
+		tabImg: '/static/images/reviews/review-3.png',
+		title: 'Together, Building a Brighter Future',
+		description: `Join us in weaving a future of possibility, where every life is cherished, and every dream
+    is nurtured. Together, we can change the trajectory of countless lives, one act of kindness at a time.`,
+	},
+	{
+		id: 6,
+		tabName: 'Maria Dmytruk',
+		tabStatus: 'Volunteer',
+		tabImg: '/static/images/reviews/review-4.png',
+		title: 'Together, Building a Brighter Future',
+		description:
+			'Join us in weaving a future of possibility, where every life is cherished, and every dream is nurtured. Together, we can change the trajectory of countless lives, one act of kindness at a time.',
+	},
 ];
 
 export default reviewData;
