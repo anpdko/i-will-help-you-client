@@ -1,61 +1,60 @@
-.banner{
-  width: 24rem;
-  height: 20rem;
-  overflow: hidden;
-  position: relative;
-  border-radius: 2rem;
-  cursor: pointer;
-  &__img{
-    width: 100%;
-    object-fit: cover;
-  }
-  &__content{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0 2rem 0 1rem;
-    background-color: var(--black-for-banners);
-    color: var(--bg);
-    transform: translateY(68%);
-    transition: transform 0.3s ease-in-out;
-    
-  }
-  &__title{
-    padding: 1.2rem 0;
-  }
-  &__description{
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  &__btn{
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .25rem;
-    border-radius: .6rem;
-    background-color: var(--bg);
-    &:hover{
-      color: var(--orange)
-    }
-  }
-  &__icon{
-    height: 1.5rem;
-    width: 1.5rem;
-    fill:currentColor;
-    transition: color .2s linear;
-  }
-  &__icon{
-  }
+.banner {
+	width: 24rem;
+	height: 20rem;
+	overflow: hidden;
+	position: relative;
+	border-radius: 2rem;
+	cursor: pointer;
+	&__img {
+		width: 100%;
+		object-fit: cover;
+	}
+	&__content {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 0 2rem 0 1rem;
+		background-color: var(--black-for-banners);
+		color: var(--bg);
+		transform: translateY(68%);
+		transition: transform 0.3s ease-in-out;
+	}
+	&__title {
+		padding: 1.2rem 0;
+	}
+	&__description {
+		font-size: 1rem;
+		font-weight: 600;
+	}
+	&__btn {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.25rem;
+		border-radius: 0.6rem;
+		background-color: var(--bg);
+		&:hover {
+			color: var(--orange);
+		}
+	}
+	&__icon {
+		height: 1.5rem;
+		width: 1.5rem;
+		fill: currentColor;
+		transition: color 0.2s linear;
+	}
+	&__icon {
+	}
 
-  &:hover .banner__content{
-    transform: translateY(0);
-  }
-  &:hover .banner__description{
-    opacity: 1;
-  }
+	&:hover .banner__content {
+		transform: translateY(0);
+	}
+	&:hover .banner__description {
+		opacity: 1;
+	}
 }

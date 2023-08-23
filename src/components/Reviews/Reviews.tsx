@@ -27,7 +27,8 @@ const Reviews = () => {
 	const isNextDisabled = activeTab === reviewData.length;
 
 	return (
-		<div className="container">
+			<section>
+			<div className="container">
 			<div className={s.reviews}>
 				<div className={s.reviews__tabs}>
 					{reviewData.map((tab) => (
@@ -85,6 +86,7 @@ const Reviews = () => {
 				</div>
 			</div>
 		</div>
+    </section>
 	);
 };
 

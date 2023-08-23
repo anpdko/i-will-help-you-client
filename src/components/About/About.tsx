@@ -12,30 +12,35 @@ const About = () => {
 	};
 
 	return (
-		<div className={s.about}>
-			<div className={s.about__tabs}>
-				{aboutTab.map((tab) => (
-					<button
-						key={tab.id}
-						className={`${s.about__tab} ${
-							activeTab === tab.id ? s.about__active : ''
-						}`}
-						onClick={() => handleTabChange(tab.id)}
-					>
-						<svg className={s.about__icon}>
-							<use href={sprite + tab.tabIcon} />
-						</svg>
-						{tab.tabName}
-					</button>
-				))}
+		<section className={s.about}>
+			<div className="container">
+				<h2 className="heading1">Our Commitment and Vision</h2>
+				<div className={s.about__body}>
+					<div className={s.about__tabs}>
+						{aboutTab.map((tab) => (
+							<button
+								key={tab.id}
+								className={`${s.about__tab} ${
+									activeTab === tab.id ? s.about__active : ''
+								}`}
+								onClick={() => handleTabChange(tab.id)}
+							>
+								<svg className={s.about__icon}>
+									<use href={sprite + tab.tabIcon} />
+								</svg>
+								{tab.tabName}
+							</button>
+						))}
+					</div>
+					<div className={s.about__items}>
+						{aboutTab.map(
+							(tab) =>
+								activeTab === tab.id && <AboutItem key={tab.id} tab={tab} />
+						)}
+					</div>
+				</div>
 			</div>
-			<div className={s.about__items}>
-				{aboutTab.map(
-					(tab) =>
-						activeTab === tab.id && <AboutItem key={tab.id} tab={tab} />
-				)}
-			</div>
-		</div>
+		</section>
 	);
 };
 export default About;

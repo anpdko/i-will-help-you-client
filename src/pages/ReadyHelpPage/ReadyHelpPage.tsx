@@ -2,9 +2,9 @@ import s from './ReadyHelpPage.module.scss'
 
 const ReadyHelpPage = () => {
    return (
-      <div className={s.ready_help}>
+      <main className={s.ready_help}>
          <h1>ReadyHelp</h1>
-      </div>
+      </main>
    );
 };
 export default ReadyHelpPage

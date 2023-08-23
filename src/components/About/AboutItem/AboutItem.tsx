@@ -9,15 +9,15 @@ interface AboutProps {
 }
 
 const AboutItem = ({ tab }: AboutProps) => {
-	const refAboutItem =  useGsapFrom({
-      opacity: 0, 
-		x: -60, 
-		delay: 0, 
+	const refAboutItem = useGsapFrom({
+		opacity: 0,
+		x: -60,
+		delay: 0,
 		duration: 1,
-   })
+	});
 
 	return (
-		<div className={s.about__item} ref={refAboutItem}>
+		<article className={s.about__item} ref={refAboutItem}>
 			<div>
 				<h2 className={`${s.about__item_title} heading2`}>{tab.title}</h2>
 				<p className={s.about__item_text}>{tab.description}</p>
@@ -34,7 +34,7 @@ const AboutItem = ({ tab }: AboutProps) => {
 					</ButtonApp>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 };
 
