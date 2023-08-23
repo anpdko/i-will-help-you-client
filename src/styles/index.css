@@ -41,6 +41,13 @@ a:hover::after{
   padding: 0 20px;
 }
 
+.admin_container{
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
 /* Texts style */
 .heading1{
   font-family: var(--nunito);

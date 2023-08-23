@@ -1,5 +1,5 @@
 import s from './Navbar.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Translation } from '../../components';
 import { useTranslation } from 'react-i18next';
 import sprite from '../../assets/sprite.svg';
@@ -36,11 +36,11 @@ const Navbar = () => {
 		<header className={s.box_nav}>
 			<div className="container">
 				<nav className={s.nav}>
-					<div className={s.nav__logo}>
+					<Link to="/" className={s.nav__logo}>
 						<svg>
 							<use href={sprite + '#logo'} />
 						</svg>
-					</div>
+					</Link>
 					<div className={s.nav__left}>
 						<ul className={s.nav__list}>
 							{links

@@ -1,13 +1,15 @@
 import React from 'react'
-import RoutesApp from './RoutesApp';
-import { Navbar, Footer } from './components';
+import RoutesApp from './routes/RoutesApp';
+import RoutesAdmin from './routes/RoutesAdmin';
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 	return (
 		<React.Fragment>
-			<Navbar />
-			<RoutesApp />
-			<Footer />
+			<Routes>
+				<Route path='/*' element={<RoutesApp/>}/>
+				<Route path='/admin/*' element={<RoutesAdmin/>}/>
+			</Routes>
 		</React.Fragment>
 	);
 }
