@@ -1,10 +1,12 @@
-import s from './Reviews.module.scss'
+import s from './Reviews.module.scss';
 
 const Reviews = () => {
-   return (
-      <div className={s.reviews}>
-         
-      </div>
-   );
+	return (
+		<section className={s.reviews}>
+			<div className="container">
+				<h2 className="heading1">Stories of Hope and Gratitude</h2>
+			</div>
+		</section>
+	);
 };
-export default Reviews
+export default Reviews;

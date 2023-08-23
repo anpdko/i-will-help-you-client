@@ -11,7 +11,7 @@ interface ProjectProps {
 const API_URL = import.meta.env.VITE_API_URL;
 const Project = ({ project }: ProjectProps) => {
 	return (
-		<div className={s.project}>
+		<article className={s.project}>
 			<div className={s.project__content}>
 				<div>
 					<h2 className={`${s.project__title} heading2`}>{project.title}</h2>
@@ -29,7 +29,7 @@ const Project = ({ project }: ProjectProps) => {
 			<div className={s.project__img}>
 				<img src={API_URL + project.img} alt="project image" />
 			</div>
-		</div>
+		</article>
 	);
 };
 

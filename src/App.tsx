@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import RoutesApp from './routes/RoutesApp';
 import RoutesAdmin from './routes/RoutesAdmin';
 import { Routes, Route } from 'react-router-dom'

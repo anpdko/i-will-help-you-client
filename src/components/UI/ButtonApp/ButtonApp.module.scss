@@ -1,5 +1,5 @@
 .orange {
-    border: none;
+	border: none;
 	background: var(--orange);
 	&:hover,
 	:focus {
@@ -13,15 +13,15 @@
 .white {
 	border-radius: 10px;
 	border: 2px solid var(--orange);
-    background: transparent;
+	background: transparent;
 	&:hover,
 	:focus {
 		border: 2px solid var(--orange-for-states);
-        color: var(--light-black);
+		color: var(--light-black);
 	}
 	&:active {
 		font-weight: 700;
-        color: var(--black);
+		color: var(--black);
 	}
 }
 
@@ -60,7 +60,7 @@
 	line-height: 1rem;
 	border-radius: 8px;
 	outline: none;
-    color: var(--black);
+	color: var(--black);
 	cursor: pointer;
 
 	transition: background 0.5s ease-in;

@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const Banners = () => {
 	return (
-		<div className={s.banners}>
+		<section className={s.banners}>
 			<Bunner
 				img={API_URL + '/static/images/banners/banner-1.png'}
 				title='"Be the Change – Volunteer with Us!"'
@@ -38,7 +38,7 @@ const Banners = () => {
 				healing journey."
 				link="#"
 			/>
-		</div>
+		</section>
 	);
 };
 export default Banners;
