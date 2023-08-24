@@ -1,5 +1,3 @@
-import NavbarAdmin from './NavbarAdmin/NavbarAdmin'
+import NavbarAdmin from './NavbarAdmin/NavbarAdmin';
 
-export { 
-   NavbarAdmin 
-}
+export { NavbarAdmin };

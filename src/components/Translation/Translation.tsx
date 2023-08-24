@@ -8,53 +8,55 @@ import sprite from '../../assets/sprite.svg';
 type ILang = 'en' | 'ua';
 
 interface ITranslation {
-	className?: string;
+  className?: string;
 }
 
 const languages: ILang[] = ['en', 'ua'];
 
 const Translation = ({ className }: ITranslation) => {
-	const [language, setLanguage] = useLocalStorage('language', 'en');
-	const [isButtonFocused, setIsButtonFocused] = useState(false);
+  const [language, setLanguage] = useLocalStorage('language', 'en');
+  const [isButtonFocused, setIsButtonFocused] = useState(false);
 
-	const handleLanguageChange = (lang: ILang) => {
-		i18n.changeLanguage(lang);
-		setLanguage(lang);
-		setIsButtonFocused(false);
-	};
+  const handleLanguageChange = (lang: ILang) => {
+    i18n.changeLanguage(lang);
+    setLanguage(lang);
+    setIsButtonFocused(false);
+  };
 
-	const handleListLanguage = () => {
-		setIsButtonFocused((isButtonFocused) => !isButtonFocused)
-	};
-	const handleButtonBlur = () => {
-		setTimeout(() => setIsButtonFocused(false), 300)
-	};
+  const handleListLanguage = () => {
+    setIsButtonFocused((isButtonFocused) => !isButtonFocused);
+  };
+  const handleButtonBlur = () => {
+    setTimeout(() => setIsButtonFocused(false), 300);
+  };
 
-	return (
-		<div className={s.translation}>
-			<button
-				onClick={handleListLanguage}
-				onBlur={handleButtonBlur}
-				className={[s.translation__btn, className].join(' ')}
-			>
-				{language === 'ua' ? 'ua' : 'en'}
-				<svg className={[s.translation__btn_icon, className].join(' ')}>
-					<use href={sprite + '#arrow-ctrl-down'} />
-				</svg>
-			</button>
-			<ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>
-				{languages.map((lang) => (
-					<li key={lang}>
-						<button
-							className={[s.list__btn, language === lang ? s.active : ''].join(' ')}
-							onClick={() => handleLanguageChange(lang)}
-						>
-							{lang}
-						</button>
-					</li>
-				))}
-			</ul>
-		</div>
-	);
+  return (
+    <div className={s.translation}>
+      <button
+        onClick={handleListLanguage}
+        onBlur={handleButtonBlur}
+        className={[s.translation__btn, className].join(' ')}
+      >
+        {language === 'ua' ? 'ua' : 'en'}
+        <svg className={[s.translation__btn_icon, className].join(' ')}>
+          <use href={sprite + '#arrow-ctrl-down'} />
+        </svg>
+      </button>
+      <ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>
+        {languages.map((lang) => (
+          <li key={lang}>
+            <button
+              className={[s.list__btn, language === lang ? s.active : ''].join(
+                ' ',
+              )}
+              onClick={() => handleLanguageChange(lang)}
+            >
+              {lang}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 export default Translation;
