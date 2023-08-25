@@ -2,9 +2,11 @@ import s from './AboutPage.module.scss';
 
 const AboutPage = () => {
   return (
-    <div className={s.about}>
-      <h1>About</h1>
-    </div>
+    <main className={s.about}>
+      <div>
+        <h1>About</h1>
+      </div>
+    </main>
   );
 };
 export default AboutPage;
