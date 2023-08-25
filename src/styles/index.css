@@ -21,6 +21,21 @@ body {
 	padding: 0;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* Притискаємо footer */
+#root > main {
+  flex: 1 1 auto;
+}
+/* Фікс для слайдерів */
+#root > * {
+  min-width: 0;
+}
+
 a {
 	text-decoration: none;
 	transition: color 0.2s linear;
@@ -36,7 +51,8 @@ a:hover::after {
 }
 
 .container {
-	max-width: 1280px;
+	/* По макету 1200px!!! */
+	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
