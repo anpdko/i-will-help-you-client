@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
@@ -20,8 +20,13 @@ import 'swiper/css/effect-fade';
 const ProjectHeader = () => {
   const { t } = useTranslation();
 
-  const [firstSwiper, setFirstSwiper] = useState(null);
-  const [secondSwiper, setSecondSwiper] = useState(null);
+ // need to find what type
+  const [firstSwiper, setFirstSwiper] = useState<any>(null);
+  const [secondSwiper, setSecondSwiper] = useState<any>(null);
+
+  useEffect(() => {
+    console.log(firstSwiper, secondSwiper)
+  }, [firstSwiper, secondSwiper])
 
   return (
     <section className={s.projects}>
@@ -37,7 +42,7 @@ const ProjectHeader = () => {
               effect={'fade'}
               spaceBetween={0}
               slidesPerView={1}
-              onSwiper={setFirstSwiper}
+              onSwiper={(swiper) => setFirstSwiper(swiper)}
               controller={{ control: secondSwiper }}
             >
               {projectHeaderData.map((project) => (
@@ -46,8 +51,8 @@ const ProjectHeader = () => {
                     <h2 className='heading2'>{project.title}</h2>
                     <p>{project.description}</p>
                     <div className={s.actions}>
-                      <ButtonApp>Donate</ButtonApp>
-                      <ButtonApp color='white'>Need Help</ButtonApp>
+                      <ButtonApp>{t("Donate")}</ButtonApp>
+                      <ButtonApp color='white'>{t("Need Help")}</ButtonApp>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -59,7 +64,7 @@ const ProjectHeader = () => {
               modules={[Controller]}
               spaceBetween={78}
               slidesPerView={1}
-              onSwiper={setSecondSwiper}
+              onSwiper={(swiper) => setSecondSwiper(swiper)}
               controller={{ control: firstSwiper }}
               style={{ overflow: 'visible' }}
             >

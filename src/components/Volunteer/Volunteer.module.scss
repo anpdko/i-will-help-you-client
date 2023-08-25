@@ -2,7 +2,6 @@
 	position: relative;
 	display: flex;
 	justify-content: center;
-	min-height: 96px;
 	margin-bottom: 32px;
 
 	&::before {
@@ -38,6 +37,7 @@
 	display: flex;
 	align-items: center;
 	gap: 54px;
+	padding: 24px 0;
 }
 
 .volunteer_text {
