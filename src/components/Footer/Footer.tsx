@@ -78,9 +78,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className={s.sb__footer_links_div}>
-            <ul>
+            <ul className={s.footer_links__contacts}>
               <ButtonApp>Donate</ButtonApp>
-              <ul>
+              <ul className={s.footer_links__contacts__list}>
                 <li>
                   <p>Mon-Fri 8:00 - 18:00</p>
                 </li>
