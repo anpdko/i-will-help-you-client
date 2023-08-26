@@ -37,8 +37,9 @@
     background-color: var(--total-white);
     border-radius: .94rem;
     cursor: pointer;
-    transition: all .2s linear;
-
+    transition: all .2s linear; 
+    //  щоб не стрибав бордер при переключенні табів
+    border: 2px solid #ffffff00;
   }
   &__img{
     width: 3.3rem;
@@ -53,8 +54,6 @@
 
   &__status{
     color: var(--dark-grey);
-    font-size: 1rem;
-    font-weight: 400;
   }
 
   &__text{

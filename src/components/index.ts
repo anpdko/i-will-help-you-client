@@ -6,8 +6,8 @@ import Reviews from './Reviews/Reviews';
 import Footer from './Footer/Footer';
 import Translation from './Translation/Translation';
 import Volunteer from './Volunteer/Volunteer';
-import ProjectHeader from "./ProjectHeader/ProjectHeader"
-import WrapperAccordion from './WrapperAccordion/WrapperAccordion'
+import ProjectHeader from './ProjectHeader/ProjectHeader';
+import WrapperAccordion from './WrapperAccordion/WrapperAccordion';
 
 export {
   Banners,
@@ -19,5 +19,5 @@ export {
   Translation,
   Volunteer,
   ProjectHeader,
-  WrapperAccordion
+  WrapperAccordion,
 };

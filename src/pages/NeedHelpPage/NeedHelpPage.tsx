@@ -1,10 +1,12 @@
-import s from './NeedHelpPage.module.scss';
-
 const NeedHelpPage = () => {
   return (
-    <main className={s.seed_help}>
-      <h1>NeedHelp</h1>
-    </main>
+    <>
+      <section>
+        <div className='container'>
+          <h1>NeedHelp</h1>
+        </div>
+      </section>
+    </>
   );
 };
 export default NeedHelpPage;

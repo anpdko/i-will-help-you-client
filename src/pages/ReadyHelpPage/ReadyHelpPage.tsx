@@ -1,10 +1,12 @@
-import s from './ReadyHelpPage.module.scss';
-
 const ReadyHelpPage = () => {
   return (
-    <main className={s.ready_help}>
-      <h1>ReadyHelp</h1>
-    </main>
+    <>
+      <section>
+        <div className='container'>
+          <h1>ReadyHelp</h1>
+        </div>
+      </section>
+    </>
   );
 };
 export default ReadyHelpPage;

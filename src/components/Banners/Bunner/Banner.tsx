@@ -15,7 +15,7 @@ const Bunner = (props: BunnerProps) => {
 
       <div className={s.banner__content}>
         <h3 className={`${s.banner__title} bunner-title`}>{props.title}</h3>
-        <p className={s.banner__discription}>{props.description}</p>
+        <p className={`${s.banner__discription} text`}>{props.description}</p>
       </div>
       <a className={s.banner__btn} href={s.banner__link}>
         <svg className={s.banner__icon}>

@@ -1,12 +1,12 @@
-import s from './AboutPage.module.scss';
-
 const AboutPage = () => {
   return (
-    <main className={s.about}>
-      <div>
-        <h1>About</h1>
-      </div>
-    </main>
+    <>
+      <section>
+        <div className='container'>
+          <h1>About</h1>
+        </div>
+      </section>
+    </>
   );
 };
 export default AboutPage;
