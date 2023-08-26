@@ -32,7 +32,7 @@
 
 		&__socialmedia {
 			display: flex;
-			gap: 1px;
+			gap: 1rem;
 
 			&__link {
 				display: flex;
@@ -47,6 +47,7 @@
 				&__icon_f {
 					fill: transparent;
 					stroke: currentColor;
+                    width: 95%;
 				}
 
 				&__icon_i {
@@ -54,5 +55,17 @@
 				}
 			}
 		}
+
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            &__list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
 	}
 }
