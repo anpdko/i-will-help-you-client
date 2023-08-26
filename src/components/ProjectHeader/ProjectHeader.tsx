@@ -20,13 +20,13 @@ import 'swiper/css/effect-fade';
 const ProjectHeader = () => {
   const { t } = useTranslation();
 
- // need to find what type
+  // need to find what type
   const [firstSwiper, setFirstSwiper] = useState<any>(null);
   const [secondSwiper, setSecondSwiper] = useState<any>(null);
 
   useEffect(() => {
-    console.log(firstSwiper, secondSwiper)
-  }, [firstSwiper, secondSwiper])
+    console.log(firstSwiper, secondSwiper);
+  }, [firstSwiper, secondSwiper]);
 
   return (
     <section className={s.projects}>
@@ -51,8 +51,8 @@ const ProjectHeader = () => {
                     <h2 className='heading2'>{project.title}</h2>
                     <p>{project.description}</p>
                     <div className={s.actions}>
-                      <ButtonApp>{t("Donate")}</ButtonApp>
-                      <ButtonApp color='white'>{t("Need Help")}</ButtonApp>
+                      <ButtonApp>{t('Donate')}</ButtonApp>
+                      <ButtonApp color='white'>{t('Need Help')}</ButtonApp>
                     </div>
                   </div>
                 </SwiperSlide>
