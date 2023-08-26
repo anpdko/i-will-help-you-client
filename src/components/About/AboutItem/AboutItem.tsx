@@ -20,7 +20,7 @@ const AboutItem = ({ tab }: AboutProps) => {
     <article className={s.about__item} ref={refAboutItem}>
       <div>
         <h2 className={`${s.about__item_title} heading2`}>{tab.title}</h2>
-        <p className={s.about__item_text}>{tab.description}</p>
+        <p className={`${s.about__item_text} text`}>{tab.description}</p>
       </div>
 
       <div>

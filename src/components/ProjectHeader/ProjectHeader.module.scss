@@ -1,4 +1,4 @@
-@import '../../styles/scss/mixins.scss';
+@import '../../styles/index';
 .body {
   position: relative;
   @include adaptiveValue('padding-top', 64, 30);

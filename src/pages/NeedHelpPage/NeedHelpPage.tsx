@@ -1,7 +1,11 @@
 const NeedHelpPage = () => {
   return (
     <>
-      <h1>NeedHelp</h1>
+      <section>
+        <div className='container'>
+          <h1>NeedHelp</h1>
+        </div>
+      </section>
     </>
   );
 };

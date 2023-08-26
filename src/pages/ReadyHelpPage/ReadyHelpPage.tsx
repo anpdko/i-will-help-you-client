@@ -1,7 +1,11 @@
 const ReadyHelpPage = () => {
   return (
     <>
-      <h1>ReadyHelp</h1>
+      <section>
+        <div className='container'>
+          <h1>ReadyHelp</h1>
+        </div>
+      </section>
     </>
   );
 };

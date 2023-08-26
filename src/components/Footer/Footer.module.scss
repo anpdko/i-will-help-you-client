@@ -1,71 +1,71 @@
 .footer {
-	padding-top: 2.5rem;
-	padding-bottom: 2.8rem;
-	background-color: var(--milky);
-	box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
-	font-size: 1.125rem;
-	line-height: 1.5;
+  padding-top: 2.5rem;
+  padding-bottom: 2.8rem;
+  background-color: var(--milky);
+  box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
+  font-size: 1.125rem;
+  line-height: 1.5;
 
-	.footer_links {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 1rem;
-		// column-gap: 1rem;
-		// row-gap: 16px;
+  .footer_links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    // column-gap: 1rem;
+    // row-gap: 16px;
 
-		&__logo {
-			width: 8.63rem;
-			height: 3.5rem;
-			display: flex;
+    &__logo {
+      width: 8.63rem;
+      height: 3.5rem;
+      display: flex;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
 
-			&:hover {
-				opacity: 0.7;
-			}
-		}
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
-		&__list {
-			display: flex;
-			flex-direction: column;
-			gap: 0.5rem;
-		}
+    &__socialmedia {
+      display: flex;
+      gap: 1rem;
 
-		&__socialmedia {
-			display: flex;
-			gap: 1rem;
+      &__link {
+        display: flex;
+        width: 2.75rem;
+        height: 2.75rem;
+        color: currentColor;
 
-			&__link {
-				display: flex;
-				width: 2.75rem;
-				height: 2.75rem;
-				color: currentColor;
-
-				&:hover {
-					color: var(--orange);
-				}
-
-				&__icon_f {
-					fill: transparent;
-					stroke: currentColor;
-                    width: 95%;
-				}
-
-				&__icon_i {
-					fill: currentColor;
-				}
-			}
-		}
-
-        &__contacts {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-
-            &__list {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
+        &:hover {
+          color: var(--orange);
         }
-	}
+
+        &__icon_f {
+          fill: transparent;
+          stroke: currentColor;
+          width: 95%;
+        }
+
+        &__icon_i {
+          fill: currentColor;
+        }
+      }
+    }
+
+    &__contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  }
 }

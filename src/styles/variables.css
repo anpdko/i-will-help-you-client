@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap');
-
 :root {
 	/* colors */
 	--bg: #F1F1F1;
@@ -12,8 +10,4 @@
   --total-white: #fff;
   --orange: #FC936D;
   --orange-for-states: #FFA787; 
-
-	/* fonts */
-	--nunito: 'Nunito', sans-serif;
-	--open-sans: 'Open Sans', sans-serif;
 }

@@ -15,7 +15,7 @@ const Project = ({ project }: ProjectProps) => {
       <div className={s.project__content}>
         <div>
           <h2 className={`${s.project__title} heading2`}>{project.title}</h2>
-          <p className={s.project__description}>
+          <p className={`${s.project__description} text`}>
             {subText(project.description, 800)}
           </p>
         </div>
