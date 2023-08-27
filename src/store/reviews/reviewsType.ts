@@ -1,10 +1,15 @@
 
-export interface IReviews {
-   _id: string;
+interface IReviewsContent {
+   language: string;
    name: string;
    job: string;
    title: string;
    body: string;
+}
+
+export interface IReviews {
+   _id: string;
+   translations: IReviewsContent[]
    foto: string;
    publisher: boolean;
    published_date: string;
