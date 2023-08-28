@@ -1,73 +1,140 @@
+@import '../../../styles/index.scss';
+
 .project {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 4.75rem;
-	margin-bottom: 8rem;
-	position: relative;
-	&__content {
-		height: 25rem;
-		max-width: 32rem;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	&__description {
-		margin: 1rem 0;
-	}
-	&__img {
-		max-width: 38rem;
-		border-radius: 1.88rem;
-		overflow: hidden;
-		img {
-			object-fit: contain;
-		}
-	}
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas: 'description img' 'line line';
+  gap: 4.75rem;
+  margin-bottom: 8rem;
+  position: relative;
 
-	&__btn {
-		height: 4rem;
-		width: 4rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0.25rem;
-		border-radius: 1.25rem;
-		color: var(--total-white);
-		background-color: var(--light-black);
-		transition: background-color 0.2s linear;
-		&:hover {
-			background-color: var(--black);
-			color: var(--total-white);
-		}
-	}
-	&__icon {
-		height: 1.5rem;
-		width: 1.5rem;
-		fill: currentColor;
-	}
+  &:nth-child(odd) {
+    grid-template-areas: 'img description' 'line line';
+  }
 
-	&::after {
-		content: '';
-		position: absolute;
-		display: block;
-		bottom: 0;
-		right: 0;
-		background-color: var(--dark-grey);
-		max-width: 1010px;
-		width: 100%;
-		height: 2px;
-		margin-bottom: -4rem;
-	}
-	&:last-child::after {
-		content: none;
-	}
-	&:nth-child(even)::after {
-		left: 0;
-	}
+  @media (max-width: $tablet) {
+    grid-template-areas: 'img img' 'description description' 'line line';
 
-	&:nth-child(even) {
-		flex-direction: row-reverse;
-	}
+    &:nth-child(odd) {
+      grid-template-areas: 'img img' 'description description' 'line line';
+    }
+  }
+
+  @media (max-width: $mobile) {
+    gap: 2.3rem;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    grid-area: description;
+    max-width: 32rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+
+    @media (max-width: $tablet) {
+      gap: 2rem;
+    }
+
+    @media (max-width: $mobile) {
+      gap: 1rem;
+      margin-bottom: 2.3rem;
+    }
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
+  }
+
+  &__description {
+    margin: 1rem 0;
+  }
+
+  &__img {
+    grid-area: img;
+    max-width: 38rem;
+    border-radius: 1.88rem;
+    overflow: hidden;
+    width: toRem(614);
+    height: toRem(400);
+
+    @media (max-width: $pc) {
+      width: toRem(550);
+      height: toRem(350);
+    }
+
+    @media (max-width: $tablet) {
+      width: toRem(472);
+      height: toRem(300);
+    }
+
+    @media (max-width: $mobile) {
+      width: toRem(400);
+      height: toRem(250);
+    }
+
+    @media (max-width: $mobileSmall) {
+      width: toRem(366);
+      height: toRem(200);
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__btn {
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    border-radius: 1.25rem;
+    color: var(--total-white);
+    background-color: var(--light-black);
+    transition: background-color 0.2s linear;
+
+    &:hover {
+      background-color: var(--black);
+      color: var(--total-white);
+    }
+  }
+
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: currentColor;
+  }
+
+  &::after {
+    content: '';
+    grid-area: line;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    background-color: var(--dark-grey);
+    max-width: 1010px;
+    width: 100%;
+    height: 2px;
+    margin-bottom: -4rem;
+
+    @media (max-width: $mobile) {
+      margin-bottom: 2.3rem;
+    }
+  }
+
+  &:last-child::after {
+    content: none;
+  }
+
+  &:nth-child(even)::after {
+    left: 0;
+  }
 }
