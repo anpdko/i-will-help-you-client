@@ -1,9 +1,12 @@
-import s from './Navbar.module.scss';
+import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Translation } from '../../components';
 import { useTranslation } from 'react-i18next';
-import sprite from '../../assets/sprite.svg';
+
+import { Translation } from '../../components';
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
+
+import s from './Navbar.module.scss';
+import sprite from '../../assets/sprite.svg';
 
 interface ILinks {
   text: string;
@@ -32,8 +35,18 @@ const Navbar = () => {
     },
   ];
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMenuLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className={s.nav}>
+    <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
           <Link to='/'>
@@ -42,21 +55,35 @@ const Navbar = () => {
             </svg>
           </Link>
         </div>
-        <nav className={s.nav__menu}>
-          <ul className={s.nav__list}>
-            {links
-              ? links.map((link, i) => (
-                  <li key={i} className={s.nav__item}>
-                    <NavLink to={link.link} className={s.nav__link}>
-                      {t(link.text)}
-                    </NavLink>
-                  </li>
-                ))
-              : null}
-          </ul>
-        </nav>
+        <div className={s.nav__menu}>
+          <nav className={s.nav__body}>
+            <ul className={s.nav__list}>
+              {links
+                ? links.map((link, i) => (
+                    <li key={i} className={s.nav__item}>
+                      <NavLink
+                        to={link.link}
+                        className={s.nav__link}
+                        onClick={handleMenuLinkClick}
+                      >
+                        {t(link.text)}
+                      </NavLink>
+                    </li>
+                  ))
+                : null}
+            </ul>
+          </nav>
+        </div>
         <Translation />
-        <ButtonApp>Donate</ButtonApp>
+        <ButtonApp>{t('Donate')}</ButtonApp>
+        <button
+          type='button'
+          className={s.burger}
+          aria-label='Menu'
+          onClick={handleMenuToggle}
+        >
+          <span></span>
+        </button>
       </div>
     </header>
   );
