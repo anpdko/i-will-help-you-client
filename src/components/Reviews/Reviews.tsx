@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews/reviewsSlice';
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
@@ -10,7 +10,7 @@ import s from './Reviews.module.scss';
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Reviews = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { reviews } = useSelector((state: RootState) => state.reviews);
   const [activeTab, setActiveTab] = useState(0);
 
