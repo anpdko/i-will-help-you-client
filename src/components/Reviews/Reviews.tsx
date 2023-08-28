@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getReviews } from '../../store/reviews/reviewsSlice';
-import { RootState } from '../../store/store';
-
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
 import s from './Reviews.module.scss';
@@ -58,7 +54,7 @@ const Reviews = () => {
               >
                 <div className={s.reviews__img}>
                   <img
-                    src={API_URL + 'static/images/reviews/' + tab.foto}
+                    src={API_URL + '/static/images/reviews/' + tab.foto}
                     alt='review img'
                   />
                 </div>
