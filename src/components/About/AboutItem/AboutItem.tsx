@@ -3,7 +3,6 @@ import { ITabName } from '../../../data/aboutTab';
 import { Link } from 'react-router-dom';
 import ButtonApp from '../../UI/ButtonApp/ButtonApp';
 import { useGsapFrom } from '../../../hooks/useGsap';
-import useWindowWidth from '../../../hooks/useWindowWidth';
 
 interface AboutProps {
   tab: ITabName;
@@ -16,8 +15,6 @@ const AboutItem = ({ tab }: AboutProps) => {
     delay: 0,
     duration: 1,
   });
-  const windowWidth = useWindowWidth();
-  const buttonSize = windowWidth < 900 ? 'medium' : 'large';
 
   return (
     <article className={s.about__item} ref={refAboutItem}>
@@ -31,8 +28,10 @@ const AboutItem = ({ tab }: AboutProps) => {
           Share Your Story
         </Link>
         <div className={s.item__buttons}>
-          <ButtonApp size={buttonSize}>Donate Now</ButtonApp>
-          <ButtonApp size={buttonSize} color='white'>
+          <ButtonApp size='large' className={s.item__button}>
+            Donate Now
+          </ButtonApp>
+          <ButtonApp size='large' color='white' className={s.item__button}>
             Become a Volunteer
           </ButtonApp>
         </div>
