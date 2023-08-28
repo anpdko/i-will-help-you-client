@@ -3,21 +3,35 @@ import s from './Translation.module.scss';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import i18n from '../../translation/i18n';
 import sprite from '../../assets/sprite.svg';
-// import icons from '../../assets/icons.svg';
 
-type ILang = 'en' | 'ua';
+type ILang = string;
 
 interface ITranslation {
   className?: string;
+  long?: boolean;
 }
+interface ILanguageNames {
+  [lang: string]: {
+    short: string;
+    long: string;
+  };
+}
+const languageNames: ILanguageNames = {
+  en: {
+    short: 'en',
+    long: 'English',
+  },
+  ua: {
+    short: 'ua',
+    long: 'Ukrainian',
+  },
+};
 
-const languages: ILang[] = ['en', 'ua'];
-
-const Translation = ({ className }: ITranslation) => {
+const Translation = ({ className, long }: ITranslation) => {
   const [language, setLanguage] = useLocalStorage('language', 'en');
   const [isButtonFocused, setIsButtonFocused] = useState(false);
 
-  const handleLanguageChange = (lang: ILang) => {
+  const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
     setLanguage(lang);
     setIsButtonFocused(false);
@@ -26,8 +40,14 @@ const Translation = ({ className }: ITranslation) => {
   const handleListLanguage = () => {
     setIsButtonFocused((isButtonFocused) => !isButtonFocused);
   };
+
   const handleButtonBlur = () => {
     setTimeout(() => setIsButtonFocused(false), 300);
+  };
+
+  const getLanguageLabel = (lang: ILang) => {
+    const langName = languageNames[lang];
+    return langName ? (long ? langName.long : langName.short) : lang;
   };
 
   return (
@@ -37,21 +57,28 @@ const Translation = ({ className }: ITranslation) => {
         onBlur={handleButtonBlur}
         className={[s.translation__btn, className].join(' ')}
       >
-        {language === 'ua' ? 'ua' : 'en'}
-        <svg className={[s.translation__btn_icon, className].join(' ')}>
-          <use href={sprite + '#arrow-ctrl-down'} />
-        </svg>
+        {long && (
+          <svg className={[s.icon, className].join(' ')}>
+            <use href={sprite + '#earch'} />
+          </svg>
+        )}
+        <span>
+          {getLanguageLabel(language)}
+          <svg className={[s.translation__btn_icon, className].join(' ')}>
+            <use href={sprite + '#arrow-ctrl-down'} />
+          </svg>
+        </span>
       </button>
       <ul className={[s.list, isButtonFocused ? s.visible : ''].join(' ')}>
-        {languages.map((lang) => (
+        {Object.keys(languageNames).map((lang) => (
           <li key={lang}>
             <button
               className={[s.list__btn, language === lang ? s.active : ''].join(
                 ' ',
               )}
-              onClick={() => handleLanguageChange(lang)}
+              onClick={() => handleLanguageChange(lang as ILang)}
             >
-              {lang}
+              {getLanguageLabel(lang as ILang)}
             </button>
           </li>
         ))}
@@ -59,4 +86,5 @@ const Translation = ({ className }: ITranslation) => {
     </div>
   );
 };
+
 export default Translation;

@@ -33,7 +33,10 @@
     flex: 1 1 auto;
     transition: opacity 0.3s;
     z-index: 11;
-    margin-right: toRem(20);
+
+    @media (min-width: $mobileSmall) {
+      margin-right: toRem(20);
+    }
     svg {
       max-width: toRem(100);
       height: toRem(48);
@@ -57,9 +60,7 @@
       padding: toRem(100) toRem(15) toRem(20) toRem(15);
       transition: top 0.4s ease 0s;
       overflow: auto;
-
       background-color: var(--bg);
-
       .open & {
         top: 0;
       }
@@ -78,6 +79,7 @@
       color: var(--dark-grey);
     }
     @media (max-width: $tablet) {
+      padding-top: toRem(38);
       flex-direction: column;
       align-items: start;
       color: var(--black);
@@ -130,6 +132,21 @@
       }
     }
   }
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: toRem(20);
+
+    @media (max-width: $mobileSmall) {
+      :first-child {
+        display: none;
+      }
+    }
+    button:nth-child(2) {
+      width: toRem(180);
+      @include adaptiveValue('width', 180, 124);
+    }
+  }
 }
 
 .social {
@@ -155,10 +172,8 @@
 
   &__link {
     svg {
-      //! svg вивантажені не вірно з figma
       width: toRem(40);
       height: toRem(40);
-
     }
   }
 }
@@ -174,35 +189,61 @@
     gap: toRem(28);
   }
 
-		&__item {
-      padding: toRem(14) toRem(30);
-      border: toRem(2) solid var(--black);
-      border-radius: toRem(16);
-		}
+  &__item {
+    padding: toRem(14) toRem(30);
+    border: toRem(2) solid var(--black);
+    border-radius: toRem(16);
+  }
 
-		&__link {
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: toRem(10);
+    &_text {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: toRem(10);
-      &_text{
-        display: flex;
-        flex-direction: column;
-        gap: toRem(8);
-        font-weight: 600;
-        span{
-          color: var(--dark-grey);
-          font-size: toRem(14);
-          
-        }
+      flex-direction: column;
+      gap: toRem(8);
+      font-weight: 600;
+      span {
+        color: var(--dark-grey);
+        font-size: toRem(14);
       }
-      svg {
-        width: toRem(27);
-        height: toRem(27);
-      }
-		}
+    }
+    svg {
+      width: toRem(27);
+      height: toRem(27);
+    }
+  }
 }
+.actions {
+  @media (min-width:$tablet){
+      display: none;
+  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: toRem(14);
+  padding-bottom: toRem(14);
+  justify-content: space-between;
+  gap: toRem(20);
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: toRem(1);
+    background-color: var(--light-grey);
+    border-radius: toRem(8);
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
 
+}
 // Burger ========================================================================================================================================================
 .burger {
   display: none;

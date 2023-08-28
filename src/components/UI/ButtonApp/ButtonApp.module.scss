@@ -27,6 +27,12 @@
   }
 }
 // додав padding-left та right якщо тексту буде багато щоб він не торкався крайов кнопки
+.smaller {
+  max-width: toRem(123);
+  width: 100%;
+  padding: toRem(12) toRem(10);
+}
+
 .small {
   max-width: toRem(180);
   width: 100%;

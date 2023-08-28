@@ -56,6 +56,10 @@ const Navbar = () => {
           </Link>
         </div>
         <nav className={s.nav__menu}>
+          <div className={s.actions}>
+            <Translation long className='black' />
+            <ButtonApp size='smaller'>{t('Donate')}</ButtonApp>
+          </div>
           <ul className={s.nav__list}>
             {links
               ? links.map((link, i) => (
@@ -74,6 +78,7 @@ const Navbar = () => {
                 ))
               : null}
           </ul>
+
           <div className={s.social}>
             <h3 className={s.social__title}>{t('Follow us')}</h3>
             <ul className={s.social__list}>
@@ -122,8 +127,11 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-        <Translation />
-        <ButtonApp>{t('Donate')}</ButtonApp>
+
+        <div className={s.nav__actions}>
+          <Translation />
+          <ButtonApp size='small'>{t('Donate')}</ButtonApp>
+        </div>
         <button
           type='button'
           className={s.burger}
