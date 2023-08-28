@@ -8,15 +8,12 @@ const Footer = () => {
     <footer className={s.footer}>
       <div className='container'>
         <div className={s.footer_links}>
-          
           <Link to='/' className={s.footer_links__logo}>
             <svg>
               <use href={sprite + '#logo'} />
             </svg>
           </Link>
-
           <div className={s.footer_links__navs}>
-            
             <ul className={s.footer_links__list}>
               <li>
                 <Link to='#'>Conditions</Link>
