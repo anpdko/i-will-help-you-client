@@ -44,13 +44,7 @@
           color: var(--orange);
         }
 
-        &__icon_f {
-          fill: transparent;
-          stroke: currentColor;
-          width: 95%;
-        }
-
-        &__icon_i {
+        &__icon {
           fill: currentColor;
         }
       }
