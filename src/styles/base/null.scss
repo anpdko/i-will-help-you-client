@@ -68,17 +68,3 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-
-::-webkit-scrollbar {
-  width: toRem(16);
-  border-radius: 0.5rem;
-  background-color: var(--dark-grey);
-}
-::-webkit-scrollbar-track {
-  background-color: var(--light-grey);
-  border-radius: 0.5rem;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: toRem(16);
-  background-color: var(--dark-grey);
-}
