@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews/reviewsSlice';
 import { RootState } from '../../store/store';
 import s from './Reviews.module.scss';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
-
 const API_URL = import.meta.env.VITE_API_URL;
-
 const Reviews = () => {
   const dispatch = useDispatch();
   const { reviews } = useSelector((state: RootState) => state.reviews);
-  const [activeTab, setActiveTab] = useState(0); // Start from the first tab
+  const [activeTab, setActiveTab] = useState(0); 
 
   useEffect(() => {
     dispatch(getReviews() as any);
@@ -48,7 +46,7 @@ const Reviews = () => {
                 onClick={() => handleTabChange(index)}
               >
                 <div className={s.reviews__img}>
-                  <img src={API_URL + tab.foto} alt='review img' />
+                  <img src={API_URL + '/static/images/reviews/' + tab.foto} alt='review img' />
                 </div>
 
                 <div>
