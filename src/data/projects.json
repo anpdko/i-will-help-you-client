@@ -1,0 +1,155 @@
+[
+  {
+    "translations": [
+      {
+        "language": "en",
+        "title": "OpportunityConnect",
+        "slogan": "Building new bridges and fostering connections",
+        "description": "OpportunityConnect Ukraine is a groundbreaking endeavor designed to bridge the divide between Ukrainians living abroad and the potential employment opportunities that await them. As a testament to our enduring commitment to the Ukrainian diaspora, this project is dedicated to fostering connections, creating pathways to meaningful work, and empowering displaced Ukrainians to harness their skills and aspirations in their new homes.\n\nIn the wake of conflict and displacement, many talented Ukrainians have found themselves in foreign lands, seeking refuge and a chance to rebuild their lives. OpportunityConnect Ukraine emerges as a beacon of hope, actively identifying and forging partnerships with companies willing to welcome Ukrainian talent. Our goal is not only to secure jobs but to empower individuals with the tools to flourish professionally, contributing positively to their host communities and embracing new horizons.",
+        "goals": [
+          {
+            "tag": "Global Networking",
+            "desc": "Establish a robust network of employers, businesses, and organizations open to hiring and supporting Ukrainian talent."
+          },
+          {
+            "tag": "Tailored Employment Matchmaking",
+            "desc": "Facilitate personalized connections between skilled Ukrainians and companies seeking their specific skills, qualifications, and expertise."
+          },
+          {
+            "tag": "Skills Development",
+            "desc": "Offer training, mentorship, and resources to empower Ukrainians in enhancing their professional abilities and adapting to new work environments."
+          },
+          {
+            "tag": "Empowerment through Knowledge",
+            "desc": "Provide guidance on navigating foreign job markets, including resume writing, interview skills, and cultural integration."
+          },
+          {
+            "tag": "Cultural Integration",
+            "desc": "Foster a supportive community that assists Ukrainians in adapting to new cultures, workplace norms, and societal contexts."
+          },
+          {
+            "tag": "Sustainable Empowerment",
+            "desc": "Cultivate long-term partnerships that not only secure immediate employment but also pave the way for ongoing professional growth."
+          }
+        ],
+        "criteria": [
+          {
+            "tag": "Displaced Ukrainians",
+            "desc": "Priority will be given to individuals who have been directly affected by conflict and displacement and are seeking employment opportunities in foreign countries."
+          },
+          {
+            "tag": "Skill and Expertise",
+            "desc": "Applicants should possess valuable skills, qualifications, and expertise that align with the needs of potential employers in the target locations."
+          },
+          {
+            "tag": "Employment Readiness",
+            "desc": "Preference will be given to candidates who have demonstrated readiness and motivation to seek meaningful employment, including a willingness to adapt to new work environments and cultural contexts."
+          },
+          {
+            "tag": "Professional Development Potential",
+            "desc": "OpportunityConnect Ukraine seeks individuals who show potential for professional growth and development, with an eagerness to enhance their skills and embrace new opportunities."
+          },
+          {
+            "tag": "Cultural Integration",
+            "desc": "Applicants who demonstrate a commitment to cultural integration and openness to adapt to workplace norms and societal contexts in foreign countries will be considered."
+          },
+          {
+            "tag": "Language Proficiency",
+            "desc": "Proficiency in relevant languages used in the target employment locations will be an advantage for applicants seeking opportunities in specific regions."
+          },
+          {
+            "tag": "Collaborative Spirit",
+            "desc": "Candidates who exhibit a collaborative spirit and a willingness to work with employers and mentors to achieve mutual success will be encouraged to apply."
+          },
+          {
+            "tag": "Long-Term Commitment",
+            "desc": "OpportunityConnect Ukraine aims to facilitate long-term employment opportunities. Applicants who show a commitment to building a stable and fulfilling career in their host countries will be preferred."
+          },
+          {
+            "tag": "Diversity and Inclusivity",
+            "desc": "Efforts will be made to ensure diversity and inclusivity among selected candidates, representing various professions, backgrounds, and regions."
+          },
+          {
+            "tag": "Core Values Alignment",
+            "desc": "The selection process will consider how well applicants align with the core values of OpportunityConnect Ukraine, including empowerment, inclusivity, opportunity creation, collaboration, and resilience."
+          }
+        ]
+      },
+      {
+        "language": "ua",
+        "title": "Можливість З'єднання",
+        "slogan": "Будівництво нових мостів та сприяння зв'язкам",
+        "description": "OpportunityConnect Ukraine - це революційна ініціатива, спрямована на зменшення розриву між українцями, що проживають за кордоном, та можливостями зайнятості, які їх чекають. Цей проект є виразом нашої нескоренної прив'язаності до української діаспори і спрямований на сприяння зв'язкам, створення шляхів до значущої роботи та надання можливості переміщеним українцям використовувати свої навички та амбіції у новому оточенні. \n\nПісля конфлікту та переміщень багато талановитих українців опинилися в чужих країнах, шукаючи притулку та можливості відновити свої життя. OpportunityConnect Ukraine виступає як світловий маяк надії, активно визначаючи та встановлюючи партнерства з компаніями, які готові вітати український талант. Нашою метою є не лише забезпечення робочих місць, але й надання особам інструментів для професійного росту, позитивного внеску в гостинні спільноти та відкриття нових горизонтів.",
+        "goals": [
+          {
+            "tag": "Global Networking",
+            "desc": "Establish a robust network of employers, businesses, and organizations open to hiring and supporting Ukrainian talent."
+          },
+          {
+            "tag": "Tailored Employment Matchmaking",
+            "desc": "Facilitate personalized connections between skilled Ukrainians and companies seeking their specific skills, qualifications, and expertise."
+          },
+          {
+            "tag": "Skills Development",
+            "desc": "Offer training, mentorship, and resources to empower Ukrainians in enhancing their professional abilities and adapting to new work environments."
+          },
+          {
+            "tag": "Empowerment through Knowledge",
+            "desc": "Provide guidance on navigating foreign job markets, including resume writing, interview skills, and cultural integration."
+          },
+          {
+            "tag": "Cultural Integration",
+            "desc": "Foster a supportive community that assists Ukrainians in adapting to new cultures, workplace norms, and societal contexts."
+          },
+          {
+            "tag": "Sustainable Empowerment",
+            "desc": "Cultivate long-term partnerships that not only secure immediate employment but also pave the way for ongoing professional growth."
+          }
+        ],
+        "criteria": [
+          {
+            "tag": "Displaced Ukrainians",
+            "desc": "Priority will be given to individuals who have been directly affected by conflict and displacement and are seeking employment opportunities in foreign countries."
+          },
+          {
+            "tag": "Skill and Expertise",
+            "desc": "Applicants should possess valuable skills, qualifications, and expertise that align with the needs of potential employers in the target locations."
+          },
+          {
+            "tag": "Employment Readiness",
+            "desc": "Preference will be given to candidates who have demonstrated readiness and motivation to seek meaningful employment, including a willingness to adapt to new work environments and cultural contexts."
+          },
+          {
+            "tag": "Professional Development Potential",
+            "desc": "OpportunityConnect Ukraine seeks individuals who show potential for professional growth and development, with an eagerness to enhance their skills and embrace new opportunities."
+          },
+          {
+            "tag": "Cultural Integration",
+            "desc": "Applicants who demonstrate a commitment to cultural integration and openness to adapt to workplace norms and societal contexts in foreign countries will be considered."
+          },
+          {
+            "tag": "Language Proficiency",
+            "desc": "Proficiency in relevant languages used in the target employment locations will be an advantage for applicants seeking opportunities in specific regions."
+          },
+          {
+            "tag": "Collaborative Spirit",
+            "desc": "Candidates who exhibit a collaborative spirit and a willingness to work with employers and mentors to achieve mutual success will be encouraged to apply."
+          },
+          {
+            "tag": "Long-Term Commitment",
+            "desc": "OpportunityConnect Ukraine aims to facilitate long-term employment opportunities. Applicants who show a commitment to building a stable and fulfilling career in their host countries will be preferred."
+          },
+          {
+            "tag": "Diversity and Inclusivity",
+            "desc": "Efforts will be made to ensure diversity and inclusivity among selected candidates, representing various professions, backgrounds, and regions."
+          },
+          {
+            "tag": "Core Values Alignment",
+            "desc": "The selection process will consider how well applicants align with the core values of OpportunityConnect Ukraine, including empowerment, inclusivity, opportunity creation, collaboration, and resilience."
+          }
+        ]
+      }
+    ],
+    "imgCover": "project-1.jpg"
+  }  
+]

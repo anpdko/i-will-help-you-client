@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { IProjectsData } from '../../../data/projectsData';
-import s from './Project.module.scss';
 import { subText } from '../../../services/text.services';
-
 import sprite from '../../../assets/sprite.svg';
+import s from './Project.module.scss';
 
 interface ProjectProps {
   project: IProjectsData;
 }
+
 const API_URL = import.meta.env.VITE_API_URL;
+
 const Project = ({ project }: ProjectProps) => {
   return (
     <article className={s.project}>

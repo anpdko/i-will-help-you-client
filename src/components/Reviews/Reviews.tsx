@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import s from './Reviews.module.scss';
-import reviewData from '../../data/reviewData';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
+import s from './Reviews.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews/reviewsSlice';
 import { RootState, AppDispatch } from '../../store/store';
@@ -12,65 +11,76 @@ const API_URL = import.meta.env.VITE_API_URL;
 const Reviews = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { reviews } = useSelector((state: RootState) => state.reviews);
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     dispatch(getReviews());
   }, []);
 
-  // це можешь видалити
   useEffect(() => {
     console.log(reviews);
   }, [reviews]);
 
-  const handleTabChange = (tab: number) => {
-    setActiveTab(tab);
+  const handleTabChange = (tabIndex: number) => {
+    setActiveTab(tabIndex);
   };
 
   const handlePrevSlide = () => {
-    const prevTab = activeTab > 1 ? activeTab - 1 : reviewData.length;
+    const prevTab = activeTab > 0 ? activeTab - 1 : reviews.length - 1;
     setActiveTab(prevTab);
   };
 
   const handleNextSlide = () => {
-    const nextTab = activeTab < reviewData.length ? activeTab + 1 : 1;
+    const nextTab = activeTab < reviews.length - 1 ? activeTab + 1 : 0;
     setActiveTab(nextTab);
   };
 
-  const isPrevDisabled = activeTab === 1;
-  const isNextDisabled = activeTab === reviewData.length;
+  const isPrevDisabled = reviews.length === 0 || activeTab === 0;
+  const isNextDisabled =
+    reviews.length === 0 || activeTab === reviews.length - 1;
 
   return (
     <section>
       <div className='container'>
         <div className={s.reviews}>
-          <div className={s.reviews__tabs}>
-            {reviewData.map((tab) => (
+          <div className={s.reviews__tabs} id='scrollbar'>
+            {reviews.map((tab, index) => (
               <div
-                key={tab.id}
+                key={tab._id}
                 className={`${s.reviews__tab} ${
-                  activeTab === tab.id ? s.reviews__active : ''
+                  activeTab === index ? s.reviews__active : ''
                 }`}
-                onClick={() => handleTabChange(tab.id)}
+                onClick={() => handleTabChange(index)}
               >
                 <div className={s.reviews__img}>
-                  <img src={API_URL + tab.tabImg} alt='review img' />
+                  <img
+                    src={API_URL + '/static/images/reviews/' + tab.foto}
+                    alt='review img'
+                  />
                 </div>
 
                 <div>
                   <h3 className={`${s.reviews__name} cards-header`}>
-                    {tab.tabName}
+                    {
+                      tab.translations.find((trans) => trans.language === 'en')
+                        ?.name
+                    }
                   </h3>
-                  <p className={s.reviews__status}>{tab.tabStatus}</p>
+                  <p className={s.reviews__status}>
+                    {
+                      tab.translations.find((trans) => trans.language === 'en')
+                        ?.job
+                    }
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className={s.reviews__text}>
-            {reviewData.map(
-              (tab) =>
-                activeTab === tab.id && <ReviewBlock key={tab.id} tab={tab} />,
+            {reviews.map(
+              (tab, index) =>
+                activeTab === index && <ReviewBlock key={tab._id} tab={tab} />,
             )}
 
             <div className={s.slide_navigation}>
