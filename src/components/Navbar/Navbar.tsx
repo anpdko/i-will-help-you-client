@@ -84,14 +84,14 @@ const Navbar = () => {
             <ul className={s.social__list}>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
                 </Link>
