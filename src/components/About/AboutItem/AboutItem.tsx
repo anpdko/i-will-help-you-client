@@ -3,6 +3,7 @@ import { ITabName } from '../../../data/aboutTab';
 import { Link } from 'react-router-dom';
 import ButtonApp from '../../UI/ButtonApp/ButtonApp';
 import { useGsapFrom } from '../../../hooks/useGsap';
+import useWindowWidth from '../../../hooks/useWindowWidth';
 
 interface AboutProps {
   tab: ITabName;
@@ -15,21 +16,23 @@ const AboutItem = ({ tab }: AboutProps) => {
     delay: 0,
     duration: 1,
   });
+  const windowWidth = useWindowWidth();
+  const buttonSize = windowWidth < 900 ? 'medium' : 'large';
 
   return (
     <article className={s.about__item} ref={refAboutItem}>
       <div>
-        <h2 className={`${s.about__item_title} heading2`}>{tab.title}</h2>
-        <p className={`${s.about__item_text} text`}>{tab.description}</p>
+        <h2 className={`${s.item__title} heading2`}>{tab.title}</h2>
+        <p className={`${s.item__text} text`}>{tab.description}</p>
       </div>
 
       <div>
-        <Link className={s.about__item_link} to={tab.link}>
+        <Link className={s.item__link} to={tab.link}>
           Share Your Story
         </Link>
-        <div className={s.about__item_buttons}>
-          <ButtonApp size='large'>Donate Now</ButtonApp>
-          <ButtonApp size='large' color='white'>
+        <div className={s.item__buttons}>
+          <ButtonApp size={buttonSize}>Donate Now</ButtonApp>
+          <ButtonApp size={buttonSize} color='white'>
             Become a Volunteer
           </ButtonApp>
         </div>
