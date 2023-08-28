@@ -1,57 +1,101 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews/reviewsSlice';
 import { AppDispatch, RootState } from '../../store/store';
 
+import { Navigation, EffectFade } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperRef } from 'swiper';
+
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
 import s from './Reviews.module.scss';
+
+import 'swiper/scss';
+import 'swiper/css/effect-fade';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Reviews = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { reviews } = useSelector((state: RootState) => state.reviews);
-  const [activeTab, setActiveTab] = useState(0);
+
+  const [slideBegOrNot, handleSlideByState] = useState({
+    isFirst: true,
+    isLast: false,
+  });
+  const [isActive, setIsActive] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startY, setStartY] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  const { isLast, isFirst } = slideBegOrNot;
 
   useEffect(() => {
     dispatch(getReviews() as any);
   }, [dispatch]);
 
-  const handleTabChange = (tabIndex: number) => {
-    setActiveTab(tabIndex);
-  };
-
   const handlePrevSlide = () => {
-    const prevTab = activeTab > 0 ? activeTab - 1 : reviews.length - 1;
-    setActiveTab(prevTab);
+    swiperRef.current?.slidePrev();
   };
 
   const handleNextSlide = () => {
-    const nextTab = activeTab < reviews.length - 1 ? activeTab + 1 : 0;
-    setActiveTab(nextTab);
+    swiperRef.current?.slideNext();
   };
 
-  const isPrevDisabled = reviews.length === 0 || activeTab === 0;
-  const isNextDisabled =
-    reviews.length === 0 || activeTab === reviews.length - 1;
+  const onSlideChange = (swiper: any) => {
+    handleSlideByState({
+      isFirst: swiper.isBeginning,
+      isLast: swiper.isEnd,
+    });
+
+    setIsActive(swiper.activeIndex);
+  };
+
+  const handleTabClick = (index: any) => {
+    swiperRef.current?.slideTo(index);
+  };
+
+  const handleMouseDown = (e: any) => {
+    setIsDragging(true);
+    setStartY(e.clientY);
+    setScrollTop(e.currentTarget.scrollTop);
+  };
+
+  const handleMouseMove = (e: any) => {
+    if (!isDragging) return;
+
+    const y = e.clientY - startY;
+    e.currentTarget.scrollTop = scrollTop - y;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
   return (
     <section>
       <div className='container'>
         <div className={s.reviews}>
-          <div className={s.reviews__tabs} id='scrollbar'>
+          <div
+            className={s.reviews__tabs}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+          >
             {reviews.map((tab, index) => (
               <div
                 key={tab._id}
+                onClick={() => handleTabClick(index)}
                 className={`${s.reviews__tab} ${
-                  activeTab === index ? s.reviews__active : ''
+                  isActive === index ? s.reviews__active : ''
                 }`}
-                onClick={() => handleTabChange(index)}
               >
                 <div className={s.reviews__img}>
                   <img
-                    src={API_URL + 'static/images/reviews/' + tab.foto}
+                    src={API_URL + '/static/images/reviews/' + tab.foto}
                     alt='review img'
                   />
                 </div>
@@ -75,17 +119,30 @@ const Reviews = () => {
           </div>
 
           <div className={s.reviews__text}>
-            {reviews.map(
-              (tab, index) =>
-                activeTab === index && <ReviewBlock key={tab._id} tab={tab} />,
-            )}
+            <Swiper
+              modules={[Navigation, EffectFade]}
+              className={s.reviews__text_slider}
+              onSlideChange={onSlideChange}
+              slidesPerView={1}
+              spaceBetween={0}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+            >
+              {reviews.map((tab) => (
+                <div className={s.reviews__text_content}>
+                  <SwiperSlide key={tab._id}>
+                    <ReviewBlock tab={tab} />
+                  </SwiperSlide>
+                </div>
+              ))}
+            </Swiper>
 
             <div className={s.slide_navigation}>
               <button
                 onClick={handlePrevSlide}
-                disabled={isPrevDisabled}
                 className={`${s.slide_navigation__button} ${
-                  isPrevDisabled ? s.slide_navigation__disabled : ''
+                  isFirst ? s.slide_navigation__disabled : ''
                 }`}
               >
                 <svg>
@@ -94,9 +151,8 @@ const Reviews = () => {
               </button>
               <button
                 onClick={handleNextSlide}
-                disabled={isNextDisabled}
                 className={`${s.slide_navigation__button} ${
-                  isNextDisabled ? s.slide_navigation__disabled : ''
+                  isLast ? s.slide_navigation__disabled : ''
                 }`}
               >
                 <svg>

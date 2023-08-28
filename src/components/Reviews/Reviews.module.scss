@@ -13,6 +13,7 @@
     direction: rtl;
     padding-left: .5rem;
     border-radius: .94rem;
+    cursor: grab;
     &::-webkit-scrollbar{
       width: .5rem;
       border-radius: 0.5rem;
@@ -33,7 +34,7 @@
     display: flex;
     flex-direction: row-reverse;
     max-width: 22rem;
-    padding: 1.05rem 2rem;
+    padding: .75rem 2rem;
     background-color: var(--total-white);
     border-radius: .94rem;
     cursor: pointer;
@@ -57,20 +58,30 @@
   }
 
   &__text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 22.5rem;
+    display: block;
+    height: 22.6rem;
     padding: 2rem 2.7rem;
     max-width: 49.5rem;
     border-radius: 1.25rem;
     background: var(--milky);
     position:relative;
+    cursor: grab;
   }
 
+  &__text_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__text_slider{
+    height: calc(100% - 2rem);
+  }
   &__active{
     padding-left: 3.5rem;
     border: 2px solid var(--orange);
+    padding-top: 1.06rem;
+    padding-bottom: 1.06rem;
   }
 }
 
@@ -91,8 +102,4 @@
   &__disabled{
     color: var(--light-grey);
   }
-}
-
-#scrollbar{
-  
 }
