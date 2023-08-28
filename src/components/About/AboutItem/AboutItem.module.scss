@@ -80,4 +80,10 @@
       flex-wrap: wrap;
     }
   }
+
+  &__button {
+    @media (max-width: $tablet) {
+      padding: 1rem 0;
+    }
+  }
 }
