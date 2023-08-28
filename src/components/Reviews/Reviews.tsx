@@ -34,8 +34,12 @@ const Reviews = () => {
   const { isLast, isFirst } = slideBegOrNot;
 
   useEffect(() => {
-    dispatch(getReviews() as any);
-  }, [dispatch]);
+    dispatch(getReviews());
+  }, []);
+
+  useEffect(() => {
+    console.log(reviews);
+  }, [reviews]);
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev();
