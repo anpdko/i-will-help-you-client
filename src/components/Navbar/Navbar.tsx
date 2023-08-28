@@ -33,30 +33,30 @@ const Navbar = () => {
   ];
 
   return (
-    <header className={s.box_nav}>
+    <header className={s.nav}>
       <div className='container'>
-        <nav className={s.nav}>
-          <Link to='/' className={s.nav__logo}>
+        <div className={s.nav__logo}>
+          <Link to='/'>
             <svg>
               <use href={sprite + '#logo'} />
             </svg>
           </Link>
-          <div className={s.nav__left}>
-            <ul className={s.nav__list}>
-              {links
-                ? links.map((link, i) => (
-                    <li key={i} className={s.nav__item}>
-                      <NavLink to={link.link} className={s.nav__link}>
-                        {t(link.text)}
-                      </NavLink>
-                    </li>
-                  ))
-                : null}
-            </ul>
-            <Translation />
-            <ButtonApp>Donate</ButtonApp>
-          </div>
+        </div>
+        <nav className={s.nav__menu}>
+          <ul className={s.nav__list}>
+            {links
+              ? links.map((link, i) => (
+                  <li key={i} className={s.nav__item}>
+                    <NavLink to={link.link} className={s.nav__link}>
+                      {t(link.text)}
+                    </NavLink>
+                  </li>
+                ))
+              : null}
+          </ul>
         </nav>
+        <Translation />
+        <ButtonApp>Donate</ButtonApp>
       </div>
     </header>
   );

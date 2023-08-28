@@ -1,67 +1,72 @@
+@import '../../../styles/index';
+
 .orange {
-	border: none;
-	background: var(--orange);
-	&:hover,
-	:focus {
-		background: var(--orange-for-states);
-	}
-	&:active {
-		font-weight: 700;
-	}
+  background: var(--orange);
+  &:hover,
+  :focus {
+    background: var(--orange-for-states);
+  }
+  &:active {
+    font-weight: 700;
+  }
 }
 
 .white {
-	border-radius: 10px;
-	border: 2px solid var(--orange);
-	background: transparent;
-	&:hover,
-	:focus {
-		border: 2px solid var(--orange-for-states);
-		color: var(--light-black);
-	}
-	&:active {
-		font-weight: 700;
-		color: var(--black);
-	}
+  border-radius: toRem(10);
+  border: 2px solid var(--orange);
+  background: transparent;
+  &:hover,
+  :focus {
+    transition: all 0.3s;
+    border: 2px solid var(--orange-for-states);
+    color: var(--light-black);
+  }
+  &:active {
+    font-weight: 700;
+    color: var(--black);
+  }
 }
-
+// додав padding-left та right якщо тексту буде багато щоб він не торкався крайов кнопки
 .small {
-	width: 180px;
-	padding-top: 12px;
-	padding-bottom: 12px;
+  max-width: toRem(180);
+  width: 100%;
+  padding: toRem(12) toRem(10);
 }
 
 .standard {
-	width: 204px;
-	padding-top: 12px;
-	padding-bottom: 12px;
+  max-width: toRem(204);
+  width: 100%;
+  padding: toRem(12) toRem(10);
 }
 
 .medium {
-	width: 300px;
-	padding-top: 16px;
-	padding-bottom: 16px;
+  max-width: toRem(300);
+  width: 100%;
+  padding: toRem(16) toRem(10);
 }
 
 .large {
-	width: 336px;
-	padding-top: 22px;
-	padding-bottom: 22px;
+  max-width: toRem(336);
+  width: 100%;
+  padding: toRem(22) toRem(10);
 }
 
 .btn {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-	text-decoration: none;
-	font-size: 1rem;
-	font-weight: 600;
-	line-height: 1rem;
-	border-radius: 8px;
-	outline: none;
-	color: var(--black);
-	cursor: pointer;
+  text-decoration: none;
+  @include adaptiveValue('font-size', 16, 14, 1, 1200, 390);
+  font-weight: 600;
+  line-height: 1rem;
+  border-radius: toRem(8);
+  outline: none;
+  color: var(--black);
 
-	transition: background 0.5s ease-in;
+  transition: background-color 0.5s ease-in;
+  @media (max-width: $mobile) {
+    // В макеті на мобайл border-radius 10px
+    border-radius: toRem(10);
+  }
 }

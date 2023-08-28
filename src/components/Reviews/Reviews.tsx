@@ -4,24 +4,24 @@ import reviewData from '../../data/reviewData';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReviews } from '../../store/reviews/reviewsSlice'
-import { RootState, AppDispatch }from '../../store/store'
+import { getReviews } from '../../store/reviews/reviewsSlice';
+import { RootState, AppDispatch } from '../../store/store';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Reviews = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { reviews } = useSelector((state:RootState) => state.reviews)
+  const { reviews } = useSelector((state: RootState) => state.reviews);
   const [activeTab, setActiveTab] = useState(1);
 
   useEffect(() => {
-    dispatch(getReviews())
+    dispatch(getReviews());
   }, []);
 
   // це можешь видалити
   useEffect(() => {
-    console.log(reviews)
-  }, [reviews])
+    console.log(reviews);
+  }, [reviews]);
 
   const handleTabChange = (tab: number) => {
     setActiveTab(tab);
