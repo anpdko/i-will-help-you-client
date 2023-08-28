@@ -57,6 +57,7 @@ body {
   }
   // Притискаємо footer
   > main {
+    padding-top: toRem(100);
     flex: 1 1 auto;
   }
   // Фікс для слайдерів
