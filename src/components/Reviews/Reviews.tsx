@@ -6,17 +6,24 @@ import { RootState } from '../../store/store';
 import ReviewBlock from './ReviewBlock/ReviewBlock';
 import sprite from '../../assets/sprite.svg';
 import s from './Reviews.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getReviews } from '../../store/reviews/reviewsSlice';
+import { RootState, AppDispatch } from '../../store/store';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Reviews = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { reviews } = useSelector((state: RootState) => state.reviews);
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
-    dispatch(getReviews() as any);
-  }, [dispatch]);
+    dispatch(getReviews());
+  }, []);
+
+  useEffect(() => {
+    console.log(reviews);
+  }, [reviews]);
 
   const handleTabChange = (tabIndex: number) => {
     setActiveTab(tabIndex);
