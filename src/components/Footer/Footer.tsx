@@ -57,28 +57,22 @@ const Footer = () => {
             <ul className={s.footer_links__socialmedia}>
               <li>
                 <Link to='#' className={s.footer_links__socialmedia__link}>
-                  <svg
-                    className={s.footer_links__socialmedia__link__icon_f}
-                    width='2.75rem'
-                    height='2.75rem'
-                  >
+                  <svg className={s.footer_links__socialmedia__link__icon}>
                     <use href={sprite + '#facebook'} />
                   </svg>
-                  {/* <img src={facebook}/> */}
                 </Link>
               </li>
               <li>
                 <Link to='#' className={s.footer_links__socialmedia__link}>
-                  <svg className={s.footer_links__socialmedia__link__icon_i}>
+                  <svg className={s.footer_links__socialmedia__link__icon}>
                     <use href={sprite + '#instagram'} />
                   </svg>
-                  {/* <img src={instagram}/> */}
                 </Link>
               </li>
             </ul>
           </div>
           <div className={s.sb__footer_links_div}>
-            <ul className={s.footer_links__contacts}>
+            <div className={s.footer_links__contacts}>
               <ButtonApp>Donate</ButtonApp>
               <ul className={s.footer_links__contacts__list}>
                 <li>
@@ -93,7 +87,7 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </ul>
+            </div>
           </div>
         </div>
       </div>
