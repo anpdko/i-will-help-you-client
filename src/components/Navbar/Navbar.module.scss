@@ -1,55 +1,53 @@
-.box_nav {
-	box-shadow: 0px 2px 8px 0px rgba(81, 81, 81, 0.08);
+@import '../../styles/index';
 
-	.nav {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1rem 0;
+.nav {
+  box-shadow: 0px 2px 8px 0px rgba(81, 81, 81, 0.08);
+  :global {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding-top: toRem(24);
+      padding-bottom: toRem(24);
+      gap: toRem(24);
+    }
+  }
+  &__logo {
+    flex: 1 1 auto;
+    display: inline-block;
+    transition: opacity 0.3s;
+    svg {
+      max-width: toRem(118);
+      height: toRem(48);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 
-		&__logo {
-			width: 7.63rem;
-			height: 3rem;
-			display: flex;
-			transition: opacity 0.3s;
-			@media (any-hover: hover) {
-				&:hover {
-					opacity: 0.7;
-				}
-			}
-		}
+  &__menu {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue('margin-right', 51, 20, 0, 1200, 992);
+  }
 
-		&__left {
-			display: flex;
-			align-items: center;
-			gap: 1.5rem;
-			flex-wrap: wrap;
-		}
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include adaptiveValue('column-gap', 64, 30, 0, 1200, 992);
+    row-gap: toRem(10);
+    line-height: 1;
+    color: var(--dark-grey);
+  }
 
-		&__list {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 4rem;
-			margin-right: 4.6rem;
-
-			list-style: none;
-			font-style: normal;
-			line-height: 1;
-			color: var(--dark-grey);
-
-			padding: 0;
-			cursor: pointer;
-		}
-
-		&__link {
-			color: currentColor;
-
-			&:hover {
-				color: var(--orange);
-			}
-		}
-	}
+  &__link {
+		white-space: nowrap;
+    &:hover {
+      color: var(--orange);
+    }
+  }
 }

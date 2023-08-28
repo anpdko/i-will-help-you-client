@@ -65,6 +65,7 @@
     max-width: 49.5rem;
     border-radius: 1.25rem;
     background: var(--milky);
+    position:relative;
   }
 
   &__active{
@@ -90,4 +91,8 @@
   &__disabled{
     color: var(--light-grey);
   }
+}
+
+#scrollbar{
+  
 }
