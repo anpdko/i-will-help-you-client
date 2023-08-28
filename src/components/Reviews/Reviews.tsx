@@ -12,7 +12,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const Reviews = () => {
   const dispatch = useDispatch();
   const { reviews } = useSelector((state: RootState) => state.reviews);
-  const [activeTab, setActiveTab] = useState(0); 
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     dispatch(getReviews() as any);
@@ -33,7 +33,8 @@ const Reviews = () => {
   };
 
   const isPrevDisabled = reviews.length === 0 || activeTab === 0;
-  const isNextDisabled = reviews.length === 0 || activeTab === reviews.length - 1;
+  const isNextDisabled =
+    reviews.length === 0 || activeTab === reviews.length - 1;
 
   return (
     <section>
@@ -49,14 +50,25 @@ const Reviews = () => {
                 onClick={() => handleTabChange(index)}
               >
                 <div className={s.reviews__img}>
-                  <img src={API_URL + 'static/images/reviews/' + tab.foto} alt='review img' />
+                  <img
+                    src={API_URL + 'static/images/reviews/' + tab.foto}
+                    alt='review img'
+                  />
                 </div>
 
                 <div>
                   <h3 className={`${s.reviews__name} cards-header`}>
-                    {tab.translations.find(trans => trans.language === 'en')?.name}
+                    {
+                      tab.translations.find((trans) => trans.language === 'en')
+                        ?.name
+                    }
                   </h3>
-                  <p className={s.reviews__status}>{tab.translations.find(trans => trans.language === 'en')?.job}</p>
+                  <p className={s.reviews__status}>
+                    {
+                      tab.translations.find((trans) => trans.language === 'en')
+                        ?.job
+                    }
+                  </p>
                 </div>
               </div>
             ))}
