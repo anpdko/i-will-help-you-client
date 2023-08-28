@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import s from './Footer.module.scss';
 import sprite from '../../assets/sprite.svg';
-// import facebook from '../../assets/icons-all/facebook.svg'
-// import instagram from '../../assets/icons-all/instagram.svg'
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
 
 const Footer = () => {
@@ -15,8 +13,7 @@ const Footer = () => {
               <use href={sprite + '#logo'} />
             </svg>
           </Link>
-
-          <nav className={s.sb__footer_links_div}>
+          <div className={s.footer_links__navs}>
             <ul className={s.footer_links__list}>
               <li>
                 <Link to='#'>Conditions</Link>
@@ -28,8 +25,7 @@ const Footer = () => {
                 <Link to='#'>Documents</Link>
               </li>
             </ul>
-          </nav>
-          <nav className={s.sb__footer_links_div}>
+
             <ul className={s.footer_links__list}>
               <li>
                 <Link to='/about'>About Us</Link>
@@ -41,8 +37,7 @@ const Footer = () => {
                 <Link to='#'>FAQ</Link>
               </li>
             </ul>
-          </nav>
-          <nav className={s.sb__footer_links_div}>
+
             <ul className={s.footer_links__list}>
               <li>
                 <Link to='/readyneed'>Volunteering</Link>
@@ -51,43 +46,41 @@ const Footer = () => {
                 <Link to='/needhelp'>Help</Link>
               </li>
             </ul>
-          </nav>
-          <div className={s.footer_links__div}>
+          </div>
+
+          <div className={s.footer_links__social}>
             <p>Follow us</p>
-            <ul className={s.footer_links__socialmedia}>
+            <ul className={s.footer__socialmedia}>
               <li>
-                <Link to='#' className={s.footer_links__socialmedia__link}>
-                  <svg className={s.footer_links__socialmedia__link__icon}>
+                <Link to='#' className={s.footer__socialmedia__link}>
+                  <svg className={s.footer__socialmedia__link__icon}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link to='#' className={s.footer_links__socialmedia__link}>
-                  <svg className={s.footer_links__socialmedia__link__icon}>
+                <Link to='#' className={s.footer__socialmedia__link}>
+                  <svg className={s.footer__socialmedia__link__icon}>
                     <use href={sprite + '#instagram'} />
                   </svg>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className={s.sb__footer_links_div}>
-            <div className={s.footer_links__contacts}>
-              <ButtonApp>Donate</ButtonApp>
-              <ul className={s.footer_links__contacts__list}>
-                <li>
-                  <p>Mon-Fri 8:00 - 18:00</p>
-                </li>
-                <li>
-                  <Link to='tel:++380000000000'>+0 (000) 000 00 00</Link>
-                </li>
-                <li>
-                  <Link to='mailto:iwillhelpu@post.com'>
-                    iwillhelpu@post.com
-                  </Link>
-                </li>
-              </ul>
-            </div>
+
+          <div className={s.footer_links__contacts}>
+            <ButtonApp>Donate</ButtonApp>
+            <ul className={s.footer_links__list}>
+              <li>
+                <p>Mon-Fri 8:00 - 18:00</p>
+              </li>
+              <li>
+                <Link to='tel:++380000000000'>+0 (000) 000 00 00</Link>
+              </li>
+              <li>
+                <Link to='mailto:iwillhelpu@post.com'>iwillhelpu@post.com</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
