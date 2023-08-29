@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import s from './InputAuthorization.module.scss';
 
 const InputAuthorization = () => {
