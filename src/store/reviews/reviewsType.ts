@@ -15,7 +15,7 @@ export interface IReviews {
   updated_date: string;
 }
 
-export interface ReviewsState {
+export interface IReviewsState {
   reviews: IReviews[];
   loading: boolean | null;
   message: string | null;

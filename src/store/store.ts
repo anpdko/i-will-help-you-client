@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reviewsSlice from './reviews/reviewsSlice.ts';
+import projectsSlice from './projects/projectsSlice.ts';
 
 export const store = configureStore({
   reducer: {
     reviews: reviewsSlice,
+    projects: projectsSlice
   },
 });
 
