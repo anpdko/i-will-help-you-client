@@ -58,10 +58,10 @@ const AuthAdminPage = () => {
             onChange={handlePasswordChange}
           />
           {error && <p className={s.error}>{error}</p>}
-          <ButtonApp 
-            className={s.submit} 
-            type='submit' 
-            color='orange' 
+          <ButtonApp
+            className={s.submit}
+            type='submit'
+            color='orange'
             size='medium'
           >
             Вхід
