@@ -17,8 +17,9 @@ a:active {
   outline: none;
 }
 html {
-  overflow-x: hidden;
-  margin-right: calc(-1 * (100vw - 100%));
+  // ! прибирає зміщення контента при додаванні бокового скрола але дає баг з паддінгом в .container!!!
+  // overflow-x: hidden;
+  // margin-right: calc(-1 * (100vw - 100%));
 }
 html,
 body {
@@ -30,7 +31,6 @@ body {
   line-height: 1;
   font-family: $fontFamily;
   font-size: $fontSize;
-  //text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

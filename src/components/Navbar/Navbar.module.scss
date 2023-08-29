@@ -1,7 +1,23 @@
 @import '../../styles/index';
 
 .nav {
+  position: fixed;
+  width: 100%;
+  background-color: var(--bg);
+  z-index: 10;
   box-shadow: 0px 2px 8px 0px rgba(81, 81, 81, 0.08);
+  &.open {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background-color: var(--bg);
+    }
+  }
   :global {
     .container {
       display: flex;
@@ -10,14 +26,19 @@
       padding-top: toRem(24);
       padding-bottom: toRem(24);
       gap: toRem(24);
+      @include adaptiveValue('gap', 24, 17, 0, 1200, 992);
     }
   }
   &__logo {
     flex: 1 1 auto;
-    display: inline-block;
     transition: opacity 0.3s;
+    z-index: 11;
+
+    @media (min-width: $mobileSmall) {
+      margin-right: toRem(20);
+    }
     svg {
-      max-width: toRem(118);
+      max-width: toRem(100);
       height: toRem(48);
     }
     @media (any-hover: hover) {
@@ -28,26 +49,255 @@
   }
 
   &__menu {
-    display: flex;
-    align-items: center;
+    z-index: 10;
     @include adaptiveValue('margin-right', 51, 20, 0, 1200, 992);
+    @media (max-width: $tablet) {
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: toRem(100) toRem(15) toRem(20) toRem(15);
+      transition: top 0.4s ease 0s;
+      overflow: auto;
+      background-color: var(--bg);
+      .open & {
+        top: 0;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptiveValue('column-gap', 64, 30, 0, 1200, 992);
+    line-height: 1;
+
+    @media (min-width: $tablet) {
+      align-items: center;
+      justify-content: start;
+      row-gap: toRem(10);
+      color: var(--dark-grey);
+    }
+    @media (max-width: $tablet) {
+      padding-top: toRem(38);
+      flex-direction: column;
+      align-items: start;
+      color: var(--black);
+      font-size: toRem(20);
+    }
+  }
+  &__item {
+    @media (max-width: $tablet) {
+      position: relative;
+      width: 100%;
+      padding-bottom: toRem(16);
+      &:not(:last-child) {
+        margin-bottom: toRem(44);
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: toRem(2);
+        background-color: var(--light-grey);
+        border-radius: toRem(8);
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  &__link {
+    white-space: nowrap;
+    @media (min-width: $tablet) {
+      svg {
+        display: none;
+      }
+    }
+    @media (max-width: $tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(10);
+      svg {
+        display: inline-block;
+        max-width: toRem(19);
+        width: 100%;
+        height: toRem(14);
+        margin-right: toRem(3);
+      }
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--orange);
+      }
+    }
+  }
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: toRem(20);
+
+    @media (max-width: $mobileSmall) {
+      :first-child {
+        display: none;
+      }
+    }
+    button:nth-child(2) {
+      width: toRem(180);
+      @include adaptiveValue('width', 180, 124);
+    }
+  }
+}
+
+.social {
+  @media (min-width: $tablet) {
+    display: none;
+  }
+  @media (max-width: $tablet) {
+    padding-top: toRem(64);
+    padding-bottom: toRem(17);
+  }
+  &__title {
+    font-weight: 600;
+    &:not(:last-child) {
+      margin-bottom: toRem(16);
+    }
   }
 
   &__list {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    @include adaptiveValue('column-gap', 64, 30, 0, 1200, 992);
-    row-gap: toRem(10);
-    line-height: 1;
-    color: var(--dark-grey);
+    gap: toRem(16);
   }
 
   &__link {
-		white-space: nowrap;
-    &:hover {
-      color: var(--orange);
+    svg {
+      width: toRem(40);
+      height: toRem(40);
+    }
+    .facebook {
+      fill: transparent;
+      stroke: currentColor;
+    }
+
+    .instagram {
+      fill: currentColor;
+    }
+  }
+}
+
+.contacts {
+  @media (min-width: $tablet) {
+    display: none;
+  }
+  @media (max-width: $tablet) {
+    padding-top: toRem(17);
+    padding-bottom: toRem(17);
+    display: grid;
+    gap: toRem(28);
+  }
+
+  &__item {
+    padding: toRem(14) toRem(30);
+    border: toRem(2) solid var(--black);
+    border-radius: toRem(16);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: toRem(10);
+    &_text {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(8);
+      font-weight: 600;
+      span {
+        color: var(--dark-grey);
+        font-size: toRem(14);
+      }
+    }
+    svg {
+      width: toRem(27);
+      height: toRem(27);
+    }
+  }
+}
+.actions {
+  @media (min-width:$tablet){
+      display: none;
+  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: toRem(14);
+  padding-bottom: toRem(14);
+  justify-content: space-between;
+  gap: toRem(20);
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: toRem(1);
+    background-color: var(--light-grey);
+    border-radius: toRem(8);
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+
+}
+// Burger ========================================================================================================================================================
+.burger {
+  display: none;
+  @media (max-width: $tablet) {
+    display: block;
+    position: relative;
+    flex: 0 0 toRem(26);
+    width: toRem(26);
+    height: toRem(18);
+    z-index: 11;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::after {
+      content: '';
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: toRem(2);
+      background-color: var(--black);
+      border-radius: toRem(8);
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - toRem(1));
+    }
+    .open & {
+      span {
+        width: 0;
+      }
+      &::before {
+        top: calc(50% - toRem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - toRem(1));
+        transform: rotate(45deg);
+      }
     }
   }
 }

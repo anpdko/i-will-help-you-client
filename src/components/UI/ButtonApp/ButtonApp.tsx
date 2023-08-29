@@ -8,7 +8,7 @@ interface ButtonProps {
   type?: 'link' | '';
   to?: string;
   color?: 'orange' | 'white';
-  size?: 'small' | 'medium' | 'standard' | 'large';
+  size?: 'smaller' | 'small' | 'medium' | 'standard' | 'large';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
