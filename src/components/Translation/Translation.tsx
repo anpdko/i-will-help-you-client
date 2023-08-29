@@ -59,7 +59,7 @@ const Translation = ({ className, long }: ITranslation) => {
       >
         {long && (
           <svg className={[s.icon, className].join(' ')}>
-            <use href={sprite + '#earch'} />
+            <use href={sprite + '#globe'} />
           </svg>
         )}
         <span>

@@ -1,59 +1,100 @@
+@import '../../../styles/index';
 .banner {
-	width: 24rem;
-	height: 20rem;
-	overflow: hidden;
-	position: relative;
-	border-radius: 2rem;
-	cursor: pointer;
-	&__img {
-		width: 100%;
-		object-fit: cover;
-	}
-	&__content {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		padding: 0 2rem 0 1rem;
-		background-color: var(--black-for-banners);
-		color: var(--bg);
-		transform: translateY(68%);
-		transition: transform 0.3s ease-in-out;
-	}
-	&__title {
-		padding: 1.2rem 0;
-	}
-	&__description {
-		font-weight: 600;
-	}
-	&__btn {
-		position: absolute;
-		bottom: 1.5rem;
-		right: 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0.25rem;
-		border-radius: 0.6rem;
-		background-color: var(--bg);
-		&:hover {
-			color: var(--orange);
-		}
-	}
-	&__icon {
-		height: 1.5rem;
-		width: 1.5rem;
-		fill: currentColor;
-		transition: color 0.2s linear;
-	}
-	&__icon {
-	}
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  @include adaptiveValue('border-radius', 30, 20, 0, 1200, 768);
+  @media (min-width: $mobile) {
+    padding-bottom: 84.895833%; /* 326/384 */
+  }
+  @media (max-width: $mobile) {
+    padding-bottom: 42.622951%; /* 156/366 */
+  }
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(50%);
+    object-position: center;
+    object-fit: cover;
+  }
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: toRem(20) toRem(60) toRem(16) toRem(16);
 
-	&:hover .banner__content {
-		transform: translateY(0);
-	}
-	&:hover .banner__description {
-		opacity: 1;
-	}
+    background-color: var(--black-for-banners);
+    color: var(--bg);
+
+    transition: transform 0.3s ease-in-out;
+    @media (min-width: em(1217)) {
+      transform: translateY(69%);
+    }
+    @media (max-width: em(1217)) {
+      transform: translateY(76%);
+    }
+    @media (max-width: $tablet) {
+      transform: translateY(72%);
+    }
+    @media (max-width: $mobile) {
+      padding-top: toRem(16);
+      transform: translateY(68%);
+    }
+    @media (max-width: $mobileSmall) {
+      transform: translateY(52%);
+    }
+  }
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 28, 20, 0, 1200, 390);
+    }
+    @media (max-width: em(1217)) {
+      max-width: toRem(280);
+    }
+    @media (max-width: $mobile) {
+      max-width: toRem(240);
+    }
+  }
+  &__description {
+    opacity: 0;
+
+    font-weight: 600;
+    @media (max-width: $mobileSmall) {
+      font-size: toRem(12);
+    }
+  }
+  &__btn {
+    position: absolute;
+    @include adaptiveValue('bottom', 26, 12);
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    border-radius: 0.6rem;
+    background-color: var(--bg);
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--orange);
+      }
+    }
+  }
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: currentColor;
+    transition: color 0.2s linear;
+  }
+
+  &:hover .banner__content {
+    transform: translateY(0);
+  }
+  &:hover .banner__description {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
 }

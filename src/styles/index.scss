@@ -60,7 +60,7 @@ body {
     flex: 1 1 auto;
   }
 
-  > .app{
+  > .app {
     padding-top: toRem(100);
   }
   // Фікс для слайдерів
@@ -114,7 +114,6 @@ a:hover::after {
 /* Texts style */
 .heading1 {
   font-family: $fontNunito;
-  // @include adaptiveValue('font-size', 52, 36);
   @include adaptiveValue('font-size', 52, 28, 0, 1200, 390);
   font-weight: 600;
   text-transform: uppercase;
@@ -125,14 +124,13 @@ a:hover::after {
 
 .heading2 {
   font-family: $fontNunito;
-  // @include adaptiveValue('font-size', 40, 28);
   @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
   font-weight: 600;
 }
 
 .bunner-title {
   font-family: $fontNunito;
-  @include adaptiveValue('font-size', 24, 20);
+  @include adaptiveValue('font-size', 24, 16, 0, 992, 390);
   font-weight: 700;
   line-height: 130%;
 }

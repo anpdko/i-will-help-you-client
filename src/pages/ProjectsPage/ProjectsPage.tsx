@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 const ProjectsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { projects } = useSelector((state: RootState) => state.projects);
-  const {i18n} = useTranslation()
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     dispatch(getProjects());

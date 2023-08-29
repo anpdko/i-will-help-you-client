@@ -5,7 +5,7 @@ import projectsSlice from './projects/projectsSlice.ts';
 export const store = configureStore({
   reducer: {
     reviews: reviewsSlice,
-    projects: projectsSlice
+    projects: projectsSlice,
   },
 });
 
