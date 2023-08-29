@@ -1,38 +1,89 @@
+@import '../../../styles/index.scss';
+
 .about__item {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	max-width: 49.5rem;
-	height: 30.25rem;
-	padding: 3rem;
-	border-radius: 2.25rem;
-	background-color: var(--milky);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 49.5rem;
+  height: 30.25rem;
+  padding: 3rem;
+  border-radius: 2.25rem;
+  background-color: var(--milky);
 
-	&_text {
-		padding: 1.1rem 0 0.6rem 0;
-		white-space: pre-line;
-	}
-	&_link {
-		font-size: 1rem;
-		font-weight: 600;
-		text-decoration: none;
-		color: var(--black);
-		position: relative;
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: -0.5rem;
-			left: 0;
-			height: 1px;
-			width: 100%;
-			background-color: var(--black);
-			transition: background-color 0.2s linear;
-		}
-	}
+  @media (max-width: $pc) {
+    gap: 3rem;
+  }
 
-	&_buttons {
-		margin-top: 1.5rem;
-		display: flex;
-		gap: 1.5rem;
-	}
+  @media (max-width: $tablet) {
+    max-width: 40rem;
+    max-height: 29rem;
+    padding: 2rem 1.375rem 1.5rem;
+    gap: 2rem;
+  }
+
+  @media (max-width: $mobile) {
+    max-width: toRem(366);
+    max-height: toRem(518);
+  }
+}
+
+.item {
+  &__text {
+    padding: 1.1rem 0 0.6rem 0;
+    white-space: pre-line;
+
+    @media (max-width: $pc) {
+      max-height: 15rem;
+      margin-top: 0.5rem;
+      overflow: scroll;
+    }
+
+    @media (max-width: $tablet) {
+      max-height: 10rem;
+    }
+
+    @media (max-width: $mobile) {
+      max-height: 11rem;
+    }
+
+    @media (max-width: $mobileSmall) {
+      max-height: 13rem;
+    }
+  }
+
+  &__link {
+    @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--black);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: var(--black);
+      transition: background-color 0.2s linear;
+    }
+  }
+
+  &__buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__button {
+    @media (max-width: $tablet) {
+      padding: 1rem 0;
+    }
+  }
 }

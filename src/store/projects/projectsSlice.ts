@@ -1,17 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import { IReviews, IReviewsState, IReviewsError } from './reviewsType';
+import { IProjects, IProjectsState, IProjectsError } from './projectsType';
 // import authHeader from '../../services/admin/header.service'
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const initialState: IReviewsState = {
-  reviews: [],
+const initialState: IProjectsState = {
+  projects: [],
   loading: null,
   message: null,
 };
 
-const handleRequestError = (error: AxiosError<IReviewsError>) => {
+const handleRequestError = (error: AxiosError<IProjectsError>) => {
   if (window.location.hostname === 'localhost') {
     console.log(error);
   }
@@ -30,12 +30,12 @@ const handleRequestError = (error: AxiosError<IReviewsError>) => {
   return 'Server error';
 };
 
-export const getReviews = createAsyncThunk(
-  'reviews/getReviews',
+export const getProjects = createAsyncThunk(
+  'projects/getProjects',
   async (_, { fulfillWithValue, rejectWithValue }) => {
     try {
-      const res: AxiosResponse<IReviews[]> = await axios.get(
-        `${API_URL}/api/reviews`,
+      const res: AxiosResponse<IProjects[]> = await axios.get(
+        `${API_URL}/api/projects`,
       );
       return fulfillWithValue(res.data);
     } catch (error) {
@@ -46,27 +46,27 @@ export const getReviews = createAsyncThunk(
   },
 );
 
-export const reviewsSlice = createSlice({
-  name: 'reviews',
+export const projectsSlice = createSlice({
+  name: 'projects',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // getReviews
-      .addCase(getReviews.pending, (state) => {
+      // getProjects
+      .addCase(getProjects.pending, (state) => {
         state.loading = true;
         state.message = null;
       })
-      .addCase(getReviews.fulfilled, (state, action) => {
-        state.reviews = action.payload || [];
+      .addCase(getProjects.fulfilled, (state, action) => {
+        state.projects = action.payload || [];
         state.loading = false;
       })
-      .addCase(getReviews.rejected, (state, action) => {
+      .addCase(getProjects.rejected, (state, action) => {
         state.loading = false;
         state.message = String(action.payload);
       });
   },
 });
 
-export const {} = reviewsSlice.actions;
-export default reviewsSlice.reducer;
+export const {} = projectsSlice.actions;
+export default projectsSlice.reducer;

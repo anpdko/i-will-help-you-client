@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import s from './About.module.scss';
-import AboutItem from './AboutItem/AboutItem';
 import aboutTab from '../../data/aboutTab';
+import AboutItem from './AboutItem/AboutItem';
 import sprite from '../../assets/sprite.svg';
+import s from './About.module.scss';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('mission');

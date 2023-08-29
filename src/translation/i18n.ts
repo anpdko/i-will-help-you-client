@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
 type TranslationResources = {
-  translation: Record<string, unknown>;
+  translation: Record<string, unknown>,
 };
 
 const resources: Record<string, TranslationResources> = {

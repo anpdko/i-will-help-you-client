@@ -19,17 +19,19 @@ const AboutItem = ({ tab }: AboutProps) => {
   return (
     <article className={s.about__item} ref={refAboutItem}>
       <div>
-        <h2 className={`${s.about__item_title} heading2`}>{tab.title}</h2>
-        <p className={`${s.about__item_text} text`}>{tab.description}</p>
+        <h2 className={`${s.item__title} heading2`}>{tab.title}</h2>
+        <p className={`${s.item__text} text`}>{tab.description}</p>
       </div>
 
       <div>
-        <Link className={s.about__item_link} to={tab.link}>
+        <Link className={s.item__link} to={tab.link}>
           Share Your Story
         </Link>
-        <div className={s.about__item_buttons}>
-          <ButtonApp size='large'>Donate Now</ButtonApp>
-          <ButtonApp size='large' color='white'>
+        <div className={s.item__buttons}>
+          <ButtonApp size='large' className={s.item__button}>
+            Donate Now
+          </ButtonApp>
+          <ButtonApp size='large' color='white' className={s.item__button}>
             Become a Volunteer
           </ButtonApp>
         </div>
