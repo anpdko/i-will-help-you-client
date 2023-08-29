@@ -14,6 +14,7 @@ const Bunner = (props: BunnerProps) => {
   return (
     <article className={s.banner}>
       <img className={s.banner__img} src={props.img} alt='banner img' />
+      <div className={s.banner__filter}></div>
 
       <div className={s.banner__content}>
         <h3 className={`${s.banner__title} bunner-title`}>{props.title}</h3>
