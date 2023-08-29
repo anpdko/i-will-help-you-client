@@ -36,7 +36,8 @@ const AuthAdminPage = () => {
   return (
     <div className={s.auth}>
       <div className={s['form-container']}>
-        <h1 className={s.title}>Вхід в адмін панель</h1>
+        <h1 className='bunner-title'>Вхід в адмін панель</h1>
+
         <form className={s.form} action='' method='' onSubmit={handleSubmit}>
           <input
             className={s.input}
@@ -57,7 +58,12 @@ const AuthAdminPage = () => {
             onChange={handlePasswordChange}
           />
           {error && <p className={s.error}>{error}</p>}
-          <ButtonApp type='submit'>
+          <ButtonApp 
+            className={s.submit} 
+            type='submit' 
+            color='orange' 
+            size='medium'
+          >
             Вхід
           </ButtonApp>
         </form>
