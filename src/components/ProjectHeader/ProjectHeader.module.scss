@@ -1,10 +1,10 @@
 @import '../../styles/index';
 .body {
+  display: flex;
   position: relative;
   @include adaptiveValue('padding-top', 64, 30);
   @include adaptiveValue('padding-bottom', 150, 40);
-  display: flex;
-  @include adaptiveValue('gap', 100, 40, 0, 1200, 992);
+  @include adaptiveValue('gap', 100, 50, 0, 1200, 992);
   @media (min-width: em(1170)) {
     &::after {
       content: '';
@@ -18,7 +18,7 @@
     }
   }
   @media (max-width: em(1170)) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 .swiper_content {
@@ -91,16 +91,10 @@
   justify-content: space-between;
   z-index: 2;
   width: 100%;
+  bottom: toRem(-40);
   @include adaptiveValue('padding-left', 20, 10);
   @include adaptiveValue('padding-right', 20, 10);
-  @media (min-width: em(1170)) {
-    bottom: toRem(-40);
-  }
-  @media (max-width: em(1170)) {
-    top: 50%;
-    transform: translate(0px, -50%);
-  }
-
+  @include adaptiveValue('bottom', -40, -20);
   .arrow_prev,
   .arrow_next {
     cursor: pointer;
