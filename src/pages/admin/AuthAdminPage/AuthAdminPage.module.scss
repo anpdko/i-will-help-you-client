@@ -1,6 +1,67 @@
-.auth_pdmin_page {
+.auth {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form-container {
     display: flex;
     justify-content: center;
-    margin: auto;
-    padding: 0;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 2rem;
+    border: 0.125rem solid var(--orange);
+    border-radius: 1rem;
+    width: 25rem;
+    text-align: center;
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      // color: var(--orange);
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      border: 0.125rem solid var(--orange);
+      border-radius: 0.625rem;
+      background-color: var(--bg);
+    }
+
+    input::placeholder {
+      color: var(--dark-grey);
+    }
+
+    button {
+      width: 50%;
+      color: var(--orange);
+      background-color: var(--bg);
+      border: none;
+      padding: 1rem;
+      margin: 1rem auto 0;
+      font-size: 1rem;
+      border: 0.125rem solid var(--orange);
+      border-radius: 0.625rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: var(--orange);
+      color: var(--black);
+    }
+
+    .FaEye {
+      color: orange;
+    }
+
+    .error {
+      color: red;
+      text-align: left;
+    }
+  }
 }
