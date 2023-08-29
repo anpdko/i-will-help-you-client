@@ -104,7 +104,7 @@ const Reviews = () => {
                   />
                 </div>
 
-                <div>
+                <div className={s.reviews__info}>
                   <h3 className={`${s.reviews__name} cards-header`}>
                     {
                       tab.translations.find((trans) => trans.language === 'en')

@@ -30,6 +30,14 @@
     }
   }
 
+  &__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+  }
+
   &__tab{
     display: flex;
     flex-direction: row-reverse;
