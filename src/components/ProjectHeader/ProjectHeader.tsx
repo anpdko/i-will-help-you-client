@@ -40,6 +40,7 @@ const ProjectHeader = () => {
                 nextEl: '.swiper-button-next',
               }}
               effect={'fade'}
+              fadeEffect={{ crossFade: true }}
               spaceBetween={0}
               slidesPerView={1}
               onSwiper={(swiper) => setFirstSwiper(swiper)}
