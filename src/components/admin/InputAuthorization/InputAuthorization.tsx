@@ -11,17 +11,17 @@ const InputAuthorization = () => {
   const [loginTouched, setLoginTouched] = useState(false);
   const [passwordTouched, setPasswordTouched] = useState(false);
 
-  const handleLoginChange = (event) => {
+  const handleLoginChange = (event: any) => {
     setLogin(event.target.value);
     setLoginTouched(true);
   };
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: any) => {
     setPassword(event.target.value);
     setPasswordTouched(true);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
 
     if (!login || !password) {
