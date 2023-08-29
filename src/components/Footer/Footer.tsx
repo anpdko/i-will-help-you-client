@@ -69,8 +69,10 @@ const Footer = () => {
           </div>
 
           <div className={s.footer_links__contacts}>
-            <ButtonApp>Donate</ButtonApp>
-            <ul className={s.footer_links__list}>
+            <div>
+              <ButtonApp size='medium'>Donate</ButtonApp>
+            </div>
+            <ul className={s.footer_links__list_contacts}>
               <li>
                 <p>Mon-Fri 8:00 - 18:00</p>
               </li>
@@ -82,6 +84,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          
         </div>
       </div>
     </footer>
