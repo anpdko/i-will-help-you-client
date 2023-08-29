@@ -1,4 +1,3 @@
-
 interface IProjectsTags {
   tag: string;
   desc: string;
@@ -12,7 +11,6 @@ export interface IProjectsContent {
   goals: IProjectsTags[];
   criteria: IProjectsTags[];
 }
-
 
 export interface IProject {
   _id: string;
