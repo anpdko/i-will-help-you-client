@@ -134,7 +134,7 @@ const Reviews = () => {
               }}
             >
               {reviews.map((tab) => (
-                <div className={s.reviews__text_content}>
+                <div key={tab._id} className={s.reviews__text_content}>
                   <SwiperSlide key={tab._id}>
                     <ReviewBlock tab={tab} />
                   </SwiperSlide>
