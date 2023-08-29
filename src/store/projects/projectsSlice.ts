@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import { IProjects, IProjectsState, IProjectsError } from './projectsType';
+import { IProject, IProjectsState, IProjectsError } from './projectsType';
 // import authHeader from '../../services/admin/header.service'
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -34,7 +34,7 @@ export const getProjects = createAsyncThunk(
   'projects/getProjects',
   async (_, { fulfillWithValue, rejectWithValue }) => {
     try {
-      const res: AxiosResponse<IProjects[]> = await axios.get(
+      const res: AxiosResponse<IProject[]> = await axios.get(
         `${API_URL}/api/projects`,
       );
       return fulfillWithValue(res.data);
