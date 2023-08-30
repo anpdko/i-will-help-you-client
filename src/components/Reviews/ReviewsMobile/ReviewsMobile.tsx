@@ -80,7 +80,7 @@ const ReviewsMobile = () => {
         ))}
         <div className={s.custom_pagination}>
           {Array.from({ length: totalPages }, (_, index) => (
-            <span
+            <button
               key={index}
               className={`${s.pagination_bullet} ${
                 isActive === index ? s.pagination_bullet__active : ''

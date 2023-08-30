@@ -33,7 +33,7 @@ const ReviewsDesktop = () => {
 
   useEffect(() => {
     dispatch(getReviews());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log(reviews);
@@ -47,7 +47,7 @@ const ReviewsDesktop = () => {
     swiperRef.current?.slideNext();
   };
 
-  const onSlideChange = (swiper: any) => {
+  const onSlideChange = (swiper: SwiperRef) => {
     handleSlideByState({
       isFirst: swiper.isBeginning,
       isLast: swiper.isEnd,
@@ -56,17 +56,17 @@ const ReviewsDesktop = () => {
     setIsActive(swiper.activeIndex);
   };
 
-  const handleTabClick = (index: any) => {
+  const handleTabClick = (index: number) => {
     swiperRef.current?.slideTo(index);
   };
 
-  const handleMouseDown = (e: any) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsDragging(true);
     setStartY(e.clientY);
     setScrollTop(e.currentTarget.scrollTop);
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
 
     const y = e.clientY - startY;
@@ -76,6 +76,15 @@ const ReviewsDesktop = () => {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
+
+  const handleTabKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLDivElement>,
+  ) => {
+    if (e.key === 'Enter') {
+      handleTabClick(index);
+    }
+  };
   return (
     <div className={s.reviews_desktop}>
       <div
@@ -83,6 +92,9 @@ const ReviewsDesktop = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        role='button'
+        tabIndex={0}
+        onKeyDown={(e) => handleTabKeyDown(isActive, e)}
       >
         {reviews.map((tab, index) => (
           <div
@@ -91,6 +103,13 @@ const ReviewsDesktop = () => {
             className={`${s.reviews_desktop__tab} ${
               isActive === index ? s.reviews_desktop__active : ''
             }`}
+            role='button'
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleTabClick(index);
+              }
+            }}
+            tabIndex={0}
           >
             <div className={s.reviews_desktop__img}>
               <img
