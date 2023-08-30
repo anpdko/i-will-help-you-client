@@ -63,8 +63,12 @@ const ProjectHeader = () => {
               modules={[Controller]}
               breakpoints={{
                 320: {
-                  slidesPerView: 1.1,
+                  slidesPerView: 1,
                   spaceBetween: 17,
+                },
+                768: {
+                  slidesPerView: 1.3,
+                  spaceBetween: 40,
                 },
                 1170: {
                   slidesPerView: 1,
