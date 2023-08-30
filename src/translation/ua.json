@@ -3,5 +3,10 @@
    "Ready to Help": "Готовий допомогти",
    "Need Help" : "Потребую допомоги",
    "Projects" : "Проекти",
-   "About us" : "Про нас"
+   "About us" : "Про нас",
+
+   "Please fill in the login field":" Будь ласка, заповніть поле з логіном",
+   "Please fill in the password field":" Будь ласка, заповніть поле з паролем",
+   "Incorrect login. Please try again":"Невірний логін. Будь ласка, спробуйте ще раз",
+   "Incorrect password. Please try again":"Невірний пароль. Будь ласка, спробуйте ще раз"
 }

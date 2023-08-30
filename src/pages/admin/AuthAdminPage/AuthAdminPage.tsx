@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import s from './AuthAdminPage.module.scss';
 import ButtonApp from '../../../components/UI/ButtonApp/ButtonApp';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../../../store/store';
 import { adminLogin, clearMessage } from '../../../store/admin/adminSlice.ts';
+import { useTranslation } from 'react-i18next';
 
 interface IData {
   login: string;
@@ -19,6 +19,7 @@ const initialUser:IData = {
 const AuthAdminPage = () => {
   const [user, setUser] = useState(initialUser);
   const [error, setError] = useState(initialUser);
+  const {t} = useTranslation()
 
   const { loading, message } = useSelector((state: RootState) => state.admin);
   const dispatch = useDispatch<AppDispatch>();
@@ -47,11 +48,11 @@ const AuthAdminPage = () => {
     event.preventDefault();
 
     if (!user.login) {
-      setError({...error, login:'Заповніть всі поля'});
+      setError({...error, login:'Please fill in the login field'});
       return;
     }
     if (!user.password) {
-      setError({...error, password:'Заповніть всі поля'});
+      setError({...error, password:'Please fill in the password field'});
       return;
     }
 
@@ -77,7 +78,7 @@ const AuthAdminPage = () => {
             value={user.login}
             onChange={handleUserChange}
           />
-          {error.login && <p className={s.error}>{error.login}</p>}
+          {error.login && <p className={s.error}>{t(error.login)}</p>}
 
           <input
             className={s.passwordInput}
@@ -87,7 +88,7 @@ const AuthAdminPage = () => {
             value={user.password}
             onChange={handleUserChange}
           />
-          {error.password && <p className={s.error}>{error.password}</p>}
+          {error.password && <p className={s.error}>{t(error.password)}</p>}
           <ButtonApp
             className={s.submit}
             type='submit'
