@@ -77,90 +77,84 @@ const ReviewsDesktop = () => {
     setIsDragging(false);
   };
   return (
-    <div className='container'>
-      <h2 className='heading1'>Stories of Hope and Gratitude</h2>
-      <div className={s.reviews_desktop}>
-        <div
-          className={s.reviews_desktop__tabs}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-        >
-          {reviews.map((tab, index) => (
-            <div
-              key={tab._id}
-              onClick={() => handleTabClick(index)}
-              className={`${s.reviews_desktop__tab} ${
-                isActive === index ? s.reviews_desktop__active : ''
-              }`}
-            >
-              <div className={s.reviews_desktop__img}>
-                <img
-                  src={API_URL + '/static/images/reviews/' + tab.foto}
-                  alt='review img'
-                />
-              </div>
+    <div className={s.reviews_desktop}>
+      <div
+        className={s.reviews_desktop__tabs}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
+        {reviews.map((tab, index) => (
+          <div
+            key={tab._id}
+            onClick={() => handleTabClick(index)}
+            className={`${s.reviews_desktop__tab} ${
+              isActive === index ? s.reviews_desktop__active : ''
+            }`}
+          >
+            <div className={s.reviews_desktop__img}>
+              <img
+                src={API_URL + '/static/images/reviews/' + tab.foto}
+                alt='review img'
+              />
+            </div>
 
-              <div className={s.reviews_desktop__info}>
-                <h3 className={`${s.reviews_desktop__name} cards-header`}>
-                  {
-                    tab.translations.find((trans) => trans.language === 'en')
-                      ?.name
-                  }
-                </h3>
-                <p className={s.reviews_desktop__status}>
-                  {
-                    tab.translations.find((trans) => trans.language === 'en')
-                      ?.job
-                  }
-                </p>
-              </div>
+            <div className={s.reviews_desktop__info}>
+              <h3 className={`${s.reviews_desktop__name} cards-header`}>
+                {
+                  tab.translations.find((trans) => trans.language === 'en')
+                    ?.name
+                }
+              </h3>
+              <p className={s.reviews_desktop__status}>
+                {tab.translations.find((trans) => trans.language === 'en')?.job}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={s.reviews_desktop__text}>
+        <Swiper
+          modules={[Navigation, EffectFade]}
+          className={s.reviews_desktop__text_slider}
+          onSlideChange={onSlideChange}
+          slidesPerView={1}
+          spaceBetween={0}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+        >
+          {reviews.map((tab) => (
+            <div key={tab._id} className={s.reviews_desktop__text_content}>
+              <SwiperSlide key={tab._id}>
+                <ReviewBlock tab={tab} />
+              </SwiperSlide>
             </div>
           ))}
-        </div>
+        </Swiper>
 
-        <div className={s.reviews_desktop__text}>
-          <Swiper
-            modules={[Navigation, EffectFade]}
-            className={s.reviews_desktop__text_slider}
-            onSlideChange={onSlideChange}
-            slidesPerView={1}
-            spaceBetween={0}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
+        <div className={s.slide_navigation}>
+          <button
+            onClick={handlePrevSlide}
+            className={`${s.slide_navigation__button} ${
+              isFirst ? s.slide_navigation__disabled : ''
+            }`}
           >
-            {reviews.map((tab) => (
-              <div key={tab._id} className={s.reviews_desktop__text_content}>
-                <SwiperSlide key={tab._id}>
-                  <ReviewBlock tab={tab} />
-                </SwiperSlide>
-              </div>
-            ))}
-          </Swiper>
-
-          <div className={s.slide_navigation}>
-            <button
-              onClick={handlePrevSlide}
-              className={`${s.slide_navigation__button} ${
-                isFirst ? s.slide_navigation__disabled : ''
-              }`}
-            >
-              <svg>
-                <use href={sprite + '#arrow-left'}></use>
-              </svg>
-            </button>
-            <button
-              onClick={handleNextSlide}
-              className={`${s.slide_navigation__button} ${
-                isLast ? s.slide_navigation__disabled : ''
-              }`}
-            >
-              <svg>
-                <use href={sprite + '#arrow-right'}></use>
-              </svg>
-            </button>
-          </div>
+            <svg>
+              <use href={sprite + '#arrow-left'}></use>
+            </svg>
+          </button>
+          <button
+            onClick={handleNextSlide}
+            className={`${s.slide_navigation__button} ${
+              isLast ? s.slide_navigation__disabled : ''
+            }`}
+          >
+            <svg>
+              <use href={sprite + '#arrow-right'}></use>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
