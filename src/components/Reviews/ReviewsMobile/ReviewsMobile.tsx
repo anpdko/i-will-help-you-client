@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from '../../../store/store';
 import { getReviews } from '../../../store/reviews/reviewsSlice';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperRef } from 'swiper';
 
 import s from './ReviewsMobile.module.scss';
 import ReviewBlock from '../ReviewBlock/ReviewBlock';
@@ -14,6 +15,7 @@ const ReviewsMobile = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { reviews } = useSelector((state: RootState) => state.reviews);
   const [isActive, setIsActive] = useState(0);
+  const [swiper, setSwiper] = useState<SwiperRef | null>(null);
 
   useEffect(() => {
     dispatch(getReviews());
@@ -22,11 +24,18 @@ const ReviewsMobile = () => {
   const onSlideChange = (swiper: { activeIndex: SetStateAction<number> }) => {
     setIsActive(swiper.activeIndex);
   };
-  const totalPages = reviews.length;
 
+  const goToSlide = (index: number) => {
+    if (swiper) {
+      swiper.slideTo(index);
+    }
+  };
+
+  const totalPages = reviews.length;
   return (
     <div className={s.reviews_mobile}>
       <Swiper
+        onSwiper={setSwiper}
         spaceBetween={22}
         grabCursor={true}
         centeredSlides={true}
@@ -76,7 +85,10 @@ const ReviewsMobile = () => {
               className={`${s.pagination_bullet} ${
                 isActive === index ? s.pagination_bullet__active : ''
               }`}
-              onClick={() => setIsActive(index)}
+              onClick={() => {
+                setIsActive(index);
+                goToSlide(index);
+              }}
             />
           ))}
         </div>
