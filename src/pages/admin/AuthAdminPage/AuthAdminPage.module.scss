@@ -34,9 +34,9 @@
       width: 100%;
       padding: 0.8rem;
       font-size: 1rem;
-      border: 0.125rem solid var(--orange);
+      border: 0.125rem solid var(--black);
       border-radius: 0.625rem;
-      background-color: var(--bg);
+      background-color: var(--total-white);
     }
 
     input::placeholder {
@@ -45,7 +45,8 @@
 
     .submit{
       width: auto;
-      padding-inline: 1.8rem;
+      padding-inline: 2.2rem;
+      margin-top: 0.5rem;
     }
 
     .FaEye {
