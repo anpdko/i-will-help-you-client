@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
-
-import projectHeaderData from '../../data/projectHeaderData';
+import { IProjectsState } from '../../store/projects/projectsType';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -17,14 +16,29 @@ import sprite from '../../assets/sprite.svg';
 import 'swiper/scss';
 import 'swiper/css/effect-fade';
 
-const ProjectHeader = () => {
-  const { t } = useTranslation();
+const ProjectHeader: React.FC<IProjectsState> = ({ projects }) => {
+  const { t, i18n } = useTranslation();
+
+  const IMAGE_PREFIX = '/static/images/projects/';
 
   // need to find what type
   const [firstSwiper, setFirstSwiper] = useState<any>(null);
   const [secondSwiper, setSecondSwiper] = useState<any>(null);
 
   useEffect(() => {}, [firstSwiper, secondSwiper]);
+
+  // Memoize translations based on selected language
+  const translatedProjects = useMemo(() => {
+    return projects.map((project) => {
+      const translation = project.translations.find(
+        (translation) => translation.language === i18n.language,
+      );
+      return {
+        ...project,
+        translation: translation || project.translations[0], // Fallback to the first translation
+      };
+    });
+  }, [projects, i18n.language]);
 
   return (
     <section className={s.projects}>
@@ -44,11 +58,14 @@ const ProjectHeader = () => {
               onSwiper={(swiper) => setFirstSwiper(swiper)}
               controller={{ control: secondSwiper }}
             >
-              {projectHeaderData.map((project) => (
-                <SwiperSlide key={project.id} style={{ background: '#F1F1F1' }}>
+              {translatedProjects.map((project) => (
+                <SwiperSlide
+                  key={project._id}
+                  style={{ background: '#F1F1F1' }}
+                >
                   <div className={s.content}>
-                    <h2 className='heading2'>{project.title}</h2>
-                    <p>{project.description}</p>
+                    <h2 className='heading2'>{project.translation.title}</h2>
+                    <p>{`"${project.translation.slogan}"`}</p>
                     <div className={s.actions}>
                       <ButtonApp>{t('Donate')}</ButtonApp>
                       <ButtonApp color='white'>{t('Need Help')}</ButtonApp>
@@ -79,10 +96,13 @@ const ProjectHeader = () => {
               controller={{ control: firstSwiper }}
               style={{ overflow: 'visible' }}
             >
-              {projectHeaderData.map((project) => (
-                <SwiperSlide key={project.id}>
+              {projects.map((project) => (
+                <SwiperSlide key={project._id}>
                   <div className={s.image}>
-                    <img src={API_URL + project.img} alt={project.title} />
+                    <img
+                      src={`${API_URL}${IMAGE_PREFIX}${project.imgCover}`}
+                      alt={project.translations[0].title}
+                    />
                   </div>
                 </SwiperSlide>
               ))}

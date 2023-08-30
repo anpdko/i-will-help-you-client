@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { ProjectHeader, WrapperAccordion } from '../../components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getProjects } from '../../store/projects/projectsSlice';
-import { RootState, AppDispatch } from '../../store/store';
+import { RootState, useAppDispatch } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 
 const ProjectsPage = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { projects } = useSelector((state: RootState) => state.projects);
+  const dispatch = useAppDispatch(); // такий запис буде лаконичніше, не треба буде робити 2 імпорти. Замість useDispatch() імпортуємо useAppDispatch() типи підтягнуться самі :)
+  const { projects, loading, message } = useSelector(
+    (state: RootState) => state.projects,
+  );
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ const ProjectsPage = () => {
 
   return (
     <>
-      <ProjectHeader />
+      <ProjectHeader projects={projects} loading={loading} message={message} />
       <WrapperAccordion variant='paragraph' content={[]} />
     </>
   );
