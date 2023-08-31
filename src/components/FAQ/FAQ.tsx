@@ -1,18 +1,18 @@
 import s from './FAQ.module.scss';
 import faqData from '../../data/faqData';
+import React from 'react';
+import FAQItem from './FAQItem/FAQItem';
 
 const FAQ = () => {
   return (
     <section className={s.faq}>
       <ul className={s.faq_list}>
         {faqData.map((el) => (
-          <li key={el.id} className={s.faq_item}>
-            <h3 className={s.faq_item__title}>{el.title}</h3>
-            <p className={s.faq_item__descr}>{el.description}</p>
-          </li>
+          <FAQItem key={el.id} tab={el} />
         ))}
       </ul>
     </section>
   );
 };
+
 export default FAQ;
