@@ -31,11 +31,11 @@ const ProjectHeader: React.FC<IProjectsState> = ({ projects, loading }) => {
   return (
     <section className={s.projects}>
       <div className='container'>
-        <div className={s.body}>
-          <div className={s.swiper_content}>
-            {loading ? (
-              <Preloader />
-            ) : (
+        {loading ? (
+          <Preloader />
+        ) : (
+          <div className={s.body}>
+            <div className={s.swiper_content}>
               <Swiper
                 modules={[Navigation, Controller, EffectFade]}
                 navigation={{
@@ -67,12 +67,8 @@ const ProjectHeader: React.FC<IProjectsState> = ({ projects, loading }) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            )}
-          </div>
-          <div className={s.swiper_image}>
-            {loading ? (
-              <Preloader />
-            ) : (
+            </div>
+            <div className={s.swiper_image}>
               <Swiper
                 modules={[Controller]}
                 breakpoints={{
@@ -116,9 +112,9 @@ const ProjectHeader: React.FC<IProjectsState> = ({ projects, loading }) => {
                   </button>
                 </div>
               </Swiper>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

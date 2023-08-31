@@ -8,8 +8,13 @@
       @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
       @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
-      &:last-child{
+      &:last-child {
         align-items: center;
+        @media (max-width: $mobile) {
+          button {
+            min-width: 100%;
+          }
+        }
       }
     }
   }
@@ -23,11 +28,19 @@
 .header {
   flex: 0 1 59.416667%;
   display: flex;
-  flex-direction: row-reverse;
   justify-content: start;
-  align-items: center;
+
   &:not(:last-child) {
-    @include adaptiveValue('margin-bottom', 43, 20, 0, 1200, 390);
+    margin-bottom: toRem(44);
+  }
+  @media (min-width: $mobile) {
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  @media (max-width: $mobile) {
+    gap: toRem(24);
+    flex-direction: column;
+    align-items: start;
   }
 
   .title {
@@ -40,21 +53,25 @@
     position: relative;
     padding-left: toRem(56);
     padding-right: toRem(20);
+    @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
     &::before {
       content: '';
       position: absolute;
-      width: toRem(44);
       height: toRem(2);
       top: 50%;
       left: 0;
       background-color: var(--black);
+      border-radius: toRem(8);
+      @include adaptiveValue('width', 44, 24, 0, 1200, 390);
     }
   }
 }
 
 //========================================================================================================================================================
 .list {
-  padding-left: 40.5%; /* 486/1200 */
+  @media (min-width: $mobile) {
+    padding-left: 40.5%; /* 486/1200 */
+  }
   p {
     &:not(:last-child) {
       margin-bottom: em(24, 16);
@@ -66,10 +83,10 @@
     align-items: start;
     gap: toRem(24);
     &:not(:first-child) {
-      padding-top: toRem(24);
+      @include adaptiveValue('padding-top', 24, 20, 0, 1200, 390);
     }
     &:not(:last-child) {
-      padding-bottom: toRem(24);
+      @include adaptiveValue('padding-bottom', 24, 20, 0, 1200, 390);
       &::after {
         content: '';
         position: absolute;
@@ -78,15 +95,18 @@
         bottom: 0;
         left: 0;
         background-color: var(--black);
+        border-radius: toRem(8);
       }
     }
   }
   .tag {
     color: var(--dark-grey);
     font-weight: 600;
-    min-width: toRem(204);
-  }
-  .desc {
+    @media (min-width: $mobileSmall) {
+      min-width: toRem(204);
+    }
+    @include adaptiveValue('max-width', 150, 110, 1, 768, 320);
+    @include adaptiveValue('min-width', 150, 110, 1, 768, 320);
   }
 }
 
