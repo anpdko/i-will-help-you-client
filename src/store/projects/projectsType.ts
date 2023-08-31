@@ -1,4 +1,4 @@
-interface IProjectsTags {
+export interface IProjectsTags {
   _id: string;
   tag: string;
   desc: string;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { ProjectHeader, WrapperAccordion } from '../../components';
 import { useSelector } from 'react-redux';
 import { getProjects } from '../../store/projects/projectsSlice';
@@ -16,17 +16,16 @@ const ProjectsPage = () => {
     dispatch(getProjects());
   }, []);
 
-  // Filter and keep only the translations that match the selected language
-  const filteredProjects = projects.map((project) => ({
-    ...project,
-    translations: [
-      project.translations.find(
-        (translation) => translation.language === i18n.language,
-      ) || project.translations[0],
-    ],
-  }));
-
-  console.log(filteredProjects);
+  const filteredProjects = useMemo(() => {
+    return projects.map((project) => ({
+      ...project,
+      translations: [
+        project.translations.find(
+          (translation) => translation.language === i18n.language,
+        ) || project.translations[0],
+      ],
+    }));
+  }, [projects, i18n.language]);
 
   return (
     <>
