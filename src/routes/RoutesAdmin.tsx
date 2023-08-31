@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthAdminPage, ReviewsAdminPage } from '../pages/admin';
+import { AuthAdminPage, ReviewsAdminPage, ProjectsAdminPage } from '../pages/admin';
 import { NavbarAdmin } from '../components/admin';
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from '../store/store'
@@ -23,9 +23,10 @@ const RoutesAdmin = () => {
         {isLoggedIn ? (
           <Routes>
             <Route path='/panel/reviews' element={<ReviewsAdminPage />} />
+            <Route path='/panel/projects' element={<ProjectsAdminPage />} />
             <Route
               path='*'
-              element={<Navigate to={'/admin/panel/reviews'} />}
+              element={<Navigate to={'/admin/panel/projects'} />}
             />
           </Routes>
         ) : (
