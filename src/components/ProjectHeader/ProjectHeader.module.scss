@@ -1,9 +1,16 @@
 @import '../../styles/index';
+.projects {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 64, 30);
+      @include adaptiveValue('padding-bottom', 75, 40, 0, 1200, 390);
+    }
+  }
+}
 .body {
   display: flex;
   position: relative;
-  @include adaptiveValue('padding-top', 64, 30);
-  @include adaptiveValue('padding-bottom', 150, 40);
+
   @include adaptiveValue('gap', 100, 50, 0, 1200, 992);
   @media (min-width: em(1170)) {
     &::after {
@@ -11,7 +18,7 @@
       align-self: center;
       position: absolute;
       width: 200%;
-      height: 76%;
+      height: 100%;
       left: -162%;
       background-color: var(--bg);
       z-index: 1;

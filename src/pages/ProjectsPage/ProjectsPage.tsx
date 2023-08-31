@@ -6,7 +6,7 @@ import { RootState, useAppDispatch } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 
 const ProjectsPage = () => {
-  const dispatch = useAppDispatch(); // такий запис буде лаконичніше, не треба буде робити 2 імпорти. Замість useDispatch() імпортуємо useAppDispatch() типи підтягнуться самі :)
+  const dispatch = useAppDispatch();
   const { projects, loading, message } = useSelector(
     (state: RootState) => state.projects,
   );
@@ -16,14 +16,30 @@ const ProjectsPage = () => {
     dispatch(getProjects());
   }, []);
 
-  useEffect(() => {
-    console.log(projects, i18n.language);
-  }, [projects]);
+  // Filter and keep only the translations that match the selected language
+  const filteredProjects = projects.map((project) => ({
+    ...project,
+    translations: [
+      project.translations.find(
+        (translation) => translation.language === i18n.language,
+      ) || project.translations[0],
+    ],
+  }));
+
+  console.log(filteredProjects);
 
   return (
     <>
-      <ProjectHeader projects={projects} loading={loading} message={message} />
-      <WrapperAccordion variant='paragraph' content={[]} />
+      <ProjectHeader
+        projects={filteredProjects}
+        loading={loading}
+        message={message}
+      />
+      <WrapperAccordion
+        projects={filteredProjects}
+        loading={loading}
+        message={message}
+      />
     </>
   );
 };

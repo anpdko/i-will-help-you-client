@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Preloader from '../UI/Preloader/Preloader';
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
 import { IProjectsState } from '../../store/projects/projectsType';
 
@@ -15,14 +16,9 @@ import sprite from '../../assets/sprite.svg';
 // Import Swiper styles
 import 'swiper/scss';
 import 'swiper/css/effect-fade';
-import Preloader from '../UI/Preloader/Preloader';
 
-const ProjectHeader: React.FC<IProjectsState> = ({
-  projects,
-  loading,
-  message,
-}) => {
-  const { t, i18n } = useTranslation();
+const ProjectHeader: React.FC<IProjectsState> = ({ projects, loading }) => {
+  const { t } = useTranslation();
 
   const IMAGE_PREFIX = '/static/images/projects/';
 
@@ -32,26 +28,12 @@ const ProjectHeader: React.FC<IProjectsState> = ({
 
   useEffect(() => {}, [firstSwiper, secondSwiper]);
 
-  // Memoize translations based on selected language
-  const translatedProjects = useMemo(() => {
-    return projects.map((project) => {
-      const translation = project.translations.find(
-        (translation) => translation.language === i18n.language,
-      );
-      return {
-        ...project,
-        translation: translation || project.translations[0], // Fallback to the first translation
-      };
-    });
-  }, [projects, i18n.language]);
-
   return (
     <section className={s.projects}>
       <div className='container'>
         <div className={s.body}>
           <div className={s.swiper_content}>
             {loading ? (
-              // Show a preloader while projects are loading
               <Preloader />
             ) : (
               <Swiper
@@ -67,14 +49,16 @@ const ProjectHeader: React.FC<IProjectsState> = ({
                 onSwiper={(swiper) => setFirstSwiper(swiper)}
                 controller={{ control: secondSwiper }}
               >
-                {translatedProjects.map((project) => (
+                {projects.map((project) => (
                   <SwiperSlide
                     key={project._id}
                     style={{ background: '#F1F1F1' }}
                   >
                     <div className={s.content}>
-                      <h2 className='heading2'>{project.translation.title}</h2>
-                      <p>{`"${project.translation.slogan}"`}</p>
+                      <h2 className='heading2'>
+                        {project.translations[0].title}
+                      </h2>
+                      <p>{`"${project.translations[0].slogan}"`}</p>
                       <div className={s.actions}>
                         <ButtonApp>{t('Donate')}</ButtonApp>
                         <ButtonApp color='white'>{t('Need Help')}</ButtonApp>
