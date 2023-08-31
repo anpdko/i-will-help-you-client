@@ -12,9 +12,7 @@ const NavbarAdmin = () => {
     <div className={s.navbar_admin}>
       <h1>NavbarAdmin</h1>
       <ul>
-        <li onClick = {() => dispatch(adminLogout())}>
-          Exit
-        </li>
+        <li onClick={() => dispatch(adminLogout())}>Exit</li>
       </ul>
     </div>
   );

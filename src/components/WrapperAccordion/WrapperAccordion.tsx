@@ -26,9 +26,11 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
               <div className={s.subtitle}>Project’s description</div>
             </div>
             <div className={s.list}>
-              {about
-                ?.split('\n')
-                .map((paragraph, index) => <p className='text' key={index}>{paragraph}</p>)}
+              {about?.split('\n').map((paragraph, index) => (
+                <p className='text' key={index}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         )}

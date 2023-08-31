@@ -1,10 +1,6 @@
-import s from './FAQ.module.scss'
+import s from './FAQ.module.scss';
 
 const FAQ = () => {
-   return (
-      <div className={s.faq}>
-         
-      </div>
-   );
+  return <div className={s.faq}></div>;
 };
-export default FAQ
+export default FAQ;

@@ -1,9 +1,6 @@
-
-import s from './InputApp.module.scss'
+import s from './InputApp.module.scss';
 
 const InputApp = () => {
-   return (
-      <input className={s.input_app}/>
-   );
+  return <input className={s.input_app} />;
 };
-export default InputApp
+export default InputApp;
