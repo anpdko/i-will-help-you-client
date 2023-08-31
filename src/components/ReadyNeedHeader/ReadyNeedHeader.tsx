@@ -1,10 +1,6 @@
-import s from './ReadyNeedHeader.module.scss'
+import s from './ReadyNeedHeader.module.scss';
 
 const ReadyNeedHeader = () => {
-   return (
-      <section className={s.ready_need_header}>
-         
-      </section>
-   );
+  return <section className={s.ready_need_header}></section>;
 };
-export default ReadyNeedHeader
+export default ReadyNeedHeader;

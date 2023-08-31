@@ -23,5 +23,5 @@ export {
   ProjectHeader,
   WrapperAccordion,
   ReadyNeedHeader,
-  FAQ
+  FAQ,
 };

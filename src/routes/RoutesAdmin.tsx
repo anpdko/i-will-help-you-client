@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthAdminPage, ReviewsAdminPage, ProjectsAdminPage } from '../pages/admin';
+import {
+  AuthAdminPage,
+  ReviewsAdminPage,
+  ProjectsAdminPage,
+} from '../pages/admin';
 import { NavbarAdmin } from '../components/admin';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store';
@@ -14,7 +18,7 @@ const RoutesAdmin = () => {
     if (isLoggedIn) {
       dispatch(isRegistered());
     }
-  }, []);
+  }, [dispatch, isLoggedIn]);
 
   return (
     <main>
