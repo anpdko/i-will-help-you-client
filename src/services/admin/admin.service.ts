@@ -1,4 +1,3 @@
-
 const logout = () => {
   localStorage.removeItem('admin');
 };

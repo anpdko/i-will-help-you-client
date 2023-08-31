@@ -1,7 +1,7 @@
 import s from './NavbarAdmin.module.scss';
-import {AppDispatch} from '../../../store/store'
-import { adminLogout } from '../../../store/admin/adminSlice'
-import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../store/store';
+import { adminLogout } from '../../../store/admin/adminSlice';
+import { useDispatch } from 'react-redux';
 
 //   /panel/reviews
 //   /panel/projects
