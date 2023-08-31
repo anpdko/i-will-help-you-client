@@ -24,9 +24,7 @@ const ProjectHeader = () => {
   const [firstSwiper, setFirstSwiper] = useState<any>(null);
   const [secondSwiper, setSecondSwiper] = useState<any>(null);
 
-  useEffect(() => {
-    console.log(firstSwiper, secondSwiper);
-  }, [firstSwiper, secondSwiper]);
+  useEffect(() => {}, [firstSwiper, secondSwiper]);
 
   return (
     <section className={s.projects}>
@@ -40,6 +38,7 @@ const ProjectHeader = () => {
                 nextEl: '.swiper-button-next',
               }}
               effect={'fade'}
+              fadeEffect={{ crossFade: true }}
               spaceBetween={0}
               slidesPerView={1}
               onSwiper={(swiper) => setFirstSwiper(swiper)}
@@ -62,8 +61,16 @@ const ProjectHeader = () => {
           <div className={s.swiper_image}>
             <Swiper
               modules={[Controller]}
-              spaceBetween={78}
-              slidesPerView={1}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1.1,
+                  spaceBetween: 17,
+                },
+                1170: {
+                  slidesPerView: 1,
+                  spaceBetween: 78,
+                },
+              }}
               onSwiper={(swiper) => setSecondSwiper(swiper)}
               controller={{ control: firstSwiper }}
               style={{ overflow: 'visible' }}

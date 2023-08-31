@@ -1,0 +1,63 @@
+@import '../../../styles/index.scss';
+.reviews_mobile{
+  position: relative;
+  margin: 2.25rem 0 7rem;
+  &__card{
+    background-color: var(--total-white);
+    border-radius: 1rem;
+    cursor: grab;
+    width: 19rem;
+    padding: 1.75rem 1.38rem;
+    min-height: 24.75rem;
+    border: 2px solid #ffffff00;
+  }
+
+  &__person{
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  &__img{
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+      object-fit: cover;
+    }
+  }
+  &__name{
+    font-weight: 600;
+    margin-bottom: .5rem;
+  }
+
+  &__status{
+    color: var(--dark-grey);
+  }
+
+  &__active{
+    border: 2px solid var(--orange);
+  }
+}
+
+.custom_pagination{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:.5rem;
+  margin-top:1.5rem;
+}
+
+.pagination_bullet{
+  width:10px;
+  height:10px;
+  background-color:var(--light-grey);
+  display:block;
+  border-radius:50%;
+  cursor:pointer;
+  &__active{
+    background-color:var(--black);
+  }
+}

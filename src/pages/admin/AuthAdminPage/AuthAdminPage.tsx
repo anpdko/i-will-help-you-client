@@ -1,37 +1,68 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import s from './AuthAdminPage.module.scss';
 import ButtonApp from '../../../components/UI/ButtonApp/ButtonApp';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../../../store/store';
+import { adminLogin, clearMessage } from '../../../store/admin/adminSlice.ts';
+import { useTranslation } from 'react-i18next';
+
+interface IData {
+  login: string;
+  password: string;
+}
+
+const initialUser:IData = {
+  login: '',
+  password: '',
+};
 
 const AuthAdminPage = () => {
-  const myLogin = 'hojshju';
-  const myPass = 'aslnalsnl';
+  const [user, setUser] = useState(initialUser);
+  const [error, setError] = useState(initialUser);
+  const {t} = useTranslation()
 
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { loading, message } = useSelector((state: RootState) => state.admin);
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleLoginChange = (event: any) => {
-    setLogin(event.target.value);
+  const handleUserChange = (event: any) => {
+    setUser({...user, [event.target.name]: event.target.value})
+    setError({...error, [event.target.name]: ""})
+    dispatch(clearMessage());
   };
 
-  const handlePasswordChange = (event: any) => {
-    setPassword(event.target.value);
-  };
+  useEffect(() => {
+    if(typeof message === 'object'){
+      if(message?.login){
+        setError({...error, login:message?.login})
+        return;
+      }
+      if(message?.password){
+        setError({...error, password:message?.password})
+        return;
+      }
+    }
+  }, [message])
+
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    if (!login || !password) {
-      setError('Заповніть всі поля');
+    if (!user.login) {
+      setError({...error, login:'Please fill in the login field'});
+      return;
+    }
+    if (!user.password) {
+      setError({...error, password:'Please fill in the password field'});
       return;
     }
 
-    if (login !== myLogin || password !== myPass) {
-      setError('Помилка');
-      return;
-    }
-    setError('');
+    dispatch(adminLogin(user));
+    setError(initialUser);
   };
+
+  if(loading) {
+    return <h1>...</h1>
+  }
 
   return (
     <div className={s.auth}>
@@ -44,24 +75,24 @@ const AuthAdminPage = () => {
             type='text'
             name='login'
             placeholder='Логін'
-            value={login}
-            onChange={handleLoginChange}
+            value={user.login}
+            onChange={handleUserChange}
           />
-          {error && <p className={s.error}>{error}</p>}
+          {error.login && <p className={s.error}>{t(error.login)}</p>}
 
           <input
             className={s.passwordInput}
             type='password'
             name='password'
             placeholder='Пароль'
-            value={password}
-            onChange={handlePasswordChange}
+            value={user.password}
+            onChange={handleUserChange}
           />
-          {error && <p className={s.error}>{error}</p>}
-          <ButtonApp 
-            className={s.submit} 
-            type='submit' 
-            color='orange' 
+          {error.password && <p className={s.error}>{t(error.password)}</p>}
+          <ButtonApp
+            className={s.submit}
+            type='submit'
+            color='orange'
             size='medium'
           >
             Вхід
