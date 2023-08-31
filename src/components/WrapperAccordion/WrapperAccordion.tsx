@@ -18,12 +18,12 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
         {loading ? (
           <Preloader />
         ) : (
-          <div className={s.content}>
+          <article className={s.content}>
             <div className={s.header}>
               <h2 className={`${s.title} heading2`}>
-                About the OpportunityConnect
+                {t('About the OpportunityConnect')}
               </h2>
-              <div className={s.subtitle}>Project’s description</div>
+              <h3 className={s.subtitle}>{t('Project’s description')}</h3>
             </div>
             <div className={s.list}>
               {about?.split('\n').map((paragraph, index) => (
@@ -32,45 +32,45 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
                 </p>
               ))}
             </div>
-          </div>
+          </article>
         )}
         {loading ? (
           <Preloader />
         ) : (
-          <div className={s.content}>
+          <article className={s.content}>
             <div className={s.header}>
-              <h2 className={`${s.title} heading2`}>Key Objectives</h2>
-              <div className={s.subtitle}>Our main goals</div>
+              <h2 className={`${s.title} heading2`}>{t('Key Objectives')}</h2>
+              <h3 className={s.subtitle}>{t('Our main goals')}</h3>
             </div>
             <ul className={s.list}>
               {goals?.map((item) => (
                 <li key={item._id} className={s.item}>
-                  <h3 className={s.tag}>{item.tag}</h3>
-                  <p className={s.desc}>{item.desc}</p>
+                  <h4 className={s.tag}>{item.tag}</h4>
+                  <p className='text'>{item.desc}</p>
                 </li>
               ))}
             </ul>
-          </div>
+          </article>
         )}
         {loading ? (
           <Preloader />
         ) : (
-          <div className={s.content}>
+          <article className={s.content}>
             <div className={s.header}>
               <h2 className={`${s.title} heading2`}>
-                Selection Criteria for Participation
+                {t('Selection Criteria for Participation')}
               </h2>
-              <div className={s.subtitle}>Selection criteria</div>
+              <h3 className={s.subtitle}>{t('Selection criteria')}</h3>
             </div>
             <ul className={s.list}>
               {criteria?.map((item) => (
                 <li key={item._id} className={s.item}>
-                  <h3 className={s.tag}>{item.tag}</h3>
-                  <p className={s.desc}>{item.desc}</p>
+                  <h4 className={s.tag}>{item.tag}</h4>
+                  <p className='text'>{item.desc}</p>
                 </li>
               ))}
             </ul>
-          </div>
+          </article>
         )}
         <ButtonApp color='white' size='medium'>
           {t('Join the OpportunityConnect')}

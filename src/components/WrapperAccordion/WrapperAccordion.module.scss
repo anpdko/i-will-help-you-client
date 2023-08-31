@@ -8,6 +8,9 @@
       @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
       @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
+      &:last-child{
+        align-items: center;
+      }
     }
   }
 }
@@ -52,11 +55,36 @@
 //========================================================================================================================================================
 .list {
   padding-left: 40.5%; /* 486/1200 */
-  p {&:not(:last-child) {margin-bottom: em(24, 16);}
+  p {
+    &:not(:last-child) {
+      margin-bottom: em(24, 16);
+    }
   }
   .item {
+    position: relative;
+    display: flex;
+    align-items: start;
+    gap: toRem(24);
+    &:not(:first-child) {
+      padding-top: toRem(24);
+    }
+    &:not(:last-child) {
+      padding-bottom: toRem(24);
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: toRem(2);
+        bottom: 0;
+        left: 0;
+        background-color: var(--black);
+      }
+    }
   }
   .tag {
+    color: var(--dark-grey);
+    font-weight: 600;
+    min-width: toRem(204);
   }
   .desc {
   }
