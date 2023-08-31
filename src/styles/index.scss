@@ -103,12 +103,17 @@ body {
 
 a {
   transition: color 0.3s;
-}
-a:hover {
-  color: var(--orange);
-}
-a:hover::after {
-  background-color: $fontNunito;
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--orange);
+    }
+  }
+  &.active {
+    color: var(--black);
+  }
+  // &::after {
+  //   background-color: $fontNunito;
+  // }
 }
 
 /* Texts style */
