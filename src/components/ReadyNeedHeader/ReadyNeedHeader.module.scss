@@ -23,10 +23,6 @@
       margin-right: 0;
       max-width: toRem(520);
     }
-
-    @media (max-width: $mobile) {
-      max-width: toRem(366);
-    }
   }
 
   .ready_need_header_text h1 {
@@ -75,18 +71,15 @@
   }
 
   .ready_need_header_img img {
-    width: toRem(588);
-    height: toRem(368);
+    max-width: toRem(588);
     border-radius: toRem(30);
 
     @media (max-width: em(1050)) {
-      width: toRem(520);
-      height: toRem(300);
+      max-width: toRem(520);
     }
 
     @media (max-width: $mobile) {
-      width: toRem(366);
-      height: toRem(234);
+      width: 100%;
     }
   }
 
