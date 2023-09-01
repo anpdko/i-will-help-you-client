@@ -1,42 +1,55 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { IProjectsState } from '../../store/projects/projectsType';
+
+import ArticleSection from './WrapperAccordionArticle/WrapperAccordionArticle';
+import Preloader from '../UI/Preloader/Preloader';
+import ButtonApp from '../UI/ButtonApp/ButtonApp';
+
 import s from './WrapperAccordion.module.scss';
 
-interface WrapperAccordionProps {
-  variant: 'accordion' | 'paragraph';
-  content: WrapperContent[];
-}
+const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
+  const { t } = useTranslation();
 
-interface WrapperContent {
-  id: number;
-  title?: string;
-  text: string;
-}
+  const selectedProject = projects[0]?.translations[0];
 
-const WrapperAccordion = ({ variant, content }: WrapperAccordionProps) => {
+  const description = selectedProject?.description;
+  const criteria = selectedProject?.criteria;
+  const goals = selectedProject?.goals;
+
   return (
-    <div className={s.wrapper}>
-      {variant === 'paragraph' && (
-        <ul className={s.wrapper__paragraph}>
-          {content &&
-            content.map((item) => (
-              <li key={item.id} className={s.paragraph}>
-                <p className={s.paragraph__text}>{item.text}</p>
-              </li>
-            ))}
-        </ul>
-      )}
-      {variant === 'accordion' && (
-        <ul className={s.wrapper__accordion}>
-          {content &&
-            content.map((item) => (
-              <li key={item.id} className={s.accordion}>
-                <p className={s.accordion__title}>{item.title}</p>
-                <p className={s.accordion__text}>{item.text}</p>
-                <span className={s.accordion__line}></span>
-              </li>
-            ))}
-        </ul>
-      )}
-    </div>
+    <section className={s.wrapper}>
+      <div className='container'>
+        {loading ? (
+          <Preloader />
+        ) : (
+          <>
+            <ArticleSection
+              title={t('About the OpportunityConnect')}
+              subtitle={t('Project’s description')}
+              items={description?.split('\n') || []}
+              variant='paragraphs'
+            />
+            <ArticleSection
+              title={t('Key Objectives')}
+              subtitle={t('Our main goals')}
+              items={goals || []}
+              variant='list'
+            />
+            <ArticleSection
+              title={t('Selection Criteria for Participation')}
+              subtitle={t('Selection criteria')}
+              items={criteria || []}
+              variant='list'
+            />
+          </>
+        )}
+        <ButtonApp color='white' size='medium'>
+          {t('Join the OpportunityConnect')}
+        </ButtonApp>
+      </div>
+    </section>
   );
 };
 
