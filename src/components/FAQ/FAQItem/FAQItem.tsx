@@ -19,7 +19,13 @@ const FAQItem = ({ tab }: FAQProps) => {
       <div className={s.faq_item__container}>
         <h4 className={s.faq_item__title}>{tab.title}</h4>
         <button type='button' className={s.faq_item__btn}>
-          <svg className={toggleFAQ ? `${s.faq_item__icon_open}` : `${s.faq_item__icon_closed}`}>
+          <svg
+            className={
+              toggleFAQ
+                ? `${s.faq_item__icon_open}`
+                : `${s.faq_item__icon_closed}`
+            }
+          >
             <use href={sprite + '#chevron-down'} />
           </svg>
         </button>

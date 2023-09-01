@@ -4,10 +4,10 @@ import ReviewsCreateAdminPage from './ReviewsCreateAdminPage/ReviewsCreateAdminP
 import ReviewsEditAdminPage from './ReviewsCreateAdminPage/ReviewsCreateAdminPage';
 import ProjectsAdminPage from './ProjectsAdminPage/ProjectsAdminPage';
 
-export { 
-   AuthAdminPage, 
-   ReviewsAdminPage, 
-   ProjectsAdminPage,
-   ReviewsCreateAdminPage,
-   ReviewsEditAdminPage
+export {
+  AuthAdminPage,
+  ReviewsAdminPage,
+  ProjectsAdminPage,
+  ReviewsCreateAdminPage,
+  ReviewsEditAdminPage,
 };

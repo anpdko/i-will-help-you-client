@@ -22,11 +22,11 @@ const TextareaFormApp = ({
   const { register } = useFormContext();
 
   const textareaProps = {
-      name,
-      id,
-      placeholder: placeholder || 'Type here...',
-      cols: cols || 40,
-      rows: rows || 5,
+    name,
+    id,
+    placeholder: placeholder || 'Type here...',
+    cols: cols || 40,
+    rows: rows || 5,
   };
 
   return (

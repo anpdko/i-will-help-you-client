@@ -12,7 +12,7 @@ import { BsFillTrashFill } from 'react-icons/bs';
 
 import s from './ReviewsAdminPage.module.scss';
 import TableReviewsAdmin from './TableReviewsAdmin';
-import { NavbarControlAdmin } from '../../../components/admin'
+import { NavbarControlAdmin } from '../../../components/admin';
 
 const ReviewsAdminPage = () => {
   const dispatch = useDispatch<AppDispatch>();
