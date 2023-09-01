@@ -1,9 +1,12 @@
 @import '../../styles/index';
 
 .footer {
-  background-color: var(--milky);
+  
   box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
   line-height: 1.5;
+  @media (min-width:$mobileSmall){
+    background-color: var(--milky);
+  }
   :global {
     .container {
       @include adaptiveValue('padding-top', 40, 28, 0, 1200, 390);
