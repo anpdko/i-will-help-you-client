@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import s from './FAQItem.module.scss';
 import { IFaqData } from '../../../data/faqData';
 import sprite from '../../../assets/sprite.svg';
+import s from './FAQItem.module.scss';
 
 interface FAQProps {
   tab: IFaqData;
