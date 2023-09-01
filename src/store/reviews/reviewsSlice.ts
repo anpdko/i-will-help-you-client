@@ -46,10 +46,51 @@ export const getReviews = createAsyncThunk(
   },
 );
 
+export const deleteReview = createAsyncThunk(
+  'reviews/deleteReview',
+  async (reviewId: string, { fulfillWithValue, rejectWithValue }) => {
+    try {
+      await axios.delete(`${API_URL}/api/reviews/${reviewId}`);
+      return fulfillWithValue(reviewId);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return rejectWithValue(handleRequestError(error));
+      }
+    }
+  },
+);
+
+export const updateReview = createAsyncThunk(
+  'reviews/updateReview',
+  async (
+    reviewData: { reviewId: string; updatedData: any },
+    { fulfillWithValue, rejectWithValue },
+  ) => {
+    try {
+      const res: AxiosResponse<IReviews> = await axios.put(
+        `${API_URL}/api/reviews/${reviewData.reviewId}`,
+        reviewData.updatedData,
+      );
+      return fulfillWithValue(res.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return rejectWithValue(handleRequestError(error));
+      }
+    }
+  },
+);
+
 export const reviewsSlice = createSlice({
   name: 'reviews',
   initialState,
-  reducers: {},
+  reducers: {
+    deleteReview: (state, action) => {
+      const reviewIdToDelete = action.payload;
+      state.reviews = state.reviews.filter(
+        (review) => review._id !== reviewIdToDelete,
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       // getReviews
@@ -62,6 +103,43 @@ export const reviewsSlice = createSlice({
         state.loading = false;
       })
       .addCase(getReviews.rejected, (state, action) => {
+        state.loading = false;
+        state.message = String(action.payload);
+      })
+      // deleteReview
+      .addCase(deleteReview.pending, (state) => {
+        state.loading = true;
+        state.message = null;
+      })
+      .addCase(deleteReview.fulfilled, (state, action) => {
+        const reviewIdToDelete = action.payload;
+        state.reviews = state.reviews.filter(
+          (review) => review._id !== reviewIdToDelete,
+        );
+        state.loading = false;
+      })
+      .addCase(deleteReview.rejected, (state, action) => {
+        state.loading = false;
+        state.message = String(action.payload);
+      })
+      //updateReview
+      .addCase(updateReview.pending, (state) => {
+        state.loading = true;
+        state.message = null;
+      })
+      .addCase(updateReview.fulfilled, (state, action) => {
+        const updatedReview = action.payload;
+        const index = state.reviews.findIndex(
+          (review) => review._id === updatedReview?._id,
+        );
+        if (index !== -1) {
+          if (updatedReview) {
+            state.reviews[index] = updatedReview;
+          }
+        }
+        state.loading = false;
+      })
+      .addCase(updateReview.rejected, (state, action) => {
         state.loading = false;
         state.message = String(action.payload);
       });

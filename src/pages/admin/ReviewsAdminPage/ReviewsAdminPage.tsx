@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews } from '../../../store/reviews/reviewsSlice';
+import {
+  deleteReview,
+  getReviews,
+  // updateReview,
+} from '../../../store/reviews/reviewsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
 
+import { MdOutlineUpdate } from 'react-icons/md';
+import { BsFillTrashFill } from 'react-icons/bs';
 import s from './ReviewsAdminPage.module.scss';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -17,6 +23,12 @@ const ReviewsAdminPage = () => {
     dispatch(getReviews());
   }, [dispatch]);
 
+  const handleDeleteReview = (reviewId: string) => {
+    dispatch(deleteReview(reviewId));
+  };
+  // const handleUpdateReview = (reviewId: string, updatedData: any) => {
+  //   dispatch(updateReview({ reviewId, updatedData }));
+  // };
   return (
     <div className={s.reviews_admin_page}>
       {loading ? (
@@ -27,7 +39,6 @@ const ReviewsAdminPage = () => {
         <table className={s.reviews_table}>
           <thead>
             <tr>
-              <th>ID</th>
               <th>Photo</th>
               <th>Name</th>
               <th>Job</th>
@@ -40,7 +51,6 @@ const ReviewsAdminPage = () => {
           <tbody>
             {reviews.map((review) => (
               <tr key={review._id}>
-                <td>{review._id}</td>
                 <td>
                   <img
                     src={API_URL + '/static/images/reviews/' + review.foto}
@@ -52,7 +62,20 @@ const ReviewsAdminPage = () => {
                 <td>{review.translations[0]?.title}</td>
                 <td>{review.translations[0]?.body}</td>
                 <td>{new Date(review.published_date).toLocaleDateString()}</td>
-                <td>{new Date(review.updated_date).toLocaleDateString()}</td>
+                <td>
+                  <button
+                    className={s.update_btn}
+                    // onClick={() => handleUpdateReview(review._id, updatedData)}
+                  >
+                    <MdOutlineUpdate className={s.icon} />
+                  </button>
+                  <button
+                    className={s.delete_btn}
+                    onClick={() => handleDeleteReview(review._id)}
+                  >
+                    <BsFillTrashFill className={s.icon} />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
