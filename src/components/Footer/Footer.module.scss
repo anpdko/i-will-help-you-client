@@ -80,7 +80,7 @@
       }
       @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
 
-      @media (min-width: $mobileSmall) {
+      @media (min-width: em(390)) {
         min-width: toRem(204);
         button {
           &:not(:last-child) {
@@ -88,9 +88,12 @@
           }
         }
       }
-      @media (max-width: $mobileSmall) {
+      @media (max-width: em(390)) {
         button {
           min-width: 100%;
+          &:not(:last-child) {
+            margin-bottom: toRem(48);
+          }
         }
       }
     }
