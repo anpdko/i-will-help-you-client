@@ -2,22 +2,16 @@
 .banners {
   :global {
     .container {
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
-      // flex-wrap: wrap;
-
       @include adaptiveValue('gap', 24, 16, 0, 1200, 390);
       @include adaptiveValue('padding-top', 64, 36, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 113, 80, 0, 1200, 390);
-
-
-      @media (min-width: $tablet) {
+      @media (min-width: $mobile) {
         display: grid;
+      }
+      @media (min-width: $tablet) {
         grid-template-columns: repeat(auto-fit, minmax(toRem(380), 1fr));
       }
       @media (max-width: $tablet) {
-        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(toRem(310), 1fr));
       }
       @media (max-width: $mobile) {
