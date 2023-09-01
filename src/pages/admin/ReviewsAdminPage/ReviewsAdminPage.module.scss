@@ -17,3 +17,21 @@ th{
   text-transform: uppercase;
   border-bottom: 1px solid var(--black);
 }
+.update_btn,
+.delete_btn{
+  padding: .3rem;
+  border-radius: .5rem;
+  border: 1px solid var(--black);
+}
+
+.update_btn{
+  background: var(--milky);
+  margin-right: .2rem;
+}
+.delete_btn{
+  background: rgb(243, 118, 118);
+  
+}
+.icon{
+  font-size: 1.5rem;
+}
