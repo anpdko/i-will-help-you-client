@@ -3,7 +3,12 @@
 .faq_item {
   padding-top: 22px;
   padding-bottom: 22px;
-  max-width: 792px;
+  width: 792px;
+}
+
+.faq_item__container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .faq_item__title {
@@ -16,8 +21,19 @@
   line-height: 150%;
 }
 
+.faq_item__icon_open,
+.faq_item__icon_closed {
+  width: 28px;
+  height: 28px;
+  transition: all 0.25s ease-in-out;
+}
+
+.faq_item__icon_open {
+  transform: translate(0%, 0%) rotate(-90deg);
+}
+
 .faq_item__descr {
-  color: var(--Black, #0e0e0e);
+  color: var(--Black, #201e1e);
   /* Main text */
   font-family: Open Sans;
   font-size: 16px;
