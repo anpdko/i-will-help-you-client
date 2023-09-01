@@ -7,7 +7,7 @@
   :global {
     .container {
       @include adaptiveValue('padding-top', 40, 28, 0, 1200, 390);
-      @include adaptiveValue('padding-bottom', 105, 48, 0, 1200, 390);
+      padding-bottom: toRem(44);
       @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
     }
   }
