@@ -1,33 +1,21 @@
+@import '../../styles/index';
+
 .wrapper {
-  &__paragraph {
-    display: grid;
-    gap: 24px;
-  }
-
-  &__accordion {
-    display: grid;
-    gap: 24px;
-  }
-}
-
-.accordion {
-  display: grid;
-  grid-template-columns: minmax(204px, 1fr) minmax(486px, 1fr);
-  grid-template-areas: 'title text' 'line line';
-  gap: 24px;
-
-  &__title {
-    grid-area: title;
-  }
-
-  &__text {
-    grid-area: text;
-  }
-
-  &__line {
-    grid-area: line;
-    width: 100%;
-    height: 1px;
-    background: var(--black);
+  :global {
+    .container {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
+      @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
+      &:last-child {
+        align-items: center;
+        @media (max-width: $mobile) {
+          button {
+            min-width: 100%;
+          }
+        }
+      }
+    }
   }
 }

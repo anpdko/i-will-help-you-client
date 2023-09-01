@@ -11,7 +11,7 @@ interface IData {
   password: string;
 }
 
-const initialUser:IData = {
+const initialUser: IData = {
   login: '',
   password: '',
 };
@@ -19,40 +19,39 @@ const initialUser:IData = {
 const AuthAdminPage = () => {
   const [user, setUser] = useState(initialUser);
   const [error, setError] = useState(initialUser);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const { loading, message } = useSelector((state: RootState) => state.admin);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleUserChange = (event: any) => {
-    setUser({...user, [event.target.name]: event.target.value})
-    setError({...error, [event.target.name]: ""})
+    setUser({ ...user, [event.target.name]: event.target.value });
+    setError({ ...error, [event.target.name]: '' });
     dispatch(clearMessage());
   };
 
   useEffect(() => {
-    if(typeof message === 'object'){
-      if(message?.login){
-        setError({...error, login:message?.login})
+    if (typeof message === 'object') {
+      if (message?.login) {
+        setError({ ...error, login: message?.login });
         return;
       }
-      if(message?.password){
-        setError({...error, password:message?.password})
+      if (message?.password) {
+        setError({ ...error, password: message?.password });
         return;
       }
     }
-  }, [message])
-
+  }, [message]);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
     if (!user.login) {
-      setError({...error, login:'Please fill in the login field'});
+      setError({ ...error, login: 'Please fill in the login field' });
       return;
     }
     if (!user.password) {
-      setError({...error, password:'Please fill in the password field'});
+      setError({ ...error, password: 'Please fill in the password field' });
       return;
     }
 
@@ -60,8 +59,8 @@ const AuthAdminPage = () => {
     setError(initialUser);
   };
 
-  if(loading) {
-    return <h1>...</h1>
+  if (loading) {
+    return <h1>...</h1>;
   }
 
   return (

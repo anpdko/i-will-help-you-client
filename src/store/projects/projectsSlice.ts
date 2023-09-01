@@ -34,10 +34,10 @@ export const getProjects = createAsyncThunk(
   'projects/getProjects',
   async (_, { fulfillWithValue, rejectWithValue }) => {
     try {
-      const res: AxiosResponse<IProject[]> = await axios.get(
+      const { data }: AxiosResponse<IProject[]> = await axios.get(
         `${API_URL}/api/projects`,
       );
-      return fulfillWithValue(res.data);
+      return fulfillWithValue(data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         return rejectWithValue(handleRequestError(error));

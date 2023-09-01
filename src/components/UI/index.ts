@@ -1,11 +1,6 @@
-import ButtonApp from "./ButtonApp/ButtonApp";
-import InputApp from "./InputApp/InputApp";
-import SelectApp from "./SelectApp/SelectApp";
-import TextareaApp from "./TextareaApp/TextareaApp";
+import ButtonApp from './ButtonApp/ButtonApp';
+import InputFormApp from './InputFormApp/InputFormApp';
+import SelectApp from './SelectApp/SelectApp';
+import TextareaFormApp from './TextareaFormApp/TextareaFormApp';
 
-export {
-   ButtonApp,
-   InputApp,
-   SelectApp,
-   TextareaApp
-}
+export { ButtonApp, InputFormApp, SelectApp, TextareaFormApp };

@@ -126,11 +126,6 @@
         margin-right: toRem(3);
       }
     }
-    @media (any-hover: hover) {
-      &:hover {
-        color: var(--orange);
-      }
-    }
   }
   &__actions {
     display: inline-flex;
@@ -217,8 +212,8 @@
   }
 }
 .actions {
-  @media (min-width:$tablet){
-      display: none;
+  @media (min-width: $tablet) {
+    display: none;
   }
   position: relative;
   display: flex;
@@ -242,7 +237,6 @@
   &::after {
     bottom: 0;
   }
-
 }
 // Burger ========================================================================================================================================================
 .burger {
