@@ -91,7 +91,14 @@
       display: grid;
       gap: 1.5rem;
       font-size: 0.875rem;
-
+      @media (min-width: $mobileSmall) {
+        min-width: toRem(204);
+      }
+      @media (max-width: $mobileSmall) {
+        button {
+          min-width: 100%;
+        }
+      }
       @media screen and (min-width: 48rem) {
         font-size: initial;
       }
