@@ -15,8 +15,8 @@ const FAQItem = ({ tab }: FAQProps) => {
 
   return (
     <li key={tab.id} className={s.faq_item} onClick={handleToggleFAQ}>
-      <h3 className={s.faq_item__title}>{tab.title}</h3>
-      <p className={s.faq_item__descr}>{toggleFAQ && tab.description}</p>
+      <h4 className={s.faq_item__title}>{tab.title}</h4>
+      {toggleFAQ && <p className={s.faq_item__descr}>{tab.description}</p>}
     </li>
   );
 };
