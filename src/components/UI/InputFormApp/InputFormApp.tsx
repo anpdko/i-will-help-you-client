@@ -15,7 +15,7 @@ interface InputFormAppProps extends React.HTMLProps<HTMLInputElement> {
 const InputFormApp = ({
   type,
   id,
-  placeholder = "",
+  placeholder = '',
   className,
   required = true,
   regexp = /^.+$/,
