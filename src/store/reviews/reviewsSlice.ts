@@ -13,14 +13,14 @@ const initialState: IReviewsState = {
   message: null,
 };
 
-const handleRequestError = (error: AxiosError<IReviewsError>) => {
+const handleRequestError = (error: AxiosError<IReviewsError>, thunkAPI: any) => {
   if (window.location.hostname === 'localhost') {
     console.log(error);
   }
   if (axios.isAxiosError(error) && error.response) {
     if (error.response?.status === 401) {
       alert(error.response.data.message);
-      // logout with admin
+      thunkAPI.dispatch(adminLogout());
     }
     if (error.response.data.message) {
       return error.response.data.message;
@@ -34,15 +34,15 @@ const handleRequestError = (error: AxiosError<IReviewsError>) => {
 
 export const getReviews = createAsyncThunk(
   'reviews/getReviews',
-  async (_, { fulfillWithValue, rejectWithValue }) => {
+  async (_, thunkAPI) => {
     try {
       const res: AxiosResponse<IReviews[]> = await axios.get(
         `${API_URL}/api/reviews`,
       );
-      return fulfillWithValue(res.data);
+      return thunkAPI.fulfillWithValue(res.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        return rejectWithValue(handleRequestError(error));
+        return thunkAPI.rejectWithValue(handleRequestError(error, thunkAPI));
       }
     }
   },
@@ -50,31 +50,21 @@ export const getReviews = createAsyncThunk(
 
 export const deleteReview = createAsyncThunk(
   'reviews/deleteReview',
-  async (reviewId, thunkAPI) => {
+  async (reviewId: string, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        `${API_URL}/api/reviews/${reviewId}`,
-        {
-          headers: authHeader(),
-        },
-      );
+      const response = await axios.delete(`${API_URL}/api/reviews/${reviewId}`, {
+        headers: authHeader(),
+      });
 
       if (response.status === 200) {
         thunkAPI.dispatch(removeReview(reviewId));
       } else {
-        console.log('Server error');
         throw new Error('Server error');
       }
     } catch (error) {
-      if (
-        axios.isAxiosError(error) &&
-        error.response &&
-        error.response.status === 401
-      ) {
-        alert(error.response.data.message);
-        thunkAPI.dispatch(adminLogout());
+      if (axios.isAxiosError(error)) {
+        return thunkAPI.rejectWithValue(handleRequestError(error, thunkAPI));
       }
-      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
@@ -145,6 +135,19 @@ export const reviewsSlice = createSlice({
         state.loading = false;
       })
       .addCase(getReviews.rejected, (state, action) => {
+        state.loading = false;
+        state.message = String(action.payload);
+      })
+
+      // deleteReview
+      .addCase(deleteReview.pending, (state) => {
+        state.loading = true;
+        state.message = null;
+      })
+      .addCase(deleteReview.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(deleteReview.rejected, (state, action) => {
         state.loading = false;
         state.message = String(action.payload);
       });
