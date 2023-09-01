@@ -3,20 +3,20 @@ import s from './InputFormApp.module.scss';
 
 interface InputFormAppProps {
   id: string;
-  placeholder: string;
+  placeholder?: string;
   className?: string;
-  required: boolean;
-  regexp: RegExp;
-  message: string;
+  required?: boolean;
+  regexp?: RegExp;
+  message?: string;
 }
 
 const InputFormApp = ({
   id,
-  placeholder,
+  placeholder = "",
   className,
-  required,
-  regexp,
-  message,
+  required = true,
+  regexp = /^.+$/,
+  message = 'Please fill in this field',
 }: InputFormAppProps) => {
   const { register } = useFormContext();
 
