@@ -18,7 +18,7 @@ const RoutesAdmin = () => {
     if (isLoggedIn) {
       dispatch(isRegistered());
     }
-  }, []);
+  }, [dispatch, isLoggedIn]);
 
   return (
     <main>
