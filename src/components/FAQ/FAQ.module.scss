@@ -1,1 +1,34 @@
 @import '../../styles/index';
+
+.faq {
+  display: flex;
+  align-items: flex-start;
+}
+
+.faq_subtitle {
+  display: inline;
+  flex: 0 1 40.5%;
+  font-weight: 600;
+  line-height: 150%;
+  position: relative;
+
+  @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
+  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+  @media (min-width: $mobile) {
+    padding-right: toRem(20);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    height: toRem(2);
+    top: 50%;
+    left: 0;
+    background-color: var(--black);
+    border-radius: toRem(8);
+    @include adaptiveValue('width', 44, 24, 0, 1200, 390);
+  }
+}
+
+.faq_heading {
+    margin-bottom: toRem(34);
+}
