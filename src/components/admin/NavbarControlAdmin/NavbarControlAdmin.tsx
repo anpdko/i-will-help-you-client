@@ -6,10 +6,10 @@ const NavbarControlAdmin = () => {
       <div className={s.navbar_control_admin}>
         
          <section className={s.section_nav_control_admin_modules}>
-         <h1>NavbarControlAdmintest</h1>
             <ButtonApp 
             className={s.submit}
-            type='submit'
+            type='link'
+            to="/admin/panel/reviews/create"
             color='orange'
             size='smaller'
           >
