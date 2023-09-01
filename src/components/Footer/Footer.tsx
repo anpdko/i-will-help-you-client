@@ -13,7 +13,7 @@ const Footer = () => {
               <use href={sprite + '#logo'} />
             </svg>
           </Link>
-          <div className={s.footer_links__navs}>
+          <nav className={s.footer_links__navs}>
             <ul className={s.footer_links__list}>
               <li>
                 <Link to='#'>Conditions</Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <Link to='/needhelp'>Help</Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           <div className={s.footer_links__social}>
             <p>Follow us</p>

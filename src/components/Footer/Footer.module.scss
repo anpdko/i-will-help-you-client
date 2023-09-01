@@ -1,14 +1,15 @@
 @import '../../styles/index';
 
 .footer {
-  padding: 1.75rem 0.75rem 3rem;
   background-color: var(--milky);
   box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
   line-height: 1.5;
-
-  @media screen and (min-width: 48rem) {
-    padding: 2.5rem 7.5rem 2.75rem;
-    font-size: 1.125rem;
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 40, 28, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 105, 48, 0, 1200, 390);
+      @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
+    }
   }
 
   .footer_links {
@@ -21,7 +22,6 @@
     @media screen and (min-width: 24.41rem) {
       flex-direction: row;
     }
-
 
     &__list {
       display: flex;
@@ -79,7 +79,6 @@
       font-size: initial;
       line-height: initial;
 
-      
       @media screen and (min-width: 48rem) {
         gap: 0.5rem;
         font-weight: initial;
@@ -96,9 +95,7 @@
       @media screen and (min-width: 48rem) {
         font-size: initial;
       }
-
     }
-
   }
 
   &__socialmedia {
@@ -112,8 +109,8 @@
       color: currentColor;
 
       @media screen and (min-width: 48rem) {
-      width: 2.75rem;
-      height: 2.75rem;
+        width: 2.75rem;
+        height: 2.75rem;
       }
 
       &:hover {
