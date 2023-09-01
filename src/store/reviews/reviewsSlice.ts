@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { IReviews, IReviewsState, IReviewsError } from './reviewsType';
+import authHeader from '../../services/admin/header.service';
+import { adminLogout } from '../admin/adminSlice';
 // import authHeader from '../../services/admin/header.service'
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -48,47 +50,87 @@ export const getReviews = createAsyncThunk(
 
 export const deleteReview = createAsyncThunk(
   'reviews/deleteReview',
-  async (reviewId: string, { fulfillWithValue, rejectWithValue }) => {
+  async (reviewId, thunkAPI) => {
     try {
-      await axios.delete(`${API_URL}/api/reviews/${reviewId}`);
-      return fulfillWithValue(reviewId);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(handleRequestError(error));
+      const response = await axios.delete(
+        `${API_URL}/api/reviews/${reviewId}`,
+        {
+          headers: authHeader(),
+        },
+      );
+
+      if (response.status === 200) {
+        thunkAPI.dispatch(removeReview(reviewId));
+      } else {
+        console.log('Server error');
+        throw new Error('Server error');
       }
+    } catch (error) {
+      if (
+        axios.isAxiosError(error) &&
+        error.response &&
+        error.response.status === 401
+      ) {
+        alert(error.response.data.message);
+        thunkAPI.dispatch(adminLogout());
+      }
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
 
-export const updateReview = createAsyncThunk(
-  'reviews/updateReview',
-  async (
-    reviewData: { reviewId: string; updatedData: any },
-    { fulfillWithValue, rejectWithValue },
-  ) => {
-    try {
-      const res: AxiosResponse<IReviews> = await axios.put(
-        `${API_URL}/api/reviews/${reviewData.reviewId}`,
-        reviewData.updatedData,
-      );
-      return fulfillWithValue(res.data);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(handleRequestError(error));
-      }
-    }
-  },
-);
+// export const updateReview = createAsyncThunk(
+//   'reviews/updateReview',
+//   async (reviewData, thunkAPI) => {
+//     try {
+//       const response = await axios.put(
+//         `${API_URL}/api/reviews/${reviewData.reviewId}`,
+//         reviewData.updatedData,
+//         {
+//           headers: authHeader(),
+//         },
+//       );
+//
+//       if (response.status === 200) {
+//         thunkAPI.dispatch(updateReview(response.data));
+//       } else {
+//         console.log('Server error');
+//         throw new Error('Server error');
+//       }
+//     } catch (error) {
+//       if (
+//         axios.isAxiosError(error) &&
+//         error.response &&
+//         error.response.status === 401
+//       ) {
+//         alert(error.response.data.message);
+//         thunkAPI.dispatch(adminLogout());
+//       }
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );
 
 export const reviewsSlice = createSlice({
   name: 'reviews',
   initialState,
   reducers: {
-    deleteReview: (state, action) => {
-      const reviewIdToDelete = action.payload;
+    removeReview: (state, action) => {
+      const reviewIdToRemove = action.payload;
       state.reviews = state.reviews.filter(
-        (review) => review._id !== reviewIdToDelete,
+        (review) => review._id !== reviewIdToRemove,
       );
+    },
+    updateReview: (state, action) => {
+      const updatedReview = action.payload;
+      const index = state.reviews.findIndex(
+        (review) => review._id === updatedReview?._id,
+      );
+      if (index !== -1) {
+        if (updatedReview) {
+          state.reviews[index] = updatedReview;
+        }
+      }
     },
   },
   extraReducers: (builder) => {
@@ -105,46 +147,9 @@ export const reviewsSlice = createSlice({
       .addCase(getReviews.rejected, (state, action) => {
         state.loading = false;
         state.message = String(action.payload);
-      })
-      // deleteReview
-      .addCase(deleteReview.pending, (state) => {
-        state.loading = true;
-        state.message = null;
-      })
-      .addCase(deleteReview.fulfilled, (state, action) => {
-        const reviewIdToDelete = action.payload;
-        state.reviews = state.reviews.filter(
-          (review) => review._id !== reviewIdToDelete,
-        );
-        state.loading = false;
-      })
-      .addCase(deleteReview.rejected, (state, action) => {
-        state.loading = false;
-        state.message = String(action.payload);
-      })
-      //updateReview
-      .addCase(updateReview.pending, (state) => {
-        state.loading = true;
-        state.message = null;
-      })
-      .addCase(updateReview.fulfilled, (state, action) => {
-        const updatedReview = action.payload;
-        const index = state.reviews.findIndex(
-          (review) => review._id === updatedReview?._id,
-        );
-        if (index !== -1) {
-          if (updatedReview) {
-            state.reviews[index] = updatedReview;
-          }
-        }
-        state.loading = false;
-      })
-      .addCase(updateReview.rejected, (state, action) => {
-        state.loading = false;
-        state.message = String(action.payload);
       });
   },
 });
 
-export const {} = reviewsSlice.actions;
+export const { removeReview } = reviewsSlice.actions;
 export default reviewsSlice.reducer;
