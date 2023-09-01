@@ -1,0 +1,42 @@
+@import '../../styles/index';
+
+.faq {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+}
+
+.faq_subtitle {
+  position: relative;
+  display: inline;
+  flex: 0 1 34%;
+  @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
+  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+  font-weight: 600;
+  line-height: 150%;
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    height: toRem(2);
+    @include adaptiveValue('width', 44, 24, 0, 1200, 390);
+    top: 50%;
+    left: 0;
+    border-radius: toRem(8);
+    background-color: var(--black);
+  }
+}
+
+.faq_heading {
+  @include adaptiveValue('margin-bottom', 34, 32, 0, 1200, 390);
+  font-family: Nunito;
+  @include adaptiveValue('font-size', 52, 28, 0, 1200, 390);
+  font-weight: 600;
+  line-height: 135%;
+  color: var(--black);
+}
