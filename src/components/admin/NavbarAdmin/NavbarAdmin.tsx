@@ -45,7 +45,7 @@ const NavbarAdmin = () => {
     >
       <button onClick={handleClick} className={s.navbar_admin__menu}>
         <svg>
-          <use href={sprite + '#arrow-right'} />
+          <use href={ isOpen ? sprite + '#arrow-left' : sprite + '#arrow-right'} />
         </svg>
       </button>
       {isOpen && (
