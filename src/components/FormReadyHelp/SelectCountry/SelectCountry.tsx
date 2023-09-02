@@ -2,8 +2,8 @@ import { Controller, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
 import { countryList } from '../../../utils/listOfCountry';
 import FormItemContainer from '../FormItemContainer';
+import FormLabel from '../FormLabel';
 import customStyles from '../selectStyle';
-import basic from '../FormReadyHelp.module.scss';
 import s from './SelectCountry.module.scss';
 
 const SelectCountry = () => {
@@ -16,9 +16,7 @@ const SelectCountry = () => {
 
   return (
     <FormItemContainer section='country'>
-      <label htmlFor='country' className={basic.form__label}>
-        Country of Residence *
-      </label>
+      <FormLabel labelFor='country' title='Country of Residence *' />
       <Controller
         name='country'
         control={control}
@@ -29,9 +27,10 @@ const SelectCountry = () => {
             onChange={(country) => onChange(country?.value)}
             styles={customStyles}
             placeholder='Select Country'
+            className={s.country__input}
           />
         )}
-        rules={{ required: true }}
+        rules={{ required: false }}
       />
     </FormItemContainer>
   );
