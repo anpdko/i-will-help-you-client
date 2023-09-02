@@ -6,6 +6,8 @@ import {
   ReviewsCreateAdminPage,
   ReviewsEditAdminPage,
   ProjectsAdminPage,
+  ProjectsCreateAdminPage,
+  ProjectsEditAdminPage
 } from '../pages/admin';
 import { NavbarAdmin } from '../components/admin';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,16 +31,12 @@ const RoutesAdmin = () => {
         {isLoggedIn ? (
           <Routes>
             <Route path='/panel/reviews' element={<ReviewsAdminPage />} />
-            <Route
-              path='/panel/reviews/create'
-              element={<ReviewsCreateAdminPage />}
-            />
-            <Route
-              path='/panel/reviews/edit/:id'
-              element={<ReviewsEditAdminPage />}
-            />
+            <Route path='/panel/review/create' element={<ReviewsCreateAdminPage />}/>
+            <Route path='/panel/review/edit/:id' element={<ReviewsEditAdminPage />}/>
 
             <Route path='/panel/projects' element={<ProjectsAdminPage />} />
+            <Route path='/panel/project/create' element={<ProjectsCreateAdminPage />} />
+            <Route path='/panel/project/edit/:id' element={<ProjectsEditAdminPage />} />
             <Route
               path='*'
               element={<Navigate to={'/admin/panel/projects'} />}

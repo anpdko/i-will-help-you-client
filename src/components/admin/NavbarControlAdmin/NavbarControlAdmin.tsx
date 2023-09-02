@@ -1,7 +1,7 @@
 import s from './NavbarControlAdmin.module.scss';
 import { ButtonApp } from '../../../components/UI';
 
-const NavbarControlAdmin = () => {
+const NavbarControlAdmin = ({createLink}:{createLink:string}) => {
    return (
       <div className={s.navbar_control_admin}>
         
@@ -9,8 +9,8 @@ const NavbarControlAdmin = () => {
             <ButtonApp 
             className={s.submit}
             type='link'
-            to="/admin/panel/reviews/create"
-            color='orange'
+            to={createLink}
+            // color='orange'
             size='smaller'
           >
             Create</ButtonApp>
