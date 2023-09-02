@@ -86,6 +86,7 @@
   .tag {
     color: var(--dark-grey);
     font-weight: 600;
+    line-height: 150%;
     @media (min-width: $mobileSmall) {
       min-width: toRem(204);
     }

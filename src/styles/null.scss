@@ -16,21 +16,16 @@ a:focus,
 a:active {
   outline: none;
 }
-html {
-  // ! прибирає зміщення контента при додаванні бокового скрола але дає баг з паддінгом в .container!!!
-  // overflow-x: hidden;
-  // margin-right: calc(-1 * (100vw - 100%));
-}
 html,
 body {
   height: 100%;
-  min-width: $minWidth + px;
+  min-width: 320px;
 }
 body {
   color: var(--black);
   line-height: 1;
-  font-family: $fontFamily;
-  font-size: $fontSize;
+  font-family: var(--open-sans);
+  font-size: 1rem;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -40,7 +35,7 @@ body {
 input,
 button,
 textarea {
-  font-family: $fontFamily;
+  font-family: var(--open-sans);
   font-size: inherit;
   line-height: inherit;
 }

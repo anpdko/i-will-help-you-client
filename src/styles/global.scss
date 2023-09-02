@@ -1,0 +1,83 @@
+@import './index.scss';
+// Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
+body {
+  background-color: var(--bg);
+}
+// Оболонка #root ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
+  // Притискаємо footer
+  > main {
+    flex: 1 1 auto;
+  }
+
+  > .app {
+    padding-top: toRem(100);
+  }
+  // Фікс для слайдерів
+  > * {
+    min-width: 0;
+  }
+}
+
+
+
+//========================================================================================================================================================
+
+a {
+  transition: color 0.3s;
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--orange);
+    }
+  }
+  &.active {
+    color: var(--black);
+    pointer-events: none;
+  }
+}
+
+/* Texts style */
+.heading1 {
+  font-family: var(--font-nunito);
+  @include adaptiveValue('font-size', 52, 28, 0, 1200, 390);
+  font-weight: 600;
+  text-transform: uppercase;
+  &:not(:last-child) {
+    margin-bottom: em(48, 52);
+  }
+}
+
+.heading2 {
+  font-family: var(--font-nunito);
+  @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
+  font-weight: 600;
+}
+
+.bunner-title {
+  font-family: var(--font-nunito);
+  @include adaptiveValue('font-size', 24, 16, 0, 992, 390);
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.review-title {
+  font-family: var(--font-nunito);
+  @include adaptiveValue('font-size', 24, 20);
+  font-weight: 600;
+}
+
+.cards-header {
+  font-size: toRem(18);
+  font-weight: 600;
+}
+.text {
+  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+  line-height: 150%;
+}
