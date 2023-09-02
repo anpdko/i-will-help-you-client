@@ -13,7 +13,10 @@ const initialState: IReviewsState = {
   message: null,
 };
 
-const handleRequestError = (error: AxiosError<IReviewsError>, thunkAPI: any) => {
+const handleRequestError = (
+  error: AxiosError<IReviewsError>,
+  thunkAPI: any,
+) => {
   if (window.location.hostname === 'localhost') {
     console.log(error);
   }
@@ -52,9 +55,12 @@ export const deleteReview = createAsyncThunk(
   'reviews/deleteReview',
   async (reviewId: string, thunkAPI) => {
     try {
-      const response = await axios.delete(`${API_URL}/api/reviews/${reviewId}`, {
-        headers: authHeader(),
-      });
+      const response = await axios.delete(
+        `${API_URL}/api/reviews/${reviewId}`,
+        {
+          headers: authHeader(),
+        },
+      );
 
       if (response.status === 200) {
         thunkAPI.dispatch(removeReview(reviewId));

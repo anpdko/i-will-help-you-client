@@ -18,4 +18,4 @@ const NavbarControlAdmin = () => {
       </div>
    );
 };
-export default NavbarControlAdmin
+export default NavbarControlAdmin;

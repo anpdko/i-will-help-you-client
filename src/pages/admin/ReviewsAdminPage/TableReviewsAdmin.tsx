@@ -28,7 +28,7 @@ const TableReviewsAdmin = () => {
 
   return (
     <>
-     {loading ? (
+      {loading ? (
         <p>Loading...</p>
       ) : message ? (
         <p>{message}</p>
