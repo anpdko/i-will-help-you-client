@@ -4,9 +4,22 @@
    "Need Help" : "Потребую допомоги",
    "Projects" : "Проекти",
    "About us" : "Про нас",
+   "About Us" : "Про нас",
 
    "Please fill in the login field":" Будь ласка, заповніть поле з логіном",
    "Please fill in the password field":" Будь ласка, заповніть поле з паролем",
    "Incorrect login. Please try again":"Невірний логін. Будь ласка, спробуйте ще раз",
-   "Incorrect password. Please try again":"Невірний пароль. Будь ласка, спробуйте ще раз"
+   "Incorrect password. Please try again":"Невірний пароль. Будь ласка, спробуйте ще раз",
+
+   "Donate":"Задонатити",
+   "Conditions":"Умови",
+   "Publicity":"Публічність",
+   "Documents":"Документи",
+   "FAQ":"Поширені запитання",
+   "Volunteering":"Волонтерство",
+   "Help":"Допомога",
+   "Mon-Fri":"Пн-Пт",
+   "Follow us":"Слідкуйте за нами",
+   "Hotline":"Гаряча лінія",
+   "Email":"Напишіть нам"
 }
