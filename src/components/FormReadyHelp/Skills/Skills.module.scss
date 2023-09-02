@@ -1,0 +1,13 @@
+@import '../../../styles/index.scss';
+
+.skills {
+  width: 49.563rem;
+
+  @media (max-width: $mobile) {
+    width: 22.875rem;
+  }
+
+  &__input {
+    width: 100%;
+  }
+}
