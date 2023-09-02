@@ -14,6 +14,7 @@ const Checkboxes = () => {
           {...register('mailing', {
             required: false,
           })}
+          className={s.checkboxes__input}
         />
         <p className={s.checkboxes__text}>Consent to mailing</p>
       </div>
@@ -25,8 +26,9 @@ const Checkboxes = () => {
           {...register('dataProcessing', {
             required: true,
           })}
+          className={s.checkboxes__input}
         />
-        <p className={s.checkboxes__text}>Consent to data processing</p>
+        <p className={s.checkboxes__text}>Consent to data processing *</p>
       </div>
     </FormItemContainer>
   );
