@@ -1,0 +1,11 @@
+@import '../../../styles/index.scss';
+
+.email {
+  &__input {
+    width: 49.563rem;
+
+    @media (max-width: $mobile) {
+      width: 22.875rem;
+    }
+  }
+}
