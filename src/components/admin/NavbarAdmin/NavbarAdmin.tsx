@@ -20,11 +20,11 @@ const NavbarAdmin = () => {
   const links: ILinks[] = [
     {
       text: 'Projects',
-      link: 'panel/projects',
+      link: '/admin/panel/projects',
     },
     {
       text: 'Reviews',
-      link: 'panel/reviews',
+      link: '/admin/panel/reviews',
     },
   ];
 

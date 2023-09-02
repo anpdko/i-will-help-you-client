@@ -40,6 +40,7 @@ module.exports = {
       {
         singleQuote: true,
         parser: 'flow',
+        endOfLine: 'auto',
       },
     ],
     'react/react-in-jsx-scope': 'off',

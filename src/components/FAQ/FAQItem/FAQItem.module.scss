@@ -1,0 +1,57 @@
+@import '../../../styles/index';
+
+.faq_item {
+  position: relative;
+  @include adaptiveValue('padding-bottom', 22, 24, 0, 1200, 390);
+  @include adaptiveValue('width', 792, 366, 0, 1200, 390);
+  cursor: pointer;
+
+  &:not(:first-child) {
+    @include adaptiveValue('padding-top', 22, 24, 0, 1200, 390);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: toRem(1);
+    @include adaptiveValue('width', 792, 366, 0, 1200, 390);
+    @include adaptiveValue('margin-top', 22, 24, 0, 1200, 390);
+    border-radius: toRem(4);
+    background: var(--dark-grey);
+  }
+}
+
+.faq_item__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq_item__title,
+.faq_item__descr {
+  font-family: Open Sans;
+  font-size: toRem(16);
+  line-height: 150%;
+  color: var(--black);
+}
+
+.faq_item__title {
+  font-weight: 600;
+}
+
+.faq_item__descr {
+  @include adaptiveValue('margin-top', 18, 16, 0, 1200, 390);
+  @include adaptiveValue('padding-left', 39, 12, 0, 1200, 390);
+  @include adaptiveValue('padding-right', 70, 12, 0, 1200, 390);
+  font-weight: 400;
+}
+
+.faq_item__icon_open,
+.faq_item__icon_closed {
+  width: toRem(28);
+  height: toRem(28);
+  transition: all 0.25s ease-in-out;
+}
+
+.faq_item__icon_open {
+  transform: translate(0%, 0%) rotate(-90deg);
+}
