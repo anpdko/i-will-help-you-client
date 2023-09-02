@@ -1,0 +1,28 @@
+@import '../../../styles/index.scss';
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__input {
+    width: 24.063rem;
+
+    @media (max-width: $mobile) {
+      width: 22.875rem;
+    }
+  }
+
+  &__button {
+    &_add {
+      display: flex;
+      align-items: center;
+      gap: 0.563rem;
+    }
+  }
+}
