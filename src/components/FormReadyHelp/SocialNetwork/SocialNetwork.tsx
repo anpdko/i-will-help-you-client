@@ -1,20 +1,22 @@
+import { useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import FormItemContainer from '../FormItemContainer';
-import basic from '../FormReadyHelp.module.scss';
-import { InputFormApp } from '../../UI';
-import FormLabel from '../FormLabel';
 import Select from 'react-select';
-import customStyles from '../selectStyle';
+import FormItemContainer from '../FormItemContainer';
+import FormLabel from '../FormLabel';
+import { InputFormApp } from '../../UI';
 import { TelegramIcon } from '../../icons/TelegramIcon';
 import { ViberIcon } from '../../icons/ViberIcon';
 import { InstagramIcon } from '../../icons/InstagramIcon';
 import { FacebookIcon } from '../../icons/FacebookIcon';
+import customStyles from '../selectStyle';
+import basic from '../FormReadyHelp.module.scss';
 import s from './SocialNetwork.module.scss';
 
 const SocialNetwork = () => {
   const {
     control,
     formState: { errors },
+    setValue,
   } = useFormContext();
 
   const options = [
@@ -23,6 +25,10 @@ const SocialNetwork = () => {
     { value: 'instagram', label: 'instagram', icon: <InstagramIcon /> },
     { value: 'facebook', label: 'facebook', icon: <FacebookIcon /> },
   ];
+
+  useEffect(() => {
+    setValue('networkLogo', options[0].value);
+  }, [setValue, options]);
 
   const nicknameValidation = errors.network && (
     <p className={basic.form__error}>{errors?.network?.message as string}</p>
@@ -39,7 +45,7 @@ const SocialNetwork = () => {
             <Select
               options={options}
               styles={customStyles}
-              padding='11px 0'
+              customPadding='11px 0'
               isSearchable={false}
               defaultValue={options[0]}
               onChange={(selectedOption) =>
