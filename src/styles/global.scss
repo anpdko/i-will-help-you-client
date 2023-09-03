@@ -91,7 +91,12 @@ a {
     padding: .2rem .5rem;
     font-size: 1rem;
   }
-    
+  td{
+    img{
+      width: 4rem;
+      height: auto;
+    }
+  }
   th{
     text-transform: uppercase;
     border-bottom: 1px solid var(--black);
