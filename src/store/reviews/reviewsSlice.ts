@@ -88,7 +88,7 @@ export const deleteReview = createAsyncThunk(
 //       );
 //
 //       if (response.status === 200) {
-//         thunkAPI.dispatch(updateReview(response.data));
+//         thunkAPI.dispatch(changeReview(response.data));
 //       } else {
 //         console.log('Server error');
 //         throw new Error('Server error');
@@ -117,7 +117,7 @@ export const reviewsSlice = createSlice({
         (review) => review._id !== reviewIdToRemove,
       );
     },
-    updateReview: (state, action) => {
+    changeReview: (state, action) => {
       const updatedReview = action.payload;
       const index = state.reviews.findIndex(
         (review) => review._id === updatedReview?._id,
@@ -160,5 +160,5 @@ export const reviewsSlice = createSlice({
   },
 });
 
-export const { removeReview } = reviewsSlice.actions;
+export const { removeReview, changeReview } = reviewsSlice.actions;
 export default reviewsSlice.reducer;
