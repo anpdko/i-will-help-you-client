@@ -31,7 +31,7 @@ const DateOfBirth = () => {
                 onChange={(date) => {
                   field.onChange(date ? date.valueOf() : null);
                 }}
-                className={basic.form__input}
+                className={`${basic.form__input} ${s.dob__input}`}
               />
               {fieldState.error ? (
                 <p className={basic.form__error}>{fieldState.error?.message}</p>

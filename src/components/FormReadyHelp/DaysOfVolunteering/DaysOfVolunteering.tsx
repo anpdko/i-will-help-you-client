@@ -65,6 +65,7 @@ const DaysOfVolunteering = () => {
                   className={s.volunteer__input_days}
                 />
               )}
+              rules={{ required: true }}
             />
           </div>
 
@@ -87,6 +88,7 @@ const DaysOfVolunteering = () => {
                   className={s.volunteer__input_time}
                 />
               )}
+              rules={{ required: true }}
             />
           </div>
 
@@ -109,6 +111,7 @@ const DaysOfVolunteering = () => {
                   className={s.volunteer__input_time}
                 />
               )}
+              rules={{ required: true }}
             />
           </div>
 

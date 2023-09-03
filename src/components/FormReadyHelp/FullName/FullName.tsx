@@ -3,7 +3,7 @@ import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
 import { InputFormApp } from '../../UI';
 import basic from '../FormReadyHelp.module.scss';
-import s from './FullName.module.scss';
+// import s from './FullName.module.scss';
 
 interface FullNameProps {
   nameType: 'firstName' | 'lastName';

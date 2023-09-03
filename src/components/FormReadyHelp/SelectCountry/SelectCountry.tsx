@@ -30,7 +30,7 @@ const SelectCountry = () => {
             className={s.country__input}
           />
         )}
-        rules={{ required: false }}
+        rules={{ required: true }}
       />
     </FormItemContainer>
   );

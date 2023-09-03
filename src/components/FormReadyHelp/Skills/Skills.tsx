@@ -37,6 +37,7 @@ const Skills = () => {
             className={s.skills__input}
           />
         )}
+        rules={{ required: true }}
       />
     </FormItemContainer>
   );
