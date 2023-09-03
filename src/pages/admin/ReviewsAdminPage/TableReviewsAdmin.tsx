@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getReviews, deleteReview } from '../../../store/reviews/reviewsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
 import s from './ReviewsAdminPage.module.scss';
-import { MdOutlineUpdate } from 'react-icons/md';
+import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -21,10 +21,6 @@ const TableReviewsAdmin = () => {
   const handleDeleteReview = (reviewId: string) => {
     dispatch(deleteReview(reviewId));
   };
-
-  // const handleUpdateReview = (reviewId: string, updatedData: any) => {
-  //   dispatch(updateReview({ reviewId, updatedData }));
-  // };
 
   return (
     <>
@@ -62,9 +58,8 @@ const TableReviewsAdmin = () => {
                 <td>
                   <button
                     className='update_btn'
-                    // onClick={() => handleUpdateReview(review._id, updatedData)}
                   >
-                    <MdOutlineUpdate className={s.icon} />
+                    <AiFillEdit className={s.icon} />
                   </button>
                   <button
                     className='delete_btn'
