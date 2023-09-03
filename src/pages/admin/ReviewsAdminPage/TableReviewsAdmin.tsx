@@ -22,6 +22,7 @@ const TableReviewsAdmin = () => {
     dispatch(deleteReview(reviewId));
   };
 
+  
   return (
     <>
       {loading ? (
