@@ -4,6 +4,10 @@
   &__inputs {
     display: flex;
     gap: 1.5rem;
+
+    @media (max-width: $tablet) {
+      gap: 0.25rem;
+    }
   }
 
   &__code {
