@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { countryList } from '../../../utils/listOfCountry';
 import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
-import customStyles from '../selectStyle';
+// import customStyles from '../selectStyle';
 import s from './SelectCountry.module.scss';
 
 const SelectCountry = () => {
@@ -25,7 +25,7 @@ const SelectCountry = () => {
             options={countries}
             value={countries.find((country) => country.value === value)}
             onChange={(country) => onChange(country?.value)}
-            styles={customStyles}
+            // styles={customStyles}
             placeholder='Select Country'
             className={s.country__input}
           />
