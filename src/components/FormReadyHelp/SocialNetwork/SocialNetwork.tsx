@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import Select, { StylesConfig } from 'react-select';
+import Select from 'react-select';
 import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
 import { InputFormApp } from '../../UI';
