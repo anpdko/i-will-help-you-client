@@ -83,6 +83,7 @@ a {
 }
 //Admin table
 .admin_table{
+  width: 100%;
   tr:nth-of-type(even) {
     background: var(--orange-for-states);
   }
@@ -105,6 +106,7 @@ a {
 
 .update_btn,
 .delete_btn{
+  font-size: 1.5rem; 
   padding: .3rem;
   border-radius: .5rem;
   border: 1px solid var(--black);
@@ -118,3 +120,4 @@ a {
   background: rgb(243, 118, 118);
   
 }
+

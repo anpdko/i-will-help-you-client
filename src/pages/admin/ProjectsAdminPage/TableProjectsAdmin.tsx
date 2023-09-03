@@ -6,7 +6,7 @@ import {
 } from '../../../store/projects/projectsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
 
-import { MdOutlineUpdate } from 'react-icons/md';
+import { PiPencilSimpleLineFill } from 'react-icons/pi';
 import { BsFillTrashFill } from 'react-icons/bs';
 import s from './ProjectsAdminPage.module.scss';
 
@@ -68,7 +68,7 @@ const TableProjectsAdmin = () => {
                     //   handleUpdateProject(project._id, updatedData)
                     // }
                   >
-                    <MdOutlineUpdate className={s.icon} />
+                    <PiPencilSimpleLineFill className={s.icon} />
                   </button>
                   <button
                     className='delete_btn'
