@@ -1,0 +1,70 @@
+@import '../../../styles/index.scss';
+
+.volunteer {
+  &__inputs {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &:not(:first-of-type) .volunteer__title {
+      display: none;
+    }
+
+    @media (max-width: $tablet) {
+      gap: 1rem;
+    }
+
+    @media (max-width: $mobile) {
+      flex-wrap: wrap;
+
+      &:not(:first-of-type) .volunteer__title {
+        display: block;
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.875rem;
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+
+    &_wrap {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 24.063rem 11.25rem 11.25rem;
+    }
+  }
+
+  &__button {
+    &_add {
+      display: flex;
+      align-items: center;
+      gap: 0.563rem;
+    }
+  }
+
+  &__input {
+    &_days {
+      width: 24rem;
+
+      @media (max-width: $tablet) {
+        width: 22.875rem;
+      }
+    }
+
+    &_time {
+      width: 11.25rem;
+
+      @media (max-width: $tablet) {
+        width: 10.688rem;
+      }
+    }
+  }
+}

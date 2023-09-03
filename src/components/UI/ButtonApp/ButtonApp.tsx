@@ -8,8 +8,9 @@ interface ButtonProps {
   type?: 'link' | '' | 'submit';
   to?: string;
   color?: 'orange' | 'white';
-  size?: 'smaller' | 'small' | 'medium' | 'standard' | 'large';
+  size?: 'smaller' | 'small' | 'medium' | 'standard' | 'large' | 'Xlarge';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 const ButtonApp = ({
@@ -20,6 +21,7 @@ const ButtonApp = ({
   color = 'orange',
   size = 'standard',
   onClick,
+  disabled = false,
   ...props
 }: ButtonProps) => {
   if (type === 'link') {
@@ -40,6 +42,7 @@ const ButtonApp = ({
       onClick={onClick}
       type={type === 'submit' ? 'submit' : 'button'}
       className={[s.btn, s[type], s[color], s[size], className].join(' ')}
+      disabled={disabled}
     >
       {children}
     </button>
