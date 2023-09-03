@@ -1,0 +1,96 @@
+@import '../../../styles/index';
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+//========================================================================================================================================================
+
+.header {
+  flex: 0 1 59.416667%; /* 713/1200 */
+  display: flex;
+  justify-content: start;
+
+  &:not(:last-child) {
+    margin-bottom: toRem(44);
+  }
+  @media (min-width: $mobile) {
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  @media (max-width: $mobile) {
+    gap: toRem(24);
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .title {
+    flex: 0 1 59.416667%; /* 713/1200 */
+  }
+  .subtitle {
+    flex: 0 1 40.5%; /* 486/1200 */
+    font-weight: 600;
+    line-height: 150%;
+    position: relative;
+
+    @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
+    @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+    @media (min-width: $mobile) {
+      padding-right: toRem(20);
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      height: toRem(2);
+      top: 50%;
+      left: 0;
+      background-color: var(--black);
+      border-radius: toRem(8);
+      @include adaptiveValue('width', 44, 24, 0, 1200, 390);
+    }
+  }
+}
+
+//========================================================================================================================================================
+.list {
+  @media (min-width: $mobile) {
+    padding-left: 40.5%; /* 486/1200 */
+  }
+  p {
+    &:not(:last-child) {
+      margin-bottom: em(24, 16);
+    }
+  }
+  .item {
+    position: relative;
+    display: flex;
+    align-items: start;
+    gap: toRem(24);
+    &:not(:first-child) {
+      @include adaptiveValue('padding-top', 24, 20, 0, 1200, 390);
+    }
+    &:not(:last-child) {
+      @include adaptiveValue('padding-bottom', 24, 20, 0, 1200, 390);
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: toRem(2);
+        bottom: 0;
+        left: 0;
+        background-color: var(--black);
+        border-radius: toRem(8);
+      }
+    }
+  }
+  .tag {
+    color: var(--dark-grey);
+    font-weight: 600;
+    line-height: 150%;
+    @media (min-width: $mobileSmall) {
+      min-width: toRem(204);
+    }
+    @include adaptiveValue('max-width', 150, 110, 1, 768, 320);
+    @include adaptiveValue('min-width', 150, 110, 1, 768, 320);
+  }
+}

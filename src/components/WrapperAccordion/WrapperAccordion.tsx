@@ -14,10 +14,11 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
 
   const selectedProject = projects[0]?.translations[0];
 
+  const title = selectedProject?.title;
   const description = selectedProject?.description;
   const criteria = selectedProject?.criteria;
   const goals = selectedProject?.goals;
-
+  console.log('WrapperAccordion',projects);
   return (
     <section className={s.wrapper}>
       <div className='container'>
@@ -26,7 +27,7 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
         ) : (
           <>
             <ArticleSection
-              title={t('About the OpportunityConnect')}
+              title={t(`About the ${title}`)}
               subtitle={t('Project’s description')}
               items={description?.split('\n') || []}
               variant='paragraphs'

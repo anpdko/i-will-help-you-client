@@ -34,11 +34,11 @@ const ProjectsPage = () => {
         loading={loading}
         message={message}
       />
-      <WrapperAccordion
+      {/* <WrapperAccordion
         projects={filteredProjects}
         loading={loading}
         message={message}
-      />
+      /> */}
     </>
   );
 };

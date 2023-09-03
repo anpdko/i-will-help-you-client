@@ -3,14 +3,16 @@
   :global {
     .container {
       @include adaptiveValue('padding-top', 64, 30);
-      @include adaptiveValue('padding-bottom', 75, 40, 0, 1200, 390);
+      // @include adaptiveValue('padding-bottom', 75, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
     }
   }
 }
-.body {
+
+.swipers_header {
   display: flex;
   position: relative;
-
+  @include adaptiveValue('padding-bottom', 75, 40, 0, 1200, 390);
   @include adaptiveValue('gap', 100, 50, 0, 1200, 992);
   @media (min-width: em(1170)) {
     &::after {
@@ -28,6 +30,7 @@
     flex-direction: column-reverse;
   }
 }
+
 .swiper_content {
   position: relative;
   width: 100%;
@@ -87,6 +90,25 @@
     }
   }
 }
+
+.swiper_about {
+  @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
+  @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
+  .about {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
+    &:last-child {
+      align-items: center;
+      @media (max-width: $mobile) {
+        button {
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
+
 .actions {
   display: flex;
   gap: toRem(20);
