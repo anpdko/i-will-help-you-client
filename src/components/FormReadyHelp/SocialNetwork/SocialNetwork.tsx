@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import Select from 'react-select';
+import Select, { StylesConfig } from 'react-select';
 import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
 import { InputFormApp } from '../../UI';
@@ -8,7 +8,7 @@ import { TelegramIcon } from '../../icons/TelegramIcon';
 import { ViberIcon } from '../../icons/ViberIcon';
 import { InstagramIcon } from '../../icons/InstagramIcon';
 import { FacebookIcon } from '../../icons/FacebookIcon';
-import customStyles from '../selectStyle';
+// import customStyles from '../selectStyle';
 import basic from '../FormReadyHelp.module.scss';
 import s from './SocialNetwork.module.scss';
 
@@ -44,17 +44,23 @@ const SocialNetwork = () => {
           render={({ field }) => (
             <Select
               options={options}
-              styles={customStyles}
-              customPadding='11px 0'
+              // styles={customStyles as StylesConfig<{}>}
+              // customPadding='11px 0'
               isSearchable={false}
               defaultValue={options[0]}
               onChange={(selectedOption) =>
-                field.onChange(selectedOption?.value)
+                field.onChange(
+                  (
+                    selectedOption as {
+                      value: string;
+                      label: string;
+                      icon: React.ReactNode;
+                    }
+                  )?.value,
+                )
               }
-              formatOptionLabel={({ icon }) => (
-                <>
-                  {icon}
-                </>
+              formatOptionLabel={({ icon }: { icon: React.ReactNode }) => (
+                <>{icon}</>
               )}
               className={s.networks__input_logo}
             />

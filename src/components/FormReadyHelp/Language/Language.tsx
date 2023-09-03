@@ -52,7 +52,9 @@ const Language = () => {
                 placeholder='Choose language'
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
-                  field.onChange(selectedOption?.value);
+                  field.onChange(
+                    (selectedOption as { value: string; label: string })?.value,
+                  );
                 }}
                 className={s.language__input}
               />
@@ -71,7 +73,9 @@ const Language = () => {
                 placeholder='Choose level'
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
-                  field.onChange(selectedOption?.value);
+                  field.onChange(
+                    (selectedOption as { value: string; label: string })?.value,
+                  );
                 }}
                 className={s.language__input}
               />
