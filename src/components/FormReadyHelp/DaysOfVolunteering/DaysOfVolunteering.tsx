@@ -60,7 +60,10 @@ const DaysOfVolunteering = () => {
                   styles={customStyles}
                   value={days.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
-                    field.onChange(selectedOption?.value);
+                    field.onChange(
+                      (selectedOption as { value: string; label: string })
+                        ?.value,
+                    );
                   }}
                   className={s.volunteer__input_days}
                 />
@@ -83,7 +86,10 @@ const DaysOfVolunteering = () => {
                   styles={customStyles}
                   value={times.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
-                    field.onChange(selectedOption?.value);
+                    field.onChange(
+                      (selectedOption as { value: string; label: string })
+                        ?.value,
+                    );
                   }}
                   className={s.volunteer__input_time}
                 />
@@ -106,7 +112,10 @@ const DaysOfVolunteering = () => {
                   styles={customStyles}
                   value={times.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
-                    field.onChange(selectedOption?.value);
+                    field.onChange(
+                      (selectedOption as { value: string; label: string })
+                        ?.value,
+                    );
                   }}
                   className={s.volunteer__input_time}
                 />

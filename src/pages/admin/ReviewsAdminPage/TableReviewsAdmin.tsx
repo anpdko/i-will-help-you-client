@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getReviews, deleteReview } from '../../../store/reviews/reviewsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
 import s from './ReviewsAdminPage.module.scss';
-import { AiFillEdit } from 'react-icons/ai';
+import { PiPencilSimpleLineFill } from 'react-icons/pi';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -60,7 +60,7 @@ const TableReviewsAdmin = () => {
                   <button
                     className='update_btn'
                   >
-                    <AiFillEdit className={s.icon} />
+                    <PiPencilSimpleLineFill className={s.icon} />
                   </button>
                   <button
                     className='delete_btn'
