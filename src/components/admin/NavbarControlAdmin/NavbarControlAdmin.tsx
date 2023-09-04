@@ -1,16 +1,16 @@
 import s from './NavbarControlAdmin.module.scss';
 import { ButtonApp } from '../../../components/UI';
 
-const NavbarControlAdmin = () => {
+const NavbarControlAdmin = ({createLink}:{createLink:string}) => {
    return (
       <div className={s.navbar_control_admin}>
         
          <section className={s.section_nav_control_admin_modules}>
-         <h1>NavbarControlAdmintest</h1>
             <ButtonApp 
             className={s.submit}
-            type='submit'
-            color='orange'
+            type='link'
+            to={createLink}
+            // color='orange'
             size='smaller'
           >
             Create</ButtonApp>
@@ -18,4 +18,4 @@ const NavbarControlAdmin = () => {
       </div>
    );
 };
-export default NavbarControlAdmin
+export default NavbarControlAdmin;

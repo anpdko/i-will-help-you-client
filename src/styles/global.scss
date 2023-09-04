@@ -75,3 +75,36 @@ a {
   @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
   line-height: 150%;
 }
+//Admin table
+.admin_table{
+  tr:nth-of-type(even) {
+    background: var(--orange-for-states);
+  }
+  
+  th, td{
+    padding: .2rem .5rem;
+    font-size: 1rem;
+  }
+    
+  th{
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--black);
+  }
+}
+
+.update_btn,
+.delete_btn{
+  padding: .3rem;
+  border-radius: .5rem;
+  border: 1px solid var(--black);
+}
+
+.update_btn{
+  background: var(--milky);
+  margin-right: .2rem;
+}
+.delete_btn{
+  background: rgb(243, 118, 118);
+  
+}
+

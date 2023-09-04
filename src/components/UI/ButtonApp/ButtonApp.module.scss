@@ -5,6 +5,7 @@
   &:hover,
   :focus {
     background: var(--orange-for-states);
+    color: var(--black);
   }
   &:active {
     font-weight: 700;

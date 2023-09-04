@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import s from './Footer.module.scss';
 import sprite from '../../assets/sprite.svg';
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className={s.footer}>
       <div className='container'>
@@ -16,40 +18,40 @@ const Footer = () => {
           <nav className={s.footer_links__navs}>
             <ul className={s.footer_links__list}>
               <li>
-                <Link to='#'>Conditions</Link>
+                <Link to='#'>{t('Conditions')}</Link>
               </li>
               <li>
-                <Link to='#'>Publicity</Link>
+                <Link to='#'>{t('Publicity')}</Link>
               </li>
               <li>
-                <Link to='#'>Documents</Link>
-              </li>
-            </ul>
-
-            <ul className={s.footer_links__list}>
-              <li>
-                <Link to='/about'>About Us</Link>
-              </li>
-              <li>
-                <Link to='/projects'>Projects</Link>
-              </li>
-              <li>
-                <Link to='#'>FAQ</Link>
+                <Link to='#'>{t('Documents')}</Link>
               </li>
             </ul>
 
             <ul className={s.footer_links__list}>
               <li>
-                <Link to='/readyneed'>Volunteering</Link>
+                <Link to='/about'>{t('About Us')}</Link>
               </li>
               <li>
-                <Link to='/needhelp'>Help</Link>
+                <Link to='/projects'>{t('Projects')}</Link>
+              </li>
+              <li>
+                <Link to='#'>{t('FAQ')}</Link>
+              </li>
+            </ul>
+
+            <ul className={s.footer_links__list}>
+              <li>
+                <Link to='/readyneed'>{t('Volunteering')}</Link>
+              </li>
+              <li>
+                <Link to='/needhelp'>{t('Help')}</Link>
               </li>
             </ul>
           </nav>
 
           <div className={s.footer_links__social}>
-            <p>Follow us</p>
+            <p>{t('Follow us')}</p>
             <ul className={s.footer__socialmedia}>
               <li>
                 <Link to='#' className={s.footer__socialmedia__link}>
@@ -69,10 +71,10 @@ const Footer = () => {
           </div>
 
           <div className={s.footer_links__contacts}>
-            <ButtonApp>Donate</ButtonApp>
+            <ButtonApp>{t('Donate')}</ButtonApp>
             <ul className={s.footer_links__list_contacts}>
               <li>
-                <p>Mon-Fri 8:00 - 18:00</p>
+                <p>{t('Mon-Fri')} 8:00 - 18:00</p>
               </li>
               <li>
                 <Link to='tel:++380000000000'>+0 (000) 000 00 00</Link>

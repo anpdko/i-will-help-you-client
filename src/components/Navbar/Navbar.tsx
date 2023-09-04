@@ -84,14 +84,14 @@ const Navbar = () => {
             <ul className={s.social__list}>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
                 </Link>
@@ -101,9 +101,9 @@ const Navbar = () => {
 
           <ul className={s.contacts}>
             <li className={s.contacts__item}>
-              <Link to='tel:+380000000000' className={s.contacts__link}>
+              <Link to='tel:++380000000000' className={s.contacts__link}>
                 <div className={s.contacts__link_text}>
-                  <span>Hotline</span>
+                  <span>{t('Hotline')}</span>
                   +0 (000) 000 00 00
                 </div>
                 <svg>
@@ -117,7 +117,7 @@ const Navbar = () => {
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
-                  <span>Email</span>
+                  <span>{t('Email')}</span>
                   iwillhelpu@post.com
                 </div>
                 <svg>

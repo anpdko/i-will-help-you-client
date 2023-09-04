@@ -12,7 +12,7 @@ interface InputFormAppProps {
 
 const InputFormApp = ({
   id,
-  placeholder = "",
+  placeholder = '',
   className,
   required = true,
   regexp = /^.+$/,

@@ -28,12 +28,12 @@ const TableReviewsAdmin = () => {
 
   return (
     <>
-     {loading ? (
+      {loading ? (
         <p>Loading...</p>
       ) : message ? (
         <p>{message}</p>
       ) : (
-        <table className={s.reviews_table}>
+        <table className='admin_table'>
           <thead>
             <tr>
               <th>Photo</th>
@@ -61,13 +61,13 @@ const TableReviewsAdmin = () => {
                 <td>{new Date(review.published_date).toLocaleDateString()}</td>
                 <td>
                   <button
-                    className={s.update_btn}
+                    className='update_btn'
                     // onClick={() => handleUpdateReview(review._id, updatedData)}
                   >
                     <MdOutlineUpdate className={s.icon} />
                   </button>
                   <button
-                    className={s.delete_btn}
+                    className='delete_btn'
                     onClick={() => handleDeleteReview(review._id)}
                   >
                     <BsFillTrashFill className={s.icon} />
