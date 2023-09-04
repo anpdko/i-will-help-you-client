@@ -2,6 +2,9 @@
 // Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
 body {
   background-color: var(--bg);
+  &.scroll-lock {
+    overflow: hidden;
+  }
 }
 // Оболонка #root ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 #root {
@@ -76,42 +79,41 @@ a {
   line-height: 150%;
 }
 //Admin table
-.admin_table{
+.admin_table {
   width: 100%;
   tr:nth-of-type(even) {
     background: var(--orange-for-states);
   }
-  
-  th, td{
-    padding: .2rem .5rem;
+
+  th,
+  td {
+    padding: 0.2rem 0.5rem;
     font-size: 1rem;
   }
-  td{
-    img{
+  td {
+    img {
       width: 4rem;
       height: auto;
     }
   }
-  th{
+  th {
     text-transform: uppercase;
     border-bottom: 1px solid var(--black);
   }
 }
 
 .update_btn,
-.delete_btn{
-  font-size: 1.5rem; 
-  padding: .3rem;
-  border-radius: .5rem;
+.delete_btn {
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
   border: 1px solid var(--black);
 }
 
-.update_btn{
+.update_btn {
   background: var(--milky);
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
-.delete_btn{
+.delete_btn {
   background: rgb(243, 118, 118);
-  
 }
-
