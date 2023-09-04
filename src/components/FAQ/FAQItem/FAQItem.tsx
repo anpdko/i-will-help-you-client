@@ -30,7 +30,17 @@ const FAQItem = ({ tab }: FAQProps) => {
           </svg>
         </button>
       </div>
-      {toggleFAQ && <p className={s.faq_item__descr}>{tab.description}</p>}
+      <div
+        className={
+          toggleFAQ
+            ? `${s.faq_item__content_open}`
+            : `${s.faq_item__content_closed}`
+        }
+      >
+        <div className={s.faq_item__descr_container}>
+          <p className={s.faq_item__descr}>{tab.description}</p>
+        </div>
+      </div>
     </li>
   );
 };
