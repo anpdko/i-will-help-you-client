@@ -93,7 +93,6 @@
 
 .swiper_about {
   @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
-  @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
   .about {
     display: flex;
     flex-direction: column;
