@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm, FormProvider, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../store/store';
-import { createReviewSuccess } from '../../../store/reviews/reviewsSlice';
+import { createReview } from '../../../store/reviews/reviewsSlice';
 import { useNavigate } from 'react-router-dom';
 import {
   ButtonApp,
@@ -24,7 +24,19 @@ const ReviewsCreateAdminPage = () => {
     console.log('Review Data:', reviewData);
     setSubmitting(true);
     try {
-      await dispatch(createReviewSuccess(reviewData));
+      const dataToSend = {
+        translations: [
+          {
+            language: 'en',
+            name: reviewData.name,
+            job: reviewData.job,
+            title: reviewData.title,
+            body: reviewData.body,
+          },
+        ],
+      };
+
+      await dispatch(createReview(dataToSend));
       reset();
       if (!loading && !message) {
         navigate('/admin/panel/reviews');
