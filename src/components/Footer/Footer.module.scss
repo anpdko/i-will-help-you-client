@@ -1,7 +1,6 @@
 @import '../../styles/index';
 
 .footer {
-  
   box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
   line-height: 1.5;
   @media (min-width:$mobileSmall){
@@ -19,9 +18,11 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    flex-wrap: wrap;
     gap: 3rem;
 
+    @media (max-width:em(1126)){
+        flex-wrap: wrap;
+    }
     @media screen and (min-width: 24.41rem) {
       flex-direction: row;
     }
@@ -94,6 +95,7 @@
       @media (max-width: em(390)) {
         button {
           min-width: 100%;
+          height: fit-content;
           &:not(:last-child) {
             margin-bottom: toRem(48);
           }
@@ -104,13 +106,14 @@
 
   &__socialmedia {
     display: flex;
+    align-items: center;
     gap: 1rem;
 
     &__link {
       display: flex;
       width: 2.5rem;
       height: 2.5rem;
-      color: currentColor;
+      // color: currentColor;
 
       @media screen and (min-width: 48rem) {
         width: 2.75rem;
@@ -122,7 +125,7 @@
       }
 
       &__icon {
-        fill: currentColor;
+        // fill: currentColor;
       }
     }
   }
