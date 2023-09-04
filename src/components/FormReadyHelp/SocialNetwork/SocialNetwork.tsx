@@ -8,7 +8,7 @@ import { TelegramIcon } from '../../icons/TelegramIcon';
 import { ViberIcon } from '../../icons/ViberIcon';
 import { InstagramIcon } from '../../icons/InstagramIcon';
 import { FacebookIcon } from '../../icons/FacebookIcon';
-// import customStyles from '../selectStyle';
+import customStyles from '../selectStyle';
 import basic from '../FormReadyHelp.module.scss';
 import s from './SocialNetwork.module.scss';
 
@@ -44,8 +44,8 @@ const SocialNetwork = () => {
           render={({ field }) => (
             <Select
               options={options}
-              // styles={customStyles as StylesConfig<{}>}
-              // customPadding='11px 0'
+              styles={customStyles}
+              customPadding='11px 0'
               isSearchable={false}
               defaultValue={options[0]}
               onChange={(selectedOption) =>
