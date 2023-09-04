@@ -21,8 +21,16 @@ const ProjectsPage = () => {
 
   useEffect(() => {
     dispatch(getProjects());
-    navigate(`/projects/${currentId}`);
   }, []);
+
+  useEffect(() => {
+    if (!id) {
+      const firstSlideId = projects[0]?._id;
+      if (firstSlideId) {
+        navigate(`/projects/${firstSlideId}`);
+      }
+    }
+  }, [id, projects, navigate]);
 
   const filteredProjects = useMemo(() => {
     return projects.map((project) => ({

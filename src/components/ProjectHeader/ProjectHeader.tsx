@@ -26,7 +26,10 @@ const ProjectHeader: React.FC<
   const handleSlideChange = (swiper: any) => {
     const activeSlide = swiper.realIndex;
     const newId = projects[activeSlide]._id;
-    navigate(`/projects/${newId}`);
+
+    if (newId) {
+      navigate(`/projects/${newId}`);
+    }
   };
 
   const IMAGE_PREFIX = '/static/images/projects/';
