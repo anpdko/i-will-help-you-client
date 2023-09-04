@@ -1,12 +1,11 @@
-import { ReadyNeedHeader, FAQ } from '../../components';
-import { SelectApp } from '../../components/UI';
+import { ReadyNeedHeader, FormReadyHelp, FAQ } from '../../components';
 
 const ReadyHelpPage = () => {
   return (
     <section>
       <div className='container'>
         <ReadyNeedHeader />
-        <SelectApp />
+        <FormReadyHelp />
         <FAQ />
       </div>
     </section>

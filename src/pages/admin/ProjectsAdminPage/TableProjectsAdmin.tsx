@@ -1,28 +1,35 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReviews, deleteReview } from '../../../store/reviews/reviewsSlice';
+import {
+  getProjects,
+  removeProject,
+} from '../../../store/projects/projectsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
-import s from './ReviewsAdminPage.module.scss';
+
 import { PiPencilSimpleLineFill } from 'react-icons/pi';
 import { BsFillTrashFill } from 'react-icons/bs';
+import s from './ProjectsAdminPage.module.scss';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const TableReviewsAdmin = () => {
+const TableProjectsAdmin = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { reviews, loading, message } = useSelector(
-    (state: RootState) => state.reviews,
+  const { projects, loading, message } = useSelector(
+    (state: RootState) => state.projects,
   );
 
   useEffect(() => {
-    dispatch(getReviews());
+    dispatch(getProjects());
   }, [dispatch]);
 
-  const handleDeleteReview = (reviewId: string) => {
-    dispatch(deleteReview(reviewId));
+  const handleDeleteProject = (projectId: string) => {
+    dispatch(removeProject(projectId));
   };
 
-  
+  //   const handleUpdateProject = (projectId: string, updatedData: any) => {
+  //     dispatch(changeProject({ projectId, updatedData }));
+  //   };
+
   return (
     <>
       {loading ? (
@@ -34,37 +41,38 @@ const TableReviewsAdmin = () => {
           <thead>
             <tr>
               <th>Photo</th>
-              <th>Name</th>
-              <th>Job</th>
               <th>Title</th>
-              <th>Body</th>
+              <th>Slogan</th>
               <th>Published Date</th>
               <th>Updated Date</th>
             </tr>
           </thead>
           <tbody>
-            {reviews.map((review) => (
-              <tr key={review._id}>
+            {projects.map((project) => (
+              <tr key={project._id}>
                 <td>
                   <img
-                    src={API_URL + '/static/images/reviews/' + review.foto}
+                    src={
+                      API_URL + '/static/images/projects/' + project.imgCover
+                    }
                     alt='photo'
                   />
                 </td>
-                <td>{review.translations[0]?.name}</td>
-                <td>{review.translations[0]?.job}</td>
-                <td>{review.translations[0]?.title}</td>
-                <td>{review.translations[0]?.body}</td>
-                <td>{new Date(review.published_date).toLocaleDateString()}</td>
+                <td>{project.translations[0]?.title}</td>
+                <td>{project.translations[0]?.slogan}</td>
+                <td>{new Date(project.published_date).toLocaleDateString()}</td>
                 <td>
                   <button
                     className='update_btn'
+                    // onClick={() =>
+                    //   handleUpdateProject(project._id, updatedData)
+                    // }
                   >
                     <PiPencilSimpleLineFill className={s.icon} />
                   </button>
                   <button
                     className='delete_btn'
-                    onClick={() => handleDeleteReview(review._id)}
+                    onClick={() => handleDeleteProject(project._id)}
                   >
                     <BsFillTrashFill className={s.icon} />
                   </button>
@@ -77,4 +85,5 @@ const TableReviewsAdmin = () => {
     </>
   );
 };
-export default TableReviewsAdmin;
+
+export default TableProjectsAdmin;

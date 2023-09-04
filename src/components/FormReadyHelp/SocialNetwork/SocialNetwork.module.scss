@@ -1,0 +1,25 @@
+@import '../../../styles/index.scss';
+
+.networks {
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.438rem;
+
+    @media (max-width: $tablet) {
+      gap: 0.25rem;
+    }
+  }
+
+  &__input {
+    &_logo {
+      width: 4.875rem;
+      text-align: center;
+    }
+
+    &_network {
+      width: 17.625rem;
+    }
+  }
+}

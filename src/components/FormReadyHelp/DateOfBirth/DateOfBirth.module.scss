@@ -1,0 +1,11 @@
+@import '../../../styles/index.scss';
+
+.dob {
+  &__input {
+    width: 24rem;
+
+    @media (max-width: $tablet) {
+      width: 22.875rem;
+    }
+  }
+}

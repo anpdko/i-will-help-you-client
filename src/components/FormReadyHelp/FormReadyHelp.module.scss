@@ -1,0 +1,177 @@
+@import '../../styles/index.scss';
+
+.section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4rem 0 7rem;
+
+  @media (max-width: $tablet) {
+    justify-content: center;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    @media (max-width: $tablet) {
+      display: none;
+      justify-content: center;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 2.75rem;
+      height: 0.125rem;
+      background: var(--black);
+      border-radius: 1rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 24rem 24rem;
+  grid-template-areas:
+    'firstName lastName'
+    'dob phone'
+    'country networks'
+    'email email'
+    'days days'
+    'language language'
+    'skills skills'
+    'comment comment'
+    'checkboxes checkboxes'
+    'button button';
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2.75rem;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 22.875rem 22.875rem;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 2rem;
+  }
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 22.875rem;
+    grid-template-areas: 'firstName' 'lastName' 'dob' 'phone' 'country' 'networks' 'email' 'days' 'language' 'skills' 'comment' 'checkboxes' 'button';
+    grid-row-gap: 1.5rem;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__label {
+    color: var(--black);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+    padding: 1.125rem 1.5rem;
+
+    &::placeholder {
+      color: var(--dark-grey);
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1rem; 
+    }
+  }
+
+  &__error {
+    font-size: 0.875rem;
+    color: var(--red-for-error);
+    margin-top: -0.625rem;
+  }
+
+  &__firstName {
+    grid-area: firstName;
+  }
+
+  &__lastName {
+    grid-area: lastName;
+  }
+
+  &__dob {
+    grid-area: dob;
+  }
+
+  &__phone {
+    grid-area: phone;
+  }
+
+  &__country {
+    grid-area: country;
+  }
+
+  &__networks {
+    grid-area: networks;
+  }
+
+  &__email {
+    grid-area: email;
+  }
+
+  &__days {
+    grid-area: days;
+  }
+
+  &__language {
+    grid-area: language;
+  }
+
+  &__skills {
+    grid-area: skills;
+  }
+
+  &__comment {
+    grid-area: comment;
+  }
+
+  &__checkboxes {
+    grid-area: checkboxes;
+  }
+
+  &__button {
+    grid-area: button;
+    width: 17.625rem;
+    padding: 1.5rem 0;
+    border-radius: 0.75rem;
+    background: var(--black);
+    color: var(--total-white);
+
+    @media (max-width: $mobile) {
+      width: 22.875rem;
+      border-radius: 0.625rem;
+    }
+
+    &:disabled {
+      background: var(--light-grey);
+      color: var(--black);
+    }
+
+    &:hover {
+      background: var(--light-black);
+      color: var(--total-white);
+    }
+  }
+}
