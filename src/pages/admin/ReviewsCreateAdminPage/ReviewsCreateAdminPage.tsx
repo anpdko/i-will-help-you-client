@@ -1,17 +1,86 @@
+import { useState } from 'react';
+import { useForm, FormProvider, Controller } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../store/store';
+import { createReviewSuccess } from '../../../store/reviews/reviewsSlice';
+import { useNavigate } from 'react-router-dom';
+import {
+  ButtonApp,
+  InputFormApp,
+  TextareaFormApp,
+} from '../../../components/UI';
+
 import s from './ReviewsCreateAdminPage.module.scss';
-import { ButtonApp, InputFormApp } from '../../../components/UI';
-import { useForm, FormProvider } from 'react-hook-form';
 
 const ReviewsCreateAdminPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const methods = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const { handleSubmit, control, reset } = methods;
+  const [submitting, setSubmitting] = useState(false);
+  const { loading, message } = useSelector((state: RootState) => state.reviews);
+
+  const onSubmit = async (reviewData: any) => {
+    console.log('Review Data:', reviewData);
+    setSubmitting(true);
+    try {
+      await dispatch(createReviewSuccess(reviewData));
+      reset();
+      if (!loading && !message) {
+        navigate('/admin/panel/reviews');
+        alert('Відгук створено');
+      }
+    } catch (error) {
+      console.error("Помилка при створенні рев'ю:", error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className={s.reviews_create_admin_page}>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <InputFormApp id='name' />
-          <ButtonApp type='submit'>Create</ButtonApp>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name='foto'
+            control={control}
+            render={({ field }) => (
+              <InputFormApp {...field} type='file' accept='image/*' id='foto' />
+            )}
+          />
+          <Controller
+            name='name'
+            control={control}
+            defaultValue=''
+            render={({ field }) => (
+              <InputFormApp {...field} id='name' placeholder='Name' />
+            )}
+          />
+          <Controller
+            name='job'
+            control={control}
+            defaultValue=''
+            render={({ field }) => (
+              <InputFormApp {...field} id='job' placeholder='Job' />
+            )}
+          />
+          <Controller
+            name='title'
+            control={control}
+            defaultValue=''
+            render={({ field }) => (
+              <InputFormApp {...field} id='title' placeholder='Title' />
+            )}
+          />
+          <Controller
+            name='body'
+            control={control}
+            defaultValue=''
+            render={({ field }) => (
+              <TextareaFormApp {...field} name='body' placeholder='Body' />
+            )}
+          />
+          <ButtonApp type='submit'>Створити</ButtonApp>
         </form>
       </FormProvider>
     </div>

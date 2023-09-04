@@ -19,6 +19,7 @@ export interface IReviewsState {
   reviews: IReviews[];
   loading: boolean | null;
   message: string | null;
+  error: string | null;
 }
 
 export interface IReviewsError {

@@ -11,6 +11,7 @@ const initialState: IReviewsState = {
   reviews: [],
   loading: null,
   message: null,
+  error: null,
 };
 
 const handleRequestError = (
@@ -107,6 +108,27 @@ export const deleteReview = createAsyncThunk(
 //   },
 // );
 
+export const createReview = createAsyncThunk(
+  'reviews/createReview',
+  async (reviewData, thunkAPI) => {
+    try {
+      const response = await axios.post(`${API_URL}/api/reviews`, reviewData, {
+        headers: authHeader(),
+      });
+
+      if (response.status === 201) {
+        return response.data;
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return thunkAPI.rejectWithValue(handleRequestError(error, thunkAPI));
+      }
+    }
+  },
+);
+
 export const reviewsSlice = createSlice({
   name: 'reviews',
   initialState,
@@ -127,6 +149,9 @@ export const reviewsSlice = createSlice({
           state.reviews[index] = updatedReview;
         }
       }
+    },
+    createReviewSuccess: (state, action) => {
+      state.reviews.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -156,9 +181,24 @@ export const reviewsSlice = createSlice({
       .addCase(deleteReview.rejected, (state, action) => {
         state.loading = false;
         state.message = String(action.payload);
+      })
+      //createReview
+      .addCase(createReview.pending, (state) => {
+        state.loading = true;
+        state.message = null;
+      })
+      .addCase(createReview.fulfilled, (state, action) => {
+        state.loading = false;
+        state.message = null;
+        state.reviews.push(action.payload);
+      })
+      .addCase(createReview.rejected, (state, action) => {
+        state.loading = false;
+        state.message = String(action.payload);
       });
   },
 });
 
-export const { removeReview, changeReview } = reviewsSlice.actions;
+export const { removeReview, changeReview, createReviewSuccess } =
+  reviewsSlice.actions;
 export default reviewsSlice.reducer;
