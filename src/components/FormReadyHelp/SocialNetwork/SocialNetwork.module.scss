@@ -16,6 +16,9 @@
     &_logo {
       width: 4.875rem;
       text-align: center;
+      & > div {
+        padding: 11px 0 !important;
+      }
     }
 
     &_network {
