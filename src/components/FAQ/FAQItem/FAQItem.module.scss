@@ -38,16 +38,18 @@
   font-weight: 600;
 }
 
-.faq_item__content_open {
+.faq_item__content_open,
+.faq_item__content_closed {
   display: grid;
-  grid-template-rows: 1fr;
   transition: grid-template-rows 500ms;
 }
 
+.faq_item__content_open {
+  grid-template-rows: 1fr;
+}
+
 .faq_item__content_closed {
-  display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 500ms;
 }
 
 .faq_item__descr_container {
