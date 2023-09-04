@@ -23,7 +23,7 @@ const customStyles: StylesConfig = {
   }),
 
   control: (baseStyles, state) => ({
-  // control: (baseStyles) => ({
+    // control: (baseStyles) => ({
     ...baseStyles,
     backgroundColor: '#fff',
     border: '1px solid #0e0e0e',

@@ -22,7 +22,6 @@ const TableReviewsAdmin = () => {
     dispatch(deleteReview(reviewId));
   };
 
-  
   return (
     <>
       {loading ? (
@@ -57,9 +56,7 @@ const TableReviewsAdmin = () => {
                 <td>{review.translations[0]?.body}</td>
                 <td>{new Date(review.published_date).toLocaleDateString()}</td>
                 <td>
-                  <button
-                    className='update_btn'
-                  >
+                  <button className='update_btn'>
                     <PiPencilSimpleLineFill className={s.icon} />
                   </button>
                   <button
