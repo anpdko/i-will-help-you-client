@@ -45,7 +45,7 @@ const SocialNetwork = () => {
             <Select
               options={options}
               styles={customStyles}
-              customPadding='11px 0'
+              // customPadding='11px 0'
               isSearchable={false}
               defaultValue={options[0]}
               onChange={(selectedOption) =>
@@ -59,7 +59,7 @@ const SocialNetwork = () => {
                   )?.value,
                 )
               }
-              formatOptionLabel={({ icon }: { icon: React.ReactNode }) => (
+              formatOptionLabel={({ icon }: { icon: any }) => (
                 <>{icon}</>
               )}
               className={s.networks__input_logo}
