@@ -7,6 +7,15 @@
   @media (min-width: $mobile) {
     padding-bottom: 84.895833%; /* 326/384 */
   }
+  @media (min-width: $mobileSmall) {
+    &:hover .banner__content {
+      transform: translateY(0);
+    }
+    &:hover .banner__description {
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
+  }
   @media (max-width: $mobile) {
     padding-bottom: 42.622951%; /* 156/366 */
   }
@@ -69,7 +78,6 @@
   }
   &__description {
     opacity: 0;
-
     font-weight: 600;
     @media (max-width: $mobileSmall) {
       font-size: toRem(12);
@@ -85,7 +93,6 @@
     padding: 0.25rem;
     border-radius: 0.6rem;
     background-color: var(--bg);
-
     @media (any-hover: hover) {
       &:hover {
         color: var(--orange);
@@ -97,13 +104,5 @@
     width: 1.5rem;
     fill: currentColor;
     transition: color 0.2s linear;
-  }
-
-  &:hover .banner__content {
-    transform: translateY(0);
-  }
-  &:hover .banner__description {
-    transition: opacity 0.3s;
-    opacity: 1;
   }
 }

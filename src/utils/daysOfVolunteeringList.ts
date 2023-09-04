@@ -21,4 +21,3 @@ export const timeOptions = [
   { time: '19:00' },
   { time: '20:00' },
 ];
-

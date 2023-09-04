@@ -21,7 +21,7 @@ const customStyles: StylesConfig<any> = {
     background: '#fff',
     lineHeight: '100%',
   }),
-
+  
   control: (baseStyles) => ({
   // control: (baseStyles) => ({
     ...baseStyles,
