@@ -15,12 +15,8 @@ body {
   @supports (overflow: clip) {
     overflow: clip;
   }
-  // Притискаємо footer
-  > main {
-    flex: 1 1 auto;
-  }
-
   > .app {
+    flex: 1 1 auto;
     padding-top: toRem(100);
   }
   // Фікс для слайдерів

@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className={s.nav__logo}>
           <Link to='/' onClick={handleLogoClick}>
             <svg>
-              <use href={sprite + '#logo-header'} /> 
+              <use href={sprite + '#logo-header'} />
             </svg>
           </Link>
         </div>
