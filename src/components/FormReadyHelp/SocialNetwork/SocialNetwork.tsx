@@ -45,10 +45,7 @@ const SocialNetwork = () => {
             <Select
               options={options}
               styles={customStyles}
-<<<<<<< HEAD
-=======
               // customPadding='11px 0'
->>>>>>> main
               isSearchable={false}
               defaultValue={options[0]}
               onChange={(selectedOption) =>
