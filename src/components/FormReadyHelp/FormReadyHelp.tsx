@@ -21,6 +21,9 @@ import { convertUnixTimestampToDate } from '../../utils/convertUnixTimestampToDa
 import { generateSocialMediaLink } from '../../utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
 
+// import { FileInput } from '../UI';
+// import { PaperClipIcon } from '../icons/PaperclipIcon';
+
 interface DataForm {
   firstName: string;
   lastName: string;
@@ -94,6 +97,14 @@ const FormReadyHelp = () => {
             <Skills />
             <Comment />
             <Checkboxes />
+            {/* <FileInput
+              name='files'
+              title='Upload Files'
+              placeholderIcon={<PaperClipIcon />}
+              placeholderText='Upload your files here'
+              accept='image/*, .pdf, .txt, .doc, .docx, .xml'
+              multiple={true}
+            /> */}
             <ButtonApp
               type='submit'
               size='Xlarge'
