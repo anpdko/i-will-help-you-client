@@ -65,6 +65,8 @@ const ProjectHeader: React.FC<
                     onSwiper={setFirstSwiper}
                     onSlideChange={handleSlideChange}
                     initialSlide={initialSlideIndex}
+                    allowSlidePrev={false}
+                    allowSlideNext={false}
                     // controller={{ control: [secondSwiper, thirdSwiper] }}
                   >
                     {projects.map((project) => (
