@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
+import FirstName from './FirstName/FirstName';
+import LastName from './LastName/LastName';
+=======
 import {
   useForm,
   FormProvider,
@@ -5,8 +10,9 @@ import {
   FieldValues,
 } from 'react-hook-form';
 import FullName from './FullName/FullName';
+>>>>>>> main
 import DateOfBirth from './DateOfBirth/DateOfBirth';
-import PhoneNumber from './PhoneNumber/PhoneNumber';
+import { PhoneNumberInput } from '../UI';
 import SelectCountry from './SelectCountry/SelectCountry';
 import SocialNetwork from './SocialNetwork/SocialNetwork';
 import Email from './Email/Email';
@@ -15,10 +21,10 @@ import Language from './Language/Language';
 import Skills from './Skills/Skills';
 import Comment from './Comment/Comment';
 import Checkboxes from './Checkboxes/Checkboxes';
-import s from './FormReadyHelp.module.scss';
 import { ButtonApp } from '../UI';
 import { convertUnixTimestampToDate } from '../../utils/convertUnixTimestampToDate';
 import { generateSocialMediaLink } from '../../utils/generateSocialMediaLink';
+import s from './FormReadyHelp.module.scss';
 
 interface DataForm {
   firstName: string;
@@ -81,10 +87,10 @@ const FormReadyHelp = () => {
             )}
             className={s.form}
           >
-            <FullName nameType='firstName' />
-            <FullName nameType='lastName' />
+            <FirstName />
+            <LastName />
             <DateOfBirth />
-            <PhoneNumber />
+            <PhoneNumberInput />
             <SelectCountry />
             <SocialNetwork />
             <Email />
