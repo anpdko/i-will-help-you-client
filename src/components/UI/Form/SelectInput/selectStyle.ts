@@ -1,6 +1,6 @@
 import { StylesConfig } from 'react-select';
 
-const customStyles: StylesConfig = {
+const customStyles: StylesConfig<any> = {
   indicatorSeparator: (styles) => ({ ...styles, display: 'none' }),
   // indicatorsContainer: (styles) => ({ ...styles, padding: ' 8px 8px 8px 0' }),
 
@@ -22,13 +22,12 @@ const customStyles: StylesConfig = {
     lineHeight: '100%',
   }),
 
-  control: (baseStyles, state) => ({
-  // control: (baseStyles) => ({
+  control: (baseStyles) => ({
     ...baseStyles,
     backgroundColor: '#fff',
     border: '1px solid #0e0e0e',
     borderRadius: '10px',
-    padding: state.selectProps.customPadding || '11px 14px',
+    padding: '11px 14px',
   }),
 
   singleValue: (baseStyles) => ({

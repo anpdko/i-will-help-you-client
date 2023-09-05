@@ -39,19 +39,33 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+    // 'scroll-lock' для body
+    if (!isMenuOpen) {
+      document.body.classList.add('scroll-lock');
+    } else {
+      document.body.classList.remove('scroll-lock');
+    }
   };
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
+    document.body.classList.remove('scroll-lock');
+  };
+
+  const handleLogoClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.classList.remove('scroll-lock');
+    }
   };
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/'>
+          <Link to='/' onClick={handleLogoClick}>
             <svg>
-              <use href={sprite + '#logo'} />
+              <use href={sprite + '#logo-header'} /> 
             </svg>
           </Link>
         </div>

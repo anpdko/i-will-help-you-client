@@ -1,0 +1,27 @@
+@import '../../../../styles/index.scss';
+
+.phone {
+  &__container {
+    grid-area: phone;
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 1.5rem;
+
+    @media (max-width: $tablet) {
+      gap: 0.25rem;
+    }
+  }
+
+  &__input {
+    &_code {
+      width: 4.875rem;
+      padding: 1.125rem 1.125rem 1.125rem 1.4375rem;
+    }
+
+    &_number {
+      width: 17.625rem;
+    }
+  }
+}
