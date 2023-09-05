@@ -65,7 +65,11 @@
     position: relative;
     display: flex;
     align-items: start;
+    
     gap: toRem(24);
+    @media (max-width: em(360)){
+      flex-direction: column;
+    }
     &:not(:first-child) {
       @include adaptiveValue('padding-top', 24, 20, 0, 1200, 390);
     }
@@ -90,7 +94,7 @@
     @media (min-width: $mobileSmall) {
       min-width: toRem(204);
     }
-    @include adaptiveValue('max-width', 150, 110, 1, 768, 320);
-    @include adaptiveValue('min-width', 150, 110, 1, 768, 320);
+    @include adaptiveValue('max-width', 150, 110, 1, 768, 361);
+    @include adaptiveValue('min-width', 150, 110, 1, 768, 361);
   }
 }
