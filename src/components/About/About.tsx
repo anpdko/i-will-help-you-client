@@ -7,7 +7,7 @@ import s from './About.module.scss';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('mission');
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -16,7 +16,7 @@ const About = () => {
   return (
     <section className={s.about}>
       <div className='container'>
-        <h2 className='heading1'>Our Commitment and Vision</h2>
+        <h2 className='heading1'>{t('Our Commitment and Vision')}</h2>
         <div className={s.about__body}>
           <div className={s.about__tabs}>
             {aboutTab.map((tab) => {
