@@ -8,6 +8,7 @@ import DateInput from './Form/DateInput/DateInput';
 import CheckboxInput from './Form/CheckboxInput/CheckboxInput';
 import SelectInput from './Form/SelectInput/SelectInput';
 import PhoneNumberInput from './Form/PhoneNumberInput/PhoneNumberInput';
+import FileInput from './Form/FileInput/FileInput';
 
 export {
   ButtonApp,
@@ -19,4 +20,5 @@ export {
   CheckboxInput,
   SelectInput,
   PhoneNumberInput,
+  FileInput,
 };
