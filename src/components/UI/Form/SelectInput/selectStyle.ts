@@ -21,15 +21,13 @@ const customStyles: StylesConfig<any> = {
     background: '#fff',
     lineHeight: '100%',
   }),
-  
+
   control: (baseStyles) => ({
-  // control: (baseStyles) => ({
     ...baseStyles,
     backgroundColor: '#fff',
     border: '1px solid #0e0e0e',
     borderRadius: '10px',
     padding: '11px 14px',
-    // padding: state.selectProps.customPadding || '11px 14px',
   }),
 
   singleValue: (baseStyles) => ({

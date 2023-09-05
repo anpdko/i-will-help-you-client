@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { skillsList } from '../../../utils/skillsList';
 import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
-import customStyles from '../selectStyle';
+import customStyles from '../../UI/Form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
 
 const Skills = () => {

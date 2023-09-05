@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
-import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import Select from 'react-select';
+import { useFieldArray, useFormContext } from 'react-hook-form';
 import {
   daysOfWeekOptions,
   timeOptions,
 } from '../../../utils/daysOfVolunteeringList';
 import FormItemContainer from '../FormItemContainer';
 import FormLabel from '../FormLabel';
+import { SelectInput } from '../../UI';
 import { PlusIcon } from '../../icons/PlusIcon';
-import customStyles from '../selectStyle';
 import s from './DaysOfVolunteering.module.scss';
 
 const DaysOfVolunteering = () => {
@@ -48,79 +47,37 @@ const DaysOfVolunteering = () => {
         <div key={item.id} className={s.volunteer__inputs}>
           <div className={s.volunteer__wrap}>
             <p className={s.volunteer__title}>Day of the week</p>
-            <Controller
-              name={`daysVolunteer[${index}].day`}
-              control={control}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={days}
-                  placeholder='Day'
-                  styles={customStyles}
-                  value={days.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_days}
-                />
-              )}
-              rules={{ required: true }}
+            <SelectInput
+              commonName='daysVolunteer'
+              name='day'
+              options={days}
+              placeholder='Day'
+              index={index}
+              className={s.volunteer__input_days}
             />
           </div>
 
           <div className={s.volunteer__wrap}>
             <p className={s.volunteer__title}>Time (start)</p>
-            <Controller
-              name={`daysVolunteer[${index}].timeStart`}
-              control={control}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={times}
-                  placeholder='Start Time'
-                  styles={customStyles}
-                  value={times.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_time}
-                />
-              )}
-              rules={{ required: true }}
+            <SelectInput
+              commonName='daysVolunteer'
+              name='timeStart'
+              options={times}
+              placeholder='Start Time'
+              index={index}
+              className={s.volunteer__input_time}
             />
           </div>
 
           <div className={s.volunteer__wrap}>
             <p className={s.volunteer__title}>Time (finish)</p>
-            <Controller
-              name={`daysVolunteer[${index}].timeEnd`}
-              control={control}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={times}
-                  placeholder='End Time'
-                  styles={customStyles}
-                  value={times.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_time}
-                />
-              )}
-              rules={{ required: true }}
+            <SelectInput
+              commonName='daysVolunteer'
+              name='timeEnd'
+              options={times}
+              placeholder='End Time'
+              index={index}
+              className={s.volunteer__input_time}
             />
           </div>
 
