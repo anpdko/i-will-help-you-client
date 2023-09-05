@@ -7,6 +7,8 @@ import { Navigation, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperRef } from 'swiper';
 
+import { useTranslation } from 'react-i18next';
+
 import ReviewBlock from '../ReviewBlock/ReviewBlock';
 
 import sprite from '../../../assets/sprite.svg';
@@ -28,6 +30,8 @@ const ReviewsDesktop = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
   const swiperRef = useRef<SwiperRef | null>(null);
+
+  const { i18n } = useTranslation();
 
   const { isLast, isFirst } = slideBegOrNot;
 
@@ -96,41 +100,45 @@ const ReviewsDesktop = () => {
         tabIndex={0}
         onKeyDown={(e) => handleTabKeyDown(isActive, e)}
       >
-        {reviews.map((tab, index) => (
-          <div
-            key={tab._id}
-            onClick={() => handleTabClick(index)}
-            className={`${s.reviews_desktop__tab} ${
-              isActive === index ? s.reviews_desktop__active : ''
-            }`}
-            role='button'
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                handleTabClick(index);
-              }
-            }}
-            tabIndex={0}
-          >
-            <div className={s.reviews_desktop__img}>
-              <img
-                src={API_URL + '/static/images/reviews/' + tab.foto}
-                alt='review img'
-              />
-            </div>
-
-            <div className={s.reviews_desktop__info}>
-              <h3 className={`${s.reviews_desktop__name} cards-header`}>
-                {
-                  tab.translations.find((trans) => trans.language === 'en')
-                    ?.name
+        {reviews.map((tab, index) => {
+          const transReviews = () => {
+            return tab.translations.find(
+              (item) => i18n.language === item.language,
+            );
+          };
+          return (
+            <div
+              key={tab._id}
+              onClick={() => handleTabClick(index)}
+              className={`${s.reviews_desktop__tab} ${
+                isActive === index ? s.reviews_desktop__active : ''
+              }`}
+              role='button'
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleTabClick(index);
                 }
-              </h3>
-              <p className={s.reviews_desktop__status}>
-                {tab.translations.find((trans) => trans.language === 'en')?.job}
-              </p>
+              }}
+              tabIndex={0}
+            >
+              <div className={s.reviews_desktop__img}>
+                <img
+                  src={API_URL + '/static/images/reviews/' + tab.foto}
+                  alt='review img'
+                />
+              </div>
+
+              <div className={s.reviews_desktop__info}>
+                <h3 className={`${s.reviews_desktop__name} cards-header`}>
+                  {transReviews()?.name}
+                </h3>
+                <p className={s.reviews_desktop__status}>
+                  {transReviews()?.job}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className={s.reviews_desktop__text}>

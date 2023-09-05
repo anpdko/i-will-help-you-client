@@ -6,6 +6,8 @@ import { getReviews } from '../../../store/reviews/reviewsSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperRef } from 'swiper';
 
+import { useTranslation } from 'react-i18next';
+
 import s from './ReviewsMobile.module.scss';
 import ReviewBlock from '../ReviewBlock/ReviewBlock';
 
@@ -16,6 +18,8 @@ const ReviewsMobile = () => {
   const { reviews } = useSelector((state: RootState) => state.reviews);
   const [isActive, setIsActive] = useState(0);
   const [swiper, setSwiper] = useState<SwiperRef | null>(null);
+
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     dispatch(getReviews());
@@ -42,42 +46,43 @@ const ReviewsMobile = () => {
         slidesPerView={'auto'}
         onSlideChange={onSlideChange}
       >
-        {reviews.map((tab, index) => (
-          <SwiperSlide style={{ flexShrink: 'inherit' }} key={tab._id}>
-            <div
-              className={`${s.reviews_mobile__card} ${
-                isActive === index ? s.reviews_mobile__active : ''
-              }`}
-            >
-              <div className={s.reviews_mobile__person}>
-                <div className={s.reviews_mobile__img}>
-                  <img
-                    src={API_URL + '/static/images/reviews/' + tab.foto}
-                    alt='review img'
-                  />
+        {reviews.map((tab, index) => {
+          const transReviews = () => {
+            return tab.translations.find(
+              (item) => i18n.language === item.language,
+            );
+          };
+          return (
+            <SwiperSlide style={{ flexShrink: 'inherit' }} key={tab._id}>
+              <div
+                className={`${s.reviews_mobile__card} ${
+                  isActive === index ? s.reviews_mobile__active : ''
+                }`}
+              >
+                <div className={s.reviews_mobile__person}>
+                  <div className={s.reviews_mobile__img}>
+                    <img
+                      src={API_URL + '/static/images/reviews/' + tab.foto}
+                      alt='review img'
+                    />
+                  </div>
+                  <div className={s.reviews_mobile__info}>
+                    <h3 className={`${s.reviews_mobile__name} cards-header`}>
+                      {transReviews()?.name}
+                    </h3>
+                    <p className={s.reviews_mobile__status}>
+                      {transReviews()?.job}
+                    </p>
+                  </div>
                 </div>
-                <div className={s.reviews_mobile__info}>
-                  <h3 className={`${s.reviews_mobile__name} cards-header`}>
-                    {
-                      tab.translations.find((trans) => trans.language === 'en')
-                        ?.name
-                    }
-                  </h3>
-                  <p className={s.reviews_mobile__status}>
-                    {
-                      tab.translations.find((trans) => trans.language === 'en')
-                        ?.job
-                    }
-                  </p>
-                </div>
-              </div>
 
-              <div className={s.reviews_mobile__text}>
-                <ReviewBlock tab={tab} />
+                <div className={s.reviews_mobile__text}>
+                  <ReviewBlock tab={tab} />
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
         <div className={s.custom_pagination}>
           {Array.from({ length: totalPages }, (_, index) => (
             <button
