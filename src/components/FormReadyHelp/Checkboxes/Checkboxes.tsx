@@ -1,35 +1,15 @@
-import { useFormContext } from 'react-hook-form';
 import FormItemContainer from '../FormItemContainer';
-import s from './Checkboxes.module.scss';
+import { CheckboxInput } from '../../UI';
 
 const Checkboxes = () => {
-  const { register } = useFormContext();
-
   return (
     <FormItemContainer section='checkboxes'>
-      <div className={s.checkboxes__wrap}>
-        <input
-          type='checkbox'
-          id='mailing'
-          {...register('mailing', {
-            required: false,
-          })}
-          className={s.checkboxes__input}
-        />
-        <p className={s.checkboxes__text}>Consent to mailing</p>
-      </div>
-
-      <div className={s.checkboxes__wrap}>
-        <input
-          type='checkbox'
-          id='dataProcessing'
-          {...register('dataProcessing', {
-            required: true,
-          })}
-          className={s.checkboxes__input}
-        />
-        <p className={s.checkboxes__text}>Consent to data processing *</p>
-      </div>
+      <CheckboxInput id='mailing' required={false} text='Consent to mailing' />
+      <CheckboxInput
+        id='dataProcessing'
+        required={true}
+        text='Consent to data processing *'
+      />
     </FormItemContainer>
   );
 };
