@@ -1,4 +1,9 @@
-import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
+import {
+  useForm,
+  FormProvider,
+  SubmitHandler,
+  FieldValues,
+} from 'react-hook-form';
 import FirstName from './FirstName/FirstName';
 import LastName from './LastName/LastName';
 import DateOfBirth from './DateOfBirth/DateOfBirth';
@@ -15,6 +20,9 @@ import { ButtonApp } from '../UI';
 import { convertUnixTimestampToDate } from '../../utils/convertUnixTimestampToDate';
 import { generateSocialMediaLink } from '../../utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
+
+// import { FileInput } from '../UI';
+// import { PaperClipIcon } from '../icons/PaperclipIcon';
 
 interface DataForm {
   firstName: string;
@@ -89,6 +97,14 @@ const FormReadyHelp = () => {
             <Skills />
             <Comment />
             <Checkboxes />
+            {/* <FileInput
+              name='files'
+              title='Upload Files'
+              placeholderIcon={<PaperClipIcon />}
+              placeholderText='Upload your files here'
+              accept='image/*, .pdf, .txt, .doc, .docx, .xml'
+              multiple={true}
+            /> */}
             <ButtonApp
               type='submit'
               size='Xlarge'
