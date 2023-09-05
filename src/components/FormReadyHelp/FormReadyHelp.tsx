@@ -1,4 +1,9 @@
-import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
+import {
+  useForm,
+  FormProvider,
+  SubmitHandler,
+  FieldValues,
+} from 'react-hook-form';
 import FirstName from './FirstName/FirstName';
 import LastName from './LastName/LastName';
 import DateOfBirth from './DateOfBirth/DateOfBirth';

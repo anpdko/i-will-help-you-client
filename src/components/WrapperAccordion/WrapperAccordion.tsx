@@ -18,7 +18,7 @@ const WrapperAccordion: React.FC<IProjectsState> = ({ projects, loading }) => {
   const description = selectedProject?.description;
   const criteria = selectedProject?.criteria;
   const goals = selectedProject?.goals;
-  console.log('WrapperAccordion',projects);
+  console.log('WrapperAccordion', projects);
   return (
     <section className={s.wrapper}>
       <div className='container'>

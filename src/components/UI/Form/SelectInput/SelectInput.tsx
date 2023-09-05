@@ -22,7 +22,7 @@ const SelectInput = ({
   placeholder,
   isMulti = false,
   isSearchable = true,
-  required = false, 
+  required = false,
   className,
 }: SelectInputProps) => {
   const { control } = useFormContext();
@@ -44,8 +44,8 @@ const SelectInput = ({
           onChange={(selectedOption) => {
             field.onChange(
               (selectedOption as { value: string; label: string })?.value,
-              );
-            }}
+            );
+          }}
           styles={customStyles}
           className={`${className}`}
         />
