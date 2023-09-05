@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import ArticleSection from './WrapperAccordionArticle/WrapperAccordionArticle';
+import ArticleSection from './ProjectHeaderArticle/ProjectHeaderArticle';
 import Preloader from '../UI/Preloader/Preloader';
 import ButtonApp from '../UI/ButtonApp/ButtonApp';
 import { IProjectsState } from '../../store/projects/projectsType';

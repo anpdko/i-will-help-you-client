@@ -1,16 +1,16 @@
 import React from 'react';
 import { IProjectsTags } from '../../../store/projects/projectsType';
 
-import s from './WrapperAccordionArticle.module.scss';
+import s from './ProjectHeaderArticle.module.scss';
 
-interface IWrapperAccordionArticleProps {
+interface IProjectHeaderArticleProps {
   title: string;
   subtitle: string;
   items: IProjectsTags[] | string[];
   variant: 'list' | 'paragraphs';
 }
 
-const WrapperAccordionArticle: React.FC<IWrapperAccordionArticleProps> = ({
+const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
   title,
   subtitle,
   items,
@@ -56,4 +56,4 @@ const WrapperAccordionArticle: React.FC<IWrapperAccordionArticleProps> = ({
   );
 };
 
-export default WrapperAccordionArticle;
+export default ProjectHeaderArticle;
