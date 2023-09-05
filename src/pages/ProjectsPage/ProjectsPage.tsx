@@ -44,14 +44,12 @@ const ProjectsPage = () => {
   }, [projects, i18n.language]);
 
   return (
-    <>
-      <ProjectHeader
-        projects={filteredProjects}
-        loading={loading}
-        message={message}
-        selectedId={currentId}
-      />
-    </>
+    <ProjectHeader
+      projects={filteredProjects}
+      loading={loading}
+      message={message}
+      selectedId={currentId}
+    />
   );
 };
 export default ProjectsPage;

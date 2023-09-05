@@ -3,7 +3,6 @@
   :global {
     .container {
       @include adaptiveValue('padding-top', 64, 30);
-      // @include adaptiveValue('padding-bottom', 75, 40, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
     }
   }
@@ -39,30 +38,6 @@
   @media (min-width: em(1170)) {
     max-width: 32.25%;
   }
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-
-    h2 {
-      @include adaptiveValue('font-size', 40, 30);
-      &:not(:last-child) {
-        margin-bottom: em(16, 44);
-      }
-    }
-    p {
-      font-family: var(--nunito);
-      @include adaptiveValue('font-size', 24, 20);
-      line-height: 130%;
-      &:not(:last-child) {
-        margin-bottom: em(56, 24);
-      }
-    }
-  }
 }
 
 .swiper_image {
@@ -72,46 +47,13 @@
   @media (min-width: em(1170)) {
     max-width: 53%; /* 636/1200 */
   }
-  .image {
-    cursor: grab;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 71.069182%; /* 452/636 */
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-      border-radius: toRem(30);
-      user-select: none;
-    }
-  }
 }
 
 .swiper_about {
   @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
-  .about {
-    display: flex;
-    flex-direction: column;
-    @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
-    &:last-child {
-      align-items: center;
-      @media (max-width: $mobile) {
-        button {
-          min-width: 100%;
-        }
-      }
-    }
-  }
 }
 
-.actions {
-  display: flex;
-  gap: toRem(20);
-}
+
 .arrows {
   position: absolute;
   display: flex;

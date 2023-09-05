@@ -1,5 +1,5 @@
 import React from 'react';
-import { IProjectsTags } from '../../../store/projects/projectsType';
+import { IProjectsTags } from '../../../../store/projects/projectsType';
 
 import s from './ProjectHeaderArticle.module.scss';
 

@@ -4,9 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import ArticleSection from './ProjectHeaderArticle/ProjectHeaderArticle';
 import Preloader from '../UI/Preloader/Preloader';
-import ButtonApp from '../UI/ButtonApp/ButtonApp';
 import { IProjectsState } from '../../store/projects/projectsType';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -16,6 +14,9 @@ import sprite from '../../assets/sprite.svg';
 
 import 'swiper/scss';
 import 'swiper/css/effect-fade';
+import SlideContent from './SlideContent/SlideContent';
+import SlideImage from './SlideImage/SlideImage';
+import SlideAbout from './SlideAbout/ArticleSection';
 
 const ProjectHeader: React.FC<
   IProjectsState & { selectedId: string | undefined }
@@ -34,7 +35,7 @@ const ProjectHeader: React.FC<
 
   const IMAGE_PREFIX = '/static/images/projects/';
 
-  // need to find what type
+  //! need to find what type
   const [firstSwiper, setFirstSwiper] = useState<any>(null);
   const [secondSwiper, setSecondSwiper] = useState<any>(null);
   const [thirdSwiper, setThirdSwiper] = useState<any>(null);
@@ -71,18 +72,10 @@ const ProjectHeader: React.FC<
                         key={project._id}
                         style={{ background: '#F1F1F1' }}
                       >
-                        <div className={s.content}>
-                          <h2 className='heading2'>
-                            {project.translations[0].title}
-                          </h2>
-                          <p>{`"${project.translations[0].slogan}"`}</p>
-                          <div className={s.actions}>
-                            <ButtonApp>{t('Donate')}</ButtonApp>
-                            <ButtonApp color='white'>
-                              {t('Need Help')}
-                            </ButtonApp>
-                          </div>
-                        </div>
+                        <SlideContent
+                          title={project.translations[0].title}
+                          slogan={project.translations[0].slogan}
+                        />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -116,12 +109,10 @@ const ProjectHeader: React.FC<
                   >
                     {projects.map((project) => (
                       <SwiperSlide key={project._id}>
-                        <div className={s.image}>
-                          <img
-                            src={`${API_URL}${IMAGE_PREFIX}${project.imgCover}`}
-                            alt={project.translations[0].title}
-                          />
-                        </div>
+                        <SlideImage
+                          imgCover={`${API_URL}${IMAGE_PREFIX}${project.imgCover}`}
+                          title={project.translations[0].title}
+                        />
                       </SwiperSlide>
                     ))}
                     <div className={s.arrows}>
@@ -140,53 +131,26 @@ const ProjectHeader: React.FC<
                 </div>
               </div>
               <div className={s.swiper_about}>
-                {loading ? (
-                  <Preloader />
-                ) : (
-                  <Swiper
-                    modules={[Controller]}
-                    spaceBetween={100}
-                    slidesPerView={1}
-                    onSwiper={setThirdSwiper}
-                    controller={{ control: [firstSwiper, secondSwiper] }}
-                    onSlideChange={handleSlideChange}
-                    initialSlide={initialSlideIndex}
-                  >
-                    {projects.map((project) => (
-                      <SwiperSlide key={project._id}>
-                        <div className={s.about}>
-                          <ArticleSection
-                            title={t(
-                              `About the ${project.translations[0].title}`,
-                            )}
-                            subtitle={t('Project’s description')}
-                            items={
-                              project.translations[0].description?.split(
-                                '\n',
-                              ) || []
-                            }
-                            variant='paragraphs'
-                          />
-                          <ArticleSection
-                            title={t('Key Objectives')}
-                            subtitle={t('Our main goals')}
-                            items={project.translations[0].goals || []}
-                            variant='list'
-                          />
-                          <ArticleSection
-                            title={t('Selection Criteria for Participation')}
-                            subtitle={t('Selection criteria')}
-                            items={project.translations[0].criteria || []}
-                            variant='list'
-                          />
-                          <ButtonApp color='white' size='medium'>
-                            {t(`Join Join the OpportunityConnect`)}
-                          </ButtonApp>
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                )}
+                <Swiper
+                  modules={[Controller]}
+                  spaceBetween={100}
+                  slidesPerView={1}
+                  onSwiper={setThirdSwiper}
+                  controller={{ control: [firstSwiper, secondSwiper] }}
+                  onSlideChange={handleSlideChange}
+                  initialSlide={initialSlideIndex}
+                  autoHeight={true}
+                >
+                  {projects.map((project) => (
+                    <SwiperSlide key={project._id}>
+                      <SlideAbout
+                        title={t(`About the ${project.translations[0].title}`)}
+                        subtitle={t('Project’s description')}
+                        project={project}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </>
           )}
