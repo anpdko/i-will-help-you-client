@@ -6,9 +6,19 @@
   @include adaptiveValue('border-radius', 30, 20, 0, 1200, 768);
   @media (min-width: $mobile) {
     padding-bottom: 84.895833%; /* 326/384 */
+    &:hover .banner__content {
+      transform: translateY(0);
+    }
+    &:hover .banner__discription {
+      transition: opacity 0.3s;
+      opacity: 1;
+    }
   }
   @media (max-width: $mobile) {
     padding-bottom: 42.622951%; /* 156/366 */
+    .banner__discription {
+      display: none;
+    }
   }
   &__img {
     position: absolute;
@@ -67,43 +77,29 @@
       max-width: toRem(240);
     }
   }
-  &__description {
+  &__discription {
     opacity: 0;
-
     font-weight: 600;
-    @media (max-width: $mobileSmall) {
-      font-size: toRem(12);
-    }
   }
-  &__btn {
+  &__icon {
     position: absolute;
-    @include adaptiveValue('bottom', 26, 12);
-    right: 1rem;
-    display: flex;
+    @include adaptiveValue('bottom', 26, 19);
+    right: toRem(16);
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 0.25rem;
-    border-radius: 0.6rem;
+    padding: toRem(4);
+    border-radius: toRem(8);
     background-color: var(--bg);
-
     @media (any-hover: hover) {
       &:hover {
         color: var(--orange);
       }
     }
-  }
-  &__icon {
-    height: 1.5rem;
-    width: 1.5rem;
+
+    height: toRem(32);
+    width: toRem(32);
     fill: currentColor;
     transition: color 0.2s linear;
-  }
-
-  &:hover .banner__content {
-    transform: translateY(0);
-  }
-  &:hover .banner__description {
-    transition: opacity 0.3s;
-    opacity: 1;
   }
 }

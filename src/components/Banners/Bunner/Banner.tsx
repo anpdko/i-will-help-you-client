@@ -13,14 +13,15 @@ interface BunnerProps {
 const Bunner = (props: BunnerProps) => {
   return (
     <article className={s.banner}>
-      <img className={s.banner__img} src={props.img} alt='banner img' />
-      <div className={s.banner__filter}></div>
+      <Link to={props.link}>
+        <img className={s.banner__img} src={props.img} alt='banner img' />
+        <div className={s.banner__filter}></div>
 
-      <div className={s.banner__content}>
-        <h3 className={`${s.banner__title} bunner-title`}>{props.title}</h3>
-        <p className={`${s.banner__discription} text`}>{props.description}</p>
-      </div>
-      <Link className={s.banner__btn} to={s.banner__link}>
+        <div className={s.banner__content}>
+          <h3 className={`${s.banner__title} bunner-title`}>{props.title}</h3>
+          <p className={`${s.banner__discription} text`}>{props.description}</p>
+        </div>
+
         <svg className={s.banner__icon}>
           <use href={sprite + '#arrow-up-right'} />
         </svg>

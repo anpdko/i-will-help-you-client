@@ -4,7 +4,7 @@ import ReviewsCreateAdminPage from './ReviewsCreateAdminPage/ReviewsCreateAdminP
 import ReviewsEditAdminPage from './ReviewsCreateAdminPage/ReviewsCreateAdminPage';
 import ProjectsAdminPage from './ProjectsAdminPage/ProjectsAdminPage';
 import ProjectsCreateAdminPage from './ProjectsCreateAdminPage/ProjectsCreateAdminPage';
-import ProjectsEditAdminPage from './ProjectsEditAdminPage/ProjectsEditAdminPage'
+import ProjectsEditAdminPage from './ProjectsEditAdminPage/ProjectsEditAdminPage';
 
 export {
   AuthAdminPage,
@@ -13,5 +13,5 @@ export {
   ReviewsCreateAdminPage,
   ReviewsEditAdminPage,
   ProjectsCreateAdminPage,
-  ProjectsEditAdminPage
+  ProjectsEditAdminPage,
 };

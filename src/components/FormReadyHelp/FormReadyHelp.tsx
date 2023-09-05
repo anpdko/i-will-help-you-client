@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 import { useForm, FormProvider, SubmitHandler, FieldValues } from 'react-hook-form';
 import FirstName from './FirstName/FirstName';
 import LastName from './LastName/LastName';
+=======
+import {
+  useForm,
+  FormProvider,
+  SubmitHandler,
+  FieldValues,
+} from 'react-hook-form';
+import FullName from './FullName/FullName';
+>>>>>>> main
 import DateOfBirth from './DateOfBirth/DateOfBirth';
 import { PhoneNumberInput } from '../UI';
 import SelectCountry from './SelectCountry/SelectCountry';
