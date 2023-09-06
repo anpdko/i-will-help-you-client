@@ -5,10 +5,13 @@ import s from './Projects.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjects } from '../../store/projects/projectsSlice';
 import { RootState, AppDispatch } from '../../store/store';
+import Preloader from '../UI/Preloader/Preloader';
 
 const Projects = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { projects } = useSelector((state: RootState) => state.projects);
+  const { projects, loading } = useSelector(
+    (state: RootState) => state.projects,
+  );
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -23,9 +26,13 @@ const Projects = () => {
     <section className={s.projects}>
       <div className='container'>
         <h1 className='heading1'>{t('Empowering Change through Projects')}</h1>
-        {projects.map((project) => (
-          <Project key={project._id} project={project} />
-        ))}
+        {loading ? (
+          <Preloader />
+        ) : (
+          projects.map((project) => (
+            <Project key={project._id} project={project} />
+          ))
+        )}
       </div>
     </section>
   );
