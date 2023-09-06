@@ -19,6 +19,7 @@
 
     @media (max-width: $mobile) {
       flex-wrap: wrap;
+      gap: 1.5rem;
 
       &:not(:first-of-type) .volunteer__title {
         display: block;
