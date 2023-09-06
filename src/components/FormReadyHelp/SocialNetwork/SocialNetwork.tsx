@@ -59,9 +59,7 @@ const SocialNetwork = () => {
                   )?.value,
                 )
               }
-              formatOptionLabel={({ icon }: { icon: any }) => (
-                <>{icon}</>
-              )}
+              formatOptionLabel={({ icon }: { icon: any }) => <>{icon}</>}
               className={s.networks__input_logo}
             />
           )}
