@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
 import Project from './Project/Project';
-import s from './Projects.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProjects } from '../../store/projects/projectsSlice';
-import { RootState, AppDispatch } from '../../store/store';
 import Preloader from '../UI/Preloader/Preloader';
 
+import { getProjects } from '../../store/projects/projectsSlice';
+import { RootState, useAppDispatch } from '../../store/store';
+
+import s from './Projects.module.scss';
+
+
 const Projects = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const { projects, loading } = useSelector(
     (state: RootState) => state.projects,
   );
