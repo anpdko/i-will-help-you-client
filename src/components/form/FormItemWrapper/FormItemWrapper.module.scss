@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  &__label {
+    width: 100%;
+    color: var(--black);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+  }
+}
