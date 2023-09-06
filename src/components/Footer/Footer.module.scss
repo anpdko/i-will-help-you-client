@@ -76,8 +76,6 @@
     }
 
     &__contacts {
-      display: grid;
-      gap: toRem(8);
       line-height: 150%;
       p {
         font-size: toRem(16);
@@ -88,14 +86,13 @@
         min-width: toRem(204);
         button {
           &:not(:last-child) {
-            margin-bottom: toRem(16);
+            margin-bottom: toRem(24);
           }
         }
       }
       @media (max-width: em(390)) {
         button {
           min-width: 100%;
-          height: fit-content;
           &:not(:last-child) {
             margin-bottom: toRem(48);
           }
