@@ -72,7 +72,7 @@ const FormReadyHelp = () => {
     <FormWrapper subtitle='Form' title='Volunteer application form'>
       <FormProvider {...methods}>
         <form
-          id='form'
+          id='formReadyToHelp'
           onSubmit={methods.handleSubmit(
             onSubmit as SubmitHandler<FieldValues>,
           )}

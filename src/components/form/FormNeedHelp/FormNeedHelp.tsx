@@ -62,7 +62,7 @@ const FormNeedHelp = () => {
     >
       <FormProvider {...methods}>
         <form
-          id='form'
+          id='formNeedHelp'
           onSubmit={methods.handleSubmit(
             onSubmit as SubmitHandler<FieldValues>,
           )}

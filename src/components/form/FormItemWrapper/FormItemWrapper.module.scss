@@ -11,6 +11,10 @@
     font-style: normal;
     font-weight: 600;
     line-height: 1rem;
+  }
+
+  &__child {
+    width: 100%;
     display: grid;
     justify-items: start;
     gap: 1rem;

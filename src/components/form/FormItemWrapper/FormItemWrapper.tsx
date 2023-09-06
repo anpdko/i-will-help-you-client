@@ -18,10 +18,8 @@ const FormItemWrapper = ({
         ${className}
       `}
     >
-      <label className={s.wrapper__label}>
-        {title}
-        {children}
-      </label>
+      <label className={s.wrapper__label}>{title}</label>
+      <div className={s.wrapper__child}>{children}</div>
     </div>
   );
 };
