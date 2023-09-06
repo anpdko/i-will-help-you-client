@@ -1,0 +1,55 @@
+.file {
+  &__title {
+    color: var(--black);
+    font-family: Open Sans;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: block;
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+    padding: 1.125rem 1.5rem;
+
+    color: var(--dark-grey);
+    font-family: Open Sans;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__list {
+    width: 100%;
+
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+    padding: 1.25rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

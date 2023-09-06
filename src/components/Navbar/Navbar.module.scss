@@ -42,8 +42,11 @@
       margin-right: toRem(20);
     }
     svg {
-      max-width: toRem(130);
+      max-width: toRem(132);
       height: toRem(48);
+      @media (max-width: em(360)){
+        max-width: toRem(48); 
+      }
     }
     @media (any-hover: hover) {
       &:hover {
