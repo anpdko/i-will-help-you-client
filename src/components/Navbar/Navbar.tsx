@@ -43,13 +43,14 @@ const Navbar = () => {
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   };
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/'>
+          <Link onClick={() => window.scrollTo(0, 0)} to='/'>
             <svg>
               <use href={sprite + '#logo'} />
             </svg>
