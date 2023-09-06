@@ -115,7 +115,7 @@ const Navbar = () => {
 
           <ul className={s.contacts}>
             <li className={s.contacts__item}>
-              <Link to='tel:++380000000000' className={s.contacts__link}>
+              <Link to='tel:+380000000000' className={s.contacts__link}>
                 <div className={s.contacts__link_text}>
                   <span>{t('Hotline')}</span>
                   +0 (000) 000 00 00
