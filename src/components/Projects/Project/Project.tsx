@@ -16,7 +16,7 @@ const Project = ({ project }: ProjectProps) => {
   const imageUrl = API_URL + IMAGE_PREFIX + project.imgCover;
   const translation = project.translations[0];
 
-  //! З бази данних description приходить більшого розміру ніж по макету!!!
+  //! З бази данних description приходить більшого розміру ніж по макету!!!!!!
   const truncateText = (text: string, sentencesToSkip: number) => {
     // Розділити текст на речення за допомогою регулярного виразу
     const sentences = text.split(/(?<=[.!?])\s+/);

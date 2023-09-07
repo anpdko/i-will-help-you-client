@@ -3,10 +3,17 @@
 .project {
   position: relative;
   display: flex;
+  @include adaptiveValue('gap', 76, 30, 2, 1200, 768);
+  @media (min-width: $mobile) {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
   @media (max-width: $mobile) {
     flex-direction: column-reverse;
     gap: toRem(32);
   }
+
   &:not(:last-child) {
     @include adaptiveValue('margin-bottom', 130, 64, 0, 1200, 390);
     &::after {
@@ -34,8 +41,7 @@
 
   .content {
     align-self: start;
-    flex: 1 1 48.833333%; /* 586/1200 */
-    @include adaptiveValue('padding-right', 76, 30, 2, 1200, 768);
+    flex: 1 1 42.5%; /* 510/1200 */
     display: flex;
     flex-direction: column;
     gap: toRem(16);
