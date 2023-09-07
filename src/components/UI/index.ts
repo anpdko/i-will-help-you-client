@@ -3,11 +3,11 @@ import InputFormApp from './InputFormApp/InputFormApp';
 import SelectApp from './SelectApp/SelectApp';
 import TextareaFormApp from './TextareaFormApp/TextareaFormApp';
 
-import TextInput from './Form/TextInput/TextInput';
-import DateInput from './Form/DateInput/DateInput';
-import CheckboxInput from './Form/CheckboxInput/CheckboxInput';
-import SelectInput from './Form/SelectInput/SelectInput';
-import FileInput from './Form/FileInput/FileInput';
+import TextInput from './form/TextInput/TextInput';
+import DateInput from './form/DateInput/DateInput';
+import CheckboxInput from './form/CheckboxInput/CheckboxInput';
+import SelectInput from './form/SelectInput/SelectInput';
+import FileInput from './form/FileInput/FileInput';
 
 export {
   ButtonApp,

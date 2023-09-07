@@ -2,7 +2,7 @@ import { useFormContext, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { skillsList } from '../../../../utils/skillsList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import customStyles from '../../../UI/Form/SelectInput/selectStyle';
+import customStyles from '../../../UI/form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
 
 const Skills = () => {

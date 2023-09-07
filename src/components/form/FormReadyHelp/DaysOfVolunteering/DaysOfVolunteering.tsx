@@ -1,6 +1,6 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
-import customStyles from '../../../UI/Form/SelectInput/selectStyle';
+import customStyles from '../../../UI/form/SelectInput/selectStyle';
 import {
   daysOfWeekOptions,
   timeOptions,

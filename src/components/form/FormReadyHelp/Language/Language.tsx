@@ -1,6 +1,6 @@
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
 import Select from 'react-select';
-import customStyles from '../../../UI/Form/SelectInput/selectStyle';
+import customStyles from '../../../UI/form/SelectInput/selectStyle';
 import { languageList, languageLevel } from '../../../../utils/languageList';
 import { PlusIcon } from '../../../icons/PlusIcon';
 import s from './Language.module.scss';

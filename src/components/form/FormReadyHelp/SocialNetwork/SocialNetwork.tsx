@@ -5,7 +5,7 @@ import { TelegramIcon } from '../../../icons/TelegramIcon';
 import { ViberIcon } from '../../../icons/ViberIcon';
 import { InstagramIcon } from '../../../icons/InstagramIcon';
 import { FacebookIcon } from '../../../icons/FacebookIcon';
-import customStyles from '../../../UI/Form/SelectInput/selectStyle';
+import customStyles from '../../../UI/form/SelectInput/selectStyle';
 import s from './SocialNetwork.module.scss';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 

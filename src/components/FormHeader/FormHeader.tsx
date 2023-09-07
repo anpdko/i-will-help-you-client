@@ -1,8 +1,8 @@
-import s from './ReadyNeedHeader.module.scss';
+import s from './FormHeader.module.scss';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const ReadyNeedHeader = () => {
+const FormHeader = () => {
   return (
     <section className={s.ready_need_header}>
       <div className={s.ready_need_header_text}>
@@ -21,4 +21,4 @@ const ReadyNeedHeader = () => {
     </section>
   );
 };
-export default ReadyNeedHeader;
+export default FormHeader;
