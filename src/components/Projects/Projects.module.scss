@@ -1,3 +1,9 @@
+@import '../../styles/index.scss';
 .projects {
-  margin-bottom: 7rem;
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    }
+  }
 }
