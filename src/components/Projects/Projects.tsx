@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import Project from './Project/Project';
 import Preloader from '../UI/Preloader/Preloader';
 
+import useFilteredProjects from '../../hooks/useFilteredProjects';
+
 import { getProjects } from '../../store/projects/projectsSlice';
 import { RootState, useAppDispatch } from '../../store/store';
 
@@ -13,18 +15,17 @@ import s from './Projects.module.scss';
 
 const Projects = () => {
   const dispatch = useAppDispatch();
-  const { projects, loading } = useSelector(
+  const { t } = useTranslation();
+
+  const { loading } = useSelector(
     (state: RootState) => state.projects,
   );
-  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getProjects());
   }, []);
 
-  useEffect(() => {
-    console.log(projects);
-  }, [projects]);
+  const filteredProjects = useFilteredProjects();
 
   return (
     <section className={s.projects}>
@@ -33,7 +34,7 @@ const Projects = () => {
         {loading ? (
           <Preloader />
         ) : (
-          projects.map((project) => (
+          filteredProjects?.map((project) => (
             <Project key={project._id} project={project} />
           ))
         )}

@@ -10,8 +10,6 @@ import useFilteredProjects from '../../hooks/useFilteredProjects';
 import { getProjects } from '../../store/projects/projectsSlice';
 import { RootState, useAppDispatch } from '../../store/store';
 
-
-
 const ProjectsPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
