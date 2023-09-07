@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { useFormContext, useFieldArray } from 'react-hook-form';
+import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
+import Select from 'react-select';
+import customStyles from '../../../UI/Form/SelectInput/selectStyle';
 import { languageList, languageLevel } from '../../../../utils/languageList';
-import { SelectInput } from '../../../UI';
 import { PlusIcon } from '../../../icons/PlusIcon';
 import s from './Language.module.scss';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { DeleteIcon } from '../../../icons/DeleteIcon';
 
 const Language = () => {
   const { control } = useFormContext();
@@ -13,11 +14,9 @@ const Language = () => {
     name: 'languages',
   });
 
-  useEffect(() => {
-    if (fields.length === 0) {
-      append({ language: null, languageLevel: null });
-    }
-  }, [append, fields.length]);
+  if (fields.length === 0) {
+    append({ language: null, languageLevel: null });
+  }
 
   const addLanguageField = () => {
     append({ language: null, languageLevel: null });
@@ -37,27 +36,51 @@ const Language = () => {
     <FormItemWrapper className={s.languages} title='Language knowledge'>
       {fields.map((item, index) => (
         <div key={item.id} className={s.language}>
-          <SelectInput
-            commonName='languages'
-            name='language'
-            options={languages}
-            placeholder='Choose language'
-            index={index}
-            className={s.language__input}
+          <Controller
+            name={`languages[${index}].language`}
+            control={control}
+            defaultValue={null}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={languages}
+                styles={customStyles}
+                placeholder='Choose language'
+                value={languages.find((option) => option.value === field.value)}
+                onChange={(selectedOption) => {
+                  field.onChange(
+                    (selectedOption as { value: string; label: string })?.value,
+                  );
+                }}
+                className={s.language__input}
+              />
+            )}
           />
 
-          <SelectInput
-            commonName='languages'
-            name='languageLevel'
-            options={listOfLevels}
-            placeholder='Choose level'
-            index={index}
-            className={s.language__input}
+          <Controller
+            name={`languages[${index}].languageLevel`}
+            control={control}
+            defaultValue={null}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={listOfLevels}
+                styles={customStyles}
+                placeholder='Choose level'
+                value={languages.find((option) => option.value === field.value)}
+                onChange={(selectedOption) => {
+                  field.onChange(
+                    (selectedOption as { value: string; label: string })?.value,
+                  );
+                }}
+                className={s.language__input}
+              />
+            )}
           />
 
           {index > 0 && (
             <button type='button' onClick={() => remove(index)}>
-              Delete
+              <DeleteIcon />
             </button>
           )}
         </div>

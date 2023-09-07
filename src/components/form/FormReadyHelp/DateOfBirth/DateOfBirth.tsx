@@ -6,10 +6,12 @@ const DateOfBirth = () => {
     <DateInput
       title='Date of Birth *'
       name='dataOfBirth'
+      required={true}
       message='Please enter your birthday in the format MM/DD/YYYY'
       placeholder='MM/DD/YYYY'
       format='MM/DD/YYYY'
-      classNameContainer={s.dob__container}
+      classNameContainer={s.dob}
+      classNameError={s.dob__error}
     />
   );
 };

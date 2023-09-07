@@ -2,8 +2,6 @@ import { useFormContext, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { skillsList } from '../../../../utils/skillsList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-// import FormItemContainer from '../../FormItemContainer';
-// import FormLabel from '../../FormLabel';
 import customStyles from '../../../UI/Form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
 
@@ -23,6 +21,12 @@ const Skills = () => {
       <Controller
         name='skills'
         control={control}
+        rules={{
+          required: {
+            value: true,
+            message: 'Please select at least one skill',
+          },
+        }}
         defaultValue={null}
         render={({ field }) => (
           <Select
@@ -31,13 +35,13 @@ const Skills = () => {
             placeholder='Search your skills'
             styles={customStyles}
             isMulti
+            value={skills.find((option: any) => option.value === field.value)}
             onChange={(selectedOption) => {
-              field.onChange(selectedOption);
+              field.onChange(selectedOption?.map((skill) => skill.value));
             }}
             className={s.skills__input}
           />
         )}
-        rules={{ required: true }}
       />
     </FormItemWrapper>
   );
