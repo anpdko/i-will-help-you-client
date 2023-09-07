@@ -100,3 +100,14 @@ $mobileSmall: em(479.98); // Телефони S
 .ant-picker-dropdown .ant-picker-today-btn:hover {
   color: var(--dark-grey);
 }
+
+.css-k7wtyt-control:hover {
+  box-shadow: none !important;
+  border: 1px solid var(--black) !important;
+}
+
+.css-pu7pq9-control:hover,
+.css-pu7pq9-control:focus-within {
+  box-shadow: none !important;
+  border: 1px solid var(--black) !important;
+}
