@@ -12,14 +12,11 @@ import { RootState, useAppDispatch } from '../../store/store';
 
 import s from './Projects.module.scss';
 
-
 const Projects = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const { loading } = useSelector(
-    (state: RootState) => state.projects,
-  );
+  const { loading } = useSelector((state: RootState) => state.projects);
 
   useEffect(() => {
     dispatch(getProjects());
