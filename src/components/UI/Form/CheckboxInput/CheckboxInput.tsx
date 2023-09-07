@@ -5,13 +5,21 @@ interface CheckboxInputProps {
   id: string;
   required: boolean;
   text: string;
+  className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CheckboxInput = ({ id, required = false, text }: CheckboxInputProps) => {
+const CheckboxInput = ({
+  id,
+  required = false,
+  text,
+  className,
+  onChange,
+}: CheckboxInputProps) => {
   const { register } = useFormContext();
 
   return (
-    <div className={s.checkboxes__wrap}>
+    <div className={`${s.checkboxes__wrap} ${className}`}>
       <input
         type='checkbox'
         id={id}
@@ -19,6 +27,7 @@ const CheckboxInput = ({ id, required = false, text }: CheckboxInputProps) => {
           required: required,
         })}
         className={s.checkboxes__input}
+        onChange={onChange}
       />
       <p className={s.checkboxes__text}>{text}</p>
     </div>

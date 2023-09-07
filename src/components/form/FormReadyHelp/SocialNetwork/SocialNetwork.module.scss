@@ -1,0 +1,51 @@
+@import '../../../../styles/index.scss';
+
+.networks {
+  grid-area: networks;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.438rem;
+
+    @media (max-width: $tablet) {
+      gap: 0.25rem;
+    }
+  }
+
+  &__input {
+
+    &_logo {
+      width: 4.875rem;
+      text-align: center;
+
+      & > div {
+        padding: 11px 0 !important;
+      }
+    }
+
+    &_network {
+      width: 17.625rem;
+      border-radius: 0.625rem;
+      border: 1px solid var(--black);
+      background: var(--total-white);
+      padding: 1.125rem 1.5rem;
+  
+      &::placeholder {
+        color: var(--dark-grey);
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1rem; 
+      }
+    }
+  }
+
+  &__error {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--red-for-error);
+    margin-top: -0.5rem;
+  }
+}

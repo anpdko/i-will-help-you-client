@@ -6,6 +6,7 @@ import s from '../Form.module.scss';
 interface DateInputProps {
   title?: string;
   name: string;
+  required?: boolean;
   message?: string;
   placeholder?: string;
   format?: string;
@@ -18,6 +19,7 @@ interface DateInputProps {
 const DateInput = ({
   title,
   name,
+  required = false,
   message = '',
   placeholder = '',
   format = 'MM/DD/YYYY',
@@ -36,7 +38,10 @@ const DateInput = ({
           control={control}
           name={name}
           rules={{
-            required: message,
+            required: {
+              value: required,
+              message: message,
+            },
           }}
           render={({ field, fieldState }) => {
             return (

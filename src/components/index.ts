@@ -10,7 +10,8 @@ import ProjectHeader from './ProjectHeader/ProjectHeader';
 import WrapperAccordion from './WrapperAccordion/WrapperAccordion';
 import ReadyNeedHeader from './ReadyNeedHeader/ReadyNeedHeader';
 import FAQ from './FAQ/FAQ';
-import FormReadyHelp from './FormReadyHelp/FormReadyHelp';
+import FormReadyHelp from './form/FormReadyHelp/FormReadyHelp';
+import FormNeedHelp from './form/FormNeedHelp/FormNeedHelp';
 
 export {
   Banners,
@@ -26,4 +27,5 @@ export {
   ReadyNeedHeader,
   FAQ,
   FormReadyHelp,
+  FormNeedHelp,
 };
