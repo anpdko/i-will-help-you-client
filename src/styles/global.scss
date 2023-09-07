@@ -47,7 +47,7 @@ a {
   font-weight: 600;
   text-transform: uppercase;
   &:not(:last-child) {
-    margin-bottom: em(48, 52);
+    @include adaptiveValue('margin-bottom', 48, 36, 0, 1200, 390);
   }
 }
 

@@ -4,7 +4,7 @@
     .container {
       @include adaptiveValue('gap', 24, 16, 0, 1200, 390);
       @include adaptiveValue('padding-top', 64, 36, 0, 1200, 390);
-      @include adaptiveValue('padding-bottom', 113, 80, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 56, 40, 0, 1200, 390);
       @media (min-width: $mobile) {
         display: grid;
       }

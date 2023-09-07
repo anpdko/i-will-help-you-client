@@ -1,31 +1,40 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
 import Project from './Project/Project';
-import s from './Projects.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import Preloader from '../UI/Preloader/Preloader';
+
+import useFilteredProjects from '../../hooks/useFilteredProjects';
+
 import { getProjects } from '../../store/projects/projectsSlice';
-import { RootState, AppDispatch } from '../../store/store';
+import { RootState, useAppDispatch } from '../../store/store';
+
+import s from './Projects.module.scss';
 
 const Projects = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { projects } = useSelector((state: RootState) => state.projects);
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
+
+  const { loading } = useSelector((state: RootState) => state.projects);
 
   useEffect(() => {
     dispatch(getProjects());
   }, []);
 
-  useEffect(() => {
-    console.log(projects);
-  }, [projects]);
+  const filteredProjects = useFilteredProjects();
 
   return (
     <section className={s.projects}>
       <div className='container'>
         <h1 className='heading1'>{t('Empowering Change through Projects')}</h1>
-        {projects.map((project) => (
-          <Project key={project._id} project={project} />
-        ))}
+        {loading ? (
+          <Preloader />
+        ) : (
+          filteredProjects?.map((project) => (
+            <Project key={project._id} project={project} />
+          ))
+        )}
       </div>
     </section>
   );
