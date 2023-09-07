@@ -1,10 +1,10 @@
-import { ReadyNeedHeader, FormReadyHelp, FAQ } from '../../components';
+import { FormHeader, FormReadyHelp, FAQ } from '../../components';
 
 const ReadyHelpPage = () => {
   return (
     <section>
       <div className='container'>
-        <ReadyNeedHeader />
+        <FormHeader />
         <FormReadyHelp />
         <FAQ />
       </div>
