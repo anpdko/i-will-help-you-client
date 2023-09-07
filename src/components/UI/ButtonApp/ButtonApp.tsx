@@ -9,7 +9,7 @@ interface ButtonProps {
   to?: string;
   color?: 'orange' | 'white';
   size?: 'smaller' | 'small' | 'medium' | 'standard' | 'large' | 'Xlarge';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: any;
   disabled?: boolean;
 }
 
@@ -28,6 +28,7 @@ const ButtonApp = ({
     return (
       <Link
         to={to}
+        onClick={onClick}
         className={[s.btn, s[type], s[color], s[size], className].join(' ')}
         {...props}
       >

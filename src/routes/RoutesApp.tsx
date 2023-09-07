@@ -5,6 +5,7 @@ import {
   AboutPage,
   NeedHelpPage,
   ReadyHelpPage,
+  DonatePage,
 } from '../pages';
 import { Navbar, Footer } from '../components';
 
@@ -20,6 +21,7 @@ const RoutesApp = () => {
           <Route path='/about' element={<AboutPage />} />
           <Route path='/needhelp' element={<NeedHelpPage />} />
           <Route path='/readyneed' element={<ReadyHelpPage />} />
+          <Route path='/donate' element={<DonatePage />} />
         </Routes>
       </main>
       <Footer />

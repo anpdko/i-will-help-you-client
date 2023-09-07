@@ -148,7 +148,7 @@
         display: none;
       }
     }
-    button:nth-child(2) {
+    .btn:nth-child(2) {
       width: toRem(180);
       @include adaptiveValue('width', 180, 124);
     }

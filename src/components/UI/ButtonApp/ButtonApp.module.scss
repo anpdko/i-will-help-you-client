@@ -64,7 +64,7 @@
   padding: toRem(24) toRem(10);
 }
 
-.btn {
+.btn, .link {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,6 @@
 
   transition: background-color 0.5s ease-in;
   @media (max-width: $mobile) {
-    // В макеті на мобайл border-radius 10px
     border-radius: toRem(10);
   }
 }
