@@ -66,10 +66,10 @@ const ProjectsFund = () => {
               <SwiperSlide key={project._id}>
                 <article className={s.project}>
                   <div className={s.content}>
-                    <h3 className={`${s.content__title} heading2`}>
+                    <h3 className={s.content__title}>
                       {project.translations[0].title}
                     </h3>
-                    <p className={`${s.content__description} text`}>
+                    <p className={s.content__description}>
                       {project.translations[0].description}
                     </p>
 
