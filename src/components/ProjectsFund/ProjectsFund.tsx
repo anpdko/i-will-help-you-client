@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import useFilteredProjects from '../../hooks/useFilteredProjects';
 
@@ -14,12 +16,12 @@ import s from './ProjectsFund.module.scss';
 import sprite from '../../assets/sprite.svg';
 
 import 'swiper/scss';
-import { Link } from 'react-router-dom';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const ProjectsFund = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const { loading } = useSelector((state: RootState) => state.projects);
 
@@ -35,8 +37,10 @@ const ProjectsFund = () => {
     <section className={s.projects}>
       <div className='container'>
         <div className={s.header}>
-          <h2 className={`${s.header__title} heading2`}>Fund’s projects</h2>
-          <div className={s.header__subtitle}>Fund’s projects</div>
+          <h2 className={`${s.header__title} heading2`}>
+            {t('Fund’s projects')}
+          </h2>
+          <div className={s.header__subtitle}>{t('Fund’s projects')}</div>
         </div>
         {loading ? (
           <Preloader />
