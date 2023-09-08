@@ -12,7 +12,8 @@ import FormHeader from './FormHeader/FormHeader';
 import FAQ from './FAQ/FAQ';
 import FormReadyHelp from './form/FormReadyHelp/FormReadyHelp';
 import FormNeedHelp from './form/FormNeedHelp/FormNeedHelp';
-import Payment from './Payment/Payment'
+import Payment from './Payment/Payment';
+import AboutHeader from './AboutHeader/AboutHeader';
 
 export {
   Banners,
@@ -29,5 +30,6 @@ export {
   FormReadyHelp,
   FormNeedHelp,
   ProjectsFund,
-  Payment
+  Payment,
+  AboutHeader,
 };
