@@ -19,11 +19,7 @@ const AboutHeader = () => {
               <img src={FormingPng} alt='Forming team leadership pana' />
             </div>
           </MediaQuery>
-          <p className={`${s.content__text} text`}>
-            {t(
-              'We are currently working hard on this page, please visit again later. You can become part of our team and help Ukrainians affected by the war',
-            )}
-          </p>
+          <p className={`${s.content__text} text`}>{t('COMING SOON TEXT')}</p>
           <ButtonApp type='link' to='/' size='small'>
             {t('Back to Home')}
           </ButtonApp>
