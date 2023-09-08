@@ -1,0 +1,117 @@
+@import '../../styles/index.scss';
+.projects {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 56, 40, 0, 1200, 390);
+    }
+  }
+  .header {
+    &__title {
+    }
+    &__subtitle {
+    }
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: grab;
+  .content {
+    &__title {
+    }
+
+    &__description {
+    }
+
+    &__btn {
+      height: toRem(64);
+      width: toRem(64);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: toRem(8);
+      border-radius: toRem(20);
+      color: var(--total-white);
+      background-color: var(--light-black);
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: var(--black);
+        color: var(--total-white);
+      }
+      svg {
+        height: toRem(48);
+        width: toRem(48);
+        fill: currentColor;
+      }
+    }
+  }
+  .image {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 67.708333%; /* 260/384 */
+    border-radius: toRem(16);
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+}
+
+.arrows {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  width: 100%;
+  top: 50%;
+  .arrow_prev,
+  .arrow_next {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    transition: all 0.3s;
+    @include adaptiveValue('padding', 19, 10);
+    background-color: var(--bg);
+    box-shadow: 0px 4px 30px 0px rgba(14, 14, 14, 0.15);
+    border-radius: toRem(15);
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0px 4px 30px 0px rgba(14, 14, 14, 0.3);
+        background-color: var(--total-white);
+        &.arrow_next {
+          svg {
+            transform: translate(toRem(4), 0px);
+          }
+        }
+        &.arrow_prev {
+          svg {
+            transform: translate(toRem(-4), 0px);
+          }
+        }
+      }
+    }
+    svg {
+      transition: all 0.3s;
+      fill: var(--black);
+      @include adaptiveValue('height', 40, 30);
+      @include adaptiveValue('width', 40, 30);
+    }
+    &:disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+}
