@@ -121,10 +121,10 @@ const Navbar = () => {
 
           <ul className={s.contacts}>
             <li className={s.contacts__item}>
-              <Link to='tel:+380000000000' className={s.contacts__link}>
+              <Link to='tel:+48575728854' className={s.contacts__link}>
                 <div className={s.contacts__link_text}>
                   <span>{t('Hotline')}</span>
-                  +0 (000) 000 00 00
+                  +48-575-728-854
                 </div>
                 <svg>
                   <use href={sprite + '#phone'} />
@@ -133,12 +133,12 @@ const Navbar = () => {
             </li>
             <li className={s.contacts__item}>
               <Link
-                to='mailto:iwillhelpu@post.com'
+                to='mailto:admin@iwillhelpyou.charity'
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
                   <span>{t('Email')}</span>
-                  iwillhelpu@post.com
+                  admin@iwillhelpyou.charity
                 </div>
                 <svg>
                   <use href={sprite + '#mail'} />
