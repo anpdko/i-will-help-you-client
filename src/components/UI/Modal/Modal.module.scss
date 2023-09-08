@@ -1,0 +1,76 @@
+@import '../../../styles/index';
+
+.smaller {
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--black-for-banners);
+    z-index: 1200;
+
+
+    &__modal {
+        position: relative;
+        width: 39.75rem;
+        height: 58.75rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        background-color: var(--total-white);
+        // box-shadow: ;
+
+        border-radius: 1.5rem;
+
+        @media (max-width: $mobile) {
+            width: 22.875rem;
+            height: 47.375rem;
+            border-radius: 1.25rem;
+        }
+
+        &_button {
+            position: absolute;
+            top: 1.75rem;
+            right: 1.5rem;
+
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+
+            padding: 0.38rem;
+
+            background-color: var(--bg);
+            color: var(--black);
+            border-radius: 0.5rem;
+
+            cursor: pointer;
+
+            &:hover {
+                color: var(--orange);
+            }
+        }
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            fill: currentColor;
+        }
+
+        &_content {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
