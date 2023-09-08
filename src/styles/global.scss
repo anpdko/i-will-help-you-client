@@ -46,6 +46,13 @@ a {
   @include adaptiveValue('font-size', 52, 28, 0, 1200, 390);
   font-weight: 600;
   text-transform: uppercase;
+
+  @media (min-width: $mobile) {
+    line-height: 150%;
+  }
+  @media (max-width:$mobile){
+    line-height: 135%;
+  }
   &:not(:last-child) {
     @include adaptiveValue('margin-bottom', 48, 36, 0, 1200, 390);
   }
