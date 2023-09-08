@@ -6,11 +6,10 @@ import {
   NeedHelpPage,
   ReadyHelpPage,
   DonatePage,
-  NotFoundPage
+  NotFoundPage,
 } from '../pages';
 import { Navbar, Footer } from '../components';
 import { Payment } from '../components';
-
 
 const RoutesApp = () => {
   return (

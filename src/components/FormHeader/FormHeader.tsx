@@ -2,7 +2,6 @@ import { useFormHeaderData } from '../../hooks/useFormHeaderData';
 
 import s from './FormHeader.module.scss';
 
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 const FormHeader = ({ id }: { id: string }) => {

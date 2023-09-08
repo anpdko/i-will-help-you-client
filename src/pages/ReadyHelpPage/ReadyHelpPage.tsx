@@ -3,7 +3,7 @@ import { FormHeader, FormReadyHelp, FAQ } from '../../components';
 const ReadyHelpPage = () => {
   return (
     <>
-      <FormHeader id='readyneed'/>
+      <FormHeader id='readyneed' />
       <FormReadyHelp />
       <FAQ />
     </>
