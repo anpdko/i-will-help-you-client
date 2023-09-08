@@ -48,9 +48,16 @@ $mobileSmall: em(479.98); // Телефони S
     }
   }
 }
+
 .admin_container {
   position: relative;
   display: flex;
   width: 100%;
   min-height: 100vh;
+}
+
+/* Це класи з бібліотеки React-Select, напряму не виходить налаштувати падінги, тому був доданий цей код, прошу не видаляти, поки не буде знайдене інше рішення */
+.css-1xc3v61-indicatorContainer,
+.css-15lsz6c-indicatorContainer  {
+  padding: 8px 8px 8px 0 !important;
 }

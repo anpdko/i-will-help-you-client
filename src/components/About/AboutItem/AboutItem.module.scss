@@ -35,7 +35,7 @@
     @media (max-width: $pc) {
       max-height: 15rem;
       margin-top: 0.5rem;
-      overflow: scroll;
+      overflow-y: auto;
     }
 
     @media (max-width: $tablet) {

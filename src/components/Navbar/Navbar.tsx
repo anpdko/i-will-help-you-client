@@ -39,20 +39,41 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+    // 'scroll-lock' для body
+    if (!isMenuOpen) {
+      document.body.classList.add('scroll-lock');
+    } else {
+      document.body.classList.remove('scroll-lock');
+    }
   };
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
+<<<<<<< HEAD
     window.scrollTo(0, 0);
+=======
+    document.body.classList.remove('scroll-lock');
+  };
+
+  const handleLogoClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.classList.remove('scroll-lock');
+    }
+>>>>>>> 399bb90828f0a0ec91fd43d2514fc2d8d105784a
   };
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
+<<<<<<< HEAD
           <Link onClick={() => window.scrollTo(0, 0)} to='/'>
+=======
+          <Link to='/' onClick={handleLogoClick}>
+>>>>>>> 399bb90828f0a0ec91fd43d2514fc2d8d105784a
             <svg>
-              <use href={sprite + '#logo'} />
+              <use href={sprite + '#logo-header'} />
             </svg>
           </Link>
         </div>
@@ -85,14 +106,14 @@ const Navbar = () => {
             <ul className={s.social__list}>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
                 </Link>
@@ -104,7 +125,7 @@ const Navbar = () => {
             <li className={s.contacts__item}>
               <Link to='tel:+380000000000' className={s.contacts__link}>
                 <div className={s.contacts__link_text}>
-                  <span>Hotline</span>
+                  <span>{t('Hotline')}</span>
                   +0 (000) 000 00 00
                 </div>
                 <svg>
@@ -118,7 +139,7 @@ const Navbar = () => {
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
-                  <span>Email</span>
+                  <span>{t('Email')}</span>
                   iwillhelpu@post.com
                 </div>
                 <svg>

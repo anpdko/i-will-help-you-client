@@ -20,11 +20,11 @@ const NavbarAdmin = () => {
   const links: ILinks[] = [
     {
       text: 'Projects',
-      link: 'panel/projects',
+      link: '/admin/panel/projects',
     },
     {
       text: 'Reviews',
-      link: 'panel/reviews',
+      link: '/admin/panel/reviews',
     },
   ];
 
@@ -45,7 +45,9 @@ const NavbarAdmin = () => {
     >
       <button onClick={handleClick} className={s.navbar_admin__menu}>
         <svg>
-          <use href={sprite + '#arrow-right'} />
+          <use
+            href={isOpen ? sprite + '#arrow-left' : sprite + '#arrow-right'}
+          />
         </svg>
       </button>
       {isOpen && (

@@ -5,6 +5,7 @@
   &:hover,
   :focus {
     background: var(--orange-for-states);
+    color: var(--black);
   }
   &:active {
     font-weight: 700;
@@ -55,6 +56,12 @@
   max-width: toRem(336);
   width: 100%;
   padding: toRem(22) toRem(10);
+}
+
+.Xlarge {
+  max-width: toRem(366);
+  width: 100%;
+  padding: toRem(24) toRem(10);
 }
 
 .btn {
