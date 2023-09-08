@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import Project from './Project/Project';
-import Preloader from '../UI/Preloader/Preloader';
+import { Preloader } from '../UI';
 
 import useFilteredProjects from '../../hooks/useFilteredProjects';
 
