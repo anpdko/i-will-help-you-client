@@ -49,9 +49,6 @@ const Navbar = () => {
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
-<<<<<<< HEAD
-    window.scrollTo(0, 0);
-=======
     document.body.classList.remove('scroll-lock');
   };
 
@@ -60,18 +57,13 @@ const Navbar = () => {
       setIsMenuOpen(false);
       document.body.classList.remove('scroll-lock');
     }
->>>>>>> 399bb90828f0a0ec91fd43d2514fc2d8d105784a
   };
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-<<<<<<< HEAD
-          <Link onClick={() => window.scrollTo(0, 0)} to='/'>
-=======
           <Link to='/' onClick={handleLogoClick}>
->>>>>>> 399bb90828f0a0ec91fd43d2514fc2d8d105784a
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>
