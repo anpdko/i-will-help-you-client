@@ -65,27 +65,27 @@ const ProjectsFund = () => {
             {filteredProjects?.map((project) => (
               <SwiperSlide key={project._id}>
                 <article className={s.project}>
-                  <div className={s.content}>
-                    <h3 className={s.content__title}>
-                      {project.translations[0].title}
-                    </h3>
-                    <p className={s.content__description}>
-                      {project.translations[0].description}
-                    </p>
-
-                    <Link className={s.content__btn} to={'/'}>
-                      <svg>
-                        <use href={sprite + '#arrow-up-right'} />
-                      </svg>
-                    </Link>
-                  </div>
-
-                  <div className={s.image}>
-                    <img
-                      src={API_URL + IMAGE_PREFIX + project.imgCover}
-                      alt={project.translations[0].title}
-                    />
-                  </div>
+                  <Link to={`/projects/${project._id}`} className={s.link}>
+                    <div className={s.content}>
+                      <h3 className={s.content__title}>
+                        {project.translations[0].title}
+                      </h3>
+                      <p className={s.content__description}>
+                        {project.translations[0].description}
+                      </p>
+                      <div className={s.content__icon} >
+                        <svg>
+                          <use href={sprite + '#arrow-up-right'} />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className={s.image}>
+                      <img
+                        src={API_URL + IMAGE_PREFIX + project.imgCover}
+                        alt={project.translations[0].title}
+                      />
+                    </div>
+                  </Link>
                 </article>
               </SwiperSlide>
             ))}
