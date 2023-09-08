@@ -14,6 +14,7 @@ import FormReadyHelp from './form/FormReadyHelp/FormReadyHelp';
 import FormNeedHelp from './form/FormNeedHelp/FormNeedHelp';
 import Payment from './Payment/Payment';
 import AboutHeader from './AboutHeader/AboutHeader';
+import NotFoundBlock from './NotFoundBlock/NotFoundBlock';
 
 export {
   Banners,
@@ -32,4 +33,5 @@ export {
   ProjectsFund,
   Payment,
   AboutHeader,
+  NotFoundBlock,
 };
