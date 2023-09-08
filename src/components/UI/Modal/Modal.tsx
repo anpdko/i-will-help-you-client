@@ -9,15 +9,20 @@ interface ModalProps {
   size?: 'smaller' | 'small' | 'large';
 }
 
-const Modal = ({ children, className, size = 'smaller', onClose }: ModalProps) => {
-  const onBackdropClose = (event:React.MouseEvent) => {
+const Modal = ({
+  children,
+  className,
+  size = 'smaller',
+  onClose,
+}: ModalProps) => {
+  const onBackdropClose = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
   };
 
   useEffect(() => {
-    const onEscapeClose = (event:React.KeyboardEvent) => {
+    const onEscapeClose = (event: any) => {
       if (event.code === 'Escape') {
         onClose();
       }
@@ -37,6 +42,7 @@ const Modal = ({ children, className, size = 'smaller', onClose }: ModalProps) =
       <div className={s.overlay} onClick={onBackdropClose}>
         <div className={'container'}>
           <div className={[s.overlay__modal, s[size], className].join(' ')}>
+            {' '}
             <button
               type='button'
               className={s.overlay__modal_button}
