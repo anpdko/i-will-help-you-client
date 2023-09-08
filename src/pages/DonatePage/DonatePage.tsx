@@ -3,7 +3,7 @@ import { FormHeader, ProjectsFund } from '../../components';
 const DonatePage = () => {
   return (
     <>
-      <FormHeader />
+      <FormHeader id='donate' />
       <ProjectsFund />
     </>
   );

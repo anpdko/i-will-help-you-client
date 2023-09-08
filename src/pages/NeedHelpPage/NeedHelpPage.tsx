@@ -3,7 +3,7 @@ import { FAQ, FormHeader, FormNeedHelp } from '../../components';
 const NeedHelpPage = () => {
   return (
     <>
-      <FormHeader />
+      <FormHeader id='needhelp' />
       <FormNeedHelp />
       <FAQ />
     </>
