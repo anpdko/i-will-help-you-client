@@ -24,12 +24,10 @@ const DonatePage = () => {
   const filteredProjects = useFilteredProjects();
 
   return (
-    <section className={s.donate_page}>
-      <div className='container'>
-        <FormHeader />
-        {loading ? <Preloader /> : <ProjectsFund projects={filteredProjects} />}
-      </div>
-    </section>
+    <>
+      <FormHeader />
+      {loading ? <Preloader /> : <ProjectsFund projects={filteredProjects} />}
+    </>
   );
 };
 export default DonatePage;
