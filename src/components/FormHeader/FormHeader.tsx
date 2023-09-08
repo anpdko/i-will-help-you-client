@@ -10,8 +10,8 @@ const FormHeader = () => {
           <div className={s.ready_need_header_text}>
             <h1>Join our volunteer team</h1>
             <p>
-              If you want to join our team of volunteers and help with what you do
-              best, fill out the form below and we are waiting for you.
+              If you want to join our team of volunteers and help with what you
+              do best, fill out the form below and we are waiting for you.
             </p>
           </div>
           <div className={s.ready_need_header_img}>

@@ -73,7 +73,7 @@ const ProjectsFund = () => {
                       <p className={s.content__description}>
                         {project.translations[0].description}
                       </p>
-                      <div className={s.content__icon} >
+                      <div className={s.content__icon}>
                         <svg>
                           <use href={sprite + '#arrow-up-right'} />
                         </svg>
