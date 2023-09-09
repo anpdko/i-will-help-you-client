@@ -124,3 +124,9 @@ a {
 .delete_btn {
   background: rgb(243, 118, 118);
 }
+
+.border-style {
+  border-radius: 0.625rem;
+  border: 1px solid var(--black);
+  background: var(--total-white);
+}
