@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+
+  &__button {
+    width: 17.625rem;
+    border-radius: 0.75rem;
+    padding: 1.5rem 0;
+
+    &:disabled {
+      background: var(--light-grey)
+    }
+  }
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 0.75rem;
+}
