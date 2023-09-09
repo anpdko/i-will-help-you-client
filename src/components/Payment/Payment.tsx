@@ -23,7 +23,6 @@ function Payment() {
       body: JSON.stringify({}),
     }).then(async (result) => {
       var { clientSecret } = await result.json();
-      console.log(clientSecret)
       setClientSecret(clientSecret);
     });
   }, []);

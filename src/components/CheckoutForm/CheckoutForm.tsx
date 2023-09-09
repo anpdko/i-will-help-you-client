@@ -60,10 +60,10 @@ export default function CheckoutForm() {
 
   return (
     <form id='payment-form' onSubmit={handleSubmit}>
-      <PaymentElement id='payment-element'/>
       {paymentRequest && (
         <PaymentRequestButtonElement options={{ paymentRequest }} />
       )}
+      <PaymentElement id='payment-element'/>
       <ButtonApp disabled={isProcessing || !stripe || !elements} type='submit'>
         {isProcessing ? 'Processing ... ' : 'Pay now'}
       </ButtonApp>
