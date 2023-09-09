@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Preloader from '../UI/Preloader/Preloader';
+import { Preloader } from '../UI';
 import { IProjectsState } from '../../store/projects/projectsType';
 
 const API_URL = import.meta.env.VITE_API_URL;

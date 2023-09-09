@@ -25,7 +25,7 @@ interface DataForm {
   typeOfAssistance: string[];
   selectAll: boolean;
   comment: string;
-  files: {name: string; file: File}[];
+  files: { name: string; file: File }[];
   mailing: boolean;
   dataProcessing: boolean;
 }
@@ -47,7 +47,7 @@ const FormNeedHelp = () => {
       phone: data.countryCode + data.phone,
       typeOfAssistance: data.typeOfAssistance,
       comment: data.comment,
-      files: data.files, 
+      files: data.files,
       mailing: data.mailing,
     };
 

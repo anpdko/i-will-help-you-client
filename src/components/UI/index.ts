@@ -9,6 +9,8 @@ import CheckboxInput from './form/CheckboxInput/CheckboxInput';
 import SelectInput from './form/SelectInput/SelectInput';
 import FileInput from './form/FileInput/FileInput';
 
+import Preloader from './Preloader/Preloader';
+
 export {
   ButtonApp,
   InputFormApp,
@@ -19,4 +21,5 @@ export {
   CheckboxInput,
   SelectInput,
   FileInput,
+  Preloader,
 };

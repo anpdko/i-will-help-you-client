@@ -1,0 +1,30 @@
+@import '../../styles/index';
+
+.main {
+  :global {
+    .container {
+      padding-top: toRem(145);
+      padding-bottom: toRem(80);
+      display: flex;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+  }
+  .image {
+    &:not(:last-child) {
+      margin-bottom: toRem(71);
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+  .text {
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 24, 20, 0, 1200, 390);
+    }
+    @media (max-width: em(400)){
+        max-width: toRem(218);
+    }
+  }
+}

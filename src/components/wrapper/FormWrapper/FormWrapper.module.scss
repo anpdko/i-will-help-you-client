@@ -1,13 +1,18 @@
 @import '../../../styles/index.scss';
 
 .section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 4rem 0 7rem;
+  :global {
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 4rem;
+      padding-bottom: 7rem;
 
-  @media (max-width: $tablet) {
-    justify-content: center;
+      @media (max-width: $tablet) {
+        justify-content: center;
+      }
+    }
   }
 
   &__subtitle {

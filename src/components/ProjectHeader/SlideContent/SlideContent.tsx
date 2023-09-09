@@ -15,8 +15,12 @@ const SlideContent: React.FC<ISlideContentProps> = ({ title, slogan }) => {
       <h2 className='heading2'>{title}</h2>
       <p>{slogan}</p>
       <div className={s.actions}>
-        <ButtonApp>{t('Donate')}</ButtonApp>
-        <ButtonApp color='white'>{t('Need Help')}</ButtonApp>
+        <ButtonApp type='link' to='/donate'>
+          {t('Donate')}
+        </ButtonApp>
+        <ButtonApp type='link' to='/needhelp' color='white'>
+          {t('Need Help')}
+        </ButtonApp>
       </div>
     </div>
   );
