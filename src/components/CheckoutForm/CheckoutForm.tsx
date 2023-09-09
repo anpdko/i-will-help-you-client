@@ -1,4 +1,4 @@
-import { PaymentElement } from '@stripe/react-stripe-js';
+import { PaymentElement} from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import { ButtonApp } from '../UI';
@@ -24,7 +24,6 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/completion`,
       },
     });
@@ -38,9 +37,56 @@ export default function CheckoutForm() {
     setIsProcessing(false);
   };
 
+  // const handleGooglePay = async () => {
+  //   if (!stripe || !elements) {
+  //     return;
+  //   }
+  
+    // Создайте PaymentRequest объект для Google Pay
+  //   const paymentRequest = stripe.paymentRequest({
+  //     country: 'US', // Укажите свою страну
+  //     currency: 'usd', // Укажите свою валюту
+  //     total: {
+  //       label: 'Total Amount',
+  //       amount: 2500, // Укажите сумму в центах
+  //     },
+  //     requestPayerName: true,
+  //     requestPayerEmail: true,
+  //   });
+  
+  //   // Проверьте, поддерживается ли Google Pay
+  //   const result = await paymentRequest.canMakePayment();
+  
+  //   if (result) {
+  //     // Отобразите кнопку Google Pay
+  //     const googlePayButton = elements.create('paymentRequestButton', {
+  //       paymentRequest,
+  //     });
+  
+  //     // Добавьте кнопку на страницу
+  //     googlePayButton.mount('#google-pay-button');
+  
+  //     googlePayButton.on('paymentmethod', async (ev) => {
+  //       // Обработайте платежный метод, отправьте его на сервер Stripe и завершите платеж
+  //       const { paymentMethod } = await stripe.confirmPayment({
+  //         payment_method: ev.paymentMethod.id,
+  //       });
+  
+  //       // Обработайте успешное завершение платежа
+  //       if (paymentMethod) {
+  //         console.log('Payment successful!', paymentMethod);
+  //         // Вы можете обновить состояние компоненты или перенаправить пользователя на страницу "спасибо" здесь
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Google Pay is not available on this device.');
+  //   }
+  // };
+
   return (
     <form id='payment-form' onSubmit={handleSubmit}>
-      <PaymentElement id='payment-element' />
+      {/* <div id='google-pay-button' onClick={handleGooglePay}></div> */}
+      <PaymentElement id='payment-element'/>
       <ButtonApp disabled={isProcessing || !stripe || !elements} type='submit'>
         {isProcessing ? 'Processing ... ' : 'Pay now'}
       </ButtonApp>

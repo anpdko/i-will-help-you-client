@@ -7,6 +7,7 @@ import {
   ReadyHelpPage,
   DonatePage,
   NotFoundPage,
+  Completion
 } from '../pages';
 import { Navbar, Footer } from '../components';
 import { Payment } from '../components';
@@ -25,6 +26,7 @@ const RoutesApp = () => {
           <Route path='/readyneed' element={<ReadyHelpPage />} />
           <Route path='/donate' element={<DonatePage />} />
           <Route path='/test' element={<Payment />} />
+          <Route path="/completion" element={<Completion />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </main>
