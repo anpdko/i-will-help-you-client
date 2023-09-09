@@ -6,9 +6,10 @@ import {
   NeedHelpPage,
   ReadyHelpPage,
   DonatePage,
+  NotFoundPage,
 } from '../pages';
 import { Navbar, Footer } from '../components';
-import { Payment } from '../components'
+import { Payment } from '../components';
 
 const RoutesApp = () => {
   return (
@@ -24,6 +25,7 @@ const RoutesApp = () => {
           <Route path='/readyneed' element={<ReadyHelpPage />} />
           <Route path='/donate' element={<DonatePage />} />
           <Route path='/test' element={<Payment />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

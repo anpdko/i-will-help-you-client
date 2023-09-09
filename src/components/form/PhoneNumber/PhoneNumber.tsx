@@ -10,7 +10,7 @@ const PhoneNumber = () => {
   } = useFormContext();
 
   return (
-    <FormItemWrapper className={s.phone} title='Phone Number *' >
+    <FormItemWrapper className={s.phone} title='Phone Number *'>
       <div className={s.phone__inputs}>
         <input
           type='text'
@@ -47,9 +47,7 @@ const PhoneNumber = () => {
         </p>
       )}
       {errors?.phone && (
-        <p className={`${s.phone__error}`}>
-          {errors?.phone.message as string}
-        </p>
+        <p className={`${s.phone__error}`}>{errors?.phone.message as string}</p>
       )}
     </FormItemWrapper>
   );

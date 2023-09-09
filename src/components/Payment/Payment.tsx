@@ -29,7 +29,7 @@ function Payment() {
   // }, []);
 
   return (
-    <div className="container">
+    <div className='container'>
       {/* {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm />

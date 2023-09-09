@@ -73,7 +73,9 @@ const Footer = () => {
         </div>
 
         <div className={s.contacts}>
-          <ButtonApp>{t('Donate')}</ButtonApp>
+          <ButtonApp type='link' to='/donate' className={s.contacts__btn}>
+            {t('Donate')}
+          </ButtonApp>
           <MediaQuery minWidth={391}>
             <ul className={s.contacts__list}>
               <li>

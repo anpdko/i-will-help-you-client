@@ -72,13 +72,15 @@ const Navbar = () => {
         <nav className={s.nav__menu}>
           <div className={s.actions}>
             <Translation long className='black' />
-            <ButtonApp 
-              type="link" 
-              to="/donate" 
-              size='smaller' 
+            <ButtonApp
+              type='link'
+              to='/donate'
+              size='smaller'
               className={s.btn}
               onClick={handleLogoClick}
-            >{t('Donate')}</ButtonApp>
+            >
+              {t('Donate')}
+            </ButtonApp>
           </div>
           <ul className={s.nav__list}>
             {links
@@ -150,13 +152,15 @@ const Navbar = () => {
 
         <div className={s.nav__actions}>
           <Translation />
-          <ButtonApp 
-            type="link" 
-            to="/donate" 
-            size='small' 
+          <ButtonApp
+            type='link'
+            to='/donate'
+            size='small'
             className={s.btn}
             onClick={handleLogoClick}
-          >{t('Donate')}</ButtonApp>
+          >
+            {t('Donate')}
+          </ButtonApp>
         </div>
         <button
           type='button'

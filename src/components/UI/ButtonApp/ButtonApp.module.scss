@@ -68,6 +68,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   text-decoration: none;
   @include adaptiveValue('font-size', 16, 14, 1, 1200, 390);

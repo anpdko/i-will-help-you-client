@@ -1,11 +1,10 @@
+import { Volunteer, AboutHeader } from '../../components';
+
 const AboutPage = () => {
   return (
     <>
-      <section>
-        <div className='container'>
-          <h1>About</h1>
-        </div>
-      </section>
+      <AboutHeader />
+      <Volunteer />
     </>
   );
 };

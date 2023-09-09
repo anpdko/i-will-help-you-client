@@ -89,10 +89,9 @@
       font-size: toRem(16);
     }
     @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
-
     @media (min-width: em(390)) {
       min-width: toRem(204);
-      button {
+      &__btn {
         &:not(:last-child) {
           margin-bottom: toRem(24);
         }
@@ -108,7 +107,7 @@
       }
     }
     @media (max-width: em(390)) {
-      button {
+      &__btn {
         min-width: 100%;
         padding: toRem(20);
         &:not(:last-child) {
@@ -144,6 +143,11 @@
           width: toRem(27);
           height: toRem(27);
         }
+      }
+    }
+    @media (max-width: em(348)) {
+      &__item {
+        padding: toRem(8) toRem(12);
       }
     }
   }
