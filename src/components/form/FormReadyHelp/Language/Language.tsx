@@ -15,11 +15,11 @@ const Language = () => {
   });
 
   if (fields.length === 0) {
-    append({ language: null, languageLevel: null });
+    append({ language: null, level: null });
   }
 
   const addLanguageField = () => {
-    append({ language: null, languageLevel: null });
+    append({ language: null, level: null });
   };
 
   const languages = languageList.map((item) => ({
@@ -58,7 +58,7 @@ const Language = () => {
           />
 
           <Controller
-            name={`languages[${index}].languageLevel`}
+            name={`languages[${index}].level`}
             control={control}
             defaultValue={null}
             render={({ field }) => (
