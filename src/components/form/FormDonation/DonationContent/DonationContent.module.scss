@@ -1,0 +1,20 @@
+.donation {
+  &__content {
+    display: grid;
+    gap: 2.75rem;
+  }
+
+  &__wrapper {
+    padding: 1.75rem 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__text {
+    line-height: 150%;
+  }
+}
