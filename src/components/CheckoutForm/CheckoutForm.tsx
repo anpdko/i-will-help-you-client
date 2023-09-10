@@ -1,7 +1,8 @@
-import { PaymentElement, PaymentRequestButtonElement} from '@stripe/react-stripe-js';
-import { useState, useEffect } from 'react';
+import { PaymentElement } from '@stripe/react-stripe-js';
+import { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import { ButtonApp } from '../UI';
+import PaymentButtons from '../PaymentButtons/PaymentButtons';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -9,28 +10,7 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = useState<any>(null);
   const [isProcessing, setIsProcessing] = useState<any>(false);
-  const [paymentRequest, setPaymentRequest] = useState<any>(null);
 
-  useEffect(() => {
-    if (stripe) {
-      const pr:any = stripe.paymentRequest({
-        country: 'US',
-        currency: 'usd',
-        total: {
-          label: 'Demo total',
-          amount: 1099,
-        },
-        requestPayerName: true,
-        requestPayerEmail: true,
-      });
-
-      pr.canMakePayment().then((result:any) => {
-        if (result) {
-          setPaymentRequest(pr);
-        }
-      });
-    }
-  }, [stripe]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -60,9 +40,7 @@ export default function CheckoutForm() {
 
   return (
     <form id='payment-form' onSubmit={handleSubmit}>
-      {paymentRequest && (
-        <PaymentRequestButtonElement options={{ paymentRequest }} />
-      )}
+      <PaymentButtons stripe={stripe}/>
       <PaymentElement id='payment-element'/>
       <ButtonApp disabled={isProcessing || !stripe || !elements} type='submit'>
         {isProcessing ? 'Processing ... ' : 'Pay now'}
