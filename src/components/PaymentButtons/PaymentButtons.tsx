@@ -1,59 +1,44 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PaymentRequestButtonElement } from '@stripe/react-stripe-js';
 
 const PaymentButtons = ({ stripe }: { stripe: any }) => {
-  const [applePayElement, setApplePayElement] = useState<any>(null);
-  const [googlePayElement, setGooglePayElement] = useState<any>(null);
+  const [paymentRequestElement, setPaymentRequestElement] = useState<any>(null);
 
   useEffect(() => {
     if (stripe) {
-      // Создайте элемент для Apple Pay
-      const applePay = stripe.paymentRequest({
-        country: 'US',
-        currency: 'usd',
-        total: {
-          label: 'Demo total',
-          amount: 1099,
-        },
-        requestPayerName: true,
-        requestPayerEmail: true,
-      });
+      // Проверьте, поддерживает ли браузер Payment Request API
+      const supportsPaymentRequest = stripe.elements().paymentRequest;
 
-      applePay.canMakePayment().then((result: any) => {
-        if (result) {
-          setApplePayElement(applePay);
-        }
-      });
+      if (supportsPaymentRequest) {
+        const paymentRequest = stripe.paymentRequest({
+          country: 'US',
+          currency: 'usd',
+          total: {
+            label: 'Demo total',
+            amount: 1099,
+          },
+          requestPayerName: true,
+          requestPayerEmail: true,
+        });
 
-      // Создайте элемент для Google Pay
-      const googlePay = stripe.paymentRequest({
-        country: 'US',
-        currency: 'usd',
-        total: {
-          label: 'Demo total',
-          amount: 1099,
-        },
-        requestPayerName: true,
-        requestPayerEmail: true,
-        googlePay: true, // Включите поддержку Google Pay
-      });
+        paymentRequest.on('paymentmethod', (ev: any) => {
+          // Обработка успешной оплаты
+          console.log('Payment method:', ev.paymentMethod);
+        });
 
-      googlePay.canMakePayment().then((result: any) => {
-        if (result) {
-          setGooglePayElement(googlePay);
-        }
-      });
+        paymentRequest.canMakePayment().then((result: any) => {
+          if (result) {
+            setPaymentRequestElement(paymentRequest);
+          }
+        });
+      }
     }
   }, [stripe]);
 
   return (
     <div>
-      {applePayElement && (
-        <PaymentRequestButtonElement options={{ paymentRequest: applePayElement }} />
-      )}
-
-      {googlePayElement && (
-        <PaymentRequestButtonElement options={{ paymentRequest: googlePayElement }} />
+      {paymentRequestElement && (
+        <PaymentRequestButtonElement options={{ paymentRequest: paymentRequestElement }} />
       )}
     </div>
   );
