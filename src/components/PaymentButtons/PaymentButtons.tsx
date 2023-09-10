@@ -1,15 +1,14 @@
+// import s from './PaymentButtons.module.scss'
+import { PaymentRequestButtonElement} from '@stripe/react-stripe-js';
 import { useState, useEffect } from 'react';
-import { PaymentRequestButtonElement } from '@stripe/react-stripe-js';
 
-const PaymentButtons = ({ stripe }: { stripe: any }) => {
-  const [paymentRequestElement, setPaymentRequestElement] = useState<any>(null);
+const PaymentButtons = ({stripe}:{stripe:any}) => {
+   const [paymentRequest, setPaymentRequest] = useState<any>(null);
 
-  useEffect(() => {
-    if (stripe) {
-      const supportsPaymentRequest = stripe.elements().paymentRequest;
 
-      if (supportsPaymentRequest) {
-        const paymentRequest = stripe.paymentRequest({
+   useEffect(() => {
+      if (stripe) {
+        const pr:any = stripe.paymentRequest({
           country: 'US',
           currency: 'usd',
           total: {
@@ -19,27 +18,21 @@ const PaymentButtons = ({ stripe }: { stripe: any }) => {
           requestPayerName: true,
           requestPayerEmail: true,
         });
-
-        paymentRequest.on('paymentmethod', (ev: any) => {
-          console.log('Payment method:', ev.paymentMethod);
-        });
-
-        paymentRequest.canMakePayment().then((result: any) => {
+  
+        pr.canMakePayment().then((result:any) => {
           if (result) {
-            setPaymentRequestElement(paymentRequest);
+            setPaymentRequest(pr);
           }
         });
       }
-    }
-  }, [stripe]);
+    }, [stripe]);
 
-  return (
-    <div>
-      {paymentRequestElement && (
-        <PaymentRequestButtonElement options={{ paymentRequest: paymentRequestElement }} />
-      )}
-    </div>
-  );
+   return (
+      <div>
+         {paymentRequest && (
+            <PaymentRequestButtonElement options={{ paymentRequest }} />
+         )}
+      </div>
+   );
 };
-
-export default PaymentButtons;
+export default PaymentButtons
