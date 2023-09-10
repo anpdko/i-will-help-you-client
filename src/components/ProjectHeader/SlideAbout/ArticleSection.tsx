@@ -29,14 +29,14 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({
         variant='paragraphs'
       />
       <ArticleSection
-        title={title}
-        subtitle={subtitle}
+        title={'Key Objectives'}
+        subtitle={'Our main goals'}
         items={project.translations[0].goals || []}
         variant='list'
       />
       <ArticleSection
-        title={title}
-        subtitle={subtitle}
+        title={'Selection Criteria for Participation'}
+        subtitle={'Selection criteria'}
         items={project.translations[0].criteria || []}
         variant='list'
       />
