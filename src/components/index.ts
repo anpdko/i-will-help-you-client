@@ -12,6 +12,7 @@ import FormHeader from './FormHeader/FormHeader';
 import FAQ from './FAQ/FAQ';
 import FormReadyHelp from './form/FormReadyHelp/FormReadyHelp';
 import FormNeedHelp from './form/FormNeedHelp/FormNeedHelp';
+import FormDonation from './form/FormDonation/FormDonation';
 import Payment from './Payment/Payment';
 import AboutHeader from './AboutHeader/AboutHeader';
 import NotFoundBlock from './NotFoundBlock/NotFoundBlock';
@@ -30,6 +31,7 @@ export {
   FAQ,
   FormReadyHelp,
   FormNeedHelp,
+  FormDonation,
   ProjectsFund,
   Payment,
   AboutHeader,
