@@ -21,6 +21,9 @@ import { ButtonApp } from '../../UI';
 import { convertUnixTimestampToDate } from '../../../utils/convertUnixTimestampToDate';
 import { generateSocialMediaLink } from '../../../utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
+import axios from 'axios'
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 interface DataForm {
   firstName: string;
@@ -49,7 +52,7 @@ const FormReadyHelp = () => {
     formState: { isValid },
   } = methods;
 
-  const onSubmit = (data: DataForm) => {
+  const onSubmit = async (data: DataForm) => {
     const formattedData = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -66,6 +69,12 @@ const FormReadyHelp = () => {
     };
 
     console.log(formattedData);
+    try {
+      const res = await axios.post(API_URL + '/api/readyneed', formattedData)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
