@@ -28,7 +28,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 interface DataForm {
   firstName: string;
   lastName: string;
-  dataOfBirth: number;
+  dateOfBirth: number;
   countryCode: string;
   phone: string;
   country: string;
@@ -56,7 +56,7 @@ const FormReadyHelp = () => {
     const formattedData = {
       firstName: data.firstName,
       lastName: data.lastName,
-      dataOfBirth: convertUnixTimestampToDate(data.dataOfBirth),
+      dateOfBirth: convertUnixTimestampToDate(data.dateOfBirth),
       phone: data.countryCode + data.phone,
       country: data.country,
       network: generateSocialMediaLink(data.network, data.networkLogo),

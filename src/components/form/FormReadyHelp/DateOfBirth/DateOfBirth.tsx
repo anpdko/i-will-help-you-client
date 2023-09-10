@@ -5,7 +5,7 @@ const DateOfBirth = () => {
   return (
     <DateInput
       title='Date of Birth *'
-      name='dataOfBirth'
+      name='dateOfBirth'
       required={true}
       message='Please enter your birthday in the format MM/DD/YYYY'
       placeholder='MM/DD/YYYY'
