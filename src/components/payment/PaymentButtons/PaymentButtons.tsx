@@ -1,10 +1,8 @@
-// import s from './PaymentButtons.module.scss'
 import { PaymentRequestButtonElement} from '@stripe/react-stripe-js';
 import { useState, useEffect } from 'react';
 
 const PaymentButtons = ({stripe}:{stripe:any}) => {
    const [paymentRequest, setPaymentRequest] = useState<any>(null);
-
 
    useEffect(() => {
       if (stripe) {

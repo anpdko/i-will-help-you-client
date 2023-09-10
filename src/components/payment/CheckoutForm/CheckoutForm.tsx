@@ -1,7 +1,7 @@
 import { PaymentElement } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
-import { ButtonApp } from '../UI';
+import { ButtonApp } from '../../UI';
 import PaymentButtons from '../PaymentButtons/PaymentButtons';
 
 export default function CheckoutForm() {
