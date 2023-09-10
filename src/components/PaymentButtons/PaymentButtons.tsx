@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PaymentRequestButtonElement } from '@stripe/react-stripe-js';
 
 const PaymentButtons = ({ stripe }: { stripe: any }) => {
@@ -6,7 +6,6 @@ const PaymentButtons = ({ stripe }: { stripe: any }) => {
 
   useEffect(() => {
     if (stripe) {
-      // Проверьте, поддерживает ли браузер Payment Request API
       const supportsPaymentRequest = stripe.elements().paymentRequest;
 
       if (supportsPaymentRequest) {
@@ -22,7 +21,6 @@ const PaymentButtons = ({ stripe }: { stripe: any }) => {
         });
 
         paymentRequest.on('paymentmethod', (ev: any) => {
-          // Обработка успешной оплаты
           console.log('Payment method:', ev.paymentMethod);
         });
 
