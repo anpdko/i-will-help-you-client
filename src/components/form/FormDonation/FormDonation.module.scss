@@ -1,0 +1,31 @@
+@import '../../../styles/index.scss';
+
+.wrapper {
+  width: 49.563rem;
+
+  @media (max-width: $tablet) {
+    width: 46.25rem;
+  }
+
+  @media (max-width: $mobile) {
+    width: 22.875rem;
+  }
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  border-radius: 0.625rem;
+  padding: 1.125rem 0;
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.active {
+  background: var(--orange-for-states);
+}
