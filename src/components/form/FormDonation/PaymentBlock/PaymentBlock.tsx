@@ -43,7 +43,7 @@ const PaymentBlock = () => {
                   value={field.value}
                   title={item.title}
                 />
-                <span className={s.decorativeLine}></span>
+                {/* <span className={s.decorativeLine}></span> */}
               </>
             )}
           />
@@ -66,7 +66,7 @@ const PaymentBlock = () => {
                   value={field.value}
                   title={item.title}
                 />
-                <span className={s.decorativeLine}></span>
+                {/* <span className={s.decorativeLine}></span> */}
               </>
             )}
           />
@@ -94,7 +94,7 @@ const PaymentBlock = () => {
                     }}
                     checked={getValues('donationAmount') === item.id}
                   />
-                  <span className={s.decorativeLine}></span>
+                  {/* <span className={s.decorativeLine}></span> */}
                 </>
               )}
             />
