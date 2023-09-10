@@ -40,8 +40,8 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({
         items={project.translations[0].criteria || []}
         variant='list'
       />
-      <ButtonApp color='white' size='medium'>
-        {t(`Join Join the OpportunityConnect`)}
+      <ButtonApp type='link' to='/donate' color='white' size='medium'>
+        {t(`Join the OpportunityConnect`)}
       </ButtonApp>
     </div>
   );
