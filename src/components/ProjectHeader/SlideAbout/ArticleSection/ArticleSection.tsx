@@ -1,7 +1,7 @@
 import React from 'react';
 import { IProjectsTags } from '../../../../store/projects/projectsType';
 
-import s from './ProjectHeaderArticle.module.scss';
+import s from './ArticleSection.module.scss';
 
 interface IProjectHeaderArticleProps {
   title: string;

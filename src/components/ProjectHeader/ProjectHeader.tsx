@@ -15,7 +15,7 @@ import 'swiper/scss';
 import 'swiper/css/effect-fade';
 import SlideContent from './SlideContent/SlideContent';
 import SlideImage from './SlideImage/SlideImage';
-import SlideAbout from './SlideAbout/ArticleSection';
+import SlideAbout from './SlideAbout/SlideAbout';
 
 const ProjectHeader: React.FC<
   IProjectsState & { selectedId: string | undefined }

@@ -1,12 +1,12 @@
 import React from 'react';
-import ArticleSection from './ArticleSection/ProjectHeaderArticle';
+import ArticleSection from './ArticleSection/ArticleSection';
 import { useTranslation } from 'react-i18next';
 
 import { IProject } from '../../../store/projects/projectsType';
 
 import { ButtonApp } from '../../UI';
 
-import s from './ArticleSection.module.scss';
+import s from './SlideAbout.module.scss';
 
 interface ISlideAboutProps {
   project: IProject;
