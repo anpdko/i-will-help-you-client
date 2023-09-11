@@ -10,7 +10,7 @@ const Volunteer = () => {
     <section className={s.volunteer}>
       <div className='container'>
         <p className={s.volunteer_text}>{t('VOLUNTEER NEEDED')}</p>
-        <ButtonApp color='white' size='medium'>
+        <ButtonApp type='link' to='/readyneed' color='white' size='medium'>
           {t('Become a Volunteer')}
         </ButtonApp>
       </div>
