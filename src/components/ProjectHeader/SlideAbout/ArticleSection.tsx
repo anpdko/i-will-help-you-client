@@ -13,26 +13,26 @@ interface ISlideAboutProps {
 }
 const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
   const { t } = useTranslation();
-  
+
   const { title, description, goals, criteria } = project.translations[0];
 
   return (
     <div className={s.about}>
       <ArticleSection
-        title={t(`About the ${title}`)}
+        title={t('About the', { title: title })}
         subtitle={t('Project’s description')}
         items={description.split('\n') || []}
         variant='paragraphs'
       />
       <ArticleSection
-        title={'Key Objectives'}
-        subtitle={'Our main goals'}
+        title={t('Key Objectives')}
+        subtitle={t('Our main goals')}
         items={goals || []}
         variant='list'
       />
       <ArticleSection
-        title={'Selection Criteria for Participation'}
-        subtitle={'Selection criteria'}
+        title={t('Selection Criteria for Participation')}
+        subtitle={t('Selection criteria')}
         items={criteria || []}
         variant='list'
       />

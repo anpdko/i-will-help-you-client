@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,7 +20,6 @@ import SlideAbout from './SlideAbout/ArticleSection';
 const ProjectHeader: React.FC<
   IProjectsState & { selectedId: string | undefined }
 > = ({ projects, loading, selectedId }) => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleSlideChange = (swiper: any) => {
