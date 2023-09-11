@@ -24,6 +24,18 @@
   text-align: center;
   font-style: normal;
   font-weight: 600;
+  position: relative;
+
+  &:not(:first-child):before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    display: inline-block;
+    width: 1px;
+    height: 2.25rem;
+    background: var(--black);
+  }
 }
 
 .active {

@@ -6,6 +6,18 @@
     text-align: center;
     font-weight: 600;
     cursor: pointer;
+    position: relative;
+
+    &:not(:first-of-type):before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15%;
+      display: inline-block;
+      width: 1px;
+      height: 2.25rem;
+      background: var(--black);
+    }
   }
 
   &__input {

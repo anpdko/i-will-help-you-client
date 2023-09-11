@@ -31,6 +31,17 @@
     position: relative;
     z-index: 2;
 
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15%;
+      display: inline-block;
+      width: 1px;
+      height: 2.25rem;
+      background: var(--black);
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -45,6 +56,43 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: -1;
+    }
+
+    &:first-of-type,
+    &:nth-of-type(5) {
+      &:before {
+        display: none;
+      }
+    }
+
+    @media (max-width: $tablet) {
+      &:nth-of-type(4),
+      &:nth-of-type(7) {
+        &:before {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(5) {
+        &:before {
+          display: inline-block;
+        }
+      }
+    }
+
+    @media (max-width: $mobile) {
+      &:nth-of-type(3),
+      &:nth-of-type(5) {
+        &:before {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(4) {
+        &:before {
+          display: inline-block;
+        }
+      }
     }
   }
 
