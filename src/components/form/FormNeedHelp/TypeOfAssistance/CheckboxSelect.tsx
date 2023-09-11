@@ -1,5 +1,3 @@
-import s from './TypeOfAssistance.module.scss';
-
 interface CheckboxSelectProps {
   title: string;
   name: string;
@@ -21,13 +19,10 @@ const CheckboxSelect = ({
         type='checkbox'
         name={name}
         id={id}
-        className={s.checkboxItem_input}
         checked={checked}
         onChange={onChange}
       />
-      <label htmlFor={id} className={s.checkboxItem_label}>
-        {title}
-      </label>
+      <label htmlFor={id}>{title}</label>
     </>
   );
 };

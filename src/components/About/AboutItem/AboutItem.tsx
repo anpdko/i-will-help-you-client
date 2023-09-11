@@ -35,10 +35,21 @@ const AboutItem = ({ tab }: AboutProps) => {
           {t('Share Your Story')}
         </Link>
         <div className={s.item__buttons}>
-          <ButtonApp size='large' className={s.item__button}>
+          <ButtonApp
+            type='link'
+            to='/donate'
+            size='large'
+            className={s.item__button}
+          >
             {t('Donate Now')}
           </ButtonApp>
-          <ButtonApp size='large' color='white' className={s.item__button}>
+          <ButtonApp
+            type='link'
+            to='/readyneed'
+            size='large'
+            color='white'
+            className={s.item__button}
+          >
             {t('Become a Volunteer')}
           </ButtonApp>
         </div>

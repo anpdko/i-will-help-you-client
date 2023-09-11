@@ -8,6 +8,7 @@ import DateInput from './form/DateInput/DateInput';
 import CheckboxInput from './form/CheckboxInput/CheckboxInput';
 import SelectInput from './form/SelectInput/SelectInput';
 import FileInput from './form/FileInput/FileInput';
+import Modal from './Modal/Modal';
 
 import Preloader from './Preloader/Preloader';
 
@@ -22,4 +23,5 @@ export {
   SelectInput,
   FileInput,
   Preloader,
+  Modal,
 };
