@@ -29,7 +29,6 @@
     border-bottom: 1px solid var(--black);
     background: var(--total-white);
     position: relative;
-    z-index: 2;
 
     &:before {
       content: '';
@@ -42,33 +41,7 @@
       background: var(--black);
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0.625rem;
-      border-left: 1px solid var(--black);
-      border-right: 1px solid var(--black);
-      background: var(--orange-for-states);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
     @include hideDecorativeLine;
-  }
-
-  & > input:checked + label {
-    background: var(--total-white);
-    border-left: none;
-    border-right: none;
-  }
-
-  & > input:checked + label::after {
-    opacity: 1;
   }
 
   @include formButtonsGridBasic(4);

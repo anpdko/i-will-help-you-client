@@ -19,6 +19,7 @@
 }
 
 .button {
+  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
   border-radius: 0.625rem;
   padding: 1.125rem 0;
   text-align: center;
