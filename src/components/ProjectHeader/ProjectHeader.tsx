@@ -146,8 +146,6 @@ const ProjectHeader: React.FC<
                   {projects.map((project) => (
                     <SwiperSlide key={project._id}>
                       <SlideAbout
-                        title={t(`About the ${project.translations[0].title}`)}
-                        subtitle={t('Project’s description')}
                         project={project}
                       />
                     </SwiperSlide>

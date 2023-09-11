@@ -9,22 +9,16 @@ import { ButtonApp } from '../../UI';
 import s from './ArticleSection.module.scss';
 
 interface ISlideAboutProps {
-  title: string;
-  subtitle: string;
   project: IProject;
 }
-const SlideAbout: React.FC<ISlideAboutProps> = ({
-  title,
-  subtitle,
-  project,
-}) => {
+const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
   const { t } = useTranslation();
 
   return (
     <div className={s.about}>
       <ArticleSection
-        title={title}
-        subtitle={subtitle}
+        title={t(`About the ${project.translations[0].title}`)}
+        subtitle={t('Project’s description')}
         items={project.translations[0].description?.split('\n') || []}
         variant='paragraphs'
       />
