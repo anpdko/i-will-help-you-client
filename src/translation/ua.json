@@ -67,5 +67,11 @@
 
   "Enter your last name": "Введіть ваше прізвище",
   "Please type your last name": "Будь ласка, напишіть ваше прізвище",
-  "Last Name *": "Прізвище *"
+  "Last Name *": "Прізвище *",
+
+  "Phone Number *": "Номер телефону *",
+  "+ 48": "+38",
+  "The country code should start with the «+» symbol and be followed by exactly two digits": "Код країни має починатися із символу «+», після якого слідують рівно дві цифри.",
+  "605 555 555": "095 55 55 555",
+  "Please enter your phone number": "Будь ласка, введіть ваш номер телефону"
 }
