@@ -22,25 +22,22 @@ const TypeOfAssistance = () => {
             <div className={s.assistance__wrap}>
               {typeOfAssistanceList.map(
                 (item: { id: string, title: string }) => (
-                  <>
-                    <CheckboxSelect
-                      title={item.title}
-                      name={item.id}
-                      id={item.id}
-                      key={item.id}
-                      checked={value.includes(item.id)}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        if (e.target.checked) {
-                          onChange([...value, item.id]);
-                        } else {
-                          onChange(
-                            value.filter((val: string) => val !== item.id),
-                          );
-                        }
-                      }}
-                    />
-                    {/* <span className={s.assistance__line}></span> */}
-                  </>
+                  <CheckboxSelect
+                    title={item.title}
+                    name={item.id}
+                    id={item.id}
+                    key={item.id}
+                    checked={value.includes(item.id)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      if (e.target.checked) {
+                        onChange([...value, item.id]);
+                      } else {
+                        onChange(
+                          value.filter((val: string) => val !== item.id),
+                        );
+                      }
+                    }}
+                  />
                 ),
               )}
             </div>

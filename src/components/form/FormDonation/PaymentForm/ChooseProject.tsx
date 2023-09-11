@@ -2,7 +2,6 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { typeOfAssistanceList } from '../../../../utils/typeOfAssistanceList';
 import RadioInput from '../RadioInput/RadioInput';
 import s from './PaymentForm.module.scss';
-import basic from '../FormDonation.module.scss';
 
 const ChooseProject = () => {
   const { control } = useFormContext();
