@@ -46,6 +46,16 @@ const ProjectHeaderArticle: React.FC<IArticleProps> = ({
           )}
         </div>
       );
+    } else if (variant === 'list-ul') {
+      return (
+        <ul className={s.list}>
+          {(items as string[]).map((item, index) => (
+            <li key={index} className={s.item_count}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      );
     }
     return null;
   };
