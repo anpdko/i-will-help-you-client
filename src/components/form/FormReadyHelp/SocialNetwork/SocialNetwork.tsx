@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 import { TelegramIcon } from '../../../icons/TelegramIcon';
 import { ViberIcon } from '../../../icons/ViberIcon';
 import { InstagramIcon } from '../../../icons/InstagramIcon';
@@ -16,6 +17,8 @@ const SocialNetwork = () => {
     formState: { errors },
     setValue,
   } = useFormContext();
+
+  const { t } = useTranslation();
 
   const options = [
     { value: 'telegram', label: 'telegram', icon: <TelegramIcon /> },
@@ -33,7 +36,7 @@ const SocialNetwork = () => {
   );
 
   return (
-    <FormItemWrapper className={s.networks} title='Social Network'>
+    <FormItemWrapper className={s.networks} title={t('Social Network')}>
       <div className={s.networks__wrap}>
         <Controller
           name='networkLogo'
@@ -64,12 +67,12 @@ const SocialNetwork = () => {
         <input
           type='text'
           id='network'
-          placeholder='@YourNickname'
+          placeholder={t('@YourNickname')}
           {...register('network', {
             required: false,
             pattern: {
               value: /^[^0-9]\w+$/,
-              message: 'Please write your nickname',
+              message: `${t('Please write your nickname')}`,
             },
           })}
           className={`${s.networks__input_network}`}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useFormContext, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { skillsList } from '../../../../utils/skillsList';
@@ -8,6 +9,8 @@ import s from './Skills.module.scss';
 const Skills = () => {
   const { control } = useFormContext();
 
+  const { t } = useTranslation();
+
   const skills = skillsList.map((item) => ({
     value: item.skill,
     label: item.skill,
@@ -16,7 +19,7 @@ const Skills = () => {
   return (
     <FormItemWrapper
       className={s.skills}
-      title='Choose your skills (you can select several options) *'
+      title={t('Choose your skills (you can select several options) *')}
     >
       <Controller
         name='skills'
@@ -24,7 +27,7 @@ const Skills = () => {
         rules={{
           required: {
             value: true,
-            message: 'Please select at least one skill',
+            message: `${t('Please select at least one skill')}`,
           },
         }}
         defaultValue={null}
@@ -32,7 +35,7 @@ const Skills = () => {
           <Select
             {...field}
             options={skills}
-            placeholder='Search your skills'
+            placeholder={t('Search your skills')}
             styles={customStyles}
             isMulti
             value={skills.find((option: any) => option.value === field.value)}

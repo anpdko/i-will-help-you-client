@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import customStyles from '../../../UI/form/SelectInput/selectStyle';
@@ -13,6 +14,8 @@ const Language = () => {
     control,
     name: 'languages',
   });
+
+  const { t } = useTranslation();
 
   if (fields.length === 0) {
     append({ language: null, level: null });
@@ -33,7 +36,7 @@ const Language = () => {
   }));
 
   return (
-    <FormItemWrapper className={s.languages} title='Language knowledge'>
+    <FormItemWrapper className={s.languages} title={t('Language knowledge')}>
       {fields.map((item, index) => (
         <div key={item.id} className={s.language}>
           <Controller
@@ -45,7 +48,7 @@ const Language = () => {
                 {...field}
                 options={languages}
                 styles={customStyles}
-                placeholder='Choose language'
+                placeholder={t('Choose language')}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
@@ -66,7 +69,7 @@ const Language = () => {
                 {...field}
                 options={listOfLevels}
                 styles={customStyles}
-                placeholder='Choose level'
+                placeholder={t('Choose level')}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
@@ -91,7 +94,7 @@ const Language = () => {
         onClick={addLanguageField}
         className={s.language__button_add}
       >
-        Add one more <PlusIcon />
+        {t('Add one more')} <PlusIcon />
       </button>
     </FormItemWrapper>
   );

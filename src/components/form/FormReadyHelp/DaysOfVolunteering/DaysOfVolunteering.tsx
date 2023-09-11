@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
 import customStyles from '../../../UI/form/SelectInput/selectStyle';
@@ -16,6 +17,8 @@ const DaysOfVolunteering = () => {
     control,
     name: 'daysVolunteer',
   });
+
+  const { t } = useTranslation();
 
   if (fields.length === 0) {
     append({ day: null, timeStart: null, timeFinish: null });
@@ -38,12 +41,14 @@ const DaysOfVolunteering = () => {
   return (
     <FormItemWrapper
       className={s.volunteer}
-      title='Days and hours you can volunteer (you can select several options) *'
+      title={t(
+        'Days and hours you can volunteer (you can select several options) *',
+      )}
     >
       {fields.map((item, index) => (
         <div key={item.id} className={s.volunteer__inputs}>
           <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>Day of the week</p>
+            <p className={s.volunteer__title}>{t('Day of the week')}</p>
             <Controller
               name={`daysVolunteer[${index}].day`}
               control={control}
@@ -53,7 +58,7 @@ const DaysOfVolunteering = () => {
                 <Select
                   {...field}
                   options={days}
-                  placeholder='Day'
+                  placeholder={t('Day')}
                   styles={customStyles}
                   value={days.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
@@ -69,7 +74,7 @@ const DaysOfVolunteering = () => {
           </div>
 
           <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>Time (start)</p>
+            <p className={s.volunteer__title}>{t('Time (start)')}</p>
             <Controller
               name={`daysVolunteer[${index}].timeStart`}
               control={control}
@@ -79,7 +84,7 @@ const DaysOfVolunteering = () => {
                 <Select
                   {...field}
                   options={times}
-                  placeholder='Start Time'
+                  placeholder={t('Start Time')}
                   styles={customStyles}
                   value={times.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
@@ -95,7 +100,7 @@ const DaysOfVolunteering = () => {
           </div>
 
           <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>Time (finish)</p>
+            <p className={s.volunteer__title}>{t('Time (finish)')}</p>
             <Controller
               name={`daysVolunteer[${index}].timeFinish`}
               control={control}
@@ -105,7 +110,7 @@ const DaysOfVolunteering = () => {
                 <Select
                   {...field}
                   options={times}
-                  placeholder='End Time'
+                  placeholder={t('End Time')}
                   styles={customStyles}
                   value={times.find((option) => option.value === field.value)}
                   onChange={(selectedOption) => {
@@ -136,7 +141,7 @@ const DaysOfVolunteering = () => {
         onClick={addDaysField}
         className={s.volunteer__button_add}
       >
-        Add one more <PlusIcon />
+        {t('Add one more')} <PlusIcon />
       </button>
     </FormItemWrapper>
   );

@@ -22,6 +22,7 @@ import { convertUnixTimestampToDate } from '../../../utils/convertUnixTimestampT
 import { generateSocialMediaLink } from '../../../utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
 import axios from 'axios'
+import { useTranslation } from 'react-i18next';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -47,6 +48,8 @@ const FormReadyHelp = () => {
   const methods = useForm({
     mode: 'onChange',
   });
+
+  const { t } = useTranslation();
 
   const {
     formState: { isValid },
@@ -78,7 +81,7 @@ const FormReadyHelp = () => {
   };
 
   return (
-    <FormWrapper subtitle='Form' title='Volunteer application form'>
+    <FormWrapper subtitle={t('Form')} title={t('Volunteer application form')}>
       <FormProvider {...methods}>
         <form
           id='formReadyToHelp'
@@ -105,7 +108,7 @@ const FormReadyHelp = () => {
             className={s.form__button}
             disabled={!isValid}
           >
-            Send my form
+             {t('Send my form')}
           </ButtonApp>
         </form>
       </FormProvider>
