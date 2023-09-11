@@ -20,13 +20,31 @@
     row-gap: 0.75rem;
 
     & > label {
+      text-align: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 0.875rem;
+      padding: 1.188rem 1.813rem;
+      cursor: pointer;
+
       border-radius: 0;
       border-top: 1px solid var(--black);
       border-bottom: 1px solid var(--black);
       background: var(--total-white);
       position: relative;
       z-index: 2;
-  
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 36px;
+        background: black;
+        position: absolute;
+        left: 0;
+        top: 15%;
+      }
+
       &::after {
         content: '';
         position: absolute;
@@ -39,6 +57,47 @@
         transition: opacity 0.3s ease;
         z-index: -1;
       }
+
+      &:first-of-type,
+      &:nth-of-type(5) {
+        &:before {
+          display: none;
+        }
+      }
+
+      @media (max-width: $tablet) {
+        &:nth-of-type(4),
+        &:nth-of-type(7) {
+          &:before {
+            display: none;
+          }
+        }
+
+        &:nth-of-type(5) {
+          &:before {
+            display: inline-block;
+          }
+        }
+      }
+
+      @media (max-width: $mobile) {
+        &:nth-of-type(3),
+        &:nth-of-type(5) {
+          &:before {
+            display: none;
+          }
+        }
+
+        &:nth-of-type(4) {
+          &:before {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    & > input {
+      display: none;
     }
 
     & > input:checked + label::after {
@@ -52,26 +111,11 @@
     }
 
     @media (max-width: $mobile) {
-    @include formButtonsGridResponsive(2, $include-after: true, $include-mobile: true);
-  }
+      @include formButtonsGridResponsive(2, $include-after: true, $include-mobile: true);
+    }
 
   &__checkbox_all {
     font-weight: 400;
-  }
-}
-
-.checkboxItem {
-  &_label {
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 0.875rem;
-    padding: 1.188rem 1.813rem;
-    cursor: pointer;
-  }
-
-  &_input {
-    display: none;
   }
 }
 }
