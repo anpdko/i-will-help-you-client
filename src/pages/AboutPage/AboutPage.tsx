@@ -1,7 +1,6 @@
 import { Volunteer, AboutHeader } from '../../components';
 
 const AboutPage = () => {
-
   return (
     <>
       <AboutHeader />

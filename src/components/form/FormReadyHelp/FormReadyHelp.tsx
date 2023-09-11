@@ -17,11 +17,12 @@ import Language from './Language/Language';
 import Skills from './Skills/Skills';
 import Comment from '../Comment/Comment';
 import Checkboxes from '../Checkboxes/Checkboxes';
-import { ButtonApp } from '../../UI';
+import { ButtonApp, Modal } from '../../UI';
 import { convertUnixTimestampToDate } from '../../../utils/convertUnixTimestampToDate';
 import { generateSocialMediaLink } from '../../../utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
-import axios from 'axios'
+import axios from 'axios';
+import { useState } from 'react';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -44,6 +45,8 @@ interface DataForm {
 }
 
 const FormReadyHelp = () => {
+  const [isSuccessPopupVisible, setIsSuccessPopupVisible] = useState(false);
+
   const methods = useForm({
     mode: 'onChange',
   });
@@ -70,10 +73,12 @@ const FormReadyHelp = () => {
 
     console.log(formattedData);
     try {
-      const res = await axios.post(API_URL + '/api/readyneed', formattedData)
-      console.log(res)
+      const res = await axios.post(API_URL + '/api/readyneed', formattedData);
+      console.log(res);
+
+      setIsSuccessPopupVisible(true);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -109,6 +114,11 @@ const FormReadyHelp = () => {
           </ButtonApp>
         </form>
       </FormProvider>
+      {isSuccessPopupVisible && (
+        <Modal title='Success!' onClose={() => setIsSuccessPopupVisible(false)}>
+          Your form was successfully submitted!
+        </Modal>
+      )}
     </FormWrapper>
   );
 };

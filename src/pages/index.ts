@@ -5,7 +5,7 @@ import NeedHelpPage from './NeedHelpPage/NeedHelpPage';
 import ReadyHelpPage from './ReadyHelpPage/ReadyHelpPage';
 import DonatePage from './DonatePage/DonatePage';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
-import Completion from './Completion/Completion'
+import Completion from './Completion/Completion';
 
 export {
   HomePage,
@@ -15,5 +15,5 @@ export {
   AboutPage,
   DonatePage,
   NotFoundPage,
-  Completion
+  Completion,
 };
