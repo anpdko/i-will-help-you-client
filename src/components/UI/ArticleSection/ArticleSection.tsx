@@ -12,7 +12,7 @@ interface IArticleProps {
   title: string;
   subtitle: string;
   items: ITags[] | string[];
-  variant: 'list' | 'paragraphs' | 'list-ul';
+  variant: 'list' | 'paragraphs' | 'list-count';
 }
 
 const ProjectHeaderArticle: React.FC<IArticleProps> = ({
@@ -46,7 +46,7 @@ const ProjectHeaderArticle: React.FC<IArticleProps> = ({
           )}
         </div>
       );
-    } else if (variant === 'list-ul') {
+    } else if (variant === 'list-count') {
       return (
         <ul className={s.list}>
           {(items as string[]).map((item, index) => (
