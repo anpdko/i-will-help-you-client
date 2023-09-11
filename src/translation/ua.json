@@ -76,5 +76,10 @@
   "Please enter your phone number": "Будь ласка, введіть ваш номер телефону",
 
   "Please write your email in the format mail@example.com": "Будь ласка, введіть вашу електронну адресу в форматі mail@example.com",
-  "Email *": "Електронна адреса *"
+  "Email *": "Електронна адреса *",
+
+  "Comment (what do you to do?; in what areas?)": "Прокоментуйте (чим ви можете займатися?; в яких сферах?)",
+
+  "Consent to mailing": "Згода на email-розсилку",
+  "Consent to data processing *": "Згода на обробку даних *"
 }
