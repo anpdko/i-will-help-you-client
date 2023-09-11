@@ -1,0 +1,51 @@
+@import '../../styles/index.scss';
+
+.about {
+  :global {
+    .container {
+      padding-top: toRem(24);
+      padding-bottom: toRem(24);
+
+      @include adaptiveValue('gap', 180, 20, 0, 1200, 390);
+      @media (min-width: em(660)) {
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: em(660)) {
+        text-align: center;
+      }
+    }
+  }
+  .content {
+    @media (min-width: em(660)) {
+      flex: 0 1 42.5%; /* 510/1200 */
+    }
+
+    &__title {
+      color: var(--orange);
+      font-weight: 700;
+      line-height: 150%;
+      &:not(:last-child) {
+        @include adaptiveValue('margin-bottom', 0, 8, 0, 1200, 390);
+      }
+    }
+
+    &__text {
+      @include adaptiveValue('font-size', 18, 14, 0, 1200, 390);
+      &:not(:last-child) {
+        @include adaptiveValue('margin-bottom', 16, 24, 0, 1200, 390);
+      }
+    }
+  }
+  .image {
+    @media (min-width: em(660)) {
+      flex: 0 1 42.5%; /* 510/1200 */
+    }
+    @media (max-width: em(660)) {
+      margin-bottom: toRem(24);
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getReviews, deleteReview } from '../../../store/reviews/reviewsSlice';
 import { AppDispatch, RootState } from '../../../store/store';
 import s from './ReviewsAdminPage.module.scss';
-import { MdOutlineUpdate } from 'react-icons/md';
+import { PiPencilSimpleLineFill } from 'react-icons/pi';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -22,10 +22,6 @@ const TableReviewsAdmin = () => {
     dispatch(deleteReview(reviewId));
   };
 
-  // const handleUpdateReview = (reviewId: string, updatedData: any) => {
-  //   dispatch(updateReview({ reviewId, updatedData }));
-  // };
-
   return (
     <>
       {loading ? (
@@ -33,7 +29,7 @@ const TableReviewsAdmin = () => {
       ) : message ? (
         <p>{message}</p>
       ) : (
-        <table className={s.reviews_table}>
+        <table className='admin_table'>
           <thead>
             <tr>
               <th>Photo</th>
@@ -60,14 +56,11 @@ const TableReviewsAdmin = () => {
                 <td>{review.translations[0]?.body}</td>
                 <td>{new Date(review.published_date).toLocaleDateString()}</td>
                 <td>
-                  <button
-                    className={s.update_btn}
-                    // onClick={() => handleUpdateReview(review._id, updatedData)}
-                  >
-                    <MdOutlineUpdate className={s.icon} />
+                  <button className='update_btn'>
+                    <PiPencilSimpleLineFill className={s.icon} />
                   </button>
                   <button
-                    className={s.delete_btn}
+                    className='delete_btn'
                     onClick={() => handleDeleteReview(review._id)}
                   >
                     <BsFillTrashFill className={s.icon} />

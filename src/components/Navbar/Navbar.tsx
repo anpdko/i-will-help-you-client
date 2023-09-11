@@ -39,26 +39,48 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
+    // 'scroll-lock' для body
+    if (!isMenuOpen) {
+      document.body.classList.add('scroll-lock');
+    } else {
+      document.body.classList.remove('scroll-lock');
+    }
   };
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
+    document.body.classList.remove('scroll-lock');
+  };
+
+  const handleLogoClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.classList.remove('scroll-lock');
+    }
   };
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/'>
+          <Link to='/' onClick={handleLogoClick}>
             <svg>
-              <use href={sprite + '#logo'} />
+              <use href={sprite + '#logo-header'} />
             </svg>
           </Link>
         </div>
         <nav className={s.nav__menu}>
           <div className={s.actions}>
             <Translation long className='black' />
-            <ButtonApp size='smaller'>{t('Donate')}</ButtonApp>
+            <ButtonApp
+              type='link'
+              to='/donate'
+              size='smaller'
+              className={s.btn}
+              onClick={handleLogoClick}
+            >
+              {t('Donate')}
+            </ButtonApp>
           </div>
           <ul className={s.nav__list}>
             {links
@@ -84,14 +106,14 @@ const Navbar = () => {
             <ul className={s.social__list}>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
                 <Link to='#' className={s.social__link}>
-                  <svg>
+                  <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
                 </Link>
@@ -101,10 +123,10 @@ const Navbar = () => {
 
           <ul className={s.contacts}>
             <li className={s.contacts__item}>
-              <Link to='tel:+380000000000' className={s.contacts__link}>
+              <Link to='tel:+48575728854' className={s.contacts__link}>
                 <div className={s.contacts__link_text}>
-                  <span>Hotline</span>
-                  +0 (000) 000 00 00
+                  <span>{t('Hotline')}</span>
+                  +48-575-728-854
                 </div>
                 <svg>
                   <use href={sprite + '#phone'} />
@@ -113,12 +135,12 @@ const Navbar = () => {
             </li>
             <li className={s.contacts__item}>
               <Link
-                to='mailto:iwillhelpu@post.com'
+                to='mailto:admin@iwillhelpyou.charity'
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
-                  <span>Email</span>
-                  iwillhelpu@post.com
+                  <span>{t('Email')}</span>
+                  admin@iwillhelpyou.charity
                 </div>
                 <svg>
                   <use href={sprite + '#mail'} />
@@ -130,7 +152,15 @@ const Navbar = () => {
 
         <div className={s.nav__actions}>
           <Translation />
-          <ButtonApp size='small'>{t('Donate')}</ButtonApp>
+          <ButtonApp
+            type='link'
+            to='/donate'
+            size='small'
+            className={s.btn}
+            onClick={handleLogoClick}
+          >
+            {t('Donate')}
+          </ButtonApp>
         </div>
         <button
           type='button'

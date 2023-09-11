@@ -1,0 +1,54 @@
+@import '../../../styles/index.scss';
+
+.phone {
+  grid-area: phone;
+
+  &__label {
+    color: var(--black);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 1.5rem;
+
+    @media (max-width: $tablet) {
+      gap: 0.25rem;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+    padding: 1.125rem 1.5rem;
+
+    &::placeholder {
+      color: var(--dark-grey);
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1rem; 
+    }
+
+    &_code {
+      width: 4.875rem;
+      padding: 1.125rem 1.125rem 1.125rem 1.4375rem;
+    }
+
+    &_number {
+      width: 17.625rem;
+    }
+  }
+
+  &__error {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--red-for-error);
+    margin-top: -0.5rem;
+  }
+}

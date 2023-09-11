@@ -1,0 +1,67 @@
+@import '../../styles/index.scss';
+
+.form_header {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 64, 36, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 64, 32, 0, 1200, 390);
+    }
+  }
+  .body {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    @include adaptiveValue('column-gap', 126, 20, 0, 1200, 992);
+    row-gap: toRem(28);
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+    &::after {
+      content: '';
+      width: 100%;
+      background-color: var(--dark-grey);
+      position: absolute;
+      bottom: 0;
+      @include adaptiveValue('bottom', -64, -32, 0, 1200, 390);
+      left: 0;
+      @media (min-width: $mobile) {
+        height: toRem(1);
+      }
+      @media (max-width: $mobile) {
+        height: toRem(2);
+      }
+    }
+    &__content {
+      @media (min-width: $mobile) {
+        flex: 1 1 40.333333%; /* 484/1200 */
+      }
+      h1 {
+        &:not(:last-child) {
+          @include adaptiveValue('margin-bottom', 16, 12, 0, 1200, 390);
+        }
+      }
+    }
+    &__image {
+      position: relative;
+      overflow: hidden;
+      border-radius: toRem(30);
+      @media (min-width: $mobile) {
+        flex: 0 1 49%; /* 588/1200 */
+        min-height: toRem(368);
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+        padding-bottom: 62.585034%; /* 368/588 */
+      }
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+    }
+  }
+}

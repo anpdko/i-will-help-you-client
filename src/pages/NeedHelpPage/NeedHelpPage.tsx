@@ -1,11 +1,11 @@
+import { FAQ, FormHeader, FormNeedHelp } from '../../components';
+
 const NeedHelpPage = () => {
   return (
     <>
-      <section>
-        <div className='container'>
-          <h1>NeedHelp</h1>
-        </div>
-      </section>
+      <FormHeader id='needhelp' />
+      <FormNeedHelp />
+      <FAQ />
     </>
   );
 };

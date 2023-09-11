@@ -31,18 +31,24 @@
       padding-bottom: toRem(24);
       gap: toRem(24);
       @include adaptiveValue('gap', 24, 17, 0, 1200, 992);
+      @media (max-width: em(360)) {
+        justify-content: space-between;
+      }
     }
   }
   &__logo {
     flex: 1 1 auto;
     transition: opacity 0.3s;
     z-index: 11;
-
+    @media (max-width: em(360)) {
+      max-width: toRem(48);
+      overflow: hidden;
+    }
     @media (min-width: $mobileSmall) {
       margin-right: toRem(20);
     }
     svg {
-      max-width: toRem(100);
+      max-width: toRem(132);
       height: toRem(48);
     }
     @media (any-hover: hover) {
@@ -142,7 +148,7 @@
         display: none;
       }
     }
-    button:nth-child(2) {
+    .btn:nth-child(2) {
       width: toRem(180);
       @include adaptiveValue('width', 180, 124);
     }
@@ -190,9 +196,14 @@
   }
 
   &__item {
-    padding: toRem(14) toRem(30);
-    border: toRem(2) solid var(--black);
+    border: toRem(2) solid var(--light-grey);
     border-radius: toRem(16);
+    @media (min-width: em(350)) {
+      padding: toRem(14) toRem(30);
+    }
+    @media (max-width: em(350)) {
+      padding: toRem(8) toRem(12);
+    }
   }
 
   &__link {

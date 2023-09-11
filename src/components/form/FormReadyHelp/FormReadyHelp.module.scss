@@ -1,0 +1,68 @@
+@import '../../../styles/index.scss';
+
+.form {
+  display: grid;
+  grid-template-columns: 24rem 24rem;
+  grid-template-areas:
+    'firstName lastName'
+    'dob phone'
+    'country networks'
+    'email email'
+    'days days'
+    'languages languages'
+    'skills skills'
+    'comment comment'
+    'checkboxes checkboxes'
+    'button button';
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2.75rem;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 22.875rem 22.875rem;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 2rem;
+  }
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 22.875rem;
+    grid-template-areas: 'firstName' 'lastName' 'dob' 'phone' 'country' 'networks' 'email' 'days' 'languages' 'skills' 'comment' 'checkboxes' 'button';
+    grid-row-gap: 1.5rem;
+  }
+
+  &__email {
+    grid-area: email;
+    width: 49.563rem;
+
+    @media (max-width: $tablet) {
+      width: 46.25rem;
+    }
+
+    @media (max-width: $mobile) {
+      width: 22.875rem;
+    }
+  }
+
+  &__button {
+    grid-area: button;
+    width: 17.625rem;
+    padding: 1.5rem 0;
+    border-radius: 0.75rem;
+    background: var(--black);
+    color: var(--total-white);
+
+    @media (max-width: $mobile) {
+      width: 22.875rem;
+      border-radius: 0.625rem;
+    }
+
+    &:disabled {
+      background: var(--light-grey);
+      color: var(--black);
+    }
+
+    &:hover {
+      background: var(--light-black);
+      color: var(--total-white);
+    }
+  }
+}

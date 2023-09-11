@@ -1,140 +1,101 @@
 @import '../../../styles/index.scss';
 
 .project {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  grid-template-areas: 'description img' 'line line';
-  gap: 4.75rem;
-  margin-bottom: 8rem;
   position: relative;
-
-  &:nth-child(odd) {
-    grid-template-areas: 'img description' 'line line';
+  display: flex;
+  @include adaptiveValue('gap', 76, 30, 2, 1200, 768);
+  @media (min-width: $mobile) {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+  @media (max-width: $mobile) {
+    flex-direction: column-reverse;
+    gap: toRem(32);
   }
 
-  @media (max-width: $tablet) {
-    grid-template-areas: 'img img' 'description description' 'line line';
+  &:not(:last-child) {
+    @include adaptiveValue('margin-bottom', 130, 64, 0, 1200, 390);
+    &::after {
+      content: '';
+      grid-area: line;
+      position: absolute;
+      display: block;
+      @include adaptiveValue('bottom', -64, -34, 0, 1200, 390);
+      right: 0;
+      background-color: var(--dark-grey);
 
-    &:nth-child(odd) {
-      grid-template-areas: 'img img' 'description description' 'line line';
+      height: toRem(2);
+      border-radius: toRem(4);
+      @media (min-width: $mobile) {
+        width: 84.166667%; /* 1010/1200 */
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+    }
+    &:nth-child(odd)::after {
+      left: 0;
     }
   }
 
-  @media (max-width: $mobile) {
-    gap: 2.3rem;
-    margin-bottom: 0;
-  }
-
-  &__content {
-    grid-area: description;
-    max-width: 32rem;
-    width: 100%;
+  .content {
+    align-self: start;
+    flex: 1 1 42.5%; /* 510/1200 */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 4rem;
-
-    @media (max-width: $tablet) {
-      gap: 2rem;
+    gap: toRem(16);
+    @media (min-width: $mobile) {
+      min-height: toRem(400);
+    }
+    &__title {
+      line-height: 150%;
     }
 
-    @media (max-width: $mobile) {
-      gap: 1rem;
-      margin-bottom: 2.3rem;
+    &__description {
+      flex: 1 1 auto;
+    }
+    &__btn {
+      height: toRem(64);
+      width: toRem(64);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: toRem(8);
+      border-radius: toRem(20);
+      color: var(--total-white);
+      background-color: var(--light-black);
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: var(--black);
+        color: var(--total-white);
+      }
+      svg {
+        height: toRem(48);
+        width: toRem(48);
+        fill: currentColor;
+      }
     }
   }
 
-  &__title {
-    @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
-  }
-
-  &__description {
-    margin: 1rem 0;
-  }
-
-  &__img {
-    grid-area: img;
-    max-width: 38rem;
-    border-radius: 1.88rem;
+  .image {
+    position: relative;
+    border-radius: toRem(30);
     overflow: hidden;
-    width: toRem(614);
-    height: toRem(400);
-
-    @media (max-width: $pc) {
-      width: toRem(550);
-      height: toRem(350);
+    @media (min-width: $mobile) {
+      flex: 1 1 51.166667%; /* 614/1200 */
     }
-
-    @media (max-width: $tablet) {
-      width: toRem(472);
-      height: toRem(300);
-    }
-
     @media (max-width: $mobile) {
-      width: toRem(400);
-      height: toRem(250);
+      padding-bottom: 65.14658%; /* 400/614 */
     }
-
-    @media (max-width: $mobileSmall) {
-      width: toRem(366);
-      height: toRem(200);
-    }
-
     img {
-      object-fit: cover;
+      position: absolute;
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
     }
-  }
-
-  &__btn {
-    height: 4rem;
-    width: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-    border-radius: 1.25rem;
-    color: var(--total-white);
-    background-color: var(--light-black);
-    transition: background-color 0.2s linear;
-
-    &:hover {
-      background-color: var(--black);
-      color: var(--total-white);
-    }
-  }
-
-  &__icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: currentColor;
-  }
-
-  &::after {
-    content: '';
-    grid-area: line;
-    position: absolute;
-    display: block;
-    bottom: 0;
-    right: 0;
-    background-color: var(--dark-grey);
-    max-width: 1010px;
-    width: 100%;
-    height: 2px;
-    margin-bottom: -4rem;
-
-    @media (max-width: $mobile) {
-      margin-bottom: 2.3rem;
-    }
-  }
-
-  &:last-child::after {
-    content: none;
-  }
-
-  &:nth-child(even)::after {
-    left: 0;
   }
 }

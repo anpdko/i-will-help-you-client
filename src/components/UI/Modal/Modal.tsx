@@ -1,0 +1,69 @@
+import React, { useEffect } from 'react';
+import s from './Modal.module.scss';
+import sprite from '../../../assets/sprite.svg';
+
+interface ModalProps {
+  children: React.ReactNode;
+  title?: string;
+  onClose: () => void;
+  className?: string;
+  size?: 'smaller' | 'small' | 'large';
+}
+
+const Modal = ({
+  children,
+  className,
+  title = 'Modal',
+  size = 'smaller',
+  onClose,
+}: ModalProps) => {
+  const onBackdropClose = (event: React.MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    const onEscapeClose = (event: any) => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', onEscapeClose);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'visible';
+      window.removeEventListener('keydown', onEscapeClose);
+    };
+  }, [onClose]);
+
+  return (
+    <>
+      <div className={s.overlay} onClick={onBackdropClose}>
+          <div className={[s.overlay__modal, s[size], className].join(' ')}>
+            <div className={s.header}>
+              <div className={s.title}>
+                {title}
+              </div>
+              <button
+                type='button'
+                className={s.button}
+                onClick={onClose}
+              >
+                <svg>
+                  <use href={sprite + '#cross'} />
+                </svg>
+              </button>
+            </div>
+            <div className={s.content}>
+              {children}
+            </div>
+          </div>
+      </div>
+    </>
+  );
+};
+
+export default Modal;

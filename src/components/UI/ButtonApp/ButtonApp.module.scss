@@ -58,10 +58,17 @@
   padding: toRem(22) toRem(10);
 }
 
-.btn {
+.Xlarge {
+  max-width: toRem(366);
+  width: 100%;
+  padding: toRem(24) toRem(10);
+}
+
+.btn, .link {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   text-decoration: none;
   @include adaptiveValue('font-size', 16, 14, 1, 1200, 390);
@@ -73,7 +80,6 @@
 
   transition: background-color 0.5s ease-in;
   @media (max-width: $mobile) {
-    // В макеті на мобайл border-radius 10px
     border-radius: toRem(10);
   }
 }

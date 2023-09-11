@@ -1,0 +1,50 @@
+.paymentBlock {
+  display: grid;
+  gap: 2.75rem;
+  
+  &__method {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+
+    & span:last-child {
+      display: none;
+    }
+  }
+
+  &__frequency {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    & span:last-child {
+      display: none;
+    }
+  }
+
+  &__amount {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    
+    &_number {
+      display: flex;
+      align-items: center;
+
+      & span:last-child {
+        display: none;
+      }
+    }
+
+    &_custom {
+      padding: 1.125rem 2rem;
+    }
+  }
+}
+
+.decorativeLine {
+  width: 0.5px;
+  height: 2.25rem;
+  background: black;
+}

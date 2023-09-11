@@ -1,0 +1,58 @@
+@import '../../../../styles/index.scss';
+
+.assistance {
+  grid-area: assistance;
+  width: 49.563rem;
+
+  @media (max-width: $tablet) {
+    width: 46.25rem;
+  }
+
+  @media (max-width: $mobile) {
+    width: 22.875rem;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__checkbox_all {
+    font-weight: 400;
+  }
+}
+
+
+.checkboxItem {
+  &_label {
+    width: 12.375rem;
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+
+    color: var(--black);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 0.875rem;
+    padding: 1.188rem 1.813rem;
+    cursor: pointer;
+
+    @media (max-width: $tablet) {
+      width: 11.438rem;
+    }
+  }
+  
+  &_input {
+    display: none;
+  }
+
+  &_input:checked + &_label {
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--orange-for-states);
+  }
+}

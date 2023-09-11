@@ -1,8 +1,15 @@
 import RoutesApp from './routes/RoutesApp';
 import RoutesAdmin from './routes/RoutesAdmin';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <>
       <Routes>
