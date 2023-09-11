@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleSection from './ArticleSection/ArticleSection';
+import ArticleSection from '../../UI/ArticleSection/ArticleSection';
 import { useTranslation } from 'react-i18next';
 
 import { IProject } from '../../../store/projects/projectsType';

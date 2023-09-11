@@ -1,13 +1,18 @@
 import React from 'react';
-import { IProjectsTags } from '../../../../store/projects/projectsType';
 
 import s from './ArticleSection.module.scss';
+
+interface ITags {
+  _id: string;
+  tag: string;
+  desc: string;
+}
 
 interface IProjectHeaderArticleProps {
   title: string;
   subtitle: string;
-  items: IProjectsTags[] | string[];
-  variant: 'list' | 'paragraphs';
+  items: ITags[] | string[];
+  variant: 'list' | 'paragraphs' | 'list-ul';
 }
 
 const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
@@ -20,7 +25,7 @@ const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
     if (variant === 'list') {
       return (
         <ul className={s.list}>
-          {(items as IProjectsTags[]).map((item) => (
+          {(items as ITags[]).map((item) => (
             <li key={item._id} className={s.item}>
               <h4 className={s.tag}>{item.tag}</h4>
               <p className='text'>{item.desc}</p>
