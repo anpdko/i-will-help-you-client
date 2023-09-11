@@ -32,7 +32,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'mission',
     tabIcon: '#mission',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -53,7 +53,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'vision',
     tabIcon: '#vision',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -82,7 +82,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'objectives',
     tabIcon: '#objectives',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -103,7 +103,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'values',
     tabIcon: '#values',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -124,7 +124,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'impact',
     tabIcon: '#impact',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -145,7 +145,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'journey',
     tabIcon: '#journey',
-    link: '#',
+    link: '/needhelp',
   },
 ];
 
