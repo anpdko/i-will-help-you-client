@@ -8,14 +8,14 @@ interface ITags {
   desc: string;
 }
 
-interface IProjectHeaderArticleProps {
+interface IArticleProps {
   title: string;
   subtitle: string;
   items: ITags[] | string[];
   variant: 'list' | 'paragraphs' | 'list-ul';
 }
 
-const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
+const ProjectHeaderArticle: React.FC<IArticleProps> = ({
   title,
   subtitle,
   items,
