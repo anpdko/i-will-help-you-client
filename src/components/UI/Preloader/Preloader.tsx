@@ -1,33 +1,23 @@
 import React from 'react';
 import s from './Preloader.module.scss';
 
+/**
+ * Preloader компонент для відображення завантажувача.
+ * @param {boolean} withContainer - Чи використовувати контейнер.
+ */
+
 interface IPreloaderProps {
-  container?: boolean;
+  withContainer?: boolean;
 }
 
-const Preloader: React.FC<IPreloaderProps> = ({ container }) => {
-
-  if (container) {
-    return (
-      <div className='container'>
-        <div className={s.lds_ellipsis}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+const Preloader: React.FC<IPreloaderProps> = ({ withContainer }) => (
+  <div className={withContainer ? 'container' : ''}>
     <div className={s.lds_ellipsis}>
       <span></span>
       <span></span>
       <span></span>
       <span></span>
     </div>
-  );
-};
-
+  </div>
+);
 export default Preloader;

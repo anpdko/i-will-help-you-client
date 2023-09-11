@@ -33,7 +33,7 @@ const RoutesApp = () => {
           <Route
             path='/projects'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <ProjectsPage />
               </Suspense>
             }
@@ -41,7 +41,7 @@ const RoutesApp = () => {
           <Route
             path='/projects/:id'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <ProjectsPage />
               </Suspense>
             }
@@ -49,7 +49,7 @@ const RoutesApp = () => {
           <Route
             path='/about'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <AboutPage />
               </Suspense>
             }
@@ -57,7 +57,7 @@ const RoutesApp = () => {
           <Route
             path='/needhelp'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <NeedHelpPage />
               </Suspense>
             }
@@ -65,7 +65,7 @@ const RoutesApp = () => {
           <Route
             path='/readyneed'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <ReadyHelpPage />
               </Suspense>
             }
@@ -73,7 +73,7 @@ const RoutesApp = () => {
           <Route
             path='/donate'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <DonatePage />
               </Suspense>
             }
@@ -81,7 +81,7 @@ const RoutesApp = () => {
           <Route
             path='/completion'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <Completion />
               </Suspense>
             }
@@ -89,7 +89,7 @@ const RoutesApp = () => {
           <Route
             path='*'
             element={
-              <Suspense fallback={<Preloader container />}>
+              <Suspense fallback={<Preloader withContainer />}>
                 <NotFoundPage />
               </Suspense>
             }
