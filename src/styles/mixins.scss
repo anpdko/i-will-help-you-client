@@ -71,7 +71,7 @@
   }
 }
 
-/* PC: міксін для відображення колонок з кнопками форми (type of assistance, project list) */
+/* PC: міксин для відображення колонок з кнопками форми (type of assistance, project list) */
 @mixin formButtonsGridBasic($columns, $border-radius: 0.625rem, $include-after: false) {
   & > label:first-of-type,
   & > label:nth-of-type(5) {
@@ -103,7 +103,7 @@
   }
 }
 
-/* TABLET, MOBILE: міксін для адаптивного відображення колонок з кнопками форми (type of assistance, project list) */
+/* TABLET, MOBILE: міксин для адаптивного відображення колонок з кнопками форми (type of assistance, project list) */
 @mixin formButtonsGridResponsive($columns, $border-radius: 0.625rem, $include-after: false, $include-mobile: false) {
   grid-template-columns: repeat(#{$columns}, 1fr);
 
@@ -204,5 +204,46 @@
     }
   }
 }
+
+/* міксин для приховування елементів декору для кнопок форми (type of assistance, project list) */
+@mixin hideDecorativeLine {
+  &:first-of-type,
+  &:nth-of-type(5) {
+    &:before {
+      display: none;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &:nth-of-type(4),
+    &:nth-of-type(7) {
+      &:before {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(5) {
+      &:before {
+        display: inline-block;
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    &:nth-of-type(3),
+    &:nth-of-type(5) {
+      &:before {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(4) {
+      &:before {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 
 
