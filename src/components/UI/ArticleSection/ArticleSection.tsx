@@ -15,7 +15,7 @@ interface IArticleProps {
   variant: 'list' | 'paragraphs' | 'list-count';
 }
 
-const ProjectHeaderArticle: React.FC<IArticleProps> = ({
+const ArticleSection: React.FC<IArticleProps> = ({
   title,
   subtitle,
   items,
@@ -71,4 +71,4 @@ const ProjectHeaderArticle: React.FC<IArticleProps> = ({
   );
 };
 
-export default ProjectHeaderArticle;
+export default ArticleSection;
