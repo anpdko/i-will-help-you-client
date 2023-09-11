@@ -58,42 +58,7 @@
       z-index: -1;
     }
 
-    &:first-of-type,
-    &:nth-of-type(5) {
-      &:before {
-        display: none;
-      }
-    }
-
-    @media (max-width: $tablet) {
-      &:nth-of-type(4),
-      &:nth-of-type(7) {
-        &:before {
-          display: none;
-        }
-      }
-
-      &:nth-of-type(5) {
-        &:before {
-          display: inline-block;
-        }
-      }
-    }
-
-    @media (max-width: $mobile) {
-      &:nth-of-type(3),
-      &:nth-of-type(5) {
-        &:before {
-          display: none;
-        }
-      }
-
-      &:nth-of-type(4) {
-        &:before {
-          display: inline-block;
-        }
-      }
-    }
+    @include hideDecorativeLine;
   }
 
   & > input:checked + label {
