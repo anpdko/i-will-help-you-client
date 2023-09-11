@@ -1,3 +1,5 @@
+@import '../../../../styles/index.scss';
+
 .paymentBlock {
   display: grid;
   gap: 2.75rem;
@@ -6,20 +8,12 @@
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-
-    & span:last-child {
-      display: none;
-    }
   }
 
   &__frequency {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
-
-    & span:last-child {
-      display: none;
-    }
   }
 
   &__amount {
@@ -27,13 +21,43 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    
     &_number {
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-radius: 0.625rem;
+      border: 1px solid var(--black);
+      background: var(--total-white);
 
-      & span:last-child {
-        display: none;
+      @media (max-width: $mobile) {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0.5rem;
+        border: none;
+        background: transparent;
+        
+        & > label {
+          border-radius: 0;
+          background: var(--total-white);
+          border-top: 1px solid var(--black);
+          border-bottom: 1px solid var(--black);
+
+          &:first-of-type,
+          &:nth-of-type(4) {
+            border-left: 1px solid var(--black);
+            border-top-left-radius: 0.625rem;
+            border-bottom-left-radius: 0.625rem;
+          }
+
+          &:nth-of-type(3),
+          &:last-of-type {
+            border-right: 1px solid var(--black);
+            border-top-right-radius: 0.625rem;
+            border-bottom-right-radius: 0.625rem;
+          }
+
+          &:nth-of-type(4):before {
+            display: none;
+          }
+        }
       }
     }
 
@@ -41,10 +65,4 @@
       padding: 1.125rem 2rem;
     }
   }
-}
-
-.decorativeLine {
-  width: 0.5px;
-  height: 2.25rem;
-  background: black;
 }

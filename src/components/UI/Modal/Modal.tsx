@@ -4,6 +4,7 @@ import sprite from '../../../assets/sprite.svg';
 
 interface ModalProps {
   children: React.ReactNode;
+  title?: string;
   onClose: () => void;
   className?: string;
   size?: 'smaller' | 'small' | 'large';
@@ -12,6 +13,7 @@ interface ModalProps {
 const Modal = ({
   children,
   className,
+  title = 'Modal',
   size = 'smaller',
   onClose,
 }: ModalProps) => {
@@ -40,20 +42,16 @@ const Modal = ({
   return (
     <>
       <div className={s.overlay} onClick={onBackdropClose}>
-        <div className={'container'}>
-          <div className={[s.overlay__modal, s[size], className].join(' ')}>
-            {' '}
-            <button
-              type='button'
-              className={s.overlay__modal_button}
-              onClick={onClose}
-            >
+        <div className={[s.overlay__modal, s[size], className].join(' ')}>
+          <div className={s.header}>
+            <div className={s.title}>{title}</div>
+            <button type='button' className={s.button} onClick={onClose}>
               <svg>
                 <use href={sprite + '#cross'} />
               </svg>
             </button>
-            <div className={s.overlay__modal_content}>{children}</div>
           </div>
+          <div className={s.content}>{children}</div>
         </div>
       </div>
     </>

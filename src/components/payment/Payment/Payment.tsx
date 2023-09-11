@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import { loadStripe } from "@stripe/stripe-js";
+import { useEffect, useState } from 'react';
+import s from './Payment.module.scss';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import { loadStripe } from '@stripe/stripe-js';
 
 const API_URL: string | undefined = import.meta.env.VITE_API_URL;
 
 function Payment() {
   const [stripePromise, setStripePromise] = useState<any>(null);
-  const [clientSecret, setClientSecret] = useState<any>("");
+  const [clientSecret, setClientSecret] = useState<any>('');
 
   useEffect(() => {
     fetch(`${API_URL}/api/payment/config`).then(async (r) => {
@@ -19,7 +19,7 @@ function Payment() {
 
   useEffect(() => {
     fetch(`${API_URL}/api/payment/create-payment-intent`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({}),
     }).then(async (result) => {
       var { clientSecret } = await result.json();
@@ -28,7 +28,7 @@ function Payment() {
   }, []);
 
   return (
-    <div className='container'>
+    <div className={s.payment}>
       {clientSecret && stripePromise && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm />

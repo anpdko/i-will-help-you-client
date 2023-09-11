@@ -11,7 +11,6 @@ export default function CheckoutForm() {
   const [message, setMessage] = useState<any>(null);
   const [isProcessing, setIsProcessing] = useState<any>(false);
 
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -37,11 +36,10 @@ export default function CheckoutForm() {
     setIsProcessing(false);
   };
 
-
   return (
     <form id='payment-form' onSubmit={handleSubmit}>
-      <PaymentButtons stripe={stripe}/>
-      <PaymentElement id='payment-element'/>
+      <PaymentButtons stripe={stripe} />
+      <PaymentElement id='payment-element' />
       <ButtonApp disabled={isProcessing || !stripe || !elements} type='submit'>
         {isProcessing ? 'Processing ... ' : 'Pay now'}
       </ButtonApp>

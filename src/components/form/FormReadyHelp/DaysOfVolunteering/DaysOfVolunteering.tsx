@@ -18,11 +18,11 @@ const DaysOfVolunteering = () => {
   });
 
   if (fields.length === 0) {
-    append({ day: null, timeStart: null, timeEnd: null });
+    append({ day: null, timeStart: null, timeFinish: null });
   }
 
   const addDaysField = () => {
-    append({ day: null, timeStart: null, timeEnd: null });
+    append({ day: null, timeStart: null, timeFinish: null });
   };
 
   const days = daysOfWeekOptions.map((item) => ({
@@ -97,7 +97,7 @@ const DaysOfVolunteering = () => {
           <div className={s.volunteer__wrap}>
             <p className={s.volunteer__title}>Time (finish)</p>
             <Controller
-              name={`daysVolunteer[${index}].timeEnd`}
+              name={`daysVolunteer[${index}].timeFinish`}
               control={control}
               rules={{ required: true }}
               defaultValue={null}
