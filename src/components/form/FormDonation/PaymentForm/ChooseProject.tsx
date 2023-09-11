@@ -2,12 +2,13 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { typeOfAssistanceList } from '../../../../utils/typeOfAssistanceList';
 import RadioInput from '../RadioInput/RadioInput';
 import s from './PaymentForm.module.scss';
+import basic from '../FormDonation.module.scss';
 
 const ChooseProject = () => {
   const { control } = useFormContext();
 
   return (
-    <div className={`border-style ${s.projectList}`}>
+    <div className={s.projectList}>
       {typeOfAssistanceList.map((item) => (
         <Controller
           key={item.id}
@@ -24,7 +25,6 @@ const ChooseProject = () => {
                 value={field.value}
                 title={item.title}
               />
-              {/* <span className={s.decorativeLine}></span> */}
             </>
           )}
         />
