@@ -1,16 +1,21 @@
 import React from 'react';
-import { IProjectsTags } from '../../../../store/projects/projectsType';
 
-import s from './ProjectHeaderArticle.module.scss';
+import s from './ArticleSection.module.scss';
 
-interface IProjectHeaderArticleProps {
-  title: string;
-  subtitle: string;
-  items: IProjectsTags[] | string[];
-  variant: 'list' | 'paragraphs';
+interface ITags {
+  _id: string;
+  tag: string;
+  desc: string;
 }
 
-const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
+interface IArticleProps {
+  title: string;
+  subtitle: string;
+  items: ITags[] | string[];
+  variant: 'list' | 'paragraphs' | 'list-count';
+}
+
+const ArticleSection: React.FC<IArticleProps> = ({
   title,
   subtitle,
   items,
@@ -20,7 +25,7 @@ const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
     if (variant === 'list') {
       return (
         <ul className={s.list}>
-          {(items as IProjectsTags[]).map((item) => (
+          {(items as ITags[]).map((item) => (
             <li key={item._id} className={s.item}>
               <h4 className={s.tag}>{item.tag}</h4>
               <p className='text'>{item.desc}</p>
@@ -41,6 +46,16 @@ const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
           )}
         </div>
       );
+    } else if (variant === 'list-count') {
+      return (
+        <ul className={s.list}>
+          {(items as string[]).map((item, index) => (
+            <li key={index} className={s.item_count}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      );
     }
     return null;
   };
@@ -56,4 +71,4 @@ const ProjectHeaderArticle: React.FC<IProjectHeaderArticleProps> = ({
   );
 };
 
-export default ProjectHeaderArticle;
+export default ArticleSection;
