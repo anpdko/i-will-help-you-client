@@ -7,7 +7,7 @@ const ChooseProject = () => {
   const { control } = useFormContext();
 
   return (
-    <div className={`border-style ${s.projectList}`}>
+    <div className={s.projectList}>
       {typeOfAssistanceList.map((item) => (
         <Controller
           key={item.id}
@@ -24,7 +24,6 @@ const ChooseProject = () => {
                 value={field.value}
                 title={item.title}
               />
-              {/* <span className={s.decorativeLine}></span> */}
             </>
           )}
         />

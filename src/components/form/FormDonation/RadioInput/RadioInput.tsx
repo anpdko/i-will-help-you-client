@@ -7,9 +7,17 @@ interface RadioInputProps {
   value: string;
   title: string;
   checked?: boolean;
+  disabled?: boolean;
 }
 
-const RadioInput = ({ name, id, onChange, value, title }: RadioInputProps) => {
+const RadioInput = ({
+  name,
+  id,
+  onChange,
+  value,
+  title,
+  disabled = false,
+}: RadioInputProps) => {
   return (
     <>
       <input
@@ -20,6 +28,7 @@ const RadioInput = ({ name, id, onChange, value, title }: RadioInputProps) => {
         value={id}
         onChange={(e) => onChange(e.target.value)}
         checked={value === id}
+        disabled={disabled}
       />
       <label htmlFor={id} className={s.radio__label}>
         {title}
