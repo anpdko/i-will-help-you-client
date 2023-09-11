@@ -59,5 +59,13 @@
   "Search your skills": "Знайдіть свої навички",
   "Social Network": "Соціальна мережа",
   "@YourNickname": "@ВашНікнейм",
-  "Please write your nickname": "Будь ласка, введіть ваш нікнейм"
+  "Please write your nickname": "Будь ласка, введіть ваш нікнейм",
+
+  "Enter your first name": "Введіть ваше ім'я",
+  "Please type your first name": "Будь ласка, напишіть ваше ім'я",
+  "First Name *": "Ім'я *",
+
+  "Enter your last name": "Введіть ваше прізвище",
+  "Please type your last name": "Будь ласка, напишіть ваше прізвище",
+  "Last Name *": "Прізвище *"
 }
