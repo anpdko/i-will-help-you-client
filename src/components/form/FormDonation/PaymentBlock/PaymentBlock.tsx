@@ -4,7 +4,7 @@ import {
   paymentMethod,
   paymentFrequency,
   donationAmount,
-} from '../../../../utils/donationOptions';
+} from '@utils/donationOptions';
 import RadioInput from '../RadioInput/RadioInput';
 import s from './PaymentBlock.module.scss';
 

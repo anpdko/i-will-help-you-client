@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
+import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
 import DonationContent from './DonationContent/DonationContent';
-import { buttonData, donationTypes } from '../../../utils/donationFormOptions';
+import { buttonData, donationTypes } from '@utils/donationFormOptions';
 import s from './FormDonation.module.scss';
 
 const FormDonation = () => {

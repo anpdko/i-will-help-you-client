@@ -1,4 +1,4 @@
-import { TextInput } from '../../UI';
+import { TextInput } from '@components/UI';
 import s from './FirstName.module.scss';
 
 const FirstName = () => {

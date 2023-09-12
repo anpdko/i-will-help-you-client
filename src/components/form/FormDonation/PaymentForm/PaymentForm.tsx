@@ -5,14 +5,13 @@ import {
   useForm,
 } from 'react-hook-form';
 import { useState } from 'react';
-import { ButtonApp } from '../../../UI';
+import { ButtonApp, Modal } from '@components/UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
 import Email from '../../Email/Email';
 import Comment from '../../Comment/Comment';
 import ChooseProject from './ChooseProject';
-import s from './PaymentForm.module.scss';
-import { Modal } from '../../../UI';
 import Payment from '@components/payment/Payment/Payment';
+import s from './PaymentForm.module.scss';
 
 interface PaymentFormProps {
   content?: string;

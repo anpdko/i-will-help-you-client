@@ -1,8 +1,8 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
-import { CheckboxInput } from '../../../UI';
-import { typeOfAssistanceList } from '../../../../utils/typeOfAssistanceList';
+import { CheckboxInput } from '@components/UI';
+import { typeOfAssistanceList } from '@utils/typeOfAssistanceList';
 import s from './TypeOfAssistance.module.scss';
 
 const TypeOfAssistance = () => {

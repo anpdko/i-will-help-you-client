@@ -4,9 +4,8 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import { ButtonApp } from '../../UI';
-import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
-import s from './FormNeedHelp.module.scss';
+import { ButtonApp } from '@components/UI';
+import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
 import FirstName from '../FirstName/FirstName';
 import LastName from '../LastName/LastName';
 import Email from '../Email/Email';
@@ -15,6 +14,7 @@ import Checkboxes from '../Checkboxes/Checkboxes';
 import Comment from '../Comment/Comment';
 import Files from './Files/Files';
 import TypeOfAssistance from './TypeOfAssistance/TypeOfAssistance';
+import s from './FormNeedHelp.module.scss';
 
 interface DataForm {
   firstName: string;
