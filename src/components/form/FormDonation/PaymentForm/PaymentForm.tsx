@@ -1,10 +1,11 @@
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   FieldValues,
   FormProvider,
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import { useState } from 'react';
 import { ButtonApp } from '../../../UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
 import Email from '../../Email/Email';
@@ -19,6 +20,7 @@ interface PaymentFormProps {
 }
 
 const PaymentForm = ({ content }: PaymentFormProps) => {
+  const { t } = useTranslation();
   const [isOpenModal, setIsOpenModal] = useState(false);
   const methods = useForm({
     mode: 'onChange',
@@ -59,7 +61,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
           className={s.form__button}
           disabled={!isValid}
         >
-          Pay urgent!
+          {t('Pay urgent!')}
         </ButtonApp>
       </form>
     </FormProvider>

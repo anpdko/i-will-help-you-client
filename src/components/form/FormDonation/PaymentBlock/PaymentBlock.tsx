@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Controller, useFormContext } from 'react-hook-form';
 import {
   paymentMethod,
@@ -9,6 +10,7 @@ import RadioInput from '../RadioInput/RadioInput';
 import s from './PaymentBlock.module.scss';
 
 const PaymentBlock = () => {
+  const { t } = useTranslation();
   const { control, setValue, getValues } = useFormContext();
   const [customAmount, setCustomAmount] = useState('');
 
@@ -41,7 +43,7 @@ const PaymentBlock = () => {
                   id={item.id}
                   onChange={field.onChange}
                   value={field.value}
-                  title={item.title}
+                  title={t(item.title)}
                   disabled={index === 1 || index === 2}
                 />
               </>
@@ -64,7 +66,7 @@ const PaymentBlock = () => {
                   id={item.id}
                   onChange={field.onChange}
                   value={field.value}
-                  title={item.title}
+                  title={t(item.title)}
                 />
               </>
             )}
@@ -106,7 +108,7 @@ const PaymentBlock = () => {
             type='text'
             name='customDonationAmount'
             id='customDonationAmount'
-            placeholder='$ your donation amount'
+            placeholder={t('$ your donation amount')}
             value={customAmount}
             onChange={handleCustomInputChange}
           />

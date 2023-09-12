@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
 import DonationContent from './DonationContent/DonationContent';
 import { buttonData, donationTypes } from '../../../utils/donationFormOptions';
 import s from './FormDonation.module.scss';
 
 const FormDonation = () => {
+  const { t } = useTranslation();
   const [content, setContent] = useState<string>('donateFund');
 
   const handleButtonClick = (newContent: string) => {
@@ -12,7 +14,10 @@ const FormDonation = () => {
   };
 
   return (
-    <FormWrapper subtitle='Donations' title='Donation application form'>
+    <FormWrapper
+      subtitle={t('Donations')}
+      title={t('Donation application form')}
+    >
       <div className={s.wrapper}>
         <div className={`border-style ${s.buttons}`}>
           {buttonData.map((button) => (
@@ -23,7 +28,7 @@ const FormDonation = () => {
                 content === button.content ? s.active : ''
               }`}
             >
-              {button.label}
+              {t(button.label)}
             </button>
           ))}
         </div>
@@ -32,8 +37,8 @@ const FormDonation = () => {
             content === item.id && (
               <DonationContent
                 key={item.id}
-                title={item.title}
-                text={item.text}
+                title={t(item.title)}
+                text={t(item.text)}
               >
                 {item.content}
               </DonationContent>
