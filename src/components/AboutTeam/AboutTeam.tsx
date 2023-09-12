@@ -1,18 +1,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, Pagination } from 'swiper/modules';
-import { useTranslation } from 'react-i18next';
 
 import s from './AboutTeam.module.scss';
 import sprite from '../../assets/sprite.svg';
 
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
+import aboutTeamData from '@/data/aboutTeamData';
+import i18n from '@/translation/i18n';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AboutTeam = () => {
-  const { t } = useTranslation();
-
   const IMAGE_PREFIX = '/static/images/team/';
 
   return (
@@ -30,25 +29,33 @@ const AboutTeam = () => {
               draggable: true,
             }}
             pagination={{
-              el: '.swiper-pagination', 
-              type: 'fraction', 
+              el: '.swiper-pagination',
+              type: 'fraction',
             }}
             spaceBetween={24}
             slidesPerView={4}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {[...Array(18)].map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className={s.content}>
-                  <div className={s.image}>
-                    <img src={API_URL + IMAGE_PREFIX + 'image-1.jpeg'} alt='' />
+            {aboutTeamData?.map((item, index) => {
+              const translation = item.translations.find(
+                (translation) => translation.language === i18n.language,
+              );
+              return (
+                <SwiperSlide key={item.id}>
+                  <div className={s.content}>
+                    <div className={s.image}>
+                      <img
+                        src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                        alt={translation?.fullName}
+                      />
+                    </div>
+                    <h3>{translation?.fullName}</h3>
+                    <h4>{translation?.activity}</h4>
                   </div>
-                  <h3>Nataliya Kovalenko</h3>
-                  <h4>Volunteer</h4>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              );
+            })}
 
             <div className={s.arrows}>
               <button className={`${s.arrow_prev} swiper-button-prev`}>

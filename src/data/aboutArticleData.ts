@@ -37,14 +37,14 @@ const aboutArticleData: IAboutArticleData[] = [
         title: 'Our team',
         subtitle: 'About our team',
         description:
-          "We may be newcomers to the world of charity and aid, but our passion knows no bounds. We are a dedicated team of more than 15 volunteers, each driven by the desire to make a difference. Right now, we're working solely for the priceless rewards of smiles and kind words.",
+          "We may be newcomers to the world of charity and aid, but our passion knows no bounds. We are a dedicated team of more than 15 volunteers, each driven by the desire to make a difference. Right now, we're working solely for the priceless rewards of smiles and kind words. Our journey has just begun, and there's a world of opportunities ahead. We have numerous open positions waiting to be filled by those who share our enthusiasm for creating positive change.",
       },
       {
         language: 'ua',
         title: 'Наша команда',
         subtitle: 'Про нашу команду',
         description:
-          'Ми можемо новачки у світі благодійності та допомоги, але наша пристрасть не має меж. Ми — віддана команда з понад 15 волонтерів, кожен з яких керований бажанням змінити ситуацію. Зараз ми працюємо виключно заради безцінної нагороди посмішок і добрих слів.',
+          'Ми можемо новачки у світі благодійності та допомоги, але наша пристрасть не має меж. Ми — віддана команда з понад 15 волонтерів, кожен з яких керований бажанням змінити ситуацію. Зараз ми працюємо виключно заради безцінної нагороди посмішок і добрих слів. Наша подорож тільки почалася, і попереду є світ можливостей. У нас є багато відкритих вакансій, які чекають на заповнення тими, хто поділяє наш ентузіазм у створенні позитивних змін.',
       },
     ],
     id: 'our_team',
