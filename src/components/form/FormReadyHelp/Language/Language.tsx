@@ -26,13 +26,13 @@ const Language = () => {
   };
 
   const languages = languageList.map((item) => ({
-    value: item.language,
-    label: item.language,
+    value: `${t(item.language)}`,
+    label: `${t(item.language)}`,
   }));
 
   const listOfLevels = languageLevel.map((item) => ({
-    value: item.level,
-    label: item.level,
+    value: `${t(item.level)}`,
+    label: `${t(item.level)}`,
   }));
 
   return (
