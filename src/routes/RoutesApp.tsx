@@ -94,7 +94,6 @@ const RoutesApp = () => {
               </Suspense>
             }
           />
-          <Route path='/test' element={<Payment />} />
         </Routes>
       </main>
       <Footer />
