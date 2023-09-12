@@ -47,11 +47,12 @@ const ArticleSection: React.FC<IArticleProps> = ({
         </div>
       );
     } else if (variant === 'list-count') {
+      const sentences = (items as string[])[0].split('. ');
       return (
         <ul className={s.list}>
-          {(items as string[]).map((item, index) => (
-            <li key={index} className={s.item_count}>
-              {item}
+          {sentences.map((sentence, index) => (
+            <li key={index} className={s.item__count} data-count={index + 1 + '.'}>
+              {sentence + '.'}
             </li>
           ))}
         </ul>
