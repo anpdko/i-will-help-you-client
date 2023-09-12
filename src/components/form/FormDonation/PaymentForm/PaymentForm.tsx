@@ -54,7 +54,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
         {content === 'donateProject' && <ChooseProject />}
         <PaymentBlock />
         <Email className={s.form__email} />
-        <Comment />
+        <Comment title='Comment' placeholder='Type here...' />
         <ButtonApp
           type='submit'
           size='medium'

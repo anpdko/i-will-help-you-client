@@ -102,7 +102,7 @@ const FormReadyHelp = () => {
           <DaysOfVolunteering />
           <Language />
           <Skills />
-          <Comment />
+          <Comment title='Comment (what do you to do? in what areas?)' placeholder='Type here...' />
           <Checkboxes />
           <ButtonApp
             type='submit'

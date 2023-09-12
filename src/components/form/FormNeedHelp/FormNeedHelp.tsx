@@ -74,7 +74,7 @@ const FormNeedHelp = () => {
           <Email className={s.form__email} />
           <PhoneNumber />
           <TypeOfAssistance />
-          <Comment />
+          <Comment title='Leave a comment' placeholder='Tell your story...' />
           <Files />
           <Checkboxes />
           <ButtonApp
