@@ -6,7 +6,6 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import { useState } from 'react';
 import { ButtonApp, Modal } from '@components/UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
 import Email from '../../Email/Email';
