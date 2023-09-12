@@ -20,7 +20,7 @@ const NotFoundPage = React.lazy(
 );
 const Completion = React.lazy(() => import('../pages/Completion/Completion'));
 
-import { Navbar, Footer, Payment } from '../components';
+import { Navbar, Footer } from '../components';
 import { Preloader } from '../components/UI';
 
 const RoutesApp = () => {
