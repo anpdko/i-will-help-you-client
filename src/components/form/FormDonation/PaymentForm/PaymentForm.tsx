@@ -28,7 +28,7 @@ interface IDataForm {
 
 const initialDataForm = {
   email: '',
-  donationAmount: '0'
+  donationAmount: '10'
 }
 
 const PaymentForm = ({ content }: PaymentFormProps) => {
