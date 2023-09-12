@@ -1,4 +1,4 @@
-import { useFormHeaderData } from '../../hooks/useFormHeaderData';
+import { useFormHeaderData } from '@/hooks/useFormHeaderData';
 
 import s from './FormHeader.module.scss';
 

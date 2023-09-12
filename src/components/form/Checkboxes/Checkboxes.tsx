@@ -1,5 +1,5 @@
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
-import { CheckboxInput } from '../../UI';
+import { CheckboxInput } from '@components/UI';
 import s from './Checkboxes.module.scss';
 
 const Checkboxes = () => {

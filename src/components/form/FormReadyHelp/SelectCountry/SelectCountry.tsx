@@ -1,7 +1,7 @@
-import { countryList } from '../../../../utils/listOfCountry';
-import { SelectInput } from '../../../UI';
-import s from './SelectCountry.module.scss';
+import { countryList } from '@utils/listOfCountry';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { SelectInput } from '@components/UI';
+import s from './SelectCountry.module.scss';
 
 const SelectCountry = () => {
   const countries = countryList.map((country) => ({

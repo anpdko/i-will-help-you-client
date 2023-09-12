@@ -1,5 +1,5 @@
-import { FileInput } from '../../../UI';
-import { PaperClipIcon } from '../../../icons/PaperClipIcon';
+import { FileInput } from '@components/UI';
+import { PaperClipIcon } from '@components/icons/PaperClipIcon';
 import s from './Files.module.scss';
 
 const Files = () => {

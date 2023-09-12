@@ -1,4 +1,4 @@
-import { donateStuffList } from '../../../../utils/donationStuff';
+import { donateStuffList } from '@utils/donationStuff';
 import s from './DonateStuff.module.scss';
 
 const DonateStuff = () => {

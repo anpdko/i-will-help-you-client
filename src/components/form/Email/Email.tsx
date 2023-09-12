@@ -1,4 +1,4 @@
-import { TextInput } from '../../UI';
+import { TextInput } from '@components/UI';
 
 interface EmailProps {
   className: string;
