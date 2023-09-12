@@ -1,6 +1,33 @@
+@import '../../../styles/index.scss';
 
 .payment{
    width: 100%;
+
+   .details{
+      border-radius: 1rem;
+      background: var(--white, #F1F1F1);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+
+      h3{
+         font-weight: 600;
+      }
+
+      .aid{
+         margin-block: 0.75rem 1.25rem;
+      }
+
+      .amount{
+         @include adaptiveValue('font-size', 20, 18, 0, 1200, 390);
+      }
+
+      p {
+         color: var(--dark-grey, #505050);
+         span{
+            color: var(--black, #0E0E0E);
+         }
+      }
+   }
    
    .preloader{
       display: flex;
