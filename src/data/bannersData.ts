@@ -29,7 +29,7 @@ const bannersData: IBannersData[] = [
     ],
     id: 'firstBanner',
     img: '/static/images/banners/banner-1.jpg',
-    link: '#',
+    link: '/readyneed',
   },
   {
     translations: [
@@ -48,7 +48,7 @@ const bannersData: IBannersData[] = [
     ],
     id: 'secondBanner',
     img: '/static/images/banners/banner-2.jpg',
-    link: '#',
+    link: '/donate',
   },
   {
     translations: [
@@ -67,7 +67,7 @@ const bannersData: IBannersData[] = [
     ],
     id: 'thirdBanner',
     img: '/static/images/banners/banner-3.jpg',
-    link: '#',
+    link: '/needhelp',
   },
 ];
 

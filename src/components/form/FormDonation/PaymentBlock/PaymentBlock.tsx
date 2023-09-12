@@ -27,7 +27,7 @@ const PaymentBlock = () => {
   return (
     <div className={s.paymentBlock}>
       <div className={`border-style ${s.paymentBlock__method}`}>
-        {paymentMethod.map((item) => (
+        {paymentMethod.map((item, index) => (
           <Controller
             key={item.id}
             name='paymentMethod'
@@ -42,8 +42,8 @@ const PaymentBlock = () => {
                   onChange={field.onChange}
                   value={field.value}
                   title={item.title}
+                  disabled={index === 1 || index === 2}
                 />
-                {/* <span className={s.decorativeLine}></span> */}
               </>
             )}
           />
@@ -66,14 +66,13 @@ const PaymentBlock = () => {
                   value={field.value}
                   title={item.title}
                 />
-                {/* <span className={s.decorativeLine}></span> */}
               </>
             )}
           />
         ))}
       </div>
       <div className={s.paymentBlock__amount}>
-        <div className={`border-style ${s.paymentBlock__amount_number}`}>
+        <div className={s.paymentBlock__amount_number}>
           {donationAmount.map((item) => (
             <Controller
               key={item.id}
@@ -94,7 +93,6 @@ const PaymentBlock = () => {
                     }}
                     checked={getValues('donationAmount') === item.id}
                   />
-                  {/* <span className={s.decorativeLine}></span> */}
                 </>
               )}
             />

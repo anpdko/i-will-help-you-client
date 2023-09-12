@@ -23,5 +23,5 @@ export {
   SelectInput,
   FileInput,
   Preloader,
-  Modal
+  Modal,
 };

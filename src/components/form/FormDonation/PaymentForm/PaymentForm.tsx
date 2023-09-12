@@ -4,15 +4,15 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import {useState} from 'react'
+import { useState } from 'react';
 import { ButtonApp } from '../../../UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
 import Email from '../../Email/Email';
 import Comment from '../../Comment/Comment';
 import ChooseProject from './ChooseProject';
 import s from './PaymentForm.module.scss';
-import {Modal} from '../../../UI'
-import Payment from '@components/payment/Payment/Payment'
+import { Modal } from '../../../UI';
+import Payment from '@components/payment/Payment/Payment';
 
 interface PaymentFormProps {
   content?: string;
@@ -30,7 +30,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    toggleModal()
+    toggleModal();
   };
 
   const toggleModal = () => {
@@ -41,7 +41,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
     <FormProvider {...methods}>
       {isOpenModal && (
         <Modal onClose={toggleModal} title='Payment'>
-          <Payment/>
+          <Payment />
         </Modal>
       )}
       <form
