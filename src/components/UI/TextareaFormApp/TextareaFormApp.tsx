@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import s from './TextareaFormApp.module.scss';
 
 interface TextareaFormAppProps
@@ -20,11 +21,12 @@ const TextareaFormApp = ({
   className,
 }: TextareaFormAppProps) => {
   const { register } = useFormContext();
+  const { t } = useTranslation();
 
   const textareaProps = {
     name,
     id,
-    placeholder: placeholder || 'Type here...',
+    placeholder: placeholder || `${t('Type here...')}`,
     cols: cols || 40,
     rows: rows || 5,
   };

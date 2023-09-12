@@ -12,8 +12,8 @@ const Skills = () => {
   const { t } = useTranslation();
 
   const skills = skillsList.map((item) => ({
-    value: item.skill,
-    label: item.skill,
+    value: `${t(item.skill)}`,
+    label: `${t(item.skill)}`,
   }));
 
   return (
