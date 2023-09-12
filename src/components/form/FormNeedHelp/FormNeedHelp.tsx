@@ -16,6 +16,7 @@ import Checkboxes from '../Checkboxes/Checkboxes';
 import Comment from '../Comment/Comment';
 import Files from './Files/Files';
 import TypeOfAssistance from './TypeOfAssistance/TypeOfAssistance';
+import s from './FormNeedHelp.module.scss';
 
 interface DataForm {
   firstName: string;

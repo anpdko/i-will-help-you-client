@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
-import { TextareaFormApp } from '../../UI';
+import { TextareaFormApp } from '@components/UI';
 import s from './Comment.module.scss';
 
 interface CommentProps {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
 import DonationContent from './DonationContent/DonationContent';
-import { buttonData, donationTypes } from '../../../utils/donationFormOptions';
+import { buttonData, donationTypes } from '@utils/donationFormOptions';
 import s from './FormDonation.module.scss';
 
 const FormDonation = () => {
