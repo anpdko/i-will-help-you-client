@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { countryList, countryListUa } from '../../../../utils/listOfCountry';
-import { SelectInput } from '../../../UI';
 import s from './SelectCountry.module.scss';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { SelectInput } from '@components/UI';
 
 const SelectCountry = () => {
   const value = localStorage.getItem('language');

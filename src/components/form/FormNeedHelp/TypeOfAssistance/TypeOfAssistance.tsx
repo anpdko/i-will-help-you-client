@@ -1,17 +1,19 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
-import { CheckboxInput } from '../../../UI';
-import { typeOfAssistanceList } from '../../../../utils/typeOfAssistanceList';
+import { CheckboxInput } from '@components/UI';
+import { typeOfAssistanceList } from '@utils/typeOfAssistanceList';
 import s from './TypeOfAssistance.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const TypeOfAssistance = () => {
   const { control } = useFormContext();
+  const { t } = useTranslation();
 
   return (
     <FormItemWrapper
       className={s.assistance}
-      title='Type of assistance (you can select several options) *'
+      title={t('Type of assistance (you can select several options) *')}
     >
       <Controller
         control={control}
@@ -24,6 +26,7 @@ const TypeOfAssistance = () => {
                 (item: { id: string, title: string }) => (
                   <CheckboxSelect
                     title={item.title}
+                    // title={t(item.title)}
                     name={item.id}
                     id={item.id}
                     key={item.id}
@@ -44,7 +47,7 @@ const TypeOfAssistance = () => {
             <CheckboxInput
               id='selectAll'
               required={false}
-              text='Choose all'
+              text={t('Choose all')}
               className={s.assistance__checkbox_all}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 if (e.target.checked) {

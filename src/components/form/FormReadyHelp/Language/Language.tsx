@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
 import Select from 'react-select';
-import customStyles from '../../../UI/form/SelectInput/selectStyle';
-import { languageList, languageLevel } from '../../../../utils/languageList';
-import { PlusIcon } from '../../../icons/PlusIcon';
-import s from './Language.module.scss';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import { DeleteIcon } from '../../../icons/DeleteIcon';
+import customStyles from '@components/UI/form/SelectInput/selectStyle';
+import { languageList, languageLevel } from '@utils/languageList';
+import { PlusIcon } from '@components/icons/PlusIcon';
+import { DeleteIcon } from '@components/icons/DeleteIcon';
+import s from './Language.module.scss';
 
 const Language = () => {
   const { control } = useFormContext();

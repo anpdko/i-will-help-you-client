@@ -1,17 +1,24 @@
 import { useTranslation } from 'react-i18next';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
-import { TextareaFormApp } from '../../UI';
+import { TextareaFormApp } from '@components/UI';
 import s from './Comment.module.scss';
 
-const Comment = () => {
+interface CommentProps {
+  title: string;
+  placeholder: string;
+}
+
+const Comment = ({ title, placeholder }: CommentProps) => {
   const { t } = useTranslation();
 
   return (
-    <FormItemWrapper
-      className={s.comment}
-      title={t('Comment (what do you to do?; in what areas?)')}
-    >
-      <TextareaFormApp name='comment' id='comment' rows={10} />
+    <FormItemWrapper className={s.comment} title={t(title)}>
+      <TextareaFormApp
+        name='comment'
+        id='comment'
+        rows={10}
+        placeholder={t(placeholder)}
+      />
     </FormItemWrapper>
   );
 };

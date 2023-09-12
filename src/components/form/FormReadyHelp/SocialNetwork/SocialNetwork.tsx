@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
-import { useTranslation } from 'react-i18next';
-import { TelegramIcon } from '../../../icons/TelegramIcon';
-import { ViberIcon } from '../../../icons/ViberIcon';
-import { InstagramIcon } from '../../../icons/InstagramIcon';
-import { FacebookIcon } from '../../../icons/FacebookIcon';
-import customStyles from '../../../UI/form/SelectInput/selectStyle';
-import s from './SocialNetwork.module.scss';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { TelegramIcon } from '@components/icons/TelegramIcon';
+import { ViberIcon } from '@components/icons/ViberIcon';
+import { InstagramIcon } from '@components/icons/InstagramIcon';
+import { FacebookIcon } from '@components/icons/FacebookIcon';
+import customStyles from '@components/UI/form/SelectInput/selectStyle';
+import s from './SocialNetwork.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const SocialNetwork = () => {
   const {

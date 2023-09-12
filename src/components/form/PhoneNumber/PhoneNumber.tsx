@@ -1,15 +1,14 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-// import basic from '../FormReadyHelp/FormReadyHelp.module.scss';
-import s from './PhoneNumber.module.scss';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
+import { useTranslation } from 'react-i18next';
+import s from './PhoneNumber.module.scss';
+
 
 const PhoneNumber = () => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-
   const { t } = useTranslation();
 
   return (
@@ -39,7 +38,7 @@ const PhoneNumber = () => {
             required: true,
             pattern: {
               value: /^\d+$/,
-              message: `${t('Please enter your phone number')}`,
+              message: t('Please enter your phone number.'),
             },
           })}
           className={`${s.phone__input} ${s.phone__input_number}`}

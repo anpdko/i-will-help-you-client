@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
-import customStyles from '../../../UI/form/SelectInput/selectStyle';
+import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import {
   daysOfWeekOptions,
   timeOptions,
-} from '../../../../utils/daysOfVolunteeringList';
-import { PlusIcon } from '../../../icons/PlusIcon';
-import s from './DaysOfVolunteering.module.scss';
+} from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import { DeleteIcon } from '../../../icons/DeleteIcon';
+import { PlusIcon } from '@components/icons/PlusIcon';
+import { DeleteIcon } from '@components/icons/DeleteIcon';
+import s from './DaysOfVolunteering.module.scss';
 
 const DaysOfVolunteering = () => {
   const { control } = useFormContext();

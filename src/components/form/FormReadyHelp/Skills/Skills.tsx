@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useFormContext, Controller } from 'react-hook-form';
 import Select from 'react-select';
-import { skillsList } from '../../../../utils/skillsList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import customStyles from '../../../UI/form/SelectInput/selectStyle';
+import { skillsList } from '@utils/skillsList';
+import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
 
 const Skills = () => {

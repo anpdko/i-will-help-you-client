@@ -45,7 +45,7 @@ const AboutItem = ({ tab }: AboutProps) => {
           </ButtonApp>
           <ButtonApp
             type='link'
-            to='/readyneed'
+            to='/volunteer'
             size='large'
             color='white'
             className={s.item__button}

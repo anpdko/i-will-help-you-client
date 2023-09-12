@@ -1,4 +1,4 @@
-@import '../../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .files {
   grid-area: files;
@@ -17,10 +17,8 @@
   }
 
   &__text {
+    @include adaptiveValue('font-size', 16, 13, 0, 1200, 390);
     color: var(--dark-grey);
-    font-family: Open Sans;
-    font-size: 1rem;
-    font-style: normal;
     font-weight: 400;
     line-height: 150%;
   }

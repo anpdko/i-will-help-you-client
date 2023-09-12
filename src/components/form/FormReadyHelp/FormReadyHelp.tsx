@@ -1,10 +1,12 @@
+import { useState } from 'react';
+import axios from 'axios';
 import {
   useForm,
   FormProvider,
   SubmitHandler,
   FieldValues,
 } from 'react-hook-form';
-import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
+import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
 import FirstName from '../FirstName/FirstName';
 import LastName from '../LastName/LastName';
 import DateOfBirth from './DateOfBirth/DateOfBirth';
@@ -17,13 +19,11 @@ import Language from './Language/Language';
 import Skills from './Skills/Skills';
 import Comment from '../Comment/Comment';
 import Checkboxes from '../Checkboxes/Checkboxes';
-import { ButtonApp, Modal } from '../../UI';
-import { convertUnixTimestampToDate } from '../../../utils/convertUnixTimestampToDate';
-import { generateSocialMediaLink } from '../../../utils/generateSocialMediaLink';
+import { ButtonApp, Modal } from '@components/UI';
+import { convertUnixTimestampToDate } from '@utils/convertUnixTimestampToDate';
+import { generateSocialMediaLink } from '@utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
-import axios from 'axios'
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -105,7 +105,7 @@ const FormReadyHelp = () => {
           <DaysOfVolunteering />
           <Language />
           <Skills />
-          <Comment />
+          <Comment title='Comment (what do you to do? in what areas?)' placeholder='Type here...' />
           <Checkboxes />
           <ButtonApp
             type='submit'

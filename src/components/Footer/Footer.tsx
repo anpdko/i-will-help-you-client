@@ -44,7 +44,7 @@ const Footer = () => {
 
           <ul className={s.nav__list}>
             <li>
-              <Link to='/readyneed'>{t('Volunteering')}</Link>
+              <Link to='/volunteer'>{t('Volunteering')}</Link>
             </li>
             <li>
               <Link to='/needhelp'>{t('Help')}</Link>
