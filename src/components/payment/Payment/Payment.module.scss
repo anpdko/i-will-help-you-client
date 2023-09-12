@@ -1,4 +1,11 @@
 
 .payment{
    width: 100%;
+   
+   .preloader{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 5rem;
+   }
 }
