@@ -1,18 +1,21 @@
-import { TextInput } from '@components/UI';
+import { useTranslation } from 'react-i18next';
+import { TextInput } from '../../UI';
 import s from './LastName.module.scss';
 
 const LastName = () => {
+  const { t } = useTranslation();
+
   return (
     <TextInput
       type='text'
       id='lastName'
-      placeholder='Enter your last name'
+      placeholder={t('Enter your last name')}
       required={true}
       regexp={
         /^[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}$/
       }
-      message='Please type your last name'
-      title='Last Name *'
+      message={t('Please type your last name')}
+      title={t('Last Name *')}
       classNameContainer={s.lastName}
     />
   );

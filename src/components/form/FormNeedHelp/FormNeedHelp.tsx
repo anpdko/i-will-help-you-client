@@ -4,8 +4,10 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import { ButtonApp } from '@components/UI';
-import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
+import { useTranslation } from 'react-i18next';
+import { ButtonApp } from '../../UI';
+import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
+import s from './FormNeedHelp.module.scss';
 import FirstName from '../FirstName/FirstName';
 import LastName from '../LastName/LastName';
 import Email from '../Email/Email';
@@ -31,6 +33,7 @@ interface DataForm {
 }
 
 const FormNeedHelp = () => {
+  const { t } = useTranslation();
   const methods = useForm({
     mode: 'onChange',
   });
@@ -56,9 +59,8 @@ const FormNeedHelp = () => {
 
   return (
     <FormWrapper
-      subtitle='Form for receiving
-    assistance'
-      title='Applying for assistance'
+      subtitle={t('Form for receiving assistance')}
+      title={t('Applying for assistance')}
     >
       <FormProvider {...methods}>
         <form
@@ -73,7 +75,7 @@ const FormNeedHelp = () => {
           <Email className={s.form__email} />
           <PhoneNumber />
           <TypeOfAssistance />
-          <Comment />
+          <Comment title='Leave a comment' placeholder='Tell your story...' />
           <Files />
           <Checkboxes />
           <ButtonApp
@@ -82,7 +84,7 @@ const FormNeedHelp = () => {
             className={s.form__button}
             disabled={!isValid}
           >
-            Send my form
+            {t('Send my form')}
           </ButtonApp>
         </form>
       </FormProvider>

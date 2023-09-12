@@ -1,20 +1,23 @@
+import { useTranslation } from 'react-i18next';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import { CheckboxInput } from '@components/UI';
 import s from './Checkboxes.module.scss';
 
 const Checkboxes = () => {
+  const { t } = useTranslation();
+
   return (
     <FormItemWrapper className={s.checkboxes}>
       <CheckboxInput
         id='mailing'
         required={false}
-        text='Consent to mailing'
+        text={t('Consent to mailing')}
         className={s.checkboxes__item}
       />
       <CheckboxInput
         id='dataProcessing'
         required={true}
-        text='Consent to data processing *'
+        text={t('Consent to data processing *')}
         className={s.checkboxes__item}
       />
     </FormItemWrapper>
