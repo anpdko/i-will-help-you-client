@@ -89,5 +89,11 @@
   "Comment (what do you to do?; in what areas?)": "Прокоментуйте (чим ви можете займатися?; в яких сферах?)",
 
   "Consent to mailing": "Згода на email-розсилку",
-  "Consent to data processing *": "Згода на обробку даних *"
+  "Consent to data processing *": "Згода на обробку даних *",
+
+  "Monday": "Понеділок",
+  "Tuesday": "Вівторок",
+  "Wednesday": "Середа",
+  "Thursday": "Четвер",
+  "Friday": "П'ятниця"
 }

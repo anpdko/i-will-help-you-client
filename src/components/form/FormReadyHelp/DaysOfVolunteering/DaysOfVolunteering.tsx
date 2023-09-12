@@ -29,8 +29,8 @@ const DaysOfVolunteering = () => {
   };
 
   const days = daysOfWeekOptions.map((item) => ({
-    value: item.day,
-    label: item.day,
+    value: `${t(item.day)}`,
+    label: `${t(item.day)}`,
   }));
 
   const times = timeOptions.map((item) => ({
