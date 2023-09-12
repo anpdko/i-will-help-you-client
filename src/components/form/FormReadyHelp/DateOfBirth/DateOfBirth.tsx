@@ -1,4 +1,4 @@
-import { DateInput } from '../../../UI';
+import { DateInput } from '@components/UI';
 import s from './DateOfBirth.module.scss';
 
 const DateOfBirth = () => {

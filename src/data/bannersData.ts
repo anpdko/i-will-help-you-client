@@ -29,7 +29,7 @@ const bannersData: IBannersData[] = [
     ],
     id: 'firstBanner',
     img: '/static/images/banners/banner-1.jpg',
-    link: '/readyneed',
+    link: '/volunteer',
   },
   {
     translations: [

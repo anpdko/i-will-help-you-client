@@ -19,7 +19,7 @@ const Navbar = () => {
   const links: ILinks[] = [
     {
       text: 'Ready to Help',
-      link: '/readyneed',
+      link: '/volunteer',
     },
     {
       text: 'Need Help',
