@@ -32,8 +32,21 @@ const AboutTeam = () => {
               el: '.swiper-pagination',
               type: 'fraction',
             }}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+              1170: {
+                slidesPerView: 4,
+              },
+            }}
             spaceBetween={24}
-            slidesPerView={4}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >

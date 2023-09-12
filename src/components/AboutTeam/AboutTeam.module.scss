@@ -33,11 +33,22 @@
   .image {
     position: relative;
     overflow: hidden;
-    padding-bottom: 122.695035%; /* 346/282 */
+
     border-radius: toRem(20);
     border: toRem(1) solid var(--black);
-    &:not(:last-child) {
-      margin-bottom: toRem(12);
+
+
+    @media (min-width: $mobile) {
+      padding-bottom: 122.695035%; /* 346/282 */
+      &:not(:last-child) {
+        margin-bottom: toRem(12);
+      }
+    }
+    @media (max-width:$mobile){
+      padding-bottom: 98.387097%; /* 366/372 */
+      &:not(:last-child) {
+        margin-bottom: toRem(36);
+      }
     }
 
     img {
@@ -65,7 +76,7 @@
     @media (min-width: $mobile) {
       top: 35%;
     }
-    @include adaptiveValue('top', 478, 174, 3, 767, 320);
+    @include adaptiveValue('top', 705, 265, 3, 767, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -113,11 +124,8 @@
 }
 
 .navigation {
-
-   display: flex !important;
-    .scrollbar {
-    }
-    .pagination {
-    }
-  
+  .scrollbar {
+  }
+  .pagination {
+  }
 }
