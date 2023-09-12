@@ -40,7 +40,7 @@ function Payment({ email, amount }:IPaymentProps) {
   return (
     <div className={s.payment}>
       <div className={s.details}>
-          <h3 className='text'>Payment details</h3>
+          <h3>Payment details</h3>
           <p className={s.aid}>Aid to fund: <span>non-refundable charitable contribution.</span></p>
           <p>Payable: <span className={s.amount}>${amount}</span></p>
       </div>

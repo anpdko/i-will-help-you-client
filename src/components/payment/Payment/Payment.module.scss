@@ -4,28 +4,31 @@
    width: 100%;
 
    .details{
-      border-radius: 1rem;
+      @include adaptiveValue('border-radius', 16, 10, 0, 1200, 768);
       background: var(--white, #F1F1F1);
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
+      @include adaptiveValue('padding-block', 20, 14, 0, 1200, 390);
+      @include adaptiveValue('padding-inline', 24, 14, 0, 1200, 390);
+      @include adaptiveValue('margin-bottom', 40, 24, 0, 1200, 390);
 
       h3{
          font-weight: 600;
+         font-size: 16px;
       }
 
       .aid{
          margin-block: 0.75rem 1.25rem;
       }
 
-      .amount{
-         @include adaptiveValue('font-size', 20, 18, 0, 1200, 390);
-      }
-
       p {
+         @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
          color: var(--dark-grey, #505050);
          span{
             color: var(--black, #0E0E0E);
          }
+      }
+
+      .amount{
+         @include adaptiveValue('font-size', 20, 18, 0, 1200, 390);
       }
    }
    
