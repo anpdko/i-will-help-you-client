@@ -56,18 +56,16 @@ const AboutHeader = () => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            <SwiperSlide>
-              <div className={s.content}>
-                <img src={SlideImg} alt='Find out about our foundation' />
-                <p>We bring together donors, volunteers, and beneficiaries.</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={s.content}>
-                <img src={SlideImg} alt='Find out about our foundation' />
-                <p>We bring together donors, volunteers, and beneficiaries.</p>
-              </div>
-            </SwiperSlide>
+            {[...Array(3)].map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className={s.content}>
+                  <img src={SlideImg} alt='Find out about our foundation' />
+                  <p>
+                    We bring together donors, volunteers, and beneficiaries.
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
 
             <div className={s.arrows}>
               <button className={`${s.arrow_prev} swiper-button-prev`}>

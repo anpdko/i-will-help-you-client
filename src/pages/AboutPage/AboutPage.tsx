@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 import ArticleSection from '@/components/UI/ArticleSection/ArticleSection';
+import AboutTeam from '@/components/AboutTeam/AboutTeam';
+
 import { Volunteer, AboutHeader } from '../../components';
 
 import aboutArticleData from '../../data/aboutArticleData';
@@ -44,7 +46,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* <AboutTeam /> */}
+      <AboutTeam />
 
       <section className={s.about_objectives}>
         <div className='container'>
