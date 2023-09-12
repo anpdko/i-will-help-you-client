@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { TextInput } from '../../UI';
 
 interface EmailProps {
@@ -5,6 +6,8 @@ interface EmailProps {
 }
 
 const Email = ({ className }: EmailProps) => {
+  const { t } = useTranslation();
+
   return (
     <TextInput
       type='email'
@@ -12,8 +15,8 @@ const Email = ({ className }: EmailProps) => {
       placeholder='mail@example.com'
       required={true}
       regexp={/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g}
-      message='Please write your email in the format mail@example.com'
-      title='Email *'
+      message={t('Please write your email in the format mail@example.com')}
+      title={t('Email *')}
       classNameContainer={className}
     />
   );

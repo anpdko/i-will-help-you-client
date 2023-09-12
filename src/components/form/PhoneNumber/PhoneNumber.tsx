@@ -2,26 +2,27 @@ import { useFormContext } from 'react-hook-form';
 // import basic from '../FormReadyHelp/FormReadyHelp.module.scss';
 import s from './PhoneNumber.module.scss';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
+import { useTranslation } from 'react-i18next';
 
 const PhoneNumber = () => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
+  const { t } = useTranslation();
 
   return (
-    <FormItemWrapper className={s.phone} title='Phone Number *'>
+    <FormItemWrapper className={s.phone} title={t('Phone Number *')}>
       <div className={s.phone__inputs}>
         <input
           type='text'
           id='countryCode'
-          placeholder='+ 48'
+          placeholder={t('+ 48')}
           {...register('countryCode', {
             required: true,
             pattern: {
               value: /^\+\d{2}$/,
-              message:
-                'The country code should start with the "+" symbol and be followed by exactly two digits.',
+              message: t('The country code should start with the "+" symbol and be followed by exactly two digits.'),
             },
           })}
           className={`${s.phone__input} ${s.phone__input_code}`}
@@ -30,12 +31,12 @@ const PhoneNumber = () => {
         <input
           type='text'
           id='phone'
-          placeholder='605 555 555'
+          placeholder={t('605 555 555')}
           {...register('phone', {
             required: true,
             pattern: {
               value: /^\d+$/,
-              message: 'Please enter your phone number.',
+              message: t('Please enter your phone number.'),
             },
           })}
           className={`${s.phone__input} ${s.phone__input_number}`}

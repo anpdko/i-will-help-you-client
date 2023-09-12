@@ -4,6 +4,7 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { ButtonApp } from '../../UI';
 import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
 import s from './FormNeedHelp.module.scss';
@@ -31,6 +32,7 @@ interface DataForm {
 }
 
 const FormNeedHelp = () => {
+  const { t } = useTranslation();
   const methods = useForm({
     mode: 'onChange',
   });
@@ -56,9 +58,8 @@ const FormNeedHelp = () => {
 
   return (
     <FormWrapper
-      subtitle='Form for receiving
-    assistance'
-      title='Applying for assistance'
+      subtitle={t('Form for receiving assistance')}
+      title={t('Applying for assistance')}
     >
       <FormProvider {...methods}>
         <form
@@ -82,7 +83,7 @@ const FormNeedHelp = () => {
             className={s.form__button}
             disabled={!isValid}
           >
-            Send my form
+            {t('Send my form')}
           </ButtonApp>
         </form>
       </FormProvider>
