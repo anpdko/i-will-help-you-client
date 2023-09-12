@@ -26,7 +26,7 @@ const formHeaderData: IFormHeaderData[] = [
           'Якщо ви хочете приєднатися до нашої команди волонтерів і допомогти у тому, що ви вмієте найкраще, заповніть форму нижче, і ми чекаємо на вас.',
       },
     ],
-    id: 'readyneed',
+    id: 'volunteer',
     imagePath: '/static/images/banners/banner-1.jpg',
   },
   {

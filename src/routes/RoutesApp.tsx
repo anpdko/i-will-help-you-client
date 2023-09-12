@@ -63,7 +63,7 @@ const RoutesApp = () => {
             }
           />
           <Route
-            path='/readyneed'
+            path='/volunteer'
             element={
               <Suspense fallback={<Preloader withContainer />}>
                 <ReadyHelpPage />
