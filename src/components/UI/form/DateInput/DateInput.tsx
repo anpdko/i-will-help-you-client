@@ -1,7 +1,11 @@
+import { useState, useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { DatePicker } from 'antd';
+import { ConfigProvider, DatePicker } from 'antd';
+import locale from 'antd/locale/uk_UA';
 import dayjs from 'dayjs';
 import s from '../Form.module.scss';
+
+import 'dayjs/locale/uk';
 
 interface DateInputProps {
   title?: string;
@@ -29,6 +33,16 @@ const DateInput = ({
   classNameError,
 }: DateInputProps) => {
   const { control } = useFormContext();
+  const value = localStorage.getItem('language');
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    if (value) {
+      setLang(JSON.parse(value));
+    } else {
+      return;
+    }
+  }, [value]);
 
   return (
     <div className={`${s.form__container} ${classNameContainer}`}>
@@ -46,18 +60,35 @@ const DateInput = ({
           render={({ field, fieldState }) => {
             return (
               <>
-                <DatePicker
-                  placeholder={placeholder}
-                  format={format}
-                  ref={field.ref}
-                  name={field.name}
-                  onBlur={field.onBlur}
-                  value={field.value ? dayjs(field.value) : null}
-                  onChange={(date) => {
-                    field.onChange(date ? date.valueOf() : null);
-                  }}
-                  className={`${s.form__input} ${classNameDate}`}
-                />
+                {lang === 'ua' ? (
+                  <ConfigProvider locale={locale}>
+                    <DatePicker
+                      placeholder={placeholder}
+                      format={format}
+                      ref={field.ref}
+                      name={field.name}
+                      onBlur={field.onBlur}
+                      value={field.value ? dayjs(field.value) : null}
+                      onChange={(date) => {
+                        field.onChange(date ? date.valueOf() : null);
+                      }}
+                      className={`${s.form__input} ${classNameDate}`}
+                    />
+                  </ConfigProvider>
+                ) : (
+                  <DatePicker
+                    placeholder={placeholder}
+                    format={format}
+                    ref={field.ref}
+                    name={field.name}
+                    onBlur={field.onBlur}
+                    value={field.value ? dayjs(field.value) : null}
+                    onChange={(date) => {
+                      field.onChange(date ? date.valueOf() : null);
+                    }}
+                    className={`${s.form__input} ${classNameDate}`}
+                  />
+                )}
                 {fieldState.error ? (
                   <p className={`${s.form__error} ${classNameError}`}>
                     {fieldState.error?.message}

@@ -21,9 +21,9 @@ const PhoneNumber = () => {
             required: true,
             pattern: {
               value: /^\+\d{2}$/,
-              message: t(
-                'The country code should start with the "+" symbol and be followed by exactly two digits.',
-              ),
+              message: `${t(
+                'The country code should start with the «+» symbol and be followed by exactly two digits',
+              )}`,
             },
           })}
           className={`${s.phone__input} ${s.phone__input_code}`}

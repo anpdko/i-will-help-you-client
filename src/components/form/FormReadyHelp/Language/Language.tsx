@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
@@ -14,6 +15,8 @@ const Language = () => {
     name: 'languages',
   });
 
+  const { t } = useTranslation();
+
   if (fields.length === 0) {
     append({ language: null, level: null });
   }
@@ -23,17 +26,17 @@ const Language = () => {
   };
 
   const languages = languageList.map((item) => ({
-    value: item.language,
-    label: item.language,
+    value: `${t(item.language)}`,
+    label: `${t(item.language)}`,
   }));
 
   const listOfLevels = languageLevel.map((item) => ({
-    value: item.level,
-    label: item.level,
+    value: `${t(item.level)}`,
+    label: `${t(item.level)}`,
   }));
 
   return (
-    <FormItemWrapper className={s.languages} title='Language knowledge'>
+    <FormItemWrapper className={s.languages} title={t('Language knowledge')}>
       {fields.map((item, index) => (
         <div key={item.id} className={s.language}>
           <Controller
@@ -45,7 +48,7 @@ const Language = () => {
                 {...field}
                 options={languages}
                 styles={customStyles}
-                placeholder='Choose language'
+                placeholder={t('Choose language')}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
@@ -66,7 +69,7 @@ const Language = () => {
                 {...field}
                 options={listOfLevels}
                 styles={customStyles}
-                placeholder='Choose level'
+                placeholder={t('Choose level')}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
@@ -91,7 +94,7 @@ const Language = () => {
         onClick={addLanguageField}
         className={s.language__button_add}
       >
-        Add one more <PlusIcon />
+        {t('Add one more')} <PlusIcon />
       </button>
     </FormItemWrapper>
   );
