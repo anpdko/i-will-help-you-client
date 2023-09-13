@@ -1,10 +1,7 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
 import customStyles from '@components/UI/form/SelectInput/selectStyle';
-import {
-  daysOfWeekOptions,
-  timeOptions,
-} from '@utils/daysOfVolunteeringList';
+import { daysOfWeekOptions, timeOptions } from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import { PlusIcon } from '@components/icons/PlusIcon';
 import { DeleteIcon } from '@components/icons/DeleteIcon';

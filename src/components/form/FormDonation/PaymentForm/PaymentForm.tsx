@@ -28,11 +28,11 @@ interface IDataForm {
 
 const initialDataForm = {
   email: '',
-  donationAmount: '10'
-}
+  donationAmount: '10',
+};
 
 const PaymentForm = ({ content }: PaymentFormProps) => {
-  const [dataForm, setDataForm] = useState<IDataForm>(initialDataForm)
+  const [dataForm, setDataForm] = useState<IDataForm>(initialDataForm);
   const { t } = useTranslation();
   const [isOpenModal, setIsOpenModal] = useState(false);
   const methods = useForm({
@@ -45,7 +45,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    setDataForm(data)
+    setDataForm(data);
     toggleModal();
   };
 
@@ -57,7 +57,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
     <FormProvider {...methods}>
       {isOpenModal && (
         <Modal onClose={toggleModal} title='Payment'>
-          <Payment email={dataForm.email} amount={dataForm.donationAmount}/>
+          <Payment email={dataForm.email} amount={dataForm.donationAmount} />
         </Modal>
       )}
       <form

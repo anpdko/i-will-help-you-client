@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import { ButtonApp } from '../../UI';
 import PaymentButtons from '../PaymentButtons/PaymentButtons';
-import s from './CheckoutForm.module.scss'
+import s from './CheckoutForm.module.scss';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -41,8 +41,9 @@ export default function CheckoutForm() {
     <form id='payment-form' onSubmit={handleSubmit}>
       <PaymentButtons stripe={stripe} />
       <PaymentElement id='payment-element' />
-      <ButtonApp 
-        disabled={isProcessing || !stripe || !elements} type='submit'
+      <ButtonApp
+        disabled={isProcessing || !stripe || !elements}
+        type='submit'
         className={s.btn}
       >
         {isProcessing ? 'Processing ... ' : 'Pay now'}
