@@ -1,5 +1,5 @@
 import svg1 from '@/assets/icons/donation/clothing.svg'
-import svg2 from '@/assets/icons/non-perishable-food.svg'
+import svg2 from '@/assets/icons/donation/non-perishable-food.svg'
 import svg3 from '@/assets/icons/donation/toiletries.svg'
 import svg4 from '@/assets/icons/donation/bedding-and-linens.svg'
 import svg5 from '@/assets/icons/donation/school-supplies.svg'
