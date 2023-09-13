@@ -48,7 +48,6 @@ interface DataForm {
 
 const FormReadyHelp = () => {
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
 
   const methods = useForm({
     mode: 'onChange',
@@ -80,13 +79,10 @@ const FormReadyHelp = () => {
     try {
       const res = await axios.post(API_URL + '/api/readyneed', formattedData);
       console.log(res);
-
       setIsSuccess(true);
-      setIsError(false);
     } catch (error) {
       console.log(error);
       setIsSuccess(false);
-      setIsError(true);
     }
   };
 
