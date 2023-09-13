@@ -73,7 +73,7 @@
     align-items: start;
 
     gap: toRem(24);
-    @media (max-width: em(360)) {
+    @media (max-width: em(388)) {
       flex-direction: column;
     }
     &:not(:first-child) {
@@ -127,7 +127,7 @@
     @media (min-width: $mobileSmall) {
       min-width: toRem(204);
     }
-    @include adaptiveValue('max-width', 150, 110, 1, 768, 361);
-    @include adaptiveValue('min-width', 150, 110, 1, 768, 361);
+    @include adaptiveValue('max-width', 150, 110, 1, 768, 389);
+    @include adaptiveValue('min-width', 150, 110, 1, 768, 388);
   }
 }
