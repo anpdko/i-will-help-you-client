@@ -12,6 +12,9 @@ const API_URL = import.meta.env.VITE_API_URL;
 const AboutTeam = () => {
   const IMAGE_PREFIX = '/static/images/team/';
 
+  const getTotalSlides = () => {
+    return Math.ceil(aboutTeamData.length);
+  };
   return (
     <>
       <section className={s.about_team}>
@@ -29,6 +32,9 @@ const AboutTeam = () => {
             pagination={{
               el: '.swiper-pagination',
               type: 'fraction',
+              renderFraction: (currentClass) => {
+                return `<span class="${currentClass}"></span> / ${getTotalSlides()}`;
+              },
             }}
             breakpoints={{
               319: {
@@ -45,8 +51,8 @@ const AboutTeam = () => {
               },
             }}
             spaceBetween={24}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
           >
             {aboutTeamData?.map((item) => {
               const translation = item.translations.find(
