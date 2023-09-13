@@ -3,7 +3,6 @@ import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import { useTranslation } from 'react-i18next';
 import s from './PhoneNumber.module.scss';
 
-
 const PhoneNumber = () => {
   const {
     register,

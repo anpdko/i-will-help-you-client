@@ -23,18 +23,21 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
         subtitle={t('Project’s description')}
         items={description.split('\n') || []}
         variant='paragraphs'
+        mobSubTitleHidden={false}
       />
       <ArticleSection
         title={t('Key Objectives')}
         subtitle={t('Our main goals')}
         items={goals || []}
         variant='list'
+        mobSubTitleHidden={false}
       />
       <ArticleSection
         title={t('Selection Criteria for Participation')}
         subtitle={t('Selection criteria')}
         items={criteria || []}
         variant='list'
+        mobSubTitleHidden={false}
       />
       <ButtonApp type='link' to='/donate' color='white' size='medium'>
         {t(`Join the OpportunityConnect`)}

@@ -12,7 +12,8 @@ interface IArticleProps {
   title: string;
   subtitle: string;
   items: ITags[] | string[];
-  variant: 'list' | 'paragraphs' | 'list-count';
+  variant: 'list' | 'paragraphs' | 'paragraphs-3' | 'list-count';
+  mobSubTitleHidden: boolean;
 }
 
 const ArticleSection: React.FC<IArticleProps> = ({
@@ -20,7 +21,12 @@ const ArticleSection: React.FC<IArticleProps> = ({
   subtitle,
   items,
   variant,
+  mobSubTitleHidden,
 }) => {
+  const subtitleClass = mobSubTitleHidden
+    ? `${s.subtitle} ${s.mobSubTitleHidden}`
+    : s.subtitle;
+
   const renderItems = () => {
     if (variant === 'list') {
       return (
@@ -46,12 +52,32 @@ const ArticleSection: React.FC<IArticleProps> = ({
           )}
         </div>
       );
+    } else if (variant === 'paragraphs-3') {
+      const paragraphs = (items as string[])
+        .map((item) => item.split(/(?<=\.\s{2})/)) // ".  " Розділяємо текст за допомогою регулярного виразу для збереження крапки
+        .flat() // Робимо масив плоским
+        .filter((item) => item.trim() !== ''); // Видаляємо пусті рядки
+
+      return (
+        <div className={s.list}>
+          {paragraphs.map((paragraph, index) => (
+            <p className='text' key={index}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      );
     } else if (variant === 'list-count') {
+      const sentences = (items as string[])[0].split('. ');
       return (
         <ul className={s.list}>
-          {(items as string[]).map((item, index) => (
-            <li key={index} className={s.item_count}>
-              {item}
+          {sentences.map((sentence, index) => (
+            <li
+              key={index}
+              className={s.item__count}
+              data-count={index + 1 + '.'}
+            >
+              {sentence + '.'}
             </li>
           ))}
         </ul>
@@ -64,7 +90,7 @@ const ArticleSection: React.FC<IArticleProps> = ({
     <article className={s.content}>
       <div className={s.header}>
         <h2 className={`${s.title} heading2`}>{title}</h2>
-        <h3 className={s.subtitle}>{subtitle}</h3>
+        <h3 className={subtitleClass}>{subtitle}</h3>
       </div>
       {renderItems()}
     </article>

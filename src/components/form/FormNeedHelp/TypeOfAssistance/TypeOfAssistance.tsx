@@ -23,7 +23,7 @@ const TypeOfAssistance = () => {
           <>
             <div className={s.assistance__wrap}>
               {typeOfAssistanceList.map(
-                (item: { id: string, title: string }) => (
+                (item: { id: string; title: string }) => (
                   <CheckboxSelect
                     title={item.title}
                     // title={t(item.title)}

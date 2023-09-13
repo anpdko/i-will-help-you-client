@@ -48,7 +48,13 @@
       border-radius: toRem(8);
       @include adaptiveValue('width', 44, 24, 0, 1200, 390);
     }
+    &.mobSubTitleHidden {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
   }
+
 }
 
 //========================================================================================================================================================
@@ -65,9 +71,9 @@
     position: relative;
     display: flex;
     align-items: start;
-    
+
     gap: toRem(24);
-    @media (max-width: em(360)){
+    @media (max-width: em(388)) {
       flex-direction: column;
     }
     &:not(:first-child) {
@@ -86,6 +92,33 @@
         border-radius: toRem(8);
       }
     }
+
+    &__count {
+      position: relative;
+      line-height: 150%;
+
+      &:not(:last-child) {
+        margin-bottom: toRem(16);
+      }
+      @media (max-width: $mobile) {
+        padding-left: toRem(30);
+      }
+
+      &::before {
+        align-self: end;
+        content: attr(data-count);
+
+        position: absolute;
+        top: 0;
+
+        @media (min-width: $mobile) {
+          left: toRem(-30);
+        }
+        @media (max-width: $mobile) {
+          left: 0;
+        }
+      }
+    }
   }
   .tag {
     color: var(--dark-grey);
@@ -94,7 +127,7 @@
     @media (min-width: $mobileSmall) {
       min-width: toRem(204);
     }
-    @include adaptiveValue('max-width', 150, 110, 1, 768, 361);
-    @include adaptiveValue('min-width', 150, 110, 1, 768, 361);
+    @include adaptiveValue('max-width', 150, 110, 1, 768, 389);
+    @include adaptiveValue('min-width', 150, 110, 1, 768, 388);
   }
 }

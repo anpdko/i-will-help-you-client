@@ -107,6 +107,19 @@
 @mixin formButtonsGridResponsive($columns, $border-radius: 0.625rem, $include-after: false, $include-mobile: false) {
   grid-template-columns: repeat(#{$columns}, 1fr);
 
+  @if $columns == 1 {
+    > label {
+      border-radius: $border-radius !important;
+      border: 1px solid var(--black) !important;
+
+      @if $include-after {
+        &::after {
+          border-radius: $border-radius !important;
+        }
+      }
+    }
+  }
+
   & > label:nth-of-type(#{$columns}) {
     border-right: 1px solid var(--black);
     border-top-right-radius: $border-radius;
@@ -240,6 +253,14 @@
     &:nth-of-type(4) {
       &:before {
         display: inline-block;
+      }
+    }
+  }
+
+  @media (max-width: $mobileSmall) {
+    &:nth-of-type(even) {
+      &:before {
+        display: none;
       }
     }
   }

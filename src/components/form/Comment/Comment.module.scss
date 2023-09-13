@@ -11,4 +11,8 @@
   @media (max-width: $mobile) {
     width: 22.875rem;
   }
+
+  @media (max-width: $mobileSmall) {
+    width: 18rem;
+  }
 }

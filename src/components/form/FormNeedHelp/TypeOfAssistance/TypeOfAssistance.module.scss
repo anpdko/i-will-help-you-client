@@ -12,6 +12,10 @@
     width: 22.875rem;
   }
 
+  @media (max-width: $mobileSmall) {
+    width: 18rem;
+  }
+
   &__wrap {
     width: 100%;
     display: grid;
@@ -77,6 +81,10 @@
 
     @media (max-width: $mobile) {
       @include formButtonsGridResponsive(2, $include-after: true, $include-mobile: true);
+    }
+
+    @media (max-width: $mobileSmall) {
+      @include formButtonsGridResponsive(1, $include-after: true, $include-mobile: true);
     }
 
   &__checkbox_all {

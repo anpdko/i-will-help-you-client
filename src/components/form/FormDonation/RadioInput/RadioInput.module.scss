@@ -21,6 +21,10 @@
       width: 1px;
       height: 2.25rem;
       background: var(--black);
+
+      @media (max-width: $mobileSmall) {
+        display: none;
+      }
     }
 
     &::after {
@@ -55,6 +59,10 @@
     &:last-of-type {
       border-top-right-radius: 0.625rem;
       border-bottom-right-radius: 0.625rem;
+    }
+
+    @media (max-width: $mobileSmall) {
+      border-radius: 0.625rem;
     }
   }
 }

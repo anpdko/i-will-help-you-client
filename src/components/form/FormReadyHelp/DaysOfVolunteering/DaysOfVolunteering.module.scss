@@ -61,6 +61,10 @@
       @media (max-width: $tablet) {
         width: 22.875rem;
       }
+
+      @media (max-width: $mobileSmall) {
+        width: 18rem;
+      }
     }
 
     &_time {
@@ -68,6 +72,10 @@
 
       @media (max-width: $tablet) {
         width: 10.688rem;
+      }
+
+      @media (max-width: $mobileSmall) {
+        width: 18rem;
       }
     }
   }
