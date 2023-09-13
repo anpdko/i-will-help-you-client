@@ -43,6 +43,14 @@
     }
   }
 
+  &__wrap {
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   &__title {
     margin-bottom: 2rem;
   }

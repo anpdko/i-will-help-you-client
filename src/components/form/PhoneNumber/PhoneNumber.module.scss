@@ -38,10 +38,19 @@
     &_code {
       width: 4.875rem;
       padding: 1.125rem 1.125rem 1.125rem 1.4375rem;
+
+      @media (max-width: $mobileSmall) {
+        width: 4rem;
+        padding: 1rem;
+      }
     }
 
     &_number {
       width: 17.625rem;
+
+      @media (max-width: $mobileSmall) {
+        width: 13.75rem;
+      }
     }
   }
 

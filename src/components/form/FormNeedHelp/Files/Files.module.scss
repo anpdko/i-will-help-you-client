@@ -12,6 +12,10 @@
     width: 22.875rem;
   }
 
+  @media (max-width: $mobileSmall) {
+    width: 18rem;
+  }
+
   &__input {
     margin-bottom: 0.75rem;
   }

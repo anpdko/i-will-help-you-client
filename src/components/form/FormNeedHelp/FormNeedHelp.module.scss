@@ -26,6 +26,10 @@
     grid-row-gap: 1.5rem;
   }
 
+  @media (max-width: $mobileSmall) {
+    grid-template-columns: 18rem;
+  }
+
   &__email {
     grid-area: email;
   }
@@ -41,6 +45,10 @@
     @media (max-width: $mobile) {
       width: 22.875rem;
       border-radius: 0.625rem;
+    }
+
+    @media (max-width: $mobileSmall) {
+      width: 18rem;
     }
 
     &:disabled {

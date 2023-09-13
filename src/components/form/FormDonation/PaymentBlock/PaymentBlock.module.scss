@@ -8,12 +8,48 @@
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: $mobileSmall) {
+      border: none !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      grid-template-columns: 1fr;
+      row-gap: 0.5rem;
+
+      & > label {
+        border-radius: 0.625rem;
+        border: 1px solid var(--black);
+        background: var(--total-white);
+
+        &:after {
+          border: none;
+        }
+      }
+    }
   }
 
   &__frequency {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: $mobileSmall) {
+      border: none !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      grid-template-columns: 1fr;
+      row-gap: 0.5rem;
+
+      & > label {
+        border-radius: 0.625rem;
+        border: 1px solid var(--black);
+        background: var(--total-white);
+
+        &:after {
+          border: none;
+        }
+      }
+    }
   }
 
   &__amount {
@@ -33,7 +69,7 @@
         row-gap: 0.5rem;
         border: none;
         background: transparent;
-        
+
         & > label {
           border-radius: 0;
           background: var(--total-white);
