@@ -23,6 +23,10 @@
       & > div {
         padding: 11px 0 !important;
       }
+
+      @media (max-width: $mobileSmall) {
+        width: 4rem;
+      }
     }
 
     &_network {
@@ -38,6 +42,10 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1rem; 
+      }
+
+      @media (max-width: $mobileSmall) {
+        width: 13.75rem;
       }
     }
   }
