@@ -14,6 +14,10 @@
       width: 18rem;
     }
 
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+
     &:disabled {
       background: var(--light-grey)
     }
