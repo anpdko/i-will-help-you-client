@@ -18,14 +18,14 @@ const aboutArticleData: IAboutArticleData[] = [
         title: 'Fund’s goals and vision',
         subtitle: 'Our goals and vision',
         description:
-          'The main goal of the Fund is to provide assistance to Ukrainians by ensuring various forms of support, such as financial aid, job search, legal and psychological assistance, provision of necessary items, organization of educational events, and community initiatives to facilitate their daily lives and integration into society. We encompass Ukrainians who have been forced to leave their place of residence due to a full-scale war and are currently in Europe or remaining in Ukraine. Our vision involves creating a sustainable and friendly environment for Ukrainians in Europe and Ukraine, where every Ukrainian family and individual receives the proper support and opportunity to realize their potential.',
+          'The main goal of the Fund is to provide assistance to Ukrainians by ensuring various forms of support, such as financial aid, job search, legal and psychological assistance, provision of necessary items, organization of educational events, and community initiatives to facilitate their daily lives and integration into society.  We encompass Ukrainians who have been forced to leave their place of residence due to a full-scale war and are currently in Europe or remaining in Ukraine.  Our vision involves creating a sustainable and friendly environment for Ukrainians in Europe and Ukraine, where every Ukrainian family and individual receives the proper support and opportunity to realize their potential.',
       },
       {
         language: 'ua',
         title: 'Цілі та бачення Фонду',
         subtitle: 'Наші цілі та бачення',
         description:
-          'Основною метою Фонду є надання допомоги українцям шляхом забезпечення різноманітних форм підтримки, таких як фінансова допомога, пошук роботи, юридична та психологічна допомога, забезпечення необхідними речами, організація освітніх заходів та громадські ініціативи для полегшення їх повсякденного життя. та інтеграція в суспільство. Ми охоплюємо українців, які через повномасштабну війну були змушені залишити місце проживання та зараз перебувають у Європі або залишаються в Україні. Наше бачення передбачає створення сталого та дружнього середовища для українців у Європі та Україні, де кожна українська родина та кожна особа отримує належну підтримку та можливість реалізувати свій потенціал.',
+          'Основною метою Фонду є надання допомоги українцям шляхом забезпечення різноманітних форм підтримки, таких як фінансова допомога, пошук роботи, юридична та психологічна допомога, забезпечення необхідними речами, організація освітніх заходів та громадські ініціативи для полегшення їх повсякденного життя. та інтеграція в суспільство.  Ми охоплюємо українців, які через повномасштабну війну були змушені залишити місце проживання та зараз перебувають у Європі або залишаються в Україні.  Наше бачення передбачає створення сталого та дружнього середовища для українців у Європі та Україні, де кожна українська родина та кожна особа отримує належну підтримку та можливість реалізувати свій потенціал.',
       },
     ],
     id: 'goals_and_vision',
@@ -37,14 +37,14 @@ const aboutArticleData: IAboutArticleData[] = [
         title: 'Our team',
         subtitle: 'About our team',
         description:
-          "We may be newcomers to the world of charity and aid, but our passion knows no bounds. We are a dedicated team of more than 15 volunteers, each driven by the desire to make a difference. Right now, we're working solely for the priceless rewards of smiles and kind words. Our journey has just begun, and there's a world of opportunities ahead. We have numerous open positions waiting to be filled by those who share our enthusiasm for creating positive change.",
+          "We may be newcomers to the world of charity and aid, but our passion knows no bounds. We are a dedicated team of more than 15 volunteers, each driven by the desire to make a difference. Right now, we're working solely for the priceless rewards of smiles and kind words.  Our journey has just begun, and there's a world of opportunities ahead. We have numerous open positions waiting to be filled by those who share our enthusiasm for creating positive change.",
       },
       {
         language: 'ua',
         title: 'Наша команда',
         subtitle: 'Про нашу команду',
         description:
-          'Ми можемо новачки у світі благодійності та допомоги, але наша пристрасть не має меж. Ми — віддана команда з понад 15 волонтерів, кожен з яких керований бажанням змінити ситуацію. Зараз ми працюємо виключно заради безцінної нагороди посмішок і добрих слів. Наша подорож тільки почалася, і попереду є світ можливостей. У нас є багато відкритих вакансій, які чекають на заповнення тими, хто поділяє наш ентузіазм у створенні позитивних змін.',
+          'Ми можемо новачки у світі благодійності та допомоги, але наша пристрасть не має меж. Ми — віддана команда з понад 15 волонтерів, кожен з яких керований бажанням змінити ситуацію. Зараз ми працюємо виключно заради безцінної нагороди посмішок і добрих слів.  Наша подорож тільки почалася, і попереду є світ можливостей. У нас є багато відкритих вакансій, які чекають на заповнення тими, хто поділяє наш ентузіазм у створенні позитивних змін.',
       },
     ],
     id: 'our_team',

@@ -30,7 +30,7 @@ const AboutPage = () => {
             title={translations('goals_and_vision')?.title || ''}
             subtitle={translations('goals_and_vision')?.subtitle || ''}
             items={[translations('goals_and_vision')?.description || '']}
-            variant='paragraphs'
+            variant='paragraphs-3'
           />
         </div>
       </section>
@@ -41,7 +41,7 @@ const AboutPage = () => {
             title={translations('our_team')?.title || ''}
             subtitle={translations('our_team')?.subtitle || ''}
             items={[translations('our_team')?.description || '']}
-            variant='paragraphs'
+            variant='paragraphs-3'
           />
         </div>
       </section>
