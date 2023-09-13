@@ -12,7 +12,7 @@
   justify-content: start;
 
   &:not(:last-child) {
-    margin-bottom: toRem(44);
+    @include adaptiveValue('margin-bottom', 44, 24, 0, 1200, 390);
   }
   @media (min-width: $mobile) {
     align-items: center;
@@ -25,18 +25,24 @@
   }
 
   .title {
-    flex: 0 1 59.416667%; /* 713/1200 */
+    @include adaptiveValue('font-size', 40, 28, 0, 1200, 390);
+    @media (min-width: $mobile) {
+      flex: 0 1 59.416667%; /* 713/1200 */
+    }
   }
   .subtitle {
-    flex: 0 1 40.5%; /* 486/1200 */
+    position: relative;
     font-weight: 600;
     line-height: 150%;
-    position: relative;
 
     @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
     @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
     @media (min-width: $mobile) {
+      flex: 0 1 40.5%; /* 486/1200 */
       padding-right: toRem(20);
+    }
+    @media (max-width: $mobile) {
+      display: none;
     }
     &::before {
       content: '';
@@ -48,13 +54,7 @@
       border-radius: toRem(8);
       @include adaptiveValue('width', 44, 24, 0, 1200, 390);
     }
-    &.mobSubTitleHidden {
-      @media (max-width: $mobile) {
-        display: none;
-      }
-    }
   }
-
 }
 
 //========================================================================================================================================================
@@ -72,8 +72,8 @@
     display: flex;
     align-items: start;
 
-    gap: toRem(24);
-    @media (max-width: em(388)) {
+    @include adaptiveValue('gap', 24, 8, 0, 1200, 390);
+    @media (max-width: $mobile) {
       flex-direction: column;
     }
     &:not(:first-child) {
@@ -124,10 +124,12 @@
     color: var(--dark-grey);
     font-weight: 600;
     line-height: 150%;
-    @media (min-width: $mobileSmall) {
+    @media (min-width: $mobile) {
       min-width: toRem(204);
     }
-    @include adaptiveValue('max-width', 150, 110, 1, 768, 389);
-    @include adaptiveValue('min-width', 150, 110, 1, 768, 388);
+    @media (max-width: $mobile) {
+      min-width: 100%;
+      color: var(--black);
+    }
   }
 }

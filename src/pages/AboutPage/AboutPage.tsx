@@ -31,7 +31,6 @@ const AboutPage = () => {
             subtitle={translations('goals_and_vision')?.subtitle || ''}
             items={[translations('goals_and_vision')?.description || '']}
             variant='paragraphs-3'
-            mobSubTitleHidden={true}
           />
         </div>
       </section>
@@ -43,7 +42,6 @@ const AboutPage = () => {
             subtitle={translations('our_team')?.subtitle || ''}
             items={[translations('our_team')?.description || '']}
             variant='paragraphs-3'
-            mobSubTitleHidden={true}
           />
         </div>
       </section>
@@ -57,7 +55,6 @@ const AboutPage = () => {
             subtitle={translations('our_objectives')?.subtitle || ''}
             items={[translations('our_objectives')?.description || '']}
             variant='list-count'
-            mobSubTitleHidden={true}
           />
         </div>
       </section>
