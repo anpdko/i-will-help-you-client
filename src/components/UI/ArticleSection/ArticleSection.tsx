@@ -23,8 +23,9 @@ const ArticleSection: React.FC<IArticleProps> = ({
   variant,
   mobSubTitleHidden,
 }) => {
-
-  const subtitleClass = mobSubTitleHidden ? `${s.subtitle} ${s.mobSubTitleHidden}` : s.subtitle;
+  const subtitleClass = mobSubTitleHidden
+    ? `${s.subtitle} ${s.mobSubTitleHidden}`
+    : s.subtitle;
 
   const renderItems = () => {
     if (variant === 'list') {
@@ -53,7 +54,7 @@ const ArticleSection: React.FC<IArticleProps> = ({
       );
     } else if (variant === 'paragraphs-3') {
       const paragraphs = (items as string[])
-        .map((item) => item.split(/(?<=\.\s{2})/)) // ".  " Розділяємо текст за допомогою регулярного виразу для збереження крапки 
+        .map((item) => item.split(/(?<=\.\s{2})/)) // ".  " Розділяємо текст за допомогою регулярного виразу для збереження крапки
         .flat() // Робимо масив плоским
         .filter((item) => item.trim() !== ''); // Видаляємо пусті рядки
 
@@ -89,9 +90,7 @@ const ArticleSection: React.FC<IArticleProps> = ({
     <article className={s.content}>
       <div className={s.header}>
         <h2 className={`${s.title} heading2`}>{title}</h2>
-        <h3 className={subtitleClass}>
-          {subtitle}
-        </h3>
+        <h3 className={subtitleClass}>{subtitle}</h3>
       </div>
       {renderItems()}
     </article>
