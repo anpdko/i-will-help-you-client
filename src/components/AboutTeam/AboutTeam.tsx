@@ -31,16 +31,16 @@ const AboutTeam = () => {
               type: 'fraction',
             }}
             breakpoints={{
-              320: {
+              319: {
                 slidesPerView: 1,
               },
-              768: {
+              480: {
                 slidesPerView: 2,
               },
-              992: {
+              768: {
                 slidesPerView: 3,
               },
-              1170: {
+              1000: {
                 slidesPerView: 4,
               },
             }}

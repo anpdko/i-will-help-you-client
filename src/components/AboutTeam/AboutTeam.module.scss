@@ -62,10 +62,13 @@
   .arrow_prev,
   .arrow_next {
     position: absolute;
-    @media (min-width: $mobile) {
+    @media (min-width: $pc) {
       top: 35%;
     }
-    @include adaptiveValue('top', 705, 265, 3, 767, 320);
+    @include adaptiveValue('top', 150, 120, 2, 1200, 1000);
+    @include adaptiveValue('top', 175, 100, 1, 999, 768);
+    @include adaptiveValue('top', 160, 90, 1, 767, 480);
+    @include adaptiveValue('top', 420, 265, 1, 479, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -105,10 +108,18 @@
     }
   }
   .arrow_prev {
-    @include adaptiveValue('left', 8, 48, 0, 1200, 768);
+    @include adaptiveValue('left', 8, 30, 0, 1280, 992);
+
+    @media (max-width: $mobileSmall) {
+      left: toRem(48);
+    }
   }
   .arrow_next {
-    @include adaptiveValue('right', 8, 48, 0, 1200, 768);
+    @include adaptiveValue('right', 8, 30, 0, 1280, 992);
+
+    @media (max-width: $mobileSmall) {
+      right: toRem(48);
+    }
   }
 }
 .navigation {
