@@ -85,7 +85,9 @@ const Footer = () => {
                 <Link to='tel:+48575728854'>+48-575-728-854</Link>
               </li>
               <li>
-                <Link to='mailto:admin@iwillhelpyou.charity'>admin@iwillhelpyou.charity</Link>
+                <Link to='mailto:admin@iwillhelpyou.charity'>
+                  admin@iwillhelpyou.charity
+                </Link>
               </li>
             </ul>
           </MediaQuery>
