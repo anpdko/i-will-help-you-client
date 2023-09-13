@@ -14,7 +14,7 @@ const NeedHelpPage = React.lazy(
 const ReadyHelpPage = React.lazy(
   () => import('../pages/ReadyHelpPage/ReadyHelpPage'),
 );
-const DonatePage = React.lazy(() => import('../pages/DonatePage/DonatePage'));
+import DonatePage from '../pages/DonatePage/DonatePage'
 const NotFoundPage = React.lazy(
   () => import('../pages/NotFoundPage/NotFoundPage'),
 );
@@ -73,9 +73,7 @@ const RoutesApp = () => {
           <Route
             path='/donate'
             element={
-              <Suspense fallback={<Preloader withContainer />}>
                 <DonatePage />
-              </Suspense>
             }
           />
           <Route
