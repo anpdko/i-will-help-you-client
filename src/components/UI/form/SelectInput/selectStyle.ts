@@ -6,9 +6,9 @@ const customStyles: StylesConfig<any> = {
 
   option: (baseStyles, state) => ({
     ...baseStyles,
-    color: '#0e0e0e',
+    color: 'var(--black)',
     fontFamily: 'Open Sans',
-    fontSize: '16px',
+    fontSize: '1rem',
     fontStyle: 'normal',
     fontWeight: state.isSelected ? '600' : '400',
     lineHeight: '150%',
@@ -27,12 +27,69 @@ const customStyles: StylesConfig<any> = {
     backgroundColor: '#fff',
     border: '1px solid #0e0e0e',
     borderRadius: '10px',
-    padding: '11px 14px',
+    padding: '0.56rem 2rem',
+  }),
+
+  valueContainer: (baseStyles) => ({
+    ...baseStyles,
+    padding: '0',
+    gap: '1rem',
   }),
 
   singleValue: (baseStyles) => ({
     ...baseStyles,
     // color: '#000',
+  }),
+
+  multiValue: (baseStyles) => ({
+    ...baseStyles,
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    backgroundColor: 'var(--orange)',
+    padding: '0.63rem 1.13rem',
+    margin: '0',
+    borderRadius: '0.5rem',
+  }),
+
+  menu: (baseStyles) => ({
+    ...baseStyles,
+    padding: '2rem',
+    margin: '0',
+  }),
+
+  multiValueRemove: (baseStyles) => ({
+    ...baseStyles,
+    padding: '0',
+    svg: {
+      width: '1rem',
+      height: '1rem',
+    },
+
+    '&:hover': {
+      backgroundColor: 'transparent',
+      color: 'var(--black)',
+      svg: {
+        scale: '1.2',
+      },
+    },
+  }),
+
+  menuList: (baseStyles) => ({
+    ...baseStyles,
+    padding: '0',
+    // display: 'grid',
+    // gridTemplateColumns: '1fr 1fr',
+  }),
+
+  multiValueLabel: (baseStyles) => ({
+    ...baseStyles,
+    padding: '0',
+    paddingLeft: '0',
+    fontSize: '100%',
+    overflow: 'inherit',
+    color: 'var(--black)',
+    // backgroundColor: 'red',
   }),
 };
 
