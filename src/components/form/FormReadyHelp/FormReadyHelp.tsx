@@ -6,6 +6,7 @@ import {
   SubmitHandler,
   FieldValues,
 } from 'react-hook-form';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
 import FirstName from '../FirstName/FirstName';
 import LastName from '../LastName/LastName';
@@ -46,7 +47,8 @@ interface DataForm {
 }
 
 const FormReadyHelp = () => {
-  const [isSuccessPopupVisible, setIsSuccessPopupVisible] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const methods = useForm({
     mode: 'onChange',
@@ -79,11 +81,26 @@ const FormReadyHelp = () => {
       const res = await axios.post(API_URL + '/api/readyneed', formattedData);
       console.log(res);
 
-      setIsSuccessPopupVisible(true);
+      setIsSuccess(true);
+      setIsError(false);
     } catch (error) {
       console.log(error);
+      setIsSuccess(false);
+      setIsError(true);
     }
   };
+
+  const modalTitle = isSuccess ? (
+    <>
+      <AiFillCheckCircle className={s.successIcon} />
+      Success!
+    </>
+  ) : (
+    <>
+      <AiFillCloseCircle className={s.errorIcon} />
+      Something went wrong!
+    </>
+  );
 
   return (
     <FormWrapper subtitle={t('Form')} title={t('Volunteer application form')}>
@@ -116,13 +133,18 @@ const FormReadyHelp = () => {
             className={s.form__button}
             disabled={!isValid}
           >
-             {t('Send my form')}
+            {t('Send my form')}
           </ButtonApp>
         </form>
       </FormProvider>
-      {isSuccessPopupVisible && (
-        <Modal title='Success!' onClose={() => setIsSuccessPopupVisible(false)}>
-          Your form was successfully submitted!
+      {isSuccess && (
+        <Modal
+          title={modalTitle.toString()}
+          onClose={() => setIsSuccess(false)}
+        >
+          {isSuccess
+            ? 'Your form was successfully submitted!'
+            : 'There was an error submitting the form. Please try again.'}
         </Modal>
       )}
     </FormWrapper>

@@ -78,3 +78,15 @@
     }
   }
 }
+
+.successIcon{
+  color: var(--green-for-success);
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.errorIcon{
+  color:var(--red-for-error);
+  width: 2rem !important;
+  height: 2rem !important;
+}
