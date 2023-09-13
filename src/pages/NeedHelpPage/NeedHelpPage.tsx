@@ -1,3 +1,4 @@
+import faqVolunteerData from '@/data/faqData';
 import { FAQ, FormHeader, FormNeedHelp } from '../../components';
 
 const NeedHelpPage = () => {
@@ -5,7 +6,7 @@ const NeedHelpPage = () => {
     <>
       <FormHeader id='needhelp' />
       <FormNeedHelp />
-      <FAQ />
+      <FAQ data={faqVolunteerData}/>
     </>
   );
 };
