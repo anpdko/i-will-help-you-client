@@ -1,13 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, Pagination } from 'swiper/modules';
+import i18n from '@/translation/i18n';
+
+import aboutTeamData from '@/data/aboutTeamData';
 
 import s from './AboutTeam.module.scss';
 import sprite from '../../assets/sprite.svg';
-
-import 'swiper/css/scrollbar';
-import 'swiper/css/pagination';
-import aboutTeamData from '@/data/aboutTeamData';
-import i18n from '@/translation/i18n';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -50,7 +48,7 @@ const AboutTeam = () => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {aboutTeamData?.map((item, index) => {
+            {aboutTeamData?.map((item) => {
               const translation = item.translations.find(
                 (translation) => translation.language === i18n.language,
               );
@@ -84,8 +82,12 @@ const AboutTeam = () => {
             </div>
 
             <div className={s.navigation}>
-              <div className={`${s.scrollbar} swiper-scrollbar`}> </div>
-              <div className={`${s.pagination} swiper-pagination`}> </div>
+              <div className={s.scrollbar}>
+                <div className='swiper-scrollbar'> </div>
+              </div>
+              <div className={s.pagination}>
+                <div className='swiper-pagination'> </div>
+              </div>
             </div>
           </Swiper>
         </div>
