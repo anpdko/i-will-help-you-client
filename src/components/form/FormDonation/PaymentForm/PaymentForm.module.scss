@@ -10,6 +10,10 @@
     border-radius: 0.75rem;
     padding: 1.5rem 0;
 
+    @media (max-width: $mobileSmall) {
+      width: 18rem;
+    }
+
     &:disabled {
       background: var(--light-grey)
     }
