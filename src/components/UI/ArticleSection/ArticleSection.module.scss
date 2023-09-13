@@ -48,7 +48,13 @@
       border-radius: toRem(8);
       @include adaptiveValue('width', 44, 24, 0, 1200, 390);
     }
+    &.mobSubTitleHidden {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
   }
+
 }
 
 //========================================================================================================================================================
@@ -101,7 +107,7 @@
       &::before {
         align-self: end;
         content: attr(data-count);
-        
+
         position: absolute;
         top: 0;
 

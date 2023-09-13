@@ -13,6 +13,7 @@ interface IArticleProps {
   subtitle: string;
   items: ITags[] | string[];
   variant: 'list' | 'paragraphs' | 'paragraphs-3' | 'list-count';
+  mobSubTitleHidden: boolean;
 }
 
 const ArticleSection: React.FC<IArticleProps> = ({
@@ -20,7 +21,11 @@ const ArticleSection: React.FC<IArticleProps> = ({
   subtitle,
   items,
   variant,
+  mobSubTitleHidden,
 }) => {
+
+  const subtitleClass = mobSubTitleHidden ? `${s.subtitle} ${s.mobSubTitleHidden}` : s.subtitle;
+
   const renderItems = () => {
     if (variant === 'list') {
       return (
@@ -84,7 +89,9 @@ const ArticleSection: React.FC<IArticleProps> = ({
     <article className={s.content}>
       <div className={s.header}>
         <h2 className={`${s.title} heading2`}>{title}</h2>
-        <h3 className={s.subtitle}>{subtitle}</h3>
+        <h3 className={subtitleClass}>
+          {subtitle}
+        </h3>
       </div>
       {renderItems()}
     </article>

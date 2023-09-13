@@ -56,11 +56,12 @@ const AboutHeader = () => {
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {[...Array(3)].map((item, index) => (
+            {[...Array(2)].map((item, index) => (
               <SwiperSlide key={index}>
                 <div className={s.content}>
                   <img src={SlideImg} alt='Find out about our foundation' />
                   <p>
+                    {item}
                     We bring together donors, volunteers, and beneficiaries.
                   </p>
                 </div>
