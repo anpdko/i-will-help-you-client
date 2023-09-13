@@ -28,6 +28,7 @@ const AboutTeam = () => {
             scrollbar={{
               el: '.swiper-scrollbar',
               draggable: true,
+              dragSize: 48,
             }}
             pagination={{
               el: '.swiper-pagination',
