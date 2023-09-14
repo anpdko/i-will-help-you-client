@@ -5,29 +5,17 @@
 }
 
 .language {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-
-  @media (max-width: $tablet) {
-    gap: 0.5rem;
-  }
+  @include adaptiveValue('gap', 23, 16, 0, 1200, 390);
 
   @media (max-width: $mobile) {
     flex-direction: column;
   }
 
   &__input {
-    font-weight: 400;
-    width: 24.063rem;
-
-    @media (max-width: $tablet) {
-      width: 22.875rem;
-    }
-
-    @media (max-width: $mobileSmall) {
-      width: 18rem;
-    }
+    width: 100%;
   }
 
   &__button {

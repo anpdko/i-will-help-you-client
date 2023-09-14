@@ -22,6 +22,7 @@
   }
 
   &__button {
+    grid-area: button;
     padding: toRem(24);
     background: var(--black);
     color: var(--total-white);

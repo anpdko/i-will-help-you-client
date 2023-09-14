@@ -6,6 +6,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
     }
   }
