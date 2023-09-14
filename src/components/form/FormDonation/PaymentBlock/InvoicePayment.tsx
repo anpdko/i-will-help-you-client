@@ -7,7 +7,11 @@ interface InvoicePaymentProps {
 }
 
 const InvoicePayment = ({ list, method }: InvoicePaymentProps) => {
-  const handleCopy = (value: string) => {
+  const handleCopy = (
+    value: string,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
     navigator.clipboard.writeText(value);
   };
 
@@ -22,7 +26,7 @@ const InvoicePayment = ({ list, method }: InvoicePaymentProps) => {
             </div>
             <button
               className={s.invoice__btn}
-              onClick={() => handleCopy(item.account)}
+              onClick={(event) => handleCopy(item.account, event)}
             >
               Copy <RxCopy />
             </button>
