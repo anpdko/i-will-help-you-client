@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Controller, useFormContext } from 'react-hook-form';
 import { paymentMethods } from '@utils/donationOptions';
-import { transferList, cryptoList } from '@/utils/invoicePaymentList';
+import { transferList } from '@/utils/invoicePaymentList';
 import RadioInput from '../RadioInput/RadioInput';
 import CardPayment from './CardPayment';
 import InvoicePayment from './InvoicePayment';
