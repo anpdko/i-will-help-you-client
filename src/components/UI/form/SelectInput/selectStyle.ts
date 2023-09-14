@@ -39,6 +39,7 @@ const customStyles: StylesConfig<any> = {
   singleValue: (baseStyles) => ({
     ...baseStyles,
     // color: '#000',
+    lineHeight: '150%',
   }),
 
   multiValue: (baseStyles) => ({
