@@ -33,7 +33,7 @@ const About = () => {
                   }`}
                   onClick={() => handleTabChange(tab.id)}
                 >
-                  <svg className={s.about__icon}>
+                  <svg>
                     <use href={sprite + tab.tabIcon} />
                   </svg>
                   {transAbout()?.tabName}
