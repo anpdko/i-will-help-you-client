@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { TextInput } from '../../UI';
 
 interface EmailProps {
-  className: string;
+  className?: string;
 }
 
 const Email = ({ className }: EmailProps) => {
