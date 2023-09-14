@@ -4,7 +4,7 @@ import sprite from '../../../assets/sprite.svg';
 
 interface ModalProps {
   children: React.ReactNode;
-  title?: string;
+  title?: string | React.ReactNode;
   onClose: () => void;
   className?: string;
   size?: 'smaller' | 'small' | 'large';
