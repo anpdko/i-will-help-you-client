@@ -4,14 +4,14 @@
   display: flex;
   flex-direction: column;
   gap: 2.75rem;
-
+  
   &__button {
-    width: 17.625rem;
+    max-width: toRem(282);
     border-radius: 0.75rem;
-    padding: 1.5rem 0;
+    padding: toRem(24) toRem(10);
 
-    @media (max-width: $mobileSmall) {
-      width: 18rem;
+    @media (max-width: $mobile) {
+      min-width: 100%;
     }
 
     &:disabled {

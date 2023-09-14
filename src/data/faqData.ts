@@ -4,7 +4,7 @@ export interface IFaqData {
   description: string;
 }
 
-const faqData: IFaqData[] = [
+const faqVolunteerData: IFaqData[] = [
   {
     id: 'faqBecomeVolunteer',
     title: 'How can I become a volunteer with your organization?',
@@ -105,4 +105,4 @@ const faqData: IFaqData[] = [
   },
 ];
 
-export default faqData;
+export default faqVolunteerData;

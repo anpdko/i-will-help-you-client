@@ -15,15 +15,13 @@ const FAQItem = ({ tab }: FAQProps) => {
   };
 
   return (
-    <li key={tab.id} className={s.faq_item} onClick={handleToggleFAQ}>
-      <div className={s.faq_item__container}>
-        <h4 className={s.faq_item__title}>{tab.title}</h4>
-        <button type='button' className={s.faq_item__btn}>
+    <li key={tab.id} className={s.item} onClick={handleToggleFAQ}>
+      <div className={s.item__body}>
+        <h4 className={s.item__title}>{tab.title}</h4>
+        <button type='button' className={s.item__btn}>
           <svg
             className={
-              toggleFAQ
-                ? `${s.faq_item__icon_open}`
-                : `${s.faq_item__icon_closed}`
+              toggleFAQ ? `${s.item__icon_open}` : `${s.item__icon_closed}`
             }
           >
             <use href={sprite + '#chevron-down'} />
@@ -32,13 +30,11 @@ const FAQItem = ({ tab }: FAQProps) => {
       </div>
       <div
         className={
-          toggleFAQ
-            ? `${s.faq_item__content_open}`
-            : `${s.faq_item__content_closed}`
+          toggleFAQ ? `${s.item__content_open}` : `${s.item__content_closed}`
         }
       >
-        <div className={s.faq_item__descr_container}>
-          <p className={s.faq_item__descr}>{tab.description}</p>
+        <div className={s.item__descr}>
+          <p className={s.text}>{tab.description}</p>
         </div>
       </div>
     </li>

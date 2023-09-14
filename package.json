@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "@stripe/react-stripe-js": "^2.1.2",
+    "@stripe/react-stripe-js": "^2.3.0",
     "@stripe/stripe-js": "^2.1.2",
     "antd": "^5.8.5",
     "axios": "^1.4.0",

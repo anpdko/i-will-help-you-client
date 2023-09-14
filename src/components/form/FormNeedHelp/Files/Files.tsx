@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { FileInput } from '../../../UI';
-import { PaperClipIcon } from '../../../icons/PaperClipIcon';
+import { FileInput } from '@components/UI';
+import { BsPaperclip } from 'react-icons/bs';
 import s from './Files.module.scss';
 
 const Files = () => {
@@ -11,7 +11,7 @@ const Files = () => {
       <FileInput
         name='files'
         title={t('Upload Files')}
-        placeholderIcon={<PaperClipIcon />}
+        placeholderIcon={<BsPaperclip size='1.5rem' />}
         placeholderText={t('Upload your files here')}
         accept='image/*, .pdf, .txt, .doc, .docx, .xml'
         multiple={true}

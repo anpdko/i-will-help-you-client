@@ -24,7 +24,7 @@ const reviewData: IReviewData[] = [
     tabImg: '/static/images/reviews/review-2.png',
     title: 'Together, Building a Brighter Future',
     description:
-      'As we look ahead, our commitment remains steadfast—to be a beacon of hope for those who seek solace, an advocate for those who yearn to grow, and a guiding light for those who dream of a world beyond conflict.',
+      'As we look ahead, our commitment remains steadfast—to be a beacon of hope for those who seek solace, an advocate for those who yearn to grow, and a guiding light for those who dream of a world beyond the war.',
   },
   {
     id: 3,

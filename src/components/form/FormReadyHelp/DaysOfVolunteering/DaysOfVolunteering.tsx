@@ -4,8 +4,7 @@ import Select from 'react-select';
 import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import { daysOfWeekOptions, timeOptions } from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import { PlusIcon } from '@components/icons/PlusIcon';
-import { DeleteIcon } from '@components/icons/DeleteIcon';
+import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import s from './DaysOfVolunteering.module.scss';
 
 const DaysOfVolunteering = () => {
@@ -44,82 +43,85 @@ const DaysOfVolunteering = () => {
     >
       {fields.map((item, index) => (
         <div key={item.id} className={s.volunteer__inputs}>
-          <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>{t('Day of the week')}</p>
-            <Controller
-              name={`daysVolunteer[${index}].day`}
-              control={control}
-              rules={{ required: true }}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={days}
-                  placeholder={t('Day')}
-                  styles={customStyles}
-                  value={days.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_days}
-                />
-              )}
-            />
+          <div className={s.volunteer__column}>
+            <div className={s.volunteer__wrap}>
+              <p className={s.volunteer__title}>{t('Day of the week')}</p>
+              <Controller
+                name={`daysVolunteer[${index}].day`}
+                control={control}
+                rules={{ required: true }}
+                defaultValue={null}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={days}
+                    placeholder={t('Day')}
+                    styles={customStyles}
+                    value={days.find((option) => option.value === field.value)}
+                    onChange={(selectedOption) => {
+                      field.onChange(
+                        (selectedOption as { value: string; label: string })
+                          ?.value,
+                      );
+                    }}
+                    className={s.volunteer__input_days}
+                  />
+                )}
+              />
+            </div>
           </div>
 
-          <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>{t('Time (start)')}</p>
-            <Controller
-              name={`daysVolunteer[${index}].timeStart`}
-              control={control}
-              rules={{ required: true }}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={times}
-                  placeholder={t('Start Time')}
-                  styles={customStyles}
-                  value={times.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_time}
-                />
-              )}
-            />
-          </div>
-
-          <div className={s.volunteer__wrap}>
-            <p className={s.volunteer__title}>{t('Time (finish)')}</p>
-            <Controller
-              name={`daysVolunteer[${index}].timeFinish`}
-              control={control}
-              rules={{ required: true }}
-              defaultValue={null}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={times}
-                  placeholder={t('End Time')}
-                  styles={customStyles}
-                  value={times.find((option) => option.value === field.value)}
-                  onChange={(selectedOption) => {
-                    field.onChange(
-                      (selectedOption as { value: string; label: string })
-                        ?.value,
-                    );
-                  }}
-                  className={s.volunteer__input_time}
-                />
-              )}
-            />
+          <div className={s.volunteer__columns}>
+            <div className={s.volunteer__wrap}>
+              <p className={s.volunteer__title}>{t('Time (start)')}</p>
+              <Controller
+                name={`daysVolunteer[${index}].timeStart`}
+                control={control}
+                rules={{ required: true }}
+                defaultValue={null}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={times}
+                    placeholder={t('Start Time')}
+                    styles={customStyles}
+                    value={times.find((option) => option.value === field.value)}
+                    onChange={(selectedOption) => {
+                      field.onChange(
+                        (selectedOption as { value: string; label: string })
+                          ?.value,
+                      );
+                    }}
+                    className={s.volunteer__input_time}
+                  />
+                )}
+              />
+            </div>
+            <div className={s.volunteer__wrap}>
+              <p className={s.volunteer__title}>{t('Time (finish)')}</p>
+              <Controller
+                name={`daysVolunteer[${index}].timeFinish`}
+                control={control}
+                rules={{ required: true }}
+                defaultValue={null}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={times}
+                    placeholder={t('End Time')}
+                    styles={customStyles}
+                    value={times.find((option) => option.value === field.value)}
+                    onChange={(selectedOption) => {
+                      field.onChange(
+                        (selectedOption as { value: string; label: string })
+                          ?.value,
+                      );
+                    }}
+                    className={s.volunteer__input_time}
+                  />
+                )}
+              />
+            </div>
           </div>
 
           {index > 0 && (
@@ -128,7 +130,7 @@ const DaysOfVolunteering = () => {
               onClick={() => remove(index)}
               className={s.volunteer__button_remove}
             >
-              <DeleteIcon />
+              <HiOutlineX />
             </button>
           )}
         </div>
@@ -138,7 +140,7 @@ const DaysOfVolunteering = () => {
         onClick={addDaysField}
         className={s.volunteer__button_add}
       >
-        {t('Add one more')} <PlusIcon />
+        {t('Add one more')} <HiOutlinePlus />
       </button>
     </FormItemWrapper>
   );

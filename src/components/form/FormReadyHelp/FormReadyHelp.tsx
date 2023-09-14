@@ -49,7 +49,6 @@ interface DataForm {
 const FormReadyHelp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
 
   const methods = useForm({
     mode: 'onChange',
@@ -83,12 +82,10 @@ const FormReadyHelp = () => {
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
-      setIsError(false);
     } catch (error) {
       console.log(error);
       setIsPopupVisible(true);
       setIsSuccess(false);
-      setIsError(true);
     }
   };
 

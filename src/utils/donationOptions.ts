@@ -1,4 +1,4 @@
-export const paymentMethod = [
+export const paymentMethods = [
   {
     id: 'card',
     title: 'Card',
