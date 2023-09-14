@@ -4,8 +4,7 @@ import Select from 'react-select';
 import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import { daysOfWeekOptions, timeOptions } from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import { PlusIcon } from '@components/icons/PlusIcon';
-import { DeleteIcon } from '@components/icons/DeleteIcon';
+import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import s from './DaysOfVolunteering.module.scss';
 
 const DaysOfVolunteering = () => {
@@ -131,7 +130,7 @@ const DaysOfVolunteering = () => {
               onClick={() => remove(index)}
               className={s.volunteer__button_remove}
             >
-              <DeleteIcon />
+              <HiOutlineX />
             </button>
           )}
         </div>
@@ -141,7 +140,7 @@ const DaysOfVolunteering = () => {
         onClick={addDaysField}
         className={s.volunteer__button_add}
       >
-        {t('Add one more')} <PlusIcon />
+        {t('Add one more')} <HiOutlinePlus />
       </button>
     </FormItemWrapper>
   );
