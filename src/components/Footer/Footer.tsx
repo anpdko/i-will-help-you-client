@@ -9,10 +9,15 @@ import sprite from '../../assets/sprite.svg';
 
 const Footer = () => {
   const { t } = useTranslation();
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={s.footer}>
       <div className='container'>
-        <Link to='/' className={s.logo}>
+        <Link onClick={handleScrollTop} to='/' className={s.logo}>
           <svg>
             <use href={sprite + '#logo-header'} />
           </svg>
