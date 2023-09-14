@@ -5,22 +5,14 @@
 
   &__inputs {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-weight: 400;
-
+    width: 100%;
+    gap: toRem(24);
     &:not(:first-of-type) .volunteer__title {
       display: none;
     }
 
-    @media (max-width: $tablet) {
-      gap: 1rem;
-    }
-
     @media (max-width: $mobile) {
-      flex-wrap: wrap;
-      gap: 1.5rem;
-
+      flex-direction: column;
       &:not(:first-of-type) .volunteer__title {
         display: block;
       }
@@ -28,16 +20,25 @@
   }
 
   &__wrap {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 0.875rem;
   }
+  &__column {
+    flex: 0 1 50%;
+  }
+  &__columns {
+    flex: 0 1 50%;
+    display: flex;
+    gap: toRem(24);
+  }
 
   &__title {
-    font-size: 0.875rem;
-    line-height: 0.875rem;
+    font-size: toRem(14);
+    line-height: 100%;
 
     &_wrap {
       display: grid;
@@ -56,27 +57,12 @@
 
   &__input {
     &_days {
-      width: 24rem;
-
-      @media (max-width: $tablet) {
-        width: 22.875rem;
-      }
-
-      @media (max-width: $mobileSmall) {
-        width: 18rem;
-      }
+      width: 100%;
     }
 
     &_time {
-      width: 11.25rem;
-
-      @media (max-width: $tablet) {
-        width: 10.688rem;
-      }
-
-      @media (max-width: $mobileSmall) {
-        width: 18rem;
-      }
+      flex: 0 1 50%;
+      width: 100%;
     }
   }
 }

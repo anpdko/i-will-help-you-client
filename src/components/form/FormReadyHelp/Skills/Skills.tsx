@@ -7,8 +7,8 @@ import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
 
 interface ISkills {
-  value: string,
-  label: string,
+  value: string;
+  label: string;
 }
 
 const Skills = () => {
@@ -45,7 +45,9 @@ const Skills = () => {
             isMulti
             value={skills.find((option) => option.value === field.value)}
             onChange={(selectedOption: OnChangeValue<ISkills, boolean>) => {
-              field.onChange((selectedOption as ISkills[])?.map((skill) => skill.value));
+              field.onChange(
+                (selectedOption as ISkills[])?.map((skill) => skill.value),
+              );
             }}
             className={s.skills__input}
             // menuIsOpen={true}

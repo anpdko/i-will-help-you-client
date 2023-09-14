@@ -2,28 +2,16 @@
 
 .files {
   grid-area: files;
-  width: 49.563rem;
-
-  @media (max-width: $tablet) {
-    width: 46.25rem;
-  }
-
-  @media (max-width: $mobile) {
-    width: 22.875rem;
-  }
-
-  @media (max-width: $mobileSmall) {
-    width: 18rem;
-  }
 
   &__input {
-    margin-bottom: 0.75rem;
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
   }
 
   &__text {
     @include adaptiveValue('font-size', 16, 13, 0, 1200, 390);
     color: var(--dark-grey);
-    font-weight: 400;
     line-height: 150%;
   }
 }

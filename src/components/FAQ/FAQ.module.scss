@@ -6,41 +6,47 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    }
+  }
+  .subtitle {
+    position: relative;
+    @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
+    font-weight: 600;
+    line-height: 150%;
+    margin-top: toRem(32);
+    text-transform: uppercase;
+  
+    @media (min-width: $tablet) {
+      flex: 0 1 33.916667%; /* 407/1200 */
+    }
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  
+    &::before {
+      position: absolute;
+      content: '';
+      height: toRem(2);
+      @include adaptiveValue('width', 44, 24, 0, 1200, 390);
+      top: 50%;
+      left: 0;
+      border-radius: toRem(8);
+      background-color: var(--black);
+    }
+  }
+  .body{
+    @media (min-width: $tablet) {
+      flex: 0 1 66.083333%; /* 793/1200 */
+    }
+    :global {
+      .heading1{
+        text-transform: uppercase;
+        @include adaptiveValue('margin-bottom', 34, 32, 0, 1200, 390);
+      }
     }
   }
 }
 
-.faq_subtitle {
-  position: relative;
-  display: inline;
-  flex: 0 1 34%;
-  @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
-  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
-  font-weight: 600;
-  line-height: 150%;
 
-  @media (max-width: $mobile) {
-    display: none;
-  }
-
-  &::before {
-    position: absolute;
-    content: '';
-    height: toRem(2);
-    @include adaptiveValue('width', 44, 24, 0, 1200, 390);
-    top: 50%;
-    left: 0;
-    border-radius: toRem(8);
-    background-color: var(--black);
-  }
-}
-
-.faq_heading {
-  @include adaptiveValue('margin-bottom', 34, 32, 0, 1200, 390);
-  font-family: Nunito;
-  @include adaptiveValue('font-size', 52, 28, 0, 1200, 390);
-  font-weight: 600;
-  line-height: 135%;
-  color: var(--black);
-}
