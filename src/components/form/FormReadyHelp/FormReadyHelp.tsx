@@ -47,6 +47,7 @@ interface DataForm {
 }
 
 const FormReadyHelp = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -80,11 +81,12 @@ const FormReadyHelp = () => {
     try {
       const res = await axios.post(API_URL + '/api/readyneed', formattedData);
       console.log(res);
-
+      setIsPopupVisible(true);
       setIsSuccess(true);
       setIsError(false);
     } catch (error) {
       console.log(error);
+      setIsPopupVisible(true);
       setIsSuccess(false);
       setIsError(true);
     }
@@ -137,11 +139,8 @@ const FormReadyHelp = () => {
           </ButtonApp>
         </form>
       </FormProvider>
-      {isSuccess && (
-        <Modal
-          title={modalTitle.toString()}
-          onClose={() => setIsSuccess(false)}
-        >
+      {isPopupVisible && (
+        <Modal title={modalTitle} onClose={() => setIsPopupVisible(false)}>
           {isSuccess
             ? 'Your form was successfully submitted!'
             : 'There was an error submitting the form. Please try again.'}
