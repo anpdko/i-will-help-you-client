@@ -5,58 +5,54 @@
 
   &__label {
     color: var(--black);
-    font-size: 1rem;
-    font-style: normal;
     font-weight: 600;
     line-height: 1rem;
   }
 
   &__inputs {
     display: flex;
-    gap: 1.5rem;
-
-    @media (max-width: $tablet) {
-      gap: 0.25rem;
+    width: 100%;
+    @media (min-width: $mobile) {
+      gap: toRem(24);
+    }
+    @media (max-width: $mobile) {
+      gap: toRem(4);
     }
   }
 
   &__input {
     width: 100%;
-    border-radius: 0.625rem;
+    border-radius: toRem(10);
     border: 1px solid var(--black);
     background: var(--total-white);
-    padding: 1.125rem 1.5rem;
+    padding: toRem(18) toRem(24);
+
 
     &::placeholder {
       color: var(--dark-grey);
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 1rem; 
+      line-height: 1rem;
     }
 
     &_code {
-      width: 4.875rem;
-      padding: 1.125rem 1.125rem 1.125rem 1.4375rem;
+      flex: 0 1 20.3125%; /* 78/384 */
+      min-width: toRem(78);
+      padding-top: toRem(18);
+      padding-bottom: toRem(18);
+      @include adaptiveValue("padding-left", 22, 18, 0, 1200, 768);
+      @include adaptiveValue("padding-right", 22, 10, 0, 1200, 768);
 
-      @media (max-width: $mobileSmall) {
-        width: 4rem;
-        padding: 1rem;
-      }
     }
 
     &_number {
-      width: 17.625rem;
-
-      @media (max-width: $mobileSmall) {
-        width: 13.75rem;
+      @media (min-width: $mobile) {
+        flex: 0 1 73.4375%; /* 282/384 */
       }
+
     }
   }
 
   &__error {
     font-size: 0.875rem;
-    font-weight: 400;
     color: var(--red-for-error);
     margin-top: -0.5rem;
   }

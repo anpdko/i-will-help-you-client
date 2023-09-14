@@ -10,10 +10,10 @@ const FAQ = ({ data }: FAQProps) => {
   return (
     <section className={s.faq}>
       <div className='container'>
-        <h3 className={s.faq_subtitle}>FAQ</h3>
-        <div className={s.faq_container}>
-          <h2 className={s.faq_heading}>FAQ</h2>
-          <ul className={s.faq_list}>
+        <h3 className={s.subtitle}>FAQ</h3>
+        <div className={s.body}>
+          <h2 className='heading1'>FAQ</h2>
+          <ul>
             {data.map((el) => (
               <FAQItem key={el.id} tab={el} />
             ))}

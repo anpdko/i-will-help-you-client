@@ -1,54 +1,37 @@
 @import '@/styles/index.scss';
 
 .form {
-  display: grid;
-  grid-template-columns: 24rem 24rem;
-  grid-template-areas:
-    'firstName lastName'
-    'email phone'
-    'assistance assistance'
-    'comment comment'
-    'files files'
-    'checkboxes checkboxes'
-    'button button';
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2.75rem;
-
-  @media (max-width: $tablet) {
-    grid-template-columns: 22.875rem 22.875rem;
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 2rem;
+  @media (min-width: $mobile) {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas:
+      'firstName lastName'
+      'email phone'
+      'assistance assistance'
+      'comment comment'
+      'files files'
+      'checkboxes checkboxes'
+      'button button';
+    column-gap: toRem(24);
+    row-gap: toRem(44);
   }
-
   @media (max-width: $mobile) {
-    grid-template-columns: 22.875rem;
-    grid-template-areas: 'firstName' 'lastName' 'email' 'phone' 'assistance' 'comment' 'files' 'checkboxes' 'button';
-    grid-row-gap: 1.5rem;
-  }
-
-  @media (max-width: $mobileSmall) {
-    grid-template-columns: 18rem;
-  }
-
-  &__email {
-    grid-area: email;
+    display: flex;
+    flex-direction: column;
+    gap: toRem(24);
   }
 
   &__button {
     grid-area: button;
-    width: 17.625rem;
-    padding: 1.5rem 0;
-    border-radius: 0.75rem;
+    padding: toRem(24);
     background: var(--black);
     color: var(--total-white);
-
-    @media (max-width: $mobile) {
-      width: 22.875rem;
-      border-radius: 0.625rem;
+    @include adaptiveValue("border-radius", 12, 10, 0, 1200, 768);
+    @media (min-width: $mobile) {
+      max-width: toRem(282);
     }
-
-    @media (max-width: $mobileSmall) {
-      width: 18rem;
+    @media (max-width:$mobile){
+      min-width: 100%;
     }
 
     &:disabled {

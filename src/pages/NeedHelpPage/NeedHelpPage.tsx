@@ -6,7 +6,7 @@ const NeedHelpPage = () => {
     <>
       <FormHeader id='needhelp' />
       <FormNeedHelp />
-      <FAQ data={faqVolunteerData}/>
+      <FAQ data={faqVolunteerData} />
     </>
   );
 };

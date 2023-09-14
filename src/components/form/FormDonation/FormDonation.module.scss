@@ -1,19 +1,7 @@
 @import '@/styles/index.scss';
 
 .wrapper {
-  width: 49.563rem;
-
-  @media (max-width: $tablet) {
-    width: 46.25rem;
-  }
-
-  @media (max-width: $mobile) {
-    width: 22.875rem;
-  }
-
-  @media (max-width: $mobileSmall) {
-    width: 18rem;
-  }
+  width: 100%;
 }
 
 .buttons {
@@ -35,7 +23,6 @@
   border-radius: 0.625rem;
   padding: 1.125rem 0.5rem;
   text-align: center;
-  font-style: normal;
   font-weight: 600;
   position: relative;
 
@@ -53,7 +40,6 @@
       display: none;
     }
   }
-
   @media (max-width: $mobileSmall) {
     border-radius: 0.625rem;
     border: 1px solid var(--black);
