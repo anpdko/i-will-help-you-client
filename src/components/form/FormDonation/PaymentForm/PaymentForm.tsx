@@ -6,6 +6,7 @@ import {
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
+import { useMediaQuery } from 'react-responsive';
 import { ButtonApp, Modal } from '@components/UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
 import Email from '../../Email/Email';
@@ -38,6 +39,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
   const methods = useForm({
     mode: 'onChange',
   });
+  const isMobile = useMediaQuery({ minWidth: 480, maxWidth: 767 });
 
   const {
     formState: { isValid },
@@ -71,7 +73,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
         <Comment title='Comment' placeholder='Type here...' />
         <ButtonApp
           type='submit'
-          size='medium'
+          size={isMobile ? 'Xlarge' : 'medium'}
           className={s.form__button}
           disabled={!isValid}
         >
