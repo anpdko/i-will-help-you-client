@@ -21,6 +21,11 @@ const Project = ({ project }: ProjectProps) => {
     // Розділити текст на речення за допомогою регулярного виразу
     const sentences = text.split(/(?<=[.!?])\s+/);
 
+    // Перевірити, чи є досить речень для обрізки
+    if (sentences.length <= sentencesToSkip) {
+      return text;
+    }
+
     // Вибрати речення, починаючи з позиції `sentencesToSkip` і до кінця
     const truncatedText = sentences.slice(sentencesToSkip).join(' ');
 
@@ -28,10 +33,12 @@ const Project = ({ project }: ProjectProps) => {
   };
 
   const sentencesToSkip = 2; // кількість речень, які потрібно пропустити
-  const truncatedDescription = truncateText(
-    translation.description,
-    sentencesToSkip,
-  );
+
+  // Перевірити, чи є більше 2 речень перед викликом truncateText
+  const truncatedDescription =
+    translation.description.split(/(?<=[.!?])\s+/).length <= sentencesToSkip
+      ? translation.description
+      : truncateText(translation.description, sentencesToSkip);
 
   return (
     <article className={s.project}>
