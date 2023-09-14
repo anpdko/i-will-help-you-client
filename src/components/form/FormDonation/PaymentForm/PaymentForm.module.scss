@@ -4,24 +4,6 @@
   display: flex;
   flex-direction: column;
   gap: 2.75rem;
-
-  &__button {
-    width: 17.625rem;
-    border-radius: 0.75rem;
-    padding: 1.5rem 0;
-
-    @media (max-width: $mobileSmall) {
-      width: 18rem;
-    }
-
-    @media (max-width: $mobile) {
-      width: 100%;
-    }
-
-    &:disabled {
-      background: var(--light-grey)
-    }
-  }
 }
 
 .projectList {

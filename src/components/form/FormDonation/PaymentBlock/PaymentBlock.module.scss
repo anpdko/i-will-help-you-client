@@ -103,6 +103,30 @@
   }
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(44);
+
+  &__button {
+    width: 17.625rem;
+    border-radius: 0.75rem;
+    padding: 1.5rem 0;
+
+    @media (max-width: $mobileSmall) {
+      width: 18rem;
+    }
+
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
+
+    &:disabled {
+      background: var(--light-grey)
+    }
+  }
+}
+
 .invoice {
   @include adaptiveValue('font-size', 16, 13, 0, 1200, 390);
   width: 100%;

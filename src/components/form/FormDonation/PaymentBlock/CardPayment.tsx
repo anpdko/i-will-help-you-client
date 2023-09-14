@@ -1,14 +1,25 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 import { Controller, useFormContext } from 'react-hook-form';
 import { paymentFrequency, donationAmount } from '@utils/donationOptions';
 import RadioInput from '../RadioInput/RadioInput';
+import Email from '../../Email/Email';
+import Comment from '../../Comment/Comment';
+import { ButtonApp } from '@components/UI';
 import s from './PaymentBlock.module.scss';
 
 const CardPayment = () => {
   const { t } = useTranslation();
-  const { control, setValue, getValues } = useFormContext();
+  const {
+    control,
+    setValue,
+    getValues,
+    formState: { isValid },
+  } = useFormContext();
   const [customAmount, setCustomAmount] = useState('');
+
+  const isMobile = useMediaQuery({ minWidth: 480, maxWidth: 767 });
 
   const handleCustomInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCustomAmount(e.target.value);
@@ -23,7 +34,7 @@ const CardPayment = () => {
   }, []);
 
   return (
-    <>
+    <div className={s.card}>
       <div className={`border-style ${s.paymentBlock__frequency}`}>
         {paymentFrequency.map((item) => (
           <Controller
@@ -87,7 +98,17 @@ const CardPayment = () => {
           />
         </label>
       </div>
-    </>
+      <Email />
+      <Comment title='Comment' placeholder='Type here...' />
+      <ButtonApp
+        type='submit'
+        size={isMobile ? 'Xlarge' : 'medium'}
+        className={s.card__button}
+        disabled={!isValid}
+      >
+        {t('Pay urgent!')}
+      </ButtonApp>
+    </div>
   );
 };
 
