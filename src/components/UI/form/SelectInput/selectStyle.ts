@@ -27,7 +27,7 @@ const customStyles: StylesConfig<any> = {
     backgroundColor: '#fff',
     border: '1px solid #0e0e0e',
     borderRadius: '10px',
-    padding: '0.56rem 2rem',
+    padding: '0.7rem 1.5rem',
   }),
 
   valueContainer: (baseStyles) => ({
