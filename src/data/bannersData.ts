@@ -18,13 +18,13 @@ const bannersData: IBannersData[] = [
         language: 'en',
         title: '"Be the Change – Volunteer with Us!"',
         description:
-          'Embrace the power of giving back and join our compassionate team of volunteers. Together, we can make a difference in the lives of those affected by conflict. Become a volunteer today!',
+          'Embrace the power of giving back and join our compassionate team of volunteers. Together, we can make a difference in the lives of those affected by the war. Become a volunteer today!',
       },
       {
         language: 'ua',
         title: '"Будь зміною – долучайся до нас як волонтер!"',
         description:
-          'Відчуй силу допомоги та приєднуйся до нашої команди волонтерів. Разом ми можемо змінити життя тих, хто постраждав від конфлікту. Стань волонтером вже сьогодні!',
+          'Відчуй силу допомоги та приєднуйся до нашої команди волонтерів. Разом ми можемо змінити життя тих, хто постраждав від війни. Стань волонтером вже сьогодні!',
       },
     ],
     id: 'firstBanner',
