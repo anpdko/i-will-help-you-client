@@ -4,8 +4,7 @@ import Select from 'react-select';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import { languageList, languageLevel } from '@utils/languageList';
-import { PlusIcon } from '@components/icons/PlusIcon';
-import { DeleteIcon } from '@components/icons/DeleteIcon';
+import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import s from './Language.module.scss';
 
 const Language = () => {
@@ -83,7 +82,7 @@ const Language = () => {
 
           {index > 0 && (
             <button type='button' onClick={() => remove(index)}>
-              <DeleteIcon />
+              <HiOutlineX />
             </button>
           )}
         </div>
@@ -94,7 +93,7 @@ const Language = () => {
         onClick={addLanguageField}
         className={s.language__button_add}
       >
-        {t('Add one more')} <PlusIcon />
+        {t('Add one more')} <HiOutlinePlus />
       </button>
     </FormItemWrapper>
   );
