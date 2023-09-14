@@ -24,11 +24,9 @@ const AboutItem = ({ tab }: AboutProps) => {
   });
 
   return (
-    <article className={s.about__item} ref={refAboutItem}>
-      <div>
-        <h2 className={`${s.item__title} heading2`}>{transAbout()?.title}</h2>
-        <p className={`${s.item__text} text`}>{transAbout()?.description}</p>
-      </div>
+    <article className={s.item} ref={refAboutItem}>
+      <h3 className={`${s.item__title} heading2`}>{transAbout()?.title}</h3>
+      <p className={`${s.item__text} text`}>{transAbout()?.description}</p>
 
       <div>
         <Link className={s.item__link} to={tab.link}>
