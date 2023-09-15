@@ -124,7 +124,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to='#' target='_blank' className={s.social__link}>
+                <Link to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg' target='_blank' className={s.social__link}>
                   <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
