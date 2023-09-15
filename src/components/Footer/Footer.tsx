@@ -74,14 +74,14 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to='#' target='_blank' className={s.social__link}>
+              <Link to='https://t.me/IWillHelpYouCharity' target='_blank' className={s.social__link}>
                 <svg>
                   <use href={sprite + '#telegram'} />
                 </svg>
               </Link>
             </li>
             <li>
-              <Link to='#' target='_blank' className={s.social__link}>
+              <Link to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/' target='_blank' className={s.social__link}>
                 <svg>
                   <use href={sprite + '#linkedin'} />
                 </svg>
