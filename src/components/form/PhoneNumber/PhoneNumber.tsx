@@ -18,14 +18,15 @@ const PhoneNumber = () => {
           id='countryCode'
           placeholder={t('+ 48')}
           {...register('countryCode', {
-            required: true,
+            required: t('Please enter your country code'),
             pattern: {
               value: /^\+\d{2}$/,
-              message: `${t(
+              message: t(
                 'The country code should start with the «+» symbol and be followed by exactly two digits',
-              )}`,
+              ),
             },
           })}
+          maxLength={3}
           className={`${s.phone__input} ${s.phone__input_code}`}
         />
 
@@ -34,12 +35,14 @@ const PhoneNumber = () => {
           id='phone'
           placeholder={t('605 555 555')}
           {...register('phone', {
-            required: true,
+            required: t('Please enter your phone number'),
             pattern: {
-              value: /^\d+$/,
+              value: /^[0-9]+$/,
               message: t('Please enter your phone number.'),
             },
           })}
+          minLength={8}
+          maxLength={15}
           className={`${s.phone__input} ${s.phone__input_number}`}
         />
       </div>
