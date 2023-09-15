@@ -1,4 +1,4 @@
-import faqVolunteerData from '@/data/faqData';
+import { faqVolunteerData } from '@/data/faqData';
 import { FAQ, FormHeader, FormNeedHelp } from '../../components';
 
 const NeedHelpPage = () => {

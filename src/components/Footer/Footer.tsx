@@ -18,11 +18,16 @@ const Footer = () => {
 
   const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
 
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={s.footer}>
       <div className='container'>
         <div className={s.column}>
-          <Link to='/' className={s.column__logo}>
+          <Link onClick={handleScrollTop} to='/' className={s.column__logo}>
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>

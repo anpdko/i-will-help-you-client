@@ -56,7 +56,7 @@ $mobileSmall: em(479.98); // Телефони S
   min-height: 100vh;
 }
 
-/* Це класи з бібліотеки React-Select, напряму не виходить налаштувати падінги, тому був доданий цей код, прошу не видаляти, поки не буде знайдене інше рішення */
+/* Класи з бібліотеки React-Select */
 .css-1xc3v61-indicatorContainer,
 .css-15lsz6c-indicatorContainer  {
   padding: 8px 8px 8px 0 !important;
@@ -70,6 +70,26 @@ $mobileSmall: em(479.98); // Телефони S
   @media (max-width: $mobileSmall) {
     padding: 2px 0 !important;
   }
+}
+
+.css-k7wtyt-control:hover {
+  box-shadow: none !important;
+  border: 1px solid var(--black) !important;
+}
+
+.css-pu7pq9-control:hover,
+.css-pu7pq9-control:focus-within {
+  box-shadow: none !important;
+  border: 1px solid var(--black) !important;
+}
+
+.css-11p73xy-control:hover,
+.css-1mannzm-control:hover {
+  border: 1px solid var(--black) !important
+}
+
+.css-1mannzm-control {
+  box-shadow: none !important;
 }
 
 /* Це класи з бібліотеки antd, стилі для DatePicker для форм */
@@ -111,13 +131,4 @@ $mobileSmall: em(479.98); // Телефони S
   color: var(--dark-grey);
 }
 
-.css-k7wtyt-control:hover {
-  box-shadow: none !important;
-  border: 1px solid var(--black) !important;
-}
 
-.css-pu7pq9-control:hover,
-.css-pu7pq9-control:focus-within {
-  box-shadow: none !important;
-  border: 1px solid var(--black) !important;
-}

@@ -27,6 +27,7 @@ const PhoneNumber = () => {
             },
           })}
           className={`${s.phone__input} ${s.phone__input_code}`}
+          autoComplete='new-password'
         />
 
         <input
@@ -41,6 +42,7 @@ const PhoneNumber = () => {
             },
           })}
           className={`${s.phone__input} ${s.phone__input_number}`}
+          autoComplete='off'
         />
       </div>
       {errors?.countryCode && (
