@@ -1,6 +1,6 @@
 export interface ITranslation {
   language: 'en' | 'ua';
-  title: string;
+  text: string;
 }
 
 export interface IAboutHeaderData {
@@ -14,12 +14,12 @@ const aboutHeaderData: IAboutHeaderData[] = [
     translations: [
       {
         language: 'en',
-        title: 'We bring together donors, volunteers, and beneficiaries.',
+        text: 'We bring together donors, volunteers, and beneficiaries.',
         
       },
       {
         language: 'ua',
-        title: 'Ми об’єднуємо донорів, волонтерів та бенефіціарів.',
+        text: 'Ми об’єднуємо донорів, волонтерів та бенефіціарів.',
       },
     ],
     id: 'image-1',
@@ -29,12 +29,12 @@ const aboutHeaderData: IAboutHeaderData[] = [
     translations: [
       {
         language: 'en',
-        title: 'Provide guiding light for the millions of Ukrainians',
+        text: 'Provide guiding light for the millions of Ukrainians',
         
       },
       {
         language: 'ua',
-        title: 'Дати дороговказ для мільйонів українців',
+        text: 'Дати дороговказ для мільйонів українців',
       },
     ],
     id: 'image-2',
@@ -44,12 +44,12 @@ const aboutHeaderData: IAboutHeaderData[] = [
     translations: [
       {
         language: 'en',
-        title: 'Cultivate a compassionate community that unites displaced Ukrainians',
+        text: 'Cultivate a compassionate community that unites displaced Ukrainians',
         
       },
       {
         language: 'ua',
-        title: 'Розвивайте співчутливу спільноту, яка об’єднує переміщених українців',
+        text: 'Розвивайте співчутливу спільноту, яка об’єднує переміщених українців',
       },
     ],
     id: 'image-3',
@@ -59,12 +59,12 @@ const aboutHeaderData: IAboutHeaderData[] = [
     translations: [
       {
         language: 'en',
-        title: 'Illuminate the path toward stability, justice, and the promise of a new start',
+        text: 'Illuminate the path toward stability, justice, and the promise of a new start',
         
       },
       {
         language: 'ua',
-        title: 'Освітлюйте шлях до стабільності, справедливості та обіцянки нового початку',
+        text: 'Освітлюйте шлях до стабільності, справедливості та обіцянки нового початку',
       },
     ],
     id: 'image-4',

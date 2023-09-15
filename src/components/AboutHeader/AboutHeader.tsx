@@ -1,19 +1,26 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
+
+import aboutHeaderData from '@/data/aboutHeaderData';
+
+import s from './AboutHeader.module.scss';
+import sprite from '../../assets/sprite.svg';
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 // import MediaQuery from 'react-responsive';
 
 // import FormingPng from '../../assets/image/forming-team-leadership-pana.png';
 
 // import { ButtonApp } from '../UI';
 
-import SlideImg from '../../assets/image/Find_out_about_our_found_ation.jpg';
-
-import s from './AboutHeader.module.scss';
-import sprite from '../../assets/sprite.svg';
-
 const AboutHeader = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+
+  const IMAGE_PREFIX = '/static/images/about/';
+
   return (
     <>
       {/* <section className={s.about}>
@@ -53,20 +60,23 @@ const AboutHeader = () => {
             }}
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
           >
-            {[...Array(1)].map((item, index) => (
-              <SwiperSlide key={index}>
+            {aboutHeaderData?.map((item) => {
+              const translation = item.translations.find(
+                (translation) => translation.language === i18n.language,
+              );
+              return (
+              <SwiperSlide key={item.id}>
                 <div className={s.content}>
-                  <img src={SlideImg} alt='Find out about our foundation' />
-                  <p>
-                    {item}
-                    We bring together donors, volunteers, and beneficiaries.
-                  </p>
+                  <img
+                    src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                    alt='Find out about our foundation'
+                  />
+                  <p>{translation?.text}</p>
                 </div>
               </SwiperSlide>
-            ))}
+              );
+            })}
 
             <div className={s.arrows}>
               <button className={`${s.arrow_prev} swiper-button-prev`}>
