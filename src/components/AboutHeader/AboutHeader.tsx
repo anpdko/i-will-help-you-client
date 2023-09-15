@@ -18,7 +18,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 const AboutHeader = () => {
   const { t, i18n } = useTranslation();
 
-
   const IMAGE_PREFIX = '/static/images/about/';
 
   return (
@@ -66,15 +65,15 @@ const AboutHeader = () => {
                 (translation) => translation.language === i18n.language,
               );
               return (
-              <SwiperSlide key={item.id}>
-                <div className={s.content}>
-                  <img
-                    src={API_URL + IMAGE_PREFIX + item.imgPhath}
-                    alt='Find out about our foundation'
-                  />
-                  <p>{translation?.text}</p>
-                </div>
-              </SwiperSlide>
+                <SwiperSlide key={item.id}>
+                  <div className={s.content}>
+                    <img
+                      src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                      alt='Find out about our foundation'
+                    />
+                    <p>{translation?.text}</p>
+                  </div>
+                </SwiperSlide>
               );
             })}
 

@@ -28,9 +28,9 @@ const Footer = () => {
             </svg>
           </Link>
           <div className={s.column__text}>
-            <p>NIP 7011082198</p> 
-            <p>REGON 521645127</p> 
-            <p>KRS 0000961731</p> 
+            <p>NIP 7011082198</p>
+            <p>REGON 521645127</p>
+            <p>KRS 0000961731</p>
           </div>
         </div>
         <nav className={s.nav}>

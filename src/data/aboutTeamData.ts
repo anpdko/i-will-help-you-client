@@ -234,7 +234,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     id: 'Volodymyr_Pyts',
     imgPhath: 'Volodymyr_Pyts.jpg',
-  }
+  },
 ];
 
 export default aboutTeamData;

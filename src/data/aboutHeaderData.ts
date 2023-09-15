@@ -15,7 +15,6 @@ const aboutHeaderData: IAboutHeaderData[] = [
       {
         language: 'en',
         text: 'We bring together donors, volunteers, and beneficiaries.',
-        
       },
       {
         language: 'ua',
@@ -30,7 +29,6 @@ const aboutHeaderData: IAboutHeaderData[] = [
       {
         language: 'en',
         text: 'Provide guiding light for the millions of Ukrainians',
-        
       },
       {
         language: 'ua',
@@ -45,7 +43,6 @@ const aboutHeaderData: IAboutHeaderData[] = [
       {
         language: 'en',
         text: 'Cultivate a compassionate community that unites displaced Ukrainians',
-        
       },
       {
         language: 'ua',
@@ -60,7 +57,6 @@ const aboutHeaderData: IAboutHeaderData[] = [
       {
         language: 'en',
         text: 'Illuminate the path toward stability, justice, and the promise of a new start',
-        
       },
       {
         language: 'ua',
@@ -70,7 +66,6 @@ const aboutHeaderData: IAboutHeaderData[] = [
     id: 'image-4',
     imgPhath: 'image-4.jpg',
   },
-
 ];
 
 export default aboutHeaderData;
