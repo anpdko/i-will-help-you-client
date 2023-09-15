@@ -31,6 +31,22 @@ const aboutTeamData: IAboutTeamData[] = [
     translations: [
       {
         language: 'en',
+        fullName: 'Natalia Irgovtsij',
+        activity: 'Coordinator of EduHorizon Project',
+      },
+      {
+        language: 'ua',
+        fullName: 'Наталія Ірговцій',
+        activity: 'Координатор проекту EduHorizon',
+      },
+    ],
+    id: 'Natalia_Irgovtsij',
+    imgPhath: 'Natalia_Irgovtsij.jpg',
+  },
+  {
+    translations: [
+      {
+        language: 'en',
         fullName: 'Olena Varlamova',
         activity: 'Volunteer, PM',
       },
