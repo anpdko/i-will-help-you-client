@@ -69,13 +69,15 @@
   "@YourNickname": "@ВашНікнейм",
   "Please write your nickname": "Будь ласка, введіть ваш нікнейм",
 
+  "First Name *": "Ім'я *",
   "Enter your first name": "Введіть ваше ім'я",
   "Please type your first name": "Будь ласка, напишіть ваше ім'я",
-  "First Name *": "Ім'я *",
+  "First name should be 2-30 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Ім'я повинно бути від 2 до 30 символів і може містити лише латинські та кириличні літери та дефіс",
 
+  "Last Name *": "Прізвище *",
   "Enter your last name": "Введіть ваше прізвище",
   "Please type your last name": "Будь ласка, напишіть ваше прізвище",
-  "Last Name *": "Прізвище *",
+  "Last name should be 2-100 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Прізвище повинно мати довжину від 2 до 100 символів і може містити лише латинські та кириличні літери та дефіс",
 
   "Phone Number *": "Номер телефону *",
   "+ 48": "+38",
@@ -83,8 +85,9 @@
   "605 555 555": "095 55 55 555",
   "Please enter your phone number": "Будь ласка, введіть ваш номер телефону",
 
-  "Please write your email in the format mail@example.com": "Будь ласка, введіть вашу електронну адресу в форматі mail@example.com",
   "Email *": "Електронна адреса *",
+  "Please type your email address" : "Будь ласка, введіть вашу електронну адресу",
+  "Please write your email in the format mail@example.com": "Будь ласка, введіть вашу електронну адресу в форматі mail@example.com",
 
   "Comment (what do you to do? in what areas?)": "Прокоментуйте (чим ви можете займатися? в яких сферах?)",
 
