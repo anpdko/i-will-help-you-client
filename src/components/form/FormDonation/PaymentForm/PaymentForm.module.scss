@@ -57,4 +57,9 @@
   @media (max-width: $mobile) {
     @include formButtonsGridResponsive(2, $include-mobile: true);
   }
+
+  @media (max-width: $mobileSmall) {
+    @include formButtonsGridResponsive(1, $include-mobile: true);
+    row-gap: 0.5rem;
+  }
 }
