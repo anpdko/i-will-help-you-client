@@ -105,7 +105,7 @@ const Navbar = () => {
             <h3 className={s.social__title}>{t('Follow us')}</h3>
             <ul className={s.social__list}>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link to='https://www.facebook.com/profile.php?id=61551465054599' target="_blank" className={s.social__link}>
                   <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
@@ -135,12 +135,12 @@ const Navbar = () => {
             </li>
             <li className={s.contacts__item}>
               <Link
-                to='mailto:admin@iwillhelpyou.charity'
+                to='mailto:contact@iwillhelpyou.charity'
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
                   <span>{t('Email')}</span>
-                  admin@iwillhelpyou.charity
+                  contact@iwillhelpyou.charity
                 </div>
                 <svg>
                   <use href={sprite + '#mail'} />

@@ -56,14 +56,18 @@ const Footer = () => {
           <p>{t('Follow us')}</p>
           <ul className={s.social__items}>
             <li>
-              <Link to='#' className={s.social__link}>
+              <Link
+                to='https://www.facebook.com/profile.php?id=61551465054599'
+                target='_blank'
+                className={s.social__link}
+              >
                 <svg>
                   <use href={sprite + '#facebook'} />
                 </svg>
               </Link>
             </li>
             <li>
-              <Link to='#' className={s.social__link}>
+              <Link to='#' target='_blank' className={s.social__link}>
                 <svg>
                   <use href={sprite + '#instagram'} />
                 </svg>
@@ -85,8 +89,8 @@ const Footer = () => {
                 <Link to='tel:+48575728854'>+48-575-728-854</Link>
               </li>
               <li>
-                <Link to='mailto:admin@iwillhelpyou.charity'>
-                  admin@iwillhelpyou.charity
+                <Link to='mailto:contact@iwillhelpyou.charity'>
+                  contact@iwillhelpyou.charity
                 </Link>
               </li>
             </ul>
@@ -106,12 +110,12 @@ const Footer = () => {
               </li>
               <li className={s.contacts__item}>
                 <Link
-                  to='mailto:admin@iwillhelpyou.charity'
+                  to='mailto:contact@iwillhelpyou.charity'
                   className={s.contacts__link}
                 >
                   <div className={s.contacts__link_text}>
                     <span>{t('Email')}</span>
-                    admin@iwillhelpyou.charity
+                    contact@iwillhelpyou.charity
                   </div>
                   <svg>
                     <use href={sprite + '#mail'} />
