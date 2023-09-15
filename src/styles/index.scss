@@ -12,7 +12,7 @@ $maxWidth: 1440;
 $maxWidthContainer: 1200;
 // Загальний відступ у контейнера
 // (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
-$containerPadding: 30;
+$containerPadding: 24;
 
 // Ширина спрацьовування першого брейкпоінту
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -38,12 +38,12 @@ $mobileSmall: em(479.98); // Телефони S
       @include adaptiveValue(
         'padding-left',
         math.div($containerPadding, 2),
-        15
+        12
       );
       @include adaptiveValue(
         'padding-right',
         math.div($containerPadding, 2),
-        15
+        12
       );
     }
   }
