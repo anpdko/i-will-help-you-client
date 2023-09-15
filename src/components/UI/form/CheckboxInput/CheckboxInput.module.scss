@@ -1,12 +1,13 @@
 .checkboxes {
   &__wrap {
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    grid-template-areas: 'checkbox text' 'error error';
+    column-gap: 1rem;
   }
 
   &__input {
+    grid-area: checkbox;
     -webkit-appearance: none;
     appearance: none;
     width: 1.5rem;
@@ -32,5 +33,17 @@
     &:checked::before {
       transform: scale(1);
     }
+  }
+
+  &__text {
+    grid-area: text;
+  }
+
+  &__error {
+    grid-area: error;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--red-for-error);
+    margin-top: 0.5rem;
   }
 }

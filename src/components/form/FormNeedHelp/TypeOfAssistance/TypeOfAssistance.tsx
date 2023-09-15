@@ -1,13 +1,16 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
 import { CheckboxInput } from '@components/UI';
 import { typeOfAssistanceList } from '@utils/typeOfAssistanceList';
 import s from './TypeOfAssistance.module.scss';
-import { useTranslation } from 'react-i18next';
 
 const TypeOfAssistance = () => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   const { t } = useTranslation();
 
   return (
@@ -18,7 +21,7 @@ const TypeOfAssistance = () => {
       <Controller
         control={control}
         name='typeOfAssistance'
-        rules={{ required: true }}
+        rules={{ required: t('Please select at least one type of assistance') }}
         render={({ field: { onChange, value = [] } }) => (
           <>
             <div className={s.assistance__wrap}>
@@ -44,6 +47,11 @@ const TypeOfAssistance = () => {
                 ),
               )}
             </div>
+            {errors.typeOfAssistance && (
+              <p className={s.error}>
+                {errors.typeOfAssistance.message as string}
+              </p>
+            )}
             <CheckboxInput
               id='selectAll'
               required={false}
