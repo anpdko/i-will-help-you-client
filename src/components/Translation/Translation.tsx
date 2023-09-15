@@ -35,6 +35,8 @@ const Translation = ({ className, long }: ITranslation) => {
     i18n.changeLanguage(lang);
     setLanguage(lang);
     setIsButtonFocused(false);
+
+    document.documentElement.lang = lang;
   };
 
   const handleListLanguage = () => {

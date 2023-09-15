@@ -7,7 +7,7 @@ import {
 } from 'react-hook-form';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
-import { ButtonApp, Modal} from '../../UI';
+import { ButtonApp, Modal } from '../../UI';
 import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
 import s from './FormNeedHelp.module.scss';
 import FirstName from '../FirstName/FirstName';
@@ -63,10 +63,13 @@ const FormNeedHelp = () => {
     console.log(formattedData);
 
     //временное решение...
-    const {files, ...formattedDataNotFiles} = formattedData;
+    const { files, ...formattedDataNotFiles } = formattedData;
 
     try {
-      const res = await axios.post(API_URL + '/api/needhelps', formattedDataNotFiles);
+      const res = await axios.post(
+        API_URL + '/api/needhelps',
+        formattedDataNotFiles,
+      );
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
