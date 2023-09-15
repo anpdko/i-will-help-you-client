@@ -61,7 +61,7 @@
       justify-content: center;
       align-items: center;
       @include adaptiveValue('padding', 8, 7, 0, 1200, 390);
-      border-radius: toRem(20);
+      @include adaptiveValue('border-radius', 20, 18, 0, 1200, 390);
       color: var(--total-white);
       background-color: var(--light-black);
       transition: background-color 0.2s linear;
