@@ -71,8 +71,10 @@
     }
     &__link {
       svg {
-        width: toRem(40);
-        height: toRem(40);
+        width: toRem(33);
+        height: toRem(33);
+        fill: currentColor; 
+        stroke: currentColor; 
         transition: fill 0.3s;
         @media (any-hover: hover) {
           &:hover {

@@ -112,9 +112,23 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link to='#' target="_blank" className={s.social__link}>
                   <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link to='#' target="_blank" className={s.social__link}>
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#telegram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link to='#' target="_blank" className={s.social__link}>
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#linkedin'} />
                   </svg>
                 </Link>
               </li>

@@ -178,8 +178,10 @@
 
   &__link {
     svg {
-      width: toRem(40);
-      height: toRem(40);
+      width: toRem(34);
+      height: toRem(34);
+      fill: currentColor; 
+      stroke: currentColor; 
     }
   }
 }

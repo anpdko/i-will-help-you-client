@@ -73,6 +73,20 @@ const Footer = () => {
                 </svg>
               </Link>
             </li>
+            <li>
+              <Link to='#' target='_blank' className={s.social__link}>
+                <svg>
+                  <use href={sprite + '#telegram'} />
+                </svg>
+              </Link>
+            </li>
+            <li>
+              <Link to='#' target='_blank' className={s.social__link}>
+                <svg>
+                  <use href={sprite + '#linkedin'} />
+                </svg>
+              </Link>
+            </li>
           </ul>
         </div>
 
