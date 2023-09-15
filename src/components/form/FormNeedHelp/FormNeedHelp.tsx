@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import {
   FieldValues,
   FormProvider,
@@ -7,7 +8,7 @@ import {
 } from 'react-hook-form';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
-import { ButtonApp, Modal} from '../../UI';
+import { ButtonApp, Modal } from '@components/UI';
 import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
 import s from './FormNeedHelp.module.scss';
 import FirstName from '../FirstName/FirstName';
@@ -18,7 +19,6 @@ import Checkboxes from '../Checkboxes/Checkboxes';
 import Comment from '../Comment/Comment';
 import Files from './Files/Files';
 import TypeOfAssistance from './TypeOfAssistance/TypeOfAssistance';
-import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -44,10 +44,6 @@ const FormNeedHelp = () => {
     mode: 'onChange',
   });
 
-  const {
-    formState: { isValid },
-  } = methods;
-
   const onSubmit = async (data: DataForm) => {
     const formattedData = {
       firstName: data.firstName,
@@ -63,10 +59,13 @@ const FormNeedHelp = () => {
     console.log(formattedData);
 
     //временное решение...
-    const {files, ...formattedDataNotFiles} = formattedData;
+    const { files, ...formattedDataNotFiles } = formattedData;
 
     try {
-      const res = await axios.post(API_URL + '/api/needhelps', formattedDataNotFiles);
+      const res = await axios.post(
+        API_URL + '/api/needhelps',
+        formattedDataNotFiles,
+      );
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
@@ -107,14 +106,17 @@ const FormNeedHelp = () => {
           <Email className={s.form__email} />
           <PhoneNumber />
           <TypeOfAssistance />
-          <Comment title='Leave a comment' placeholder='Tell your story...' />
+          <Comment
+            title='Leave a comment'
+            placeholder='Tell your story...'
+            maxLength={6000}
+          />
           <Files />
           <Checkboxes />
           <ButtonApp
             type='submit'
             size='Xlarge'
             className={s.form__button}
-            disabled={!isValid}
           >
             {t('Send my form')}
           </ButtonApp>
