@@ -11,12 +11,7 @@ import s from './PaymentBlock.module.scss';
 
 const CardPayment = () => {
   const { t } = useTranslation();
-  const {
-    control,
-    setValue,
-    getValues,
-    formState: { isValid },
-  } = useFormContext();
+  const { control, setValue, getValues } = useFormContext();
   const [customAmount, setCustomAmount] = useState('');
 
   const isMobile = useMediaQuery({ minWidth: 480, maxWidth: 767 });
@@ -102,13 +97,12 @@ const CardPayment = () => {
           />
         </label>
       </div>
-      <Email />
+      <Email required={false} />
       <Comment title='Comment' placeholder='Type here...' maxLength={255} />
       <ButtonApp
         type='submit'
         size={isMobile ? 'Xlarge' : 'medium'}
         className={s.card__button}
-        // disabled={!isValid}
       >
         {t('Pay urgent!')}
       </ButtonApp>
