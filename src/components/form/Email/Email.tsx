@@ -3,9 +3,10 @@ import { TextInput } from '../../UI';
 
 interface EmailProps {
   className?: string;
+  required?: boolean;
 }
 
-const Email = ({ className }: EmailProps) => {
+const Email = ({ className, required = true }: EmailProps) => {
   const { t } = useTranslation();
 
   return (
@@ -13,7 +14,7 @@ const Email = ({ className }: EmailProps) => {
       type='email'
       id='email'
       placeholder='mail@example.com'
-      required={true}
+      required={required}
       regexp={
         /^(?!.*--)(?!.*__)(?!.*\.\.)(?!.*-$)(?!.*\.$)(?!.*^\..*$)(?!.*\.$)(?!.*^-)[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/g
       }
@@ -21,7 +22,7 @@ const Email = ({ className }: EmailProps) => {
         required: t('Please type your email address'),
         pattern: t('Please write your email in the format mail@example.com'),
       }}
-      title={t('Email *')}
+      title={required ? t('Email ') + '*' : t('Email ')}
       classNameContainer={className}
     />
   );
