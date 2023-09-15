@@ -26,7 +26,6 @@
     }
   }
   .column {
-    
     display: flex;
 
     justify-content: space-between;
@@ -98,10 +97,13 @@
         height: toRem(33);
         fill: currentColor;
         stroke: currentColor;
-        transition: fill 0.3s;
+        transition:
+          fill,
+          stroke 0.4s;
         @media (any-hover: hover) {
           &:hover {
             fill: var(--orange);
+            stroke: var(--orange);
           }
         }
       }
