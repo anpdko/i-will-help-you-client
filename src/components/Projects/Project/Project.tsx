@@ -48,7 +48,11 @@ const Project = ({ project }: ProjectProps) => {
           {truncatedDescription}
         </p>
 
-        <Link className={s.content__btn} to={`/projects/${project._id}`}>
+        <Link
+          className={s.content__btn}
+          to={`/projects/${project._id}`}
+          aria-label='link to progect'
+        >
           <svg>
             <use href={sprite + '#arrow-up-right'} />
           </svg>

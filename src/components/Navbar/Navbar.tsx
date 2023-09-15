@@ -71,7 +71,7 @@ const Navbar = () => {
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/' onClick={handleLogoClick}>
+          <Link to='/' onClick={handleLogoClick} aria-label="Logo">
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>
@@ -117,6 +117,7 @@ const Navbar = () => {
                   to={facebookLink}
                   target='_blank'
                   className={s.social__link}
+                  aria-label='link facebook'
                 >
                   <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
@@ -124,7 +125,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg' target='_blank' className={s.social__link}>
+                <Link
+                  to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
+                  aria-label="link instagram"
+                  target='_blank'
+                  className={s.social__link}
+                >
                   <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
                   </svg>
@@ -133,6 +139,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to='https://t.me/IWillHelpYouCharity'
+                  aria-label="link telegram"
                   target='_blank'
                   className={s.social__link}
                 >
@@ -145,6 +152,7 @@ const Navbar = () => {
                 <Link
                   to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
                   target='_blank'
+                  aria-label="link linkedin"
                   className={s.social__link}
                 >
                   <svg className={s.instagram}>

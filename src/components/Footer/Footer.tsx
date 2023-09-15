@@ -18,7 +18,6 @@ const Footer = () => {
 
   const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
 
-
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -27,7 +26,12 @@ const Footer = () => {
     <footer className={s.footer}>
       <div className='container'>
         <div className={s.column}>
-          <Link onClick={handleScrollTop} to='/' className={s.column__logo}>
+          <Link
+            onClick={handleScrollTop}
+            to='/'
+            className={s.column__logo}
+            aria-label='Logo'
+          >
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>
@@ -81,6 +85,7 @@ const Footer = () => {
                 to={facebookLink}
                 target='_blank'
                 className={s.social__link}
+                aria-label='link facebook'
               >
                 <svg>
                   <use href={sprite + '#facebook'} />
@@ -88,7 +93,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg' target='_blank' className={s.social__link}>
+              <Link
+                to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
+                target='_blank'
+                className={s.social__link}
+                aria-label="link instagram"
+              >
                 <svg>
                   <use href={sprite + '#instagram'} />
                 </svg>
@@ -99,6 +109,7 @@ const Footer = () => {
                 to='https://t.me/IWillHelpYouCharity'
                 target='_blank'
                 className={s.social__link}
+                aria-label="link telegram"
               >
                 <svg>
                   <use href={sprite + '#telegram'} />
@@ -110,6 +121,7 @@ const Footer = () => {
                 to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
                 target='_blank'
                 className={s.social__link}
+                aria-label="link linkedin"
               >
                 <svg>
                   <use href={sprite + '#linkedin'} />
