@@ -15,242 +15,210 @@ const aboutTeamData: IAboutTeamData[] = [
     translations: [
       {
         language: 'en',
-        fullName: 'Nataliya Kovalenko',
-        activity: 'Volunteer',
+        fullName: 'Bohdan Nemyrovskyi',
+        activity: 'Volunteer, CEO',
       },
       {
         language: 'ua',
-        fullName: 'Наталія Коваленко',
-        activity: 'Волонтер',
+        fullName: 'Богдан Немировський',
+        activity: 'Волонтер, CEO',
       },
     ],
-    id: 'NataliyaKovalenko1',
-    imgPhath: 'image-1.jpeg',
+    id: 'Bohdan_Nemyrovskyi',
+    imgPhath: 'Bohdan_Nemyrovskyi.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Oleksandr Korol',
-        activity: 'Volunteer',
+        fullName: 'Olena Varlamova',
+        activity: 'Volunteer, PM',
       },
       {
         language: 'ua',
-        fullName: 'Олександр Король',
-        activity: 'Волонтер',
+        fullName: 'Олена Варламова',
+        activity: 'Волонтер, PM',
       },
     ],
-    id: 'OleksandrKorol2',
-    imgPhath: 'image-2.jpeg',
+    id: 'Olena Varlamova',
+    imgPhath: 'Olena Varlamova.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Yurii Bondarenko',
-        activity: 'Volunteer',
+        fullName: 'Jessica Sahun',
+        activity: 'Volunteer, UI/UX Designer',
       },
       {
         language: 'ua',
-        fullName: 'Юрій Бондаренко',
-        activity: 'Волонтер',
+        fullName: 'Джесіка Сагун',
+        activity: 'Волонтер, UI/UX Designer',
       },
     ],
-    id: 'YuriiBondarenko3',
-    imgPhath: 'image-3.jpeg',
+    id: 'Jessica_Sahun',
+    imgPhath: 'Jessica_Sahun.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Anastasiya Romanenko',
-        activity: 'Volunteer',
+        fullName: 'Andrii Priadko',
+        activity: 'Volunteer, Full Stack Lead',
       },
       {
         language: 'ua',
-        fullName: 'Анастасія Романенко',
-        activity: 'Волонтер',
+        fullName: 'Андрій Прдяко',
+        activity: 'Волонтер, Full Stack Lead',
       },
     ],
-    id: 'AnastasiyaRomanenko4',
-    imgPhath: 'image-4.jpeg',
+    id: 'Andrii_Priadko',
+    imgPhath: 'Andrii_Priadko.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Nataliya Kovalenko',
-        activity: 'Volunteer',
+        fullName: 'Dmytro Kuts',
+        activity: 'Volunteer, Full Stack',
       },
       {
         language: 'ua',
-        fullName: 'Наталія Коваленко',
-        activity: 'Волонтер',
+        fullName: 'Дмитро Куц',
+        activity: 'Волонтер, Full Stack',
       },
     ],
-    id: 'NataliyaKovalenko5',
-    imgPhath: 'image-1.jpeg',
+    id: 'Dmytro_Kuts',
+    imgPhath: 'Dmytro_Kuts.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Oleksandr Korol',
-        activity: 'Volunteer',
+        fullName: 'Sofiia Voloshyn',
+        activity: 'Volunteer, Lead QA',
       },
       {
         language: 'ua',
-        fullName: 'Олександр Король',
-        activity: 'Волонтер',
+        fullName: 'Софія Волошин',
+        activity: 'Волонтер, Lead QA',
       },
     ],
-    id: 'OleksandrKorol6',
-    imgPhath: 'image-2.jpeg',
+    id: 'Sofiia_Voloshyn',
+    imgPhath: 'Sofiia_Voloshyn.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Yurii Bondarenko',
-        activity: 'Volunteer',
+        fullName: 'Anastasiia Chernyshova',
+        activity: 'Volunteer, Lead Design',
       },
       {
         language: 'ua',
-        fullName: 'Юрій Бондаренко',
-        activity: 'Волонтер',
+        fullName: 'Анастасія Чернишова',
+        activity: 'Волонтер, Lead Design',
       },
     ],
-    id: 'YuriiBondarenko7',
-    imgPhath: 'image-3.jpeg',
+    id: 'Anastasiia Chernyshova',
+    imgPhath: 'Anastasiia Chernyshova.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Anastasiya Romanenko',
-        activity: 'Volunteer',
+        fullName: 'Iryna Petrenko',
+        activity: 'Volunteer, Frontend ',
       },
       {
         language: 'ua',
-        fullName: 'Анастасія Романенко',
-        activity: 'Волонтер',
+        fullName: 'Ірина Петренко',
+        activity: 'Волонтер, Frontend ',
       },
     ],
-    id: 'AnastasiyaRomanenko8',
-    imgPhath: 'image-4.jpeg',
+    id: 'Iryna_Petrenko',
+    imgPhath: 'Iryna_Petrenko.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Nataliya Kovalenko',
-        activity: 'Volunteer',
+        fullName: 'Anastasiia Koptylova',
+        activity: 'Volunteer, Frontend',
       },
       {
         language: 'ua',
-        fullName: 'Наталія Коваленко',
-        activity: 'Волонтер',
+        fullName: 'Анастасія Коптилова',
+        activity: 'Волонтер, Frontend',
       },
     ],
-    id: 'NataliyaKovalenko9',
-    imgPhath: 'image-1.jpeg',
+    id: 'Anastasiia_Koptylova',
+    imgPhath: 'Anastasiia_Koptylova.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Oleksandr Korol',
-        activity: 'Volunteer',
+        fullName: 'Olha Tsyhykal',
+        activity: 'Volunteer, QA',
       },
       {
         language: 'ua',
-        fullName: 'Олександр Король',
-        activity: 'Волонтер',
+        fullName: 'Ольга Цигикал',
+        activity: 'Волонтер, QA ',
       },
     ],
-    id: 'OleksandrKorol10',
-    imgPhath: 'image-2.jpeg',
+    id: 'Tsyhykal_Olha',
+    imgPhath: 'Tsyhykal_Olha.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Yurii Bondarenko',
-        activity: 'Volunteer',
+        fullName: 'Alina Astanina',
+        activity: 'Volunteer, QA',
       },
       {
         language: 'ua',
-        fullName: 'Юрій Бондаренко',
-        activity: 'Волонтер',
+        fullName: 'Аліна Астаніна',
+        activity: 'Волонтер, QA',
       },
     ],
-    id: 'YuriiBondarenko11',
-    imgPhath: 'image-3.jpeg',
+    id: 'Alina_Astanina',
+    imgPhath: 'Alina_Astanina.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Anastasiya Romanenko',
-        activity: 'Volunteer',
+        fullName: 'Vita Polishchuk',
+        activity: 'Volunteer, QA',
       },
       {
         language: 'ua',
-        fullName: 'Анастасія Романенко',
-        activity: 'Волонтер',
+        fullName: 'Віта Поліщук',
+        activity: 'Волонтер, QA',
       },
     ],
-    id: 'AnastasiyaRomanenko12',
-    imgPhath: 'image-4.jpeg',
+    id: 'Vita_Polishchuk',
+    imgPhath: 'Vita_Polishchuk.jpg',
   },
   {
     translations: [
       {
         language: 'en',
-        fullName: 'Yurii Bondarenko',
-        activity: 'Volunteer',
+        fullName: 'Volodymyr Pyts',
+        activity: 'Volunteer, Backend',
       },
       {
         language: 'ua',
-        fullName: 'Юрій Бондаренко',
-        activity: 'Волонтер',
+        fullName: 'Volodymyr Pyts',
+        activity: 'Волонтер, Backend',
       },
     ],
-    id: 'YuriiBondarenko13',
-    imgPhath: 'image-3.jpeg',
-  },
-  {
-    translations: [
-      {
-        language: 'en',
-        fullName: 'Anastasiya Romanenko',
-        activity: 'Volunteer',
-      },
-      {
-        language: 'ua',
-        fullName: 'Анастасія Романенко',
-        activity: 'Волонтер',
-      },
-    ],
-    id: 'AnastasiyaRomanenko14',
-    imgPhath: 'image-4.jpeg',
-  },
-  {
-    translations: [
-      {
-        language: 'en',
-        fullName: 'Anastasiya Romanenko',
-        activity: 'Volunteer',
-      },
-      {
-        language: 'ua',
-        fullName: 'Анастасія Романенко',
-        activity: 'Волонтер',
-      },
-    ],
-    id: 'AnastasiyaRomanenko15',
-    imgPhath: 'image-1.jpeg',
-  },
+    id: 'Volodymyr_Pyts',
+    imgPhath: 'Volodymyr_Pyts.jpg',
+  }
 ];
 
 export default aboutTeamData;
