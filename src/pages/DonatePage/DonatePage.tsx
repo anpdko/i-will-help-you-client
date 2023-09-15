@@ -1,4 +1,5 @@
-import { FormHeader, ProjectsFund, FormDonation } from '../../components';
+import { FormHeader, ProjectsFund, FormDonation, FAQ } from '../../components';
+import { faqDonateData } from '../../data/faqData';
 
 const DonatePage = () => {
   return (
@@ -6,6 +7,7 @@ const DonatePage = () => {
       <FormHeader id='donate' />
       <FormDonation />
       <ProjectsFund />
+      <FAQ data={faqDonateData} />
     </>
   );
 };
