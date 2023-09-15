@@ -82,6 +82,7 @@
     }
     &__items {
       gap: toRem(16);
+      width: fit-content;
       @media (min-width: em(390)) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
