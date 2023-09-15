@@ -8,7 +8,17 @@ import s from './Footer.module.scss';
 import sprite from '../../assets/sprite.svg';
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const facebookProfileIdEn = '61551308008265';
+  const facebookProfileIdUa = '61551465054599';
+
+  const facebookProfileId =
+    i18n.language === 'en' ? facebookProfileIdEn : facebookProfileIdUa;
+
+  const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
+
+
   return (
     <footer className={s.footer}>
       <div className='container'>
@@ -57,7 +67,7 @@ const Footer = () => {
           <ul className={s.social__items}>
             <li>
               <Link
-                to='https://www.facebook.com/profile.php?id=61551465054599'
+                to={facebookLink}
                 target='_blank'
                 className={s.social__link}
               >

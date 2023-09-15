@@ -14,7 +14,7 @@ interface ILinks {
 }
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const links: ILinks[] = [
     {
@@ -58,6 +58,14 @@ const Navbar = () => {
       document.body.classList.remove('scroll-lock');
     }
   };
+
+  const facebookProfileIdEn = '61551308008265';
+  const facebookProfileIdUa = '61551465054599';
+
+  const facebookProfileId =
+    i18n.language === 'en' ? facebookProfileIdEn : facebookProfileIdUa;
+
+  const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
@@ -106,7 +114,7 @@ const Navbar = () => {
             <ul className={s.social__list}>
               <li>
                 <Link
-                  to='https://www.facebook.com/profile.php?id=61551465054599'
+                  to={facebookLink}
                   target='_blank'
                   className={s.social__link}
                 >
