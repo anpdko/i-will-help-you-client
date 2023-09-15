@@ -18,15 +18,21 @@ const Footer = () => {
 
   const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
 
-
   return (
     <footer className={s.footer}>
       <div className='container'>
-        <Link to='/' className={s.logo}>
-          <svg>
-            <use href={sprite + '#logo-header'} />
-          </svg>
-        </Link>
+        <div className={s.column}>
+          <Link to='/' className={s.column__logo}>
+            <svg>
+              <use href={sprite + '#logo-header'} />
+            </svg>
+          </Link>
+          <div className={s.column__text}>
+            <p>NIP 7011082198</p> 
+            <p>REGON 521645127</p> 
+            <p>KRS 0000961731</p> 
+          </div>
+        </div>
         <nav className={s.nav}>
           <ul className={s.nav__list}>
             <li>
@@ -84,14 +90,22 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to='https://t.me/IWillHelpYouCharity' target='_blank' className={s.social__link}>
+              <Link
+                to='https://t.me/IWillHelpYouCharity'
+                target='_blank'
+                className={s.social__link}
+              >
                 <svg>
                   <use href={sprite + '#telegram'} />
                 </svg>
               </Link>
             </li>
             <li>
-              <Link to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/' target='_blank' className={s.social__link}>
+              <Link
+                to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
+                target='_blank'
+                className={s.social__link}
+              >
                 <svg>
                   <use href={sprite + '#linkedin'} />
                 </svg>

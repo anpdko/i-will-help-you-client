@@ -25,21 +25,38 @@
       }
     }
   }
+  .column {
+    
+    display: flex;
 
-  .logo {
-    display: inline-block;
-    height: toRem(48);
-    svg {
-      max-width: toRem(132);
+    justify-content: space-between;
+    gap: toRem(12);
+    @media (min-width: em(608)) {
+      flex-direction: column;
+    }
+    @media (max-width: em(608)) {
+      width: 100%;
+    }
+
+    &__logo {
+      display: inline-block;
       height: toRem(48);
-      transition: opacity 0.3s;
-      @media (any-hover: hover) {
-        &:hover {
-          opacity: 0.7;
+      svg {
+        max-width: toRem(132);
+        height: toRem(48);
+        transition: opacity 0.3s;
+        @media (any-hover: hover) {
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
     }
+    &__text {
+      font-size: toRem(14);
+    }
   }
+
   .nav {
     display: flex;
     flex-direction: row;
