@@ -65,16 +65,22 @@
       font-weight: 600;
     }
     &__items {
-      display: flex;
-      align-items: center;
       gap: toRem(16);
+      @media (min-width: em(390)) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: em(390)) {
+        display: flex;
+        align-items: center;
+      }
     }
     &__link {
       svg {
         width: toRem(33);
         height: toRem(33);
-        fill: currentColor; 
-        stroke: currentColor; 
+        fill: currentColor;
+        stroke: currentColor;
         transition: fill 0.3s;
         @media (any-hover: hover) {
           &:hover {
