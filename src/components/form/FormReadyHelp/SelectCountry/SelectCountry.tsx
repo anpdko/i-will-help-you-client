@@ -36,6 +36,7 @@ const SelectCountry = () => {
         options={lang === 'ua' ? countriesUa : countries}
         placeholder={t('Select Country')}
         required={true}
+        errorMessage={t('Please select your country')}
         className={s.country__input}
       />
     </FormItemWrapper>
