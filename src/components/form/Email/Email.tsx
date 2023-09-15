@@ -14,8 +14,13 @@ const Email = ({ className }: EmailProps) => {
       id='email'
       placeholder='mail@example.com'
       required={true}
-      regexp={/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g}
-      message={t('Please write your email in the format mail@example.com')}
+      regexp={
+        /^(?!.*--)(?!.*__)(?!.*\.\.)(?!.*-$)(?!.*\.$)(?!.*^\..*$)(?!.*\.$)(?!.*^-)[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/g
+      }
+      message={{
+        required: t('Please type your email address'),
+        pattern: t('Please write your email in the format mail@example.com'),
+      }}
       title={t('Email *')}
       classNameContainer={className}
     />
