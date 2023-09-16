@@ -31,6 +31,22 @@ const aboutTeamData: IAboutTeamData[] = [
     translations: [
       {
         language: 'en',
+        fullName: 'Natalia Irgovtsij',
+        activity: 'Coordinator of EduHorizon Project',
+      },
+      {
+        language: 'ua',
+        fullName: 'Наталія Ірговцій',
+        activity: 'Координатор проекту EduHorizon',
+      },
+    ],
+    id: 'Natalia_Irgovtsij',
+    imgPhath: 'Natalia_Irgovtsij.jpg',
+  },
+  {
+    translations: [
+      {
+        language: 'en',
         fullName: 'Olena Varlamova',
         activity: 'Volunteer, PM',
       },
@@ -128,12 +144,12 @@ const aboutTeamData: IAboutTeamData[] = [
       {
         language: 'en',
         fullName: 'Iryna Petrenko',
-        activity: 'Volunteer, Frontend ',
+        activity: 'Volunteer, Front-End ',
       },
       {
         language: 'ua',
         fullName: 'Ірина Петренко',
-        activity: 'Волонтер, Frontend ',
+        activity: 'Волонтер, Front-End ',
       },
     ],
     id: 'Iryna_Petrenko',
@@ -144,12 +160,12 @@ const aboutTeamData: IAboutTeamData[] = [
       {
         language: 'en',
         fullName: 'Anastasiia Koptylova',
-        activity: 'Volunteer, Frontend',
+        activity: 'Volunteer, Front-End',
       },
       {
         language: 'ua',
         fullName: 'Анастасія Коптилова',
-        activity: 'Волонтер, Frontend',
+        activity: 'Волонтер, Front-End',
       },
     ],
     id: 'Anastasiia_Koptylova',
@@ -208,17 +224,17 @@ const aboutTeamData: IAboutTeamData[] = [
       {
         language: 'en',
         fullName: 'Volodymyr Pyts',
-        activity: 'Volunteer, Backend',
+        activity: 'Volunteer, Back-End',
       },
       {
         language: 'ua',
         fullName: 'Volodymyr Pyts',
-        activity: 'Волонтер, Backend',
+        activity: 'Волонтер, Back-End',
       },
     ],
     id: 'Volodymyr_Pyts',
     imgPhath: 'Volodymyr_Pyts.jpg',
-  }
+  },
 ];
 
 export default aboutTeamData;

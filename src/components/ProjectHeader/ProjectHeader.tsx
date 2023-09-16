@@ -115,12 +115,12 @@ const ProjectHeader: React.FC<
                     </SwiperSlide>
                   ))}
                   <div className={s.arrows}>
-                    <button className={`${s.arrow_prev} swiper-button-prev`}>
+                    <button className={`${s.arrow_prev} swiper-button-prev`} aria-label='previous slide'>
                       <svg>
                         <use href={sprite + '#arrow-left'}></use>
                       </svg>
                     </button>
-                    <button className={`${s.arrow_next} swiper-button-next`}>
+                    <button className={`${s.arrow_next} swiper-button-next`} aria-label='next slide'>
                       <svg>
                         <use href={sprite + '#arrow-right'}></use>
                       </svg>

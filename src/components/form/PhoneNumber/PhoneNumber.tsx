@@ -28,6 +28,7 @@ const PhoneNumber = () => {
           })}
           maxLength={3}
           className={`${s.phone__input} ${s.phone__input_code}`}
+          autoComplete='new-password'
         />
 
         <input
@@ -44,6 +45,7 @@ const PhoneNumber = () => {
           minLength={8}
           maxLength={15}
           className={`${s.phone__input} ${s.phone__input_number}`}
+          autoComplete='off'
         />
       </div>
       {errors?.countryCode && (
