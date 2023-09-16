@@ -100,39 +100,37 @@ const FormReadyHelp = () => {
 
   return (
     <FormWrapper subtitle={t('Form')} title={t('Volunteer application form')}>
-      <FormProvider {...methods}>
-        <form
-          id='formReadyToHelp'
-          onSubmit={methods.handleSubmit(
-            onSubmit as SubmitHandler<FieldValues>,
-          )}
-          className={s.form}
+      {/* <FormProvider {...methods}> */}
+      <form
+        id='formReadyToHelp'
+        onSubmit={methods.handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
+        className={s.form}
+      >
+        <FirstName />
+        <LastName />
+        <DateOfBirth />
+        <PhoneNumber />
+        <SelectCountry />
+        <SocialNetwork />
+        <Email className={s.form__email} />
+        <DaysOfVolunteering />
+        <Language />
+        <Skills />
+        <Comment
+          title='Comment (what do you to do? in what areas?)'
+          placeholder='Type here...'
+        />
+        <Checkboxes />
+        <ButtonApp
+          type='submit'
+          size='Xlarge'
+          className={s.form__button}
+          disabled={!isValid}
         >
-          <FirstName />
-          <LastName />
-          <DateOfBirth />
-          <PhoneNumber />
-          <SelectCountry />
-          <SocialNetwork />
-          <Email className={s.form__email} />
-          <DaysOfVolunteering />
-          <Language />
-          <Skills />
-          <Comment
-            title='Comment (what do you to do? in what areas?)'
-            placeholder='Type here...'
-          />
-          <Checkboxes />
-          <ButtonApp
-            type='submit'
-            size='Xlarge'
-            className={s.form__button}
-            disabled={!isValid}
-          >
-            {t('Send my form')}
-          </ButtonApp>
-        </form>
-      </FormProvider>
+          {t('Send my form')}
+        </ButtonApp>
+      </form>
+      {/* </FormProvider> */}
       {isSuccess && (
         <Modal
           title={modalTitle.toString()}

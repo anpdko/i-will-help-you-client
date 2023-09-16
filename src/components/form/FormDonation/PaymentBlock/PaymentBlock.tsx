@@ -24,7 +24,7 @@ const PaymentBlock = () => {
     if (!selectedValue) {
       setValue('donationAmount', '10');
     }
-  }, []);
+  }, [getValues, setValue]);
 
   return (
     <div className={s.paymentBlock}>

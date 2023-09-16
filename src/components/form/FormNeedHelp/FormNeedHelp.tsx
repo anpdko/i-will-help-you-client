@@ -61,32 +61,30 @@ const FormNeedHelp = () => {
       subtitle={t('Form for receiving assistance')}
       title={t('Applying for assistance')}
     >
-      <FormProvider {...methods}>
-        <form
-          id='formNeedHelp'
-          onSubmit={methods.handleSubmit(
-            onSubmit as SubmitHandler<FieldValues>,
-          )}
-          className={s.form}
+      {/* <FormProvider {...methods}> */}
+      <form
+        id='formNeedHelp'
+        onSubmit={methods.handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
+        className={s.form}
+      >
+        <FirstName />
+        <LastName />
+        <Email className={s.form__email} />
+        <PhoneNumber />
+        <TypeOfAssistance />
+        <Comment title='Leave a comment' placeholder='Tell your story...' />
+        <Files />
+        <Checkboxes />
+        <ButtonApp
+          type='submit'
+          size='Xlarge'
+          className={s.form__button}
+          disabled={!isValid}
         >
-          <FirstName />
-          <LastName />
-          <Email className={s.form__email} />
-          <PhoneNumber />
-          <TypeOfAssistance />
-          <Comment title='Leave a comment' placeholder='Tell your story...' />
-          <Files />
-          <Checkboxes />
-          <ButtonApp
-            type='submit'
-            size='Xlarge'
-            className={s.form__button}
-            disabled={!isValid}
-          >
-            {t('Send my form')}
-          </ButtonApp>
-        </form>
-      </FormProvider>
+          {t('Send my form')}
+        </ButtonApp>
+      </form>
+      {/* </FormProvider> */}
     </FormWrapper>
   );
 };

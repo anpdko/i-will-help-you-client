@@ -56,7 +56,8 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
   };
 
   return (
-    <FormProvider {...methods}>
+    <>
+      {/* <FormProvider {...methods}> */}
       {isOpenModal && (
         <Modal onClose={toggleModal} title='Payment'>
           <Payment email={dataForm.email} amount={dataForm.donationAmount} />
@@ -80,7 +81,8 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
           {t('Pay urgent!')}
         </ButtonApp>
       </form>
-    </FormProvider>
+      {/* </FormProvider> */}
+    </>
   );
 };
 

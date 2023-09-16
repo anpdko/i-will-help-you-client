@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const PaymentButtons = ({ stripe }: { stripe: any }) => {
   const [paymentRequest, setPaymentRequest] = useState<any>(null);
-
+  console.log(paymentRequest);
   useEffect(() => {
     if (stripe) {
       const pr: any = stripe.paymentRequest({

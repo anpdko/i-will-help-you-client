@@ -1,0 +1,21 @@
+.completionWrapper {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.completionImageWrapper {
+  margin-top: 16px;
+  margin-bottom: 42px;
+}
+.completionAmount {
+  color: var(--black);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.completionButton {
+  margin-top: 42px;
+}
