@@ -135,7 +135,7 @@ const Footer = () => {
           <ButtonApp type='link' to='/donate' className={s.contacts__btn}>
             {t('Donate')}
           </ButtonApp>
-          <MediaQuery minWidth={391}>
+          <MediaQuery minWidth={437}>
             <ul className={s.contacts__list}>
               <li>
                 <p>{t('Mon-Fri')} 8:00 - 18:00</p>
@@ -150,7 +150,7 @@ const Footer = () => {
               </li>
             </ul>
           </MediaQuery>
-          <MediaQuery maxWidth={390}>
+          <MediaQuery maxWidth={436}>
             <ul className={s.contacts}>
               <li className={s.contacts__item}>
                 <Link to='tel:+48575728854' className={s.contacts__link}>
