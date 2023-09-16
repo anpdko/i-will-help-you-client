@@ -1,5 +1,33 @@
 @import '@/styles/index.scss';
 
+@mixin border-left {
+  border-left: 1px solid var(--black);
+  border-radius: 10px 0 0 10px;
+  label {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    &::after {
+      display: none !important;
+    }
+    &:before {
+      display: none !important;
+    }
+  }
+  &:before {
+    display: none;
+  }
+}
+
+@mixin border-right {
+  border-right: 1px solid var(--black);
+  border-radius: 0 10px 10px 0;
+  label {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+}
+
+
 .assistance {
   grid-area: assistance;
 
@@ -10,72 +38,215 @@
     grid-template-columns: repeat(4, 1fr);
     row-gap: toRem(12);
 
-    & > label {
-      text-align: center;
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 0.875rem;
-      padding: 1.188rem 1.813rem;
-      cursor: pointer;
-
+    li {
+      width: 100%;
+      min-height: 52px;
+      align-self: stretch;
       border-radius: 0;
       border-top: 1px solid var(--black);
       border-bottom: 1px solid var(--black);
       background: var(--total-white);
       position: relative;
-      z-index: 2;
+      // overflow: hidden;
 
+      label {
+        user-select: none;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: 0.2s ease-out;
+        // overflow: hidden;
+        z-index: 2;
+
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 0.875rem;
+        cursor: pointer;
+
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        background: transparent;
+        padding: 0.625rem 1.813rem;
+      }
+
+      input {
+        display: none;
+      }
+
+      input:checked + label {
+        background: var(--orange-for-states);
+        border: 1px solid var(--black);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+
+    @media (min-width: $mobileSmall) {
+      li.left {
+        input:checked + label {
+          border-right: 1px solid var(--black) !important;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          position: relative;
+
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 2px;
+            height: 100%;
+            left: -1px;
+            background: var(--orange-for-states);
+            position: absolute;
+            z-index: 2;
+          }
+
+          &:before {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 70%;
+            top: 15%;
+            left: 0;
+            background: var(--black);
+            position: absolute;
+            z-index: 3;
+          }
+        }
+      }
+      li.right {
+        input:checked + label {
+          border-left: 1px solid var(--black) !important;
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+    }
+
+    li:not(:first-child) {
       &:before {
         content: '';
         display: inline-block;
-        width: toRem(1);
-        height: toRem(36);
+        width: 1px;
+        height: 70%;
+        top: 15%;
+        left: 0;
         background: black;
         position: absolute;
-        left: 0;
-        top: 15%;
       }
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--orange-for-states);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: -1;
+    @media (min-width: $tablet) {
+      li:nth-child(4n) {
+        @include border-right;
       }
-
-      @include hideDecorativeLine;
+      li:nth-child(4n + 5) {
+        @include border-left;
+      }
     }
 
-    & > input {
-      display: none;
+    @media (min-width: $mobile) and (max-width: $tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      li:nth-child(3n) {
+        @include border-right;
+      }
+      li:nth-child(3n + 4) {
+        @include border-left;
+      }
     }
 
-    & > input:checked + label::after {
-      opacity: 1;
-    }
-
-    @include formButtonsGridBasic(4, $include-after: true);
-
-    @media (max-width: $tablet) {
-      @include formButtonsGridResponsive(3,$include-after: true);
-    }
-
-    @media (max-width: $mobile) {
-      @include formButtonsGridResponsive(2, $include-after: true, $include-mobile: true);
+    @media (min-width: $mobileSmall) and (max-width: $mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      li:nth-child(2n) {
+        @include border-right;
+      }
+      li:nth-child(2n + 3) {
+        @include border-left;
+      }
     }
 
     @media (max-width: $mobileSmall) {
-      @include formButtonsGridResponsive(1, $include-after: true, $include-mobile: true);
+      grid-template-columns: repeat(1, 1fr);
+      li {
+        border: 1px solid var(--black);
+        border-radius: 10px !important;
+      }
     }
 
-  &__checkbox_all {
-    font-weight: 400;
+    li:first-child {
+      border-left: 1px solid var(--black);
+      border-top-left-radius: 10px !important;
+      border-bottom-left-radius: 10px !important;
+    }
+    li:last-child {
+      border-right: 1px solid var(--black);
+      border-top-right-radius: 10px !important;
+      border-bottom-right-radius: 10px !important;
+    }
+
+    // & > label {
+    //   text-align: center;
+    //   font-size: 0.875rem;
+    //   font-weight: 600;
+    //   line-height: 0.875rem;
+    //   padding: 1.188rem 1.813rem;
+    //   cursor: pointer;
+
+    //   border-radius: 0;
+    //   border-top: 1px solid var(--black);
+    //   border-bottom: 1px solid var(--black);
+    //   background: var(--total-white);
+    //   position: relative;
+    //   z-index: 2;
+
+    //   &:before {
+    //     content: '';
+    //     display: inline-block;
+    //     width: toRem(1);
+    //     height: toRem(36);
+    //     background: black;
+    //     position: absolute;
+    //     left: 0;
+    //     top: 15%;
+    //   }
+
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: var(--orange-for-states);
+    //     opacity: 0;
+    //     transition: opacity 0.3s ease;
+    //     z-index: -1;
+    //   }
+
+    //   @include hideDecorativeLine;
+    // }
+
+    // @include formButtonsGridBasic(4, $include-after: true);
+
+    // @media (max-width: $tablet) {
+    //   @include formButtonsGridResponsive(3,$include-after: true);
+    // }
+
+    // @media (max-width: $mobile) {
+    //   @include formButtonsGridResponsive(2, $include-after: true, $include-mobile: true);
+    // }
+
+    // @media (max-width: $mobileSmall) {
+    //   @include formButtonsGridResponsive(1, $include-after: true, $include-mobile: true);
+    // }
+
+    &__checkbox_all {
+      font-weight: 400;
+    }
   }
-}
 }

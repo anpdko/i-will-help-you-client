@@ -6,6 +6,7 @@ import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
 import { CheckboxInput } from '@components/UI';
 import s from './TypeOfAssistance.module.scss';
+import checkLabelsNearby from '@/services/form/checkLabelsNearby'
 
 interface AssistanceTranslation {
   language: string;
@@ -62,6 +63,12 @@ const TypeOfAssistance = () => {
     fetchData();
   }, [language]);
 
+
+  const checkButtonsNearbySide = () =>{
+    const elems = document.querySelectorAll('#list_projects li')
+    checkLabelsNearby(elems, s)
+  }
+
   return (
     <FormItemWrapper
       className={s.assistance}
@@ -73,24 +80,26 @@ const TypeOfAssistance = () => {
         rules={{ required: true }}
         render={({ field: { onChange, value = [] } }) => (
           <>
-            <div className={s.assistance__wrap}>
+            <ul className={s.assistance__wrap} id="list_projects">
               {typeOfAssistanceList.map((item) => (
-                <CheckboxSelect
-                  title={item.title as string}
-                  name={item.id}
-                  id={item.id}
-                  key={item.id}
-                  checked={value.includes(item.id)}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    if (e.target.checked) {
-                      onChange([...value, item.id]);
-                    } else {
-                      onChange(value.filter((val: string) => val !== item.id));
-                    }
-                  }}
-                />
+                <li key={item.id}>
+                  <CheckboxSelect
+                    title={item.title as string}
+                    name={item.id}
+                    id={item.id}
+                    checked={value.includes(item.id)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      if (e.target.checked) {
+                        onChange([...value, item.id]);
+                      } else {
+                        onChange(value.filter((val: string) => val !== item.id));
+                      }
+                      checkButtonsNearbySide()
+                    }}
+                  />
+                </li>
               ))}
-            </div>
+            </ul>
             <CheckboxInput
               id='selectAll'
               required={false}
@@ -105,6 +114,7 @@ const TypeOfAssistance = () => {
                 } else {
                   onChange([]);
                 }
+                checkButtonsNearbySide()
               }}
             />
           </>

@@ -3,6 +3,7 @@ interface CheckboxSelectProps {
   name: string;
   id: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent) => void;
   checked?: boolean;
 }
 
@@ -12,6 +13,7 @@ const CheckboxSelect = ({
   id,
   onChange,
   checked,
+  onClick,
 }: CheckboxSelectProps) => {
   return (
     <>
@@ -22,7 +24,7 @@ const CheckboxSelect = ({
         checked={checked}
         onChange={onChange}
       />
-      <label htmlFor={id}>{title}</label>
+      <label onClick={onClick} htmlFor={id}>{title}</label>
     </>
   );
 };
