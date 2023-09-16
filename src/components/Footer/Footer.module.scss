@@ -83,11 +83,11 @@
     &__items {
       gap: toRem(25);
       width: fit-content;
-      @media (min-width: em(390)) {
+      @media (min-width: em(437)) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
-      @media (max-width: em(390)) {
+      @media (max-width: em(436)) {
         display: flex;
         align-items: center;
       }
@@ -96,8 +96,7 @@
       svg {
         width: toRem(33);
         height: toRem(33);
-        fill: currentColor;
-        stroke: currentColor;
+
         transition:
           fill,
           stroke 0.4s;
@@ -117,7 +116,7 @@
       font-size: toRem(16);
     }
     @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
-    @media (min-width: em(390)) {
+    @media (min-width: em(437)) {
       min-width: toRem(204);
       &__btn {
         &:not(:last-child) {
@@ -134,7 +133,8 @@
         }
       }
     }
-    @media (max-width: em(390)) {
+    @media (max-width: em(436)) {
+      min-width: 100%;
       &__btn {
         min-width: 100%;
         padding: toRem(20);
@@ -173,7 +173,7 @@
         }
       }
     }
-    @media (max-width: em(348)) {
+    @media (max-width: em(360)) {
       &__item {
         padding: toRem(8) toRem(12);
       }
