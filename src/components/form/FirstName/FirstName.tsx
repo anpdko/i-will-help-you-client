@@ -11,12 +11,16 @@ const FirstName = () => {
       id='firstName'
       placeholder={t('Enter your first name')}
       required={true}
-      regexp={
-        /^[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}$/
-      }
-      message={t('Please type your first name')}
+      regexp={/^(?=.*[a-zA-Z\xC0-\uFFFF])[a-zA-Z\xC0-\uFFFF\-]{2,30}$/}
+      message={{
+        required: t('Please type your first name'),
+        pattern: t(
+          'First name should be 2-30 characters long and can only contain Latin and Cyrillic letters and hyphens',
+        ),
+      }}
       title={t('First Name *')}
       classNameContainer={s.firstName}
+      capitalizeFirstLetter={true}
     />
   );
 };

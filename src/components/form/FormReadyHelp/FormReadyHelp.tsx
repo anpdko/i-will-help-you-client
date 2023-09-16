@@ -49,16 +49,11 @@ interface DataForm {
 const FormReadyHelp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { t } = useTranslation();
 
   const methods = useForm({
     mode: 'onChange',
   });
-
-  const { t } = useTranslation();
-
-  const {
-    formState: { isValid },
-  } = methods;
 
   const onSubmit = async (data: DataForm) => {
     const formattedData = {
@@ -124,13 +119,13 @@ const FormReadyHelp = () => {
           <Comment
             title='Comment (what do you to do? in what areas?)'
             placeholder='Type here...'
+            maxLength={2500}
           />
           <Checkboxes />
           <ButtonApp
             type='submit'
             size='Xlarge'
             className={s.form__button}
-            disabled={!isValid}
           >
             {t('Send my form')}
           </ButtonApp>

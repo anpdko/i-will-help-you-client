@@ -6,9 +6,10 @@ import s from './Comment.module.scss';
 interface CommentProps {
   title: string;
   placeholder: string;
+  maxLength: number;
 }
 
-const Comment = ({ title, placeholder }: CommentProps) => {
+const Comment = ({ title, placeholder, maxLength }: CommentProps) => {
   const { t } = useTranslation();
 
   return (
@@ -18,6 +19,7 @@ const Comment = ({ title, placeholder }: CommentProps) => {
         id='comment'
         rows={10}
         placeholder={t(placeholder)}
+        maxLength={maxLength}
       />
     </FormItemWrapper>
   );
