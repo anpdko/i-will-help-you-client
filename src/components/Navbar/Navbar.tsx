@@ -14,7 +14,7 @@ interface ILinks {
 }
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const links: ILinks[] = [
     {
@@ -59,11 +59,19 @@ const Navbar = () => {
     }
   };
 
+  const facebookProfileIdEn = '61551308008265';
+  const facebookProfileIdUa = '61551465054599';
+
+  const facebookProfileId =
+    i18n.language === 'en' ? facebookProfileIdEn : facebookProfileIdUa;
+
+  const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
+
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/' onClick={handleLogoClick}>
+          <Link to='/' onClick={handleLogoClick} aria-label="Logo">
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>
@@ -105,16 +113,50 @@ const Navbar = () => {
             <h3 className={s.social__title}>{t('Follow us')}</h3>
             <ul className={s.social__list}>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link
+                  to={facebookLink}
+                  target='_blank'
+                  className={s.social__link}
+                  aria-label='link facebook'
+                >
                   <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link
+                  to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
+                  aria-label="link instagram"
+                  target='_blank'
+                  className={s.social__link}
+                >
                   <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='https://t.me/IWillHelpYouCharity'
+                  aria-label="link telegram"
+                  target='_blank'
+                  className={s.social__link}
+                >
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#telegram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
+                  target='_blank'
+                  aria-label="link linkedin"
+                  className={s.social__link}
+                >
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#linkedin'} />
                   </svg>
                 </Link>
               </li>
@@ -135,12 +177,12 @@ const Navbar = () => {
             </li>
             <li className={s.contacts__item}>
               <Link
-                to='mailto:admin@iwillhelpyou.charity'
+                to='mailto:contact@iwillhelpyou.charity'
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
                   <span>{t('Email')}</span>
-                  admin@iwillhelpyou.charity
+                  contact@iwillhelpyou.charity
                 </div>
                 <svg>
                   <use href={sprite + '#mail'} />

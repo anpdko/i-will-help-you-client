@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
-import { DeleteIcon } from '../../../icons/DeleteIcon';
+import { HiOutlineX } from 'react-icons/hi';
 import basic from '../Form.module.scss';
 import s from './FileInput.module.scss';
 
@@ -110,7 +110,7 @@ const FileInput = ({
                 onClick={() => handleFileRemove(index)}
                 className={s.file__button_delete}
               >
-                <DeleteIcon />
+                <HiOutlineX />
               </button>
             </li>
           ))}

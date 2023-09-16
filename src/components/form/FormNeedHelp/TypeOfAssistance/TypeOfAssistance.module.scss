@@ -2,26 +2,13 @@
 
 .assistance {
   grid-area: assistance;
-  width: 49.563rem;
-
-  @media (max-width: $tablet) {
-    width: 46.25rem;
-  }
-
-  @media (max-width: $mobile) {
-    width: 22.875rem;
-  }
-
-  @media (max-width: $mobileSmall) {
-    width: 18rem;
-  }
 
   &__wrap {
     width: 100%;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 0.75rem;
+    row-gap: toRem(12);
 
     & > label {
       text-align: center;
@@ -41,8 +28,8 @@
       &:before {
         content: '';
         display: inline-block;
-        width: 1px;
-        height: 36px;
+        width: toRem(1);
+        height: toRem(36);
         background: black;
         position: absolute;
         left: 0;

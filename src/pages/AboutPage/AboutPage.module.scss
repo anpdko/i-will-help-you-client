@@ -1,23 +1,30 @@
-
 @import '../../styles/index.scss';
 
 .about {
-
   &_goals {
-    @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
-    @include adaptiveValue('padding-bottom', 52, 40, 0, 1200, 390);
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 52, 40, 0, 1200, 390);
+      }
+    }
   }
-
 
   &_team {
-    @include adaptiveValue('padding-top', 52, 40, 0, 1200, 390);
-    @include adaptiveValue('padding-bottom', 28, 16, 0, 1200, 390);
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 52, 40, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 28, 16, 0, 1200, 390);
+      }
+    }
   }
-
 
   &_objectives {
-    @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
-    @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+      }
+    }
   }
 }
-

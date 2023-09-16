@@ -5,36 +5,39 @@
 
   &__wrap {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.438rem;
-
-    @media (max-width: $tablet) {
-      gap: 0.25rem;
+    width: 100%;
+    @media (min-width: $mobile) {
+      gap: toRem(24);
+    }
+    @media (max-width: $mobile) {
+      gap: toRem(4);
     }
   }
 
   &__input {
+    width: 100%;
 
+    
     &_logo {
-      width: 4.875rem;
+      flex: 0 1 20.3125%; /* 78/384 */
+      min-width: toRem(78);
       text-align: center;
 
       & > div {
-        padding: 11px 0 !important;
+        padding: toRem(11) toRem(4) !important;
       }
 
-      @media (max-width: $mobileSmall) {
-        width: 4rem;
-      }
     }
 
     &_network {
-      width: 17.625rem;
-      border-radius: 0.625rem;
+      @media (min-width: $mobile) {
+        flex: 0 1 73.4375%; /* 282/384 */
+      }
+      width: 100%;
+      border-radius: toRem(10);
       border: 1px solid var(--black);
       background: var(--total-white);
-      padding: 1.125rem 1.5rem;
+      padding: toRem(18) toRem(24);
   
       &::placeholder {
         color: var(--dark-grey);
@@ -43,16 +46,11 @@
         font-weight: 400;
         line-height: 1rem; 
       }
-
-      @media (max-width: $mobileSmall) {
-        width: 13.75rem;
-      }
     }
   }
 
   &__error {
     font-size: 0.875rem;
-    font-weight: 400;
     color: var(--red-for-error);
     margin-top: -0.5rem;
   }

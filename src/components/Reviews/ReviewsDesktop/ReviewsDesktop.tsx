@@ -166,7 +166,7 @@ const ReviewsDesktop = () => {
             onClick={handlePrevSlide}
             className={`${s.slide_navigation__button} ${
               isFirst ? s.slide_navigation__disabled : ''
-            }`}
+            }`} aria-label='previous slide'
           >
             <svg>
               <use href={sprite + '#arrow-left'}></use>
@@ -176,7 +176,7 @@ const ReviewsDesktop = () => {
             onClick={handleNextSlide}
             className={`${s.slide_navigation__button} ${
               isLast ? s.slide_navigation__disabled : ''
-            }`}
+            }`} aria-label='previous slide'
           >
             <svg>
               <use href={sprite + '#arrow-right'}></use>

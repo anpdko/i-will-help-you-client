@@ -47,6 +47,7 @@ interface DataForm {
 }
 
 const FormReadyHelp = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const methods = useForm({
@@ -79,9 +80,11 @@ const FormReadyHelp = () => {
     try {
       const res = await axios.post(API_URL + '/api/readyneed', formattedData);
       console.log(res);
+      setIsPopupVisible(true);
       setIsSuccess(true);
     } catch (error) {
       console.log(error);
+      setIsPopupVisible(true);
       setIsSuccess(false);
     }
   };

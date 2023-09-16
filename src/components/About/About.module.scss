@@ -1,67 +1,80 @@
 @import '../../styles/index.scss';
 
 .about {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    }
+  }
   &__body {
     display: flex;
-    gap: 5.75rem;
-    margin-bottom: 7rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include adaptiveValue('gap', 92, 32, 0, 1200, 992);
 
-    @media (max-width: $mobile) {
-      gap: 2rem;
+    @media (min-width: $tablet) {
+      justify-content: space-between;
+    }
+    @media (max-width: $tablet) {
+      flex-direction: column;
     }
   }
 
   &__tabs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-
-    @media (max-width: $pc) {
+    @include adaptiveValue('gap', 20, 15, 0, 1200, 390);
+    @media (min-width: $tablet) {
+      flex: 1 0 26.333333%; /* 316/1200 */
+    }
+    @media (max-width: $tablet) {
       grid-template-columns: repeat(3, 1fr);
     }
-
-    @media (max-width: $mobile) {
-      gap: 0.9rem;
+    @media (max-width: em(389)) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__tab {
-    width: 9.25rem;
-    height: 9.25rem;
+    min-width: toRem(112);
+    min-height: toRem(112);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    gap: 1.12rem;
-    border: 0;
-    border-radius: 1.25rem;
+    @include adaptiveValue('gap', 18, 14, 0, 1200, 390);
+    padding: toRem(22);
+    border-radius: toRem(20);
     background-color: var(--milky);
     color: var(--black);
     cursor: pointer;
-    font-size: 1rem;
     font-weight: 600;
-    padding: 1rem;
-    transition: color 0.2s linear, box-shadow 0.2s linear;
+
+    transition:
+      color 0.2s linear,
+      box-shadow 0.2s linear;
     &:hover {
       color: var(--orange);
     }
 
-    @media (max-width: $mobile) {
-      width: toRem(112);
-      height: toRem(112);
+    @media (max-width: $mobileSmall) {
+      padding: toRem(18) toRem(10) toRem(10) toRem(10);
     }
-  }
 
-  &__icon {
-    fill: currentColor;
-    width: 4rem;
-    height: 4rem;
+    svg {
+      fill: currentColor;
+      @include adaptiveValue('width', 54, 38, 0, 1200, 390);
+      @include adaptiveValue('height', 54, 38, 0, 1200, 390);
+    }
   }
 
   &__active {
     color: var(--orange);
     box-shadow: 0px 4px 20px 0px rgba(14, 14, 14, 0.1);
+  }
+
+  &__items {
+    @media (min-width: $tablet) {
+      flex: 0 1 66%; /* 792/1200 */
+    }
   }
 }
