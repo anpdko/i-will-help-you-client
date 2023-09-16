@@ -62,6 +62,7 @@
   "Choose level": "Оберіть рівень",
   "Country of Residence *": "Країна проживання *",
   "Select Country": "Оберіть країну",
+  "Please select your country" : "Будь ласка, оберіть вашу країну",
   "Choose your skills (you can select several options) *": "Оберіть свої навички (можна обрати декілька варіантів) *",
   "Please select at least one skill": "Будь ласка, оберіть не менш ніж одну навичку",
   "Search your skills": "Знайдіть свої навички",
@@ -94,6 +95,7 @@
 
   "Consent to mailing": "Згода на email-розсилку",
   "Consent to data processing *": "Згода на обробку даних *",
+  "Please check the checkbox" : "Будь ласка, поставте галочку в полі",
 
   "Monday": "Понеділок",
   "Tuesday": "Вівторок",
@@ -167,9 +169,9 @@
   "Web Development": "Веб-розробка",
 
   "Form for receiving assistance": "Форма для отримання допомоги",
-  "Applying for assistance": "Подання заявки на отримання допомоги",
-  "The country code should start with the '+' symbol and be followed by exactly two digits.": "Код країни повинен починатися з символу '+', за яким слідують рівно дві цифри",
+  "Applying for assistance": "Заявка на отримання допомоги",
   "Type of assistance (you can select several options) *": "Тип допомоги (ви можете обрати декілька варіантів) *",
+  "Please select at least one type of assistance" : "Будь ласка, оберіть принаймні один вид допомоги",
   "Choose all": "Вибрати всі",
   "Leave a comment": "Залишити коментар",
   "Tell your story...": "Розкажіть свою історію...",
