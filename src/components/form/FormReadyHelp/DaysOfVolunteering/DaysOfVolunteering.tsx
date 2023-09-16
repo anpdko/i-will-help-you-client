@@ -56,14 +56,15 @@ const DaysOfVolunteering = () => {
                     {...field}
                     options={days}
                     placeholder={t('Day')}
-                    styles={customStyles}
+                    isSearchable={false}
                     value={days.find((option) => option.value === field.value)}
                     onChange={(selectedOption) => {
                       field.onChange(
                         (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
+                        ?.value,
+                        );
+                      }}
+                    styles={customStyles}
                     className={s.volunteer__input_days}
                   />
                 )}
@@ -84,14 +85,15 @@ const DaysOfVolunteering = () => {
                     {...field}
                     options={times}
                     placeholder={t('Start Time')}
-                    styles={customStyles}
+                    isSearchable={false}
                     value={times.find((option) => option.value === field.value)}
                     onChange={(selectedOption) => {
                       field.onChange(
                         (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
+                        ?.value,
+                        );
+                      }}
+                    styles={customStyles}
                     className={s.volunteer__input_time}
                   />
                 )}
@@ -109,14 +111,15 @@ const DaysOfVolunteering = () => {
                     {...field}
                     options={times}
                     placeholder={t('End Time')}
-                    styles={customStyles}
+                    isSearchable={false}
                     value={times.find((option) => option.value === field.value)}
                     onChange={(selectedOption) => {
                       field.onChange(
                         (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
+                        ?.value,
+                        );
+                      }}
+                    styles={customStyles}
                     className={s.volunteer__input_time}
                   />
                 )}
