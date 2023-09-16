@@ -29,12 +29,14 @@
     @media (max-width: $tablet) {
       grid-template-columns: repeat(3, 1fr);
     }
-    @media (max-width: $mobileSmall) {
+    @media (max-width: em(389)) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__tab {
+    min-width: toRem(112);
+    min-height: toRem(112);
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -52,6 +54,10 @@
       box-shadow 0.2s linear;
     &:hover {
       color: var(--orange);
+    }
+
+    @media (max-width: $mobileSmall) {
+      padding: toRem(18) toRem(10) toRem(10) toRem(10);
     }
 
     svg {

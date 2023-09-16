@@ -27,7 +27,7 @@ const ArticleSection: React.FC<IArticleProps> = ({
         <ul className={s.list}>
           {(items as ITags[]).map((item) => (
             <li key={item._id} className={s.item}>
-              <h4 className={s.tag}>{item.tag}</h4>
+              <h3 className={s.tag}>{item.tag}</h3>
               <p className='text'>{item.desc}</p>
             </li>
           ))}

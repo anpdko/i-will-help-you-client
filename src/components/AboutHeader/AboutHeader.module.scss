@@ -66,11 +66,10 @@
         }
       }
       .swiper {
-        @media (max-width:$mobile){
+        @media (max-width: $mobile) {
           margin-bottom: toRem(-40);
           padding-bottom: toRem(40);
         }
-
       }
     }
   }
@@ -117,7 +116,7 @@
       @include adaptiveValue('padding-top', 30, 24, 0, 1200, 390);
       @include adaptiveValue('padding-bottom', 30, 32, 0, 1200, 390);
       @include adaptiveValue('padding-left', 40, 16, 0, 1200, 390);
-      @include adaptiveValue('padding-right', 720, 16, 0, 1200, 390);
+      @include adaptiveValue('padding-right', 620, 16, 0, 1200, 390);
     }
   }
 }

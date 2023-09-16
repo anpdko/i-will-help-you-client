@@ -1,5 +1,5 @@
 import { FormHeader, FormReadyHelp, FAQ } from '../../components';
-import faqVolunteerData from '../../data/faqData';
+import { faqVolunteerData } from '../../data/faqData';
 
 const ReadyHelpPage = () => {
   return (

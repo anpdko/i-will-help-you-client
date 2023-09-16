@@ -8,15 +8,40 @@ import s from './Footer.module.scss';
 import sprite from '../../assets/sprite.svg';
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const facebookProfileIdEn = '61551308008265';
+  const facebookProfileIdUa = '61551465054599';
+
+  const facebookProfileId =
+    i18n.language === 'en' ? facebookProfileIdEn : facebookProfileIdUa;
+
+  const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={s.footer}>
       <div className='container'>
-        <Link to='/' className={s.logo}>
-          <svg>
-            <use href={sprite + '#logo-header'} />
-          </svg>
-        </Link>
+        <div className={s.column}>
+          <Link
+            onClick={handleScrollTop}
+            to='/'
+            className={s.column__logo}
+            aria-label='Logo'
+          >
+            <svg>
+              <use href={sprite + '#logo-header'} />
+            </svg>
+          </Link>
+          <div className={s.column__text}>
+            <p>NIP 7011082198</p>
+            <p>REGON 521645127</p>
+            <p>KRS 0000961731</p>
+          </div>
+        </div>
         <nav className={s.nav}>
           <ul className={s.nav__list}>
             <li>
@@ -56,16 +81,50 @@ const Footer = () => {
           <p>{t('Follow us')}</p>
           <ul className={s.social__items}>
             <li>
-              <Link to='#' className={s.social__link}>
+              <Link
+                to={facebookLink}
+                target='_blank'
+                className={s.social__link}
+                aria-label='link facebook'
+              >
                 <svg>
                   <use href={sprite + '#facebook'} />
                 </svg>
               </Link>
             </li>
             <li>
-              <Link to='#' className={s.social__link}>
+              <Link
+                to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
+                target='_blank'
+                className={s.social__link}
+                aria-label="link instagram"
+              >
                 <svg>
                   <use href={sprite + '#instagram'} />
+                </svg>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to='https://t.me/IWillHelpYouCharity'
+                target='_blank'
+                className={s.social__link}
+                aria-label="link telegram"
+              >
+                <svg>
+                  <use href={sprite + '#telegram'} />
+                </svg>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
+                target='_blank'
+                className={s.social__link}
+                aria-label="link linkedin"
+              >
+                <svg>
+                  <use href={sprite + '#linkedin'} />
                 </svg>
               </Link>
             </li>
@@ -85,8 +144,8 @@ const Footer = () => {
                 <Link to='tel:+48575728854'>+48-575-728-854</Link>
               </li>
               <li>
-                <Link to='mailto:admin@iwillhelpyou.charity'>
-                  admin@iwillhelpyou.charity
+                <Link to='mailto:contact@iwillhelpyou.charity'>
+                  contact@iwillhelpyou.charity
                 </Link>
               </li>
             </ul>
@@ -106,12 +165,12 @@ const Footer = () => {
               </li>
               <li className={s.contacts__item}>
                 <Link
-                  to='mailto:admin@iwillhelpyou.charity'
+                  to='mailto:contact@iwillhelpyou.charity'
                   className={s.contacts__link}
                 >
                   <div className={s.contacts__link_text}>
                     <span>{t('Email')}</span>
-                    admin@iwillhelpyou.charity
+                    contact@iwillhelpyou.charity
                   </div>
                   <svg>
                     <use href={sprite + '#mail'} />
