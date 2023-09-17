@@ -104,7 +104,7 @@ const FormNeedHelp = () => {
           <FirstName />
           <LastName />
           <Email className={s.form__email} />
-          <PhoneNumber defaultCountry='ua' />
+          <PhoneNumber />
           <TypeOfAssistance />
           <Comment
             title='Leave a comment'
