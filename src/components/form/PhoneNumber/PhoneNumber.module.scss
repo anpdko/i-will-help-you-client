@@ -3,54 +3,6 @@
 .phone {
   grid-area: phone;
 
-  &__label {
-    color: var(--black);
-    font-weight: 600;
-    line-height: 1rem;
-  }
-
-  &__inputs {
-    display: flex;
-    width: 100%;
-    @media (min-width: $mobile) {
-      gap: toRem(24);
-    }
-    @media (max-width: $mobile) {
-      gap: toRem(4);
-    }
-  }
-
-  &__input {
-    width: 100%;
-    border-radius: toRem(10);
-    border: 1px solid var(--black);
-    background: var(--total-white);
-    padding: toRem(18) toRem(24);
-
-
-    &::placeholder {
-      color: var(--dark-grey);
-      line-height: 1rem;
-    }
-
-    &_code {
-      flex: 0 1 20.3125%; /* 78/384 */
-      min-width: toRem(78);
-      padding-top: toRem(18);
-      padding-bottom: toRem(18);
-      @include adaptiveValue("padding-left", 22, 18, 0, 1200, 768);
-      @include adaptiveValue("padding-right", 22, 10, 0, 1200, 768);
-
-    }
-
-    &_number {
-      @media (min-width: $mobile) {
-        flex: 0 1 73.4375%; /* 282/384 */
-      }
-
-    }
-  }
-
   &__error {
     font-size: 0.875rem;
     color: var(--red-for-error);
