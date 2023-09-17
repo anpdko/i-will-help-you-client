@@ -126,18 +126,18 @@
           border-bottom-right-radius: 0px;
         }
       }
-    }
 
-    li:not(:first-child) {
-      &:before {
-        content: '';
-        display: inline-block;
-        width: 1px;
-        height: 70%;
-        top: 15%;
-        left: 0;
-        background: black;
-        position: absolute;
+      li:not(:first-child) {
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 1px;
+          height: 70%;
+          top: 15%;
+          left: 0;
+          background: black;
+          position: absolute;
+        }
       }
     }
 
