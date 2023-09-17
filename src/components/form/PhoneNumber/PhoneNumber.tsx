@@ -5,15 +5,8 @@ import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import 'react-international-phone/style.css';
 import s from './PhoneNumber.module.scss';
 
-interface PhoneNumberProps {
-  defaultCountry?: string;
-}
-
-const PhoneNumber = ({ defaultCountry = 'pl' }: PhoneNumberProps) => {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
+const PhoneNumber = () => {
+  const { control } = useFormContext();
   const { t } = useTranslation();
 
   return (
@@ -26,18 +19,19 @@ const PhoneNumber = ({ defaultCountry = 'pl' }: PhoneNumberProps) => {
           minLength: 7,
         }}
         defaultValue=''
-        render={({ field }) => (
+        render={({ field: { value, ref, onChange }, fieldState }) => (
           <>
             <PhoneInput
-              {...field}
+              value={value}
+              onChange={(value) => onChange(value)}
               hideDropdown={true}
-              defaultCountry={defaultCountry}
+              defaultCountry={t('pl')}
               placeholder={t('+48 605 555 555')}
               disableDialCodePrefill={true}
             />
-            {errors?.phoneNumber && (
+            {fieldState.error && (
               <p className={`${s.phone__error}`}>
-                {errors?.phoneNumber.message as string}
+                {fieldState.error.message as string}
               </p>
             )}
           </>
