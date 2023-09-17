@@ -19,7 +19,7 @@ const PhoneNumber = () => {
           minLength: 7,
         }}
         defaultValue=''
-        render={({ field: { value, ref, onChange }, fieldState }) => (
+        render={({ field: { value, onChange }, fieldState }) => (
           <>
             <PhoneInput
               value={value}
