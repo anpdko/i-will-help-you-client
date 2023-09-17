@@ -1,12 +1,13 @@
-import { useTranslation } from 'react-i18next';
-import { Controller, useFormContext } from 'react-hook-form';
-import { PhoneInput } from 'react-international-phone';
+import { useFormContext } from 'react-hook-form';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
-import 'react-international-phone/style.css';
+import { useTranslation } from 'react-i18next';
 import s from './PhoneNumber.module.scss';
 
 const PhoneNumber = () => {
-  const { control } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   const { t } = useTranslation();
 
   return (
