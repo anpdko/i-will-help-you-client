@@ -1,8 +1,19 @@
 @import '../../../styles/index.scss';
-.reviews_mobile{
+
+.reviews_mobile {
   position: relative;
-  margin: 2.25rem 0 7rem;
-  &__card{
+
+  :global {
+    .swiper {
+      margin-right: toRem(-12);
+      margin-left: toRem(-12);
+
+      padding-right: toRem(12);
+      padding-left: toRem(12);
+    }
+  }
+
+  &__card {
     background-color: var(--total-white);
     border-radius: 1rem;
     cursor: grab;
@@ -12,52 +23,52 @@
     border: 2px solid #ffffff00;
   }
 
-  &__person{
+  &__person {
     display: flex;
     gap: 1.25rem;
     align-items: center;
     margin-bottom: 1.25rem;
   }
 
-  &__img{
+  &__img {
     width: 3.3rem;
     height: 3.3rem;
     border-radius: 50%;
     overflow: hidden;
-    img{
+    img {
       object-fit: cover;
     }
   }
-  &__name{
+  &__name {
     font-weight: 600;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
-  &__status{
+  &__status {
     color: var(--dark-grey);
   }
 
-  &__active{
+  &__active {
     border: 2px solid var(--orange);
   }
 }
 
-.custom_pagination{
-  display:flex;
+.custom_pagination {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap:.5rem;
-  margin-top:1.5rem;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
-.pagination_bullet{
-  width:10px;
-  height:10px;
-  background-color:var(--light-grey);
-  display:block;
-  border-radius:50%;
-  cursor:pointer;
-  &__active{
-    background-color:var(--black);
+.pagination_bullet {
+  width: 10px;
+  height: 10px;
+  background-color: var(--light-grey);
+  display: block;
+  border-radius: 50%;
+  cursor: pointer;
+  &__active {
+    background-color: var(--black);
   }
 }

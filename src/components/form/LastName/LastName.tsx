@@ -11,12 +11,16 @@ const LastName = () => {
       id='lastName'
       placeholder={t('Enter your last name')}
       required={true}
-      regexp={
-        /^[a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+){0,2}[.]{0,1}$/
-      }
-      message={t('Please type your last name')}
+      regexp={/^(?=.*[a-zA-Z\xC0-\uFFFF])[a-zA-Z\xC0-\uFFFF\-]{2,100}$/}
+      message={{
+        required: t('Please type your last name'),
+        pattern: t(
+          'Last name should be 2-100 characters long and can only contain Latin and Cyrillic letters and hyphens',
+        ),
+      }}
       title={t('Last Name *')}
       classNameContainer={s.lastName}
+      capitalizeFirstLetter={true}
     />
   );
 };

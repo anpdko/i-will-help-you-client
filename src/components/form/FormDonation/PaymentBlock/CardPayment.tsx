@@ -11,19 +11,18 @@ import s from './PaymentBlock.module.scss';
 
 const CardPayment = () => {
   const { t } = useTranslation();
-  const {
-    control,
-    setValue,
-    getValues,
-    formState: { isValid },
-  } = useFormContext();
+  const { control, setValue, getValues } = useFormContext();
   const [customAmount, setCustomAmount] = useState('');
 
   const isMobile = useMediaQuery({ minWidth: 480, maxWidth: 767 });
 
   const handleCustomInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCustomAmount(e.target.value);
-    setValue('donationAmount', e.target.value);
+    const inputValue = e.target.value;
+    const regex = /^[0-9]*$/;
+    if (regex.test(inputValue)) {
+      setCustomAmount(inputValue);
+      setValue('donationAmount', inputValue);
+    }
   };
 
   useEffect(() => {
@@ -98,13 +97,12 @@ const CardPayment = () => {
           />
         </label>
       </div>
-      <Email />
-      <Comment title='Comment' placeholder='Type here...' />
+      <Email required={false} />
+      <Comment title='Comment' placeholder='Type here...' maxLength={255} />
       <ButtonApp
         type='submit'
         size={isMobile ? 'Xlarge' : 'medium'}
         className={s.card__button}
-        disabled={!isValid}
       >
         {t('Pay urgent!')}
       </ButtonApp>

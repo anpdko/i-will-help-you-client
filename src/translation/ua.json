@@ -62,6 +62,7 @@
   "Choose level": "Оберіть рівень",
   "Country of Residence *": "Країна проживання *",
   "Select Country": "Оберіть країну",
+  "Please select your country" : "Будь ласка, оберіть вашу країну",
   "Choose your skills (you can select several options) *": "Оберіть свої навички (можна обрати декілька варіантів) *",
   "Please select at least one skill": "Будь ласка, оберіть не менш ніж одну навичку",
   "Search your skills": "Знайдіть свої навички",
@@ -69,27 +70,32 @@
   "@YourNickname": "@ВашНікнейм",
   "Please write your nickname": "Будь ласка, введіть ваш нікнейм",
 
+  "First Name *": "Ім'я *",
   "Enter your first name": "Введіть ваше ім'я",
   "Please type your first name": "Будь ласка, напишіть ваше ім'я",
-  "First Name *": "Ім'я *",
+  "First name should be 2-30 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Ім'я повинно бути від 2 до 30 символів і може містити лише латинські та кириличні літери та дефіс",
 
+  "Last Name *": "Прізвище *",
   "Enter your last name": "Введіть ваше прізвище",
   "Please type your last name": "Будь ласка, напишіть ваше прізвище",
-  "Last Name *": "Прізвище *",
+  "Last name should be 2-100 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Прізвище повинно мати довжину від 2 до 100 символів і може містити лише латинські та кириличні літери та дефіс",
 
   "Phone Number *": "Номер телефону *",
   "+ 48": "+38",
+  "Please enter your country code" : "Будь ласка, введіть код вашої країни",
   "The country code should start with the «+» symbol and be followed by exactly two digits": "Код країни має починатися із символу «+», після якого слідують рівно дві цифри.",
   "605 555 555": "095 55 55 555",
   "Please enter your phone number": "Будь ласка, введіть ваш номер телефону",
 
+  "Email ": "Електронна адреса ",
+  "Please type your email address" : "Будь ласка, введіть вашу електронну адресу",
   "Please write your email in the format mail@example.com": "Будь ласка, введіть вашу електронну адресу в форматі mail@example.com",
-  "Email *": "Електронна адреса *",
 
   "Comment (what do you to do? in what areas?)": "Прокоментуйте (чим ви можете займатися? в яких сферах?)",
 
   "Consent to mailing": "Згода на email-розсилку",
   "Consent to data processing *": "Згода на обробку даних *",
+  "Please check the checkbox" : "Будь ласка, поставте галочку в полі",
 
   "Monday": "Понеділок",
   "Tuesday": "Вівторок",
@@ -163,9 +169,9 @@
   "Web Development": "Веб-розробка",
 
   "Form for receiving assistance": "Форма для отримання допомоги",
-  "Applying for assistance": "Подання заявки на отримання допомоги",
-  "The country code should start with the '+' symbol and be followed by exactly two digits.": "Код країни повинен починатися з символу '+', за яким слідують рівно дві цифри",
+  "Applying for assistance": "Заявка на отримання допомоги",
   "Type of assistance (you can select several options) *": "Тип допомоги (ви можете обрати декілька варіантів) *",
+  "Please select at least one type of assistance" : "Будь ласка, оберіть принаймні один вид допомоги",
   "Choose all": "Вибрати всі",
   "Leave a comment": "Залишити коментар",
   "Tell your story...": "Розкажіть свою історію...",

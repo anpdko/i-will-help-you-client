@@ -24,7 +24,10 @@ interface TypeOfAssistance {
 }
 
 const TypeOfAssistance = () => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   const { t } = useTranslation();
   const [typeOfAssistanceList, setTypeOfAssistanceList] = useState<
     TypeOfAssistance[]
@@ -77,7 +80,7 @@ const TypeOfAssistance = () => {
       <Controller
         control={control}
         name='typeOfAssistance'
-        rules={{ required: true }}
+        rules={{ required: t('Please select at least one type of assistance') }}
         render={({ field: { onChange, value = [] } }) => (
           <>
             <ul className={s.assistance__wrap} id="list_projects">
@@ -97,9 +100,14 @@ const TypeOfAssistance = () => {
                       checkButtonsNearbySide()
                     }}
                   />
-                </li>
-              ))}
-            </ul>
+                ),
+              )}
+            </div>
+            {errors.typeOfAssistance && (
+              <p className={s.error}>
+                {errors.typeOfAssistance.message as string}
+              </p>
+            )}
             <CheckboxInput
               id='selectAll'
               required={false}

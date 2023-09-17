@@ -48,6 +48,7 @@ const Language = () => {
                 options={languages}
                 styles={customStyles}
                 placeholder={t('Choose language')}
+                isSearchable={false}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
@@ -69,6 +70,7 @@ const Language = () => {
                 options={listOfLevels}
                 styles={customStyles}
                 placeholder={t('Choose level')}
+                isSearchable={false}
                 value={languages.find((option) => option.value === field.value)}
                 onChange={(selectedOption) => {
                   field.onChange(
