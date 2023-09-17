@@ -27,7 +27,7 @@ interface DataForm {
   lastName: string;
   email: string;
   countryCode: string;
-  phone: string;
+  phoneNumber: string;
   typeOfAssistance: string[];
   selectAll: boolean;
   comment: string;
@@ -49,7 +49,7 @@ const FormNeedHelp = () => {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      phone: data.countryCode + data.phone,
+      phone: data.phoneNumber,
       typeOfAssistance: data.typeOfAssistance,
       comment: data.comment,
       files: data.files,
