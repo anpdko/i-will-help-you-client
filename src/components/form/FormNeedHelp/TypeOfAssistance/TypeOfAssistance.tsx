@@ -100,9 +100,10 @@ const TypeOfAssistance = () => {
                       checkButtonsNearbySide()
                     }}
                   />
+                  </li>
                 ),
               )}
-            </div>
+            </ul>
             {errors.typeOfAssistance && (
               <p className={s.error}>
                 {errors.typeOfAssistance.message as string}
