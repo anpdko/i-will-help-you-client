@@ -21,6 +21,7 @@ const PhoneNumber = () => {
         defaultValue=''
         render={({ field: { value, ref, onChange }, fieldState }) => (
           <>
+            {console.log(ref)}
             <PhoneInput
               value={value}
               onChange={(value) => onChange(value)}
