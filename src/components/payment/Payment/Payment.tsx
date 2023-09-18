@@ -34,7 +34,7 @@ function Payment({ email, amount }: IPaymentProps) {
         amount: isNumber(amount) ? amount : 1,
       })
       .then(async (result) => {
-        var { clientSecret } = await result.data;
+        const { clientSecret } = await result.data;
         setClientSecret(clientSecret);
       });
   }, []);
