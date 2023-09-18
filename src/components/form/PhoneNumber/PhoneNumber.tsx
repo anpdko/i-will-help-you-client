@@ -1,13 +1,12 @@
-import { useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import { useTranslation } from 'react-i18next';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 import s from './PhoneNumber.module.scss';
 
 const PhoneNumber = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  const { control } = useFormContext();
   const { t } = useTranslation();
 
   return (
@@ -20,7 +19,7 @@ const PhoneNumber = () => {
           minLength: 7,
         }}
         defaultValue=''
-        render={({ field: { value, onChange }, fieldState }) => (
+        render={({ field: { value, ref, onChange }, fieldState }) => (
           <>
             <PhoneInput
               value={value}
