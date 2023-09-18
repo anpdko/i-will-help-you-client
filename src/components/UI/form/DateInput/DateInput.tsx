@@ -47,8 +47,7 @@ const DateInput = ({
 
   const disabledDate: RangePickerProps['disabledDate'] = (current) => {
     const year = current.year();
-    const currentYear = new Date().getFullYear();
-    return year < 1923 || year > currentYear;
+    return year < 1923 || year > 2023;
   };
 
   return (
