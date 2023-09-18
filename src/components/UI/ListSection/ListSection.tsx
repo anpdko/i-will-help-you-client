@@ -2,6 +2,11 @@ import React from 'react';
 
 import s from './ListSection.module.scss';
 
+interface IList {
+  title: string;
+  listTitle: string;
+  list: [];
+}
 interface IParagraph {
   title: string;
   description: string;
@@ -9,14 +14,14 @@ interface IParagraph {
 
 interface IListProps {
   title: string;
-  subtitle: string;
-  items: IParagraph[];
+  subTitle: string;
+  items: IParagraph[] | IList[];
   variant: 'list' | 'paragraphs';
 }
 
 const ListSection: React.FC<IListProps> = ({
   title,
-  subtitle,
+  subTitle,
   items,
   variant,
 }) => {
@@ -26,10 +31,15 @@ const ListSection: React.FC<IListProps> = ({
     if (variant === 'list') {
       return (
         <ul className={s.list}>
-          {items.map((item, index) => (
+          {(items as IList[]).map((item, index) => (
             <li key={index.toString()} className={s.item}>
               <h3>{item.title}</h3>
-              <p className='text'>{item.description}</p>
+              <ul>
+                {item.listTitle}
+                {item.list?.map((item, i) => (
+                  <li key={i.toString()}>{item}</li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
@@ -53,7 +63,7 @@ const ListSection: React.FC<IListProps> = ({
     <article className={s.content}>
       <div className={s.header}>
         <h1 className={`${s.title} heading2`}>{title}</h1>
-        <h2 className={s.subtitle}>{subtitle}</h2>
+        <h2 className={s.subtitle}>{subTitle}</h2>
       </div>
       {renderItems()}
     </article>

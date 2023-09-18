@@ -23,7 +23,7 @@ const PublicityPage = () => {
       <div className='container'>
         <ListSection
           title={t('Publicity and Media Relations') || ''}
-          subtitle={t('Publicity and Media Relations') || ''}
+          subTitle={t('Publicity and Media Relations') || ''}
           items={translations()}
           variant='paragraphs'
         />

@@ -1,3 +1,6 @@
+import {v4 as uuidv4} from 'uuid';
+
+
 export interface ITranslation {
   language: 'en' | 'ua';
   description: string;
@@ -11,9 +14,10 @@ export interface IPablicyData {
 
 const pablicyData: IPablicyData[] = [
   {
-    id: 'Publicity Consent',
+    id: uuidv4(),
     translations: [
-      {
+      { 
+        
         language: 'en',
         title: 'Publicity Consent',
         description:
@@ -28,7 +32,7 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: 'Media Collaborations',
+    id: uuidv4(),
     translations: [
       {
         language: 'en',
@@ -45,7 +49,7 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: 'Opting Out',
+    id: uuidv4(),
     translations: [
       {
         language: 'en',
@@ -62,7 +66,7 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: 'Accuracy in Reporting',
+    id: uuidv4(),
     translations: [
       {
         language: 'en',
@@ -79,7 +83,7 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: 'Use of Foundation Name and Logo',
+    id: uuidv4(),
     translations: [
       {
         language: 'en',
