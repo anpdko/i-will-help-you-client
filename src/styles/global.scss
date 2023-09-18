@@ -130,3 +130,18 @@ a {
   border: 1px solid var(--black);
   background: var(--total-white);
 }
+
+//Modal icons
+.errorIcon,
+.successIcon{
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.successIcon {
+  color: var(--green-for-success);
+}
+
+.errorIcon {
+  color:var(--red-for-error);
+}
