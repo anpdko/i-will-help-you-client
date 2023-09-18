@@ -45,13 +45,13 @@ const Footer = () => {
         <nav className={s.nav}>
           <ul className={s.nav__list}>
             <li>
-              <Link to='#'>{t('Conditions')}</Link>
+              <Link to='/conditions'>{t('Conditions')}</Link>
             </li>
             <li>
-              <Link to='#'>{t('Publicity')}</Link>
+              <Link to='/publicity'>{t('Publicity')}</Link>
             </li>
             <li>
-              <Link to='#'>{t('Documents')}</Link>
+              <Link to='/privacy'>{t('Privacy Policy')}</Link>
             </li>
           </ul>
 
