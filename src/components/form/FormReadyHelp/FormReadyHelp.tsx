@@ -32,8 +32,7 @@ interface DataForm {
   firstName: string;
   lastName: string;
   dateOfBirth: number;
-  countryCode: string;
-  phone: string;
+  phoneNumber: string;
   country: string;
   network: string;
   networkLogo: string;
@@ -49,6 +48,7 @@ interface DataForm {
 const FormReadyHelp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const { t } = useTranslation();
 
   const methods = useForm({
@@ -60,7 +60,7 @@ const FormReadyHelp = () => {
       firstName: data.firstName,
       lastName: data.lastName,
       dateOfBirth: convertUnixTimestampToDate(data.dateOfBirth),
-      phone: data.countryCode + data.phone,
+      phone: data.phoneNumber,
       country: data.country,
       network: generateSocialMediaLink(data.network, data.networkLogo),
       email: data.email,
@@ -77,21 +77,22 @@ const FormReadyHelp = () => {
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       setIsPopupVisible(true);
       setIsSuccess(false);
+      setErrorMessage(error.response?.data?.message || 'An error occurred');
     }
   };
 
   const modalTitle = isSuccess ? (
     <>
-      <AiFillCheckCircle className={s.successIcon} />
+      <AiFillCheckCircle className='successIcon' />
       Success!
     </>
   ) : (
     <>
-      <AiFillCloseCircle className={s.errorIcon} />
+      <AiFillCloseCircle className='errorIcon' />
       Something went wrong!
     </>
   );
@@ -122,11 +123,7 @@ const FormReadyHelp = () => {
             maxLength={2500}
           />
           <Checkboxes />
-          <ButtonApp
-            type='submit'
-            size='Xlarge'
-            className={s.form__button}
-          >
+          <ButtonApp type='submit' size='Xlarge' className={s.form__button}>
             {t('Send my form')}
           </ButtonApp>
         </form>
@@ -135,7 +132,8 @@ const FormReadyHelp = () => {
         <Modal title={modalTitle} onClose={() => setIsPopupVisible(false)}>
           {isSuccess
             ? 'Your form was successfully submitted!'
-            : 'There was an error submitting the form. Please try again.'}
+            : errorMessage ||
+              'There was an error submitting the form. Please try again.'}
         </Modal>
       )}
     </FormWrapper>

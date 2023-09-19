@@ -1,0 +1,11 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /donate/
+Disallow: /volunteer/
+Disallow: /needhelp/
+Disallow: /completion/
+
+User-Agent: MJ12bot
+Disallow: /
+
+Sitemap: https://iwillhelpyou.charity/sitemap.xml

@@ -26,8 +26,7 @@ interface DataForm {
   firstName: string;
   lastName: string;
   email: string;
-  countryCode: string;
-  phone: string;
+  phoneNumber: string;
   typeOfAssistance: string[];
   selectAll: boolean;
   comment: string;
@@ -39,6 +38,7 @@ interface DataForm {
 const FormNeedHelp = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const { t } = useTranslation();
   const methods = useForm({
     mode: 'onChange',
@@ -49,7 +49,7 @@ const FormNeedHelp = () => {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      phone: data.countryCode + data.phone,
+      phone: data.phoneNumber,
       typeOfAssistance: data.typeOfAssistance,
       comment: data.comment,
       files: data.files,
@@ -69,21 +69,22 @@ const FormNeedHelp = () => {
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       setIsPopupVisible(true);
       setIsSuccess(false);
+      setErrorMessage(error.response?.data?.message || 'An error occurred');
     }
   };
 
   const modalTitle = isSuccess ? (
     <>
-      <AiFillCheckCircle className={s.successIcon} />
+      <AiFillCheckCircle className='successIcon' />
       Success!
     </>
   ) : (
     <>
-      <AiFillCloseCircle className={s.errorIcon} />
+      <AiFillCloseCircle className='errorIcon' />
       Something went wrong!
     </>
   );
@@ -113,11 +114,7 @@ const FormNeedHelp = () => {
           />
           <Files />
           <Checkboxes />
-          <ButtonApp
-            type='submit'
-            size='Xlarge'
-            className={s.form__button}
-          >
+          <ButtonApp type='submit' size='Xlarge' className={s.form__button}>
             {t('Send my form')}
           </ButtonApp>
         </form>
@@ -126,7 +123,8 @@ const FormNeedHelp = () => {
         <Modal title={modalTitle} onClose={() => setIsPopupVisible(false)}>
           {isSuccess
             ? 'Your form was successfully submitted!'
-            : 'There was an error submitting the form. Please try again.'}
+            : errorMessage ||
+              'There was an error submitting the form. Please try again.'}
         </Modal>
       )}
     </FormWrapper>
