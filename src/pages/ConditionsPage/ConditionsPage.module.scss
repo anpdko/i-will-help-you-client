@@ -1,0 +1,10 @@
+@import '../../styles/index.scss';
+
+.сonditions {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 64, 36, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    }
+  }
+}
