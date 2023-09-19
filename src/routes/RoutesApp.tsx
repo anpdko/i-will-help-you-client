@@ -19,6 +19,15 @@ const NotFoundPage = React.lazy(
   () => import('../pages/NotFoundPage/NotFoundPage'),
 );
 const Completion = React.lazy(() => import('../pages/Completion/Completion'));
+const PublicityPage = React.lazy(
+  () => import('../pages/PublicityPage/PublicityPage'),
+);
+const ConditionsPage = React.lazy(
+  () => import('../pages/ConditionsPage/ConditionsPage'),
+);
+const PrivacyPage = React.lazy(
+  () => import('../pages/PrivacyPage/PrivacyPage'),
+);
 
 import { Navbar, Footer } from '../components';
 import { Preloader } from '../components/UI';
@@ -83,6 +92,30 @@ const RoutesApp = () => {
             element={
               <Suspense fallback={<Preloader withContainer />}>
                 <Completion />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/publicity'
+            element={
+              <Suspense fallback={<Preloader withContainer />}>
+                <PublicityPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/conditions'
+            element={
+              <Suspense fallback={<Preloader withContainer />}>
+                <ConditionsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/privacy'
+            element={
+              <Suspense fallback={<Preloader withContainer />}>
+                <PrivacyPage />
               </Suspense>
             }
           />

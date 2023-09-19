@@ -24,7 +24,9 @@ const CheckboxSelect = ({
         checked={checked}
         onChange={onChange}
       />
-      <label onClick={onClick} htmlFor={id}>{title}</label>
+      <label onClick={onClick} htmlFor={id}>
+        {title}
+      </label>
     </>
   );
 };
