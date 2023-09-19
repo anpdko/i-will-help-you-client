@@ -84,11 +84,11 @@ const customStyles: StylesConfig<any> = {
       height: '0rem',
     },
     '::-webkit-scrollbar-track': {
-      background: '#D9D9D9',
+      background: 'var(--light-grey)',
       borderRadius: '10px',
     },
     '::-webkit-scrollbar-thumb': {
-      background: '#505050',
+      background: 'var(--dark-grey)',
       borderRadius: '10px',
     },
     // display: 'grid',
