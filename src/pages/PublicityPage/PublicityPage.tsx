@@ -17,7 +17,7 @@ const PublicityPage = () => {
 
     return translation;
   };
-  
+
   return (
     <section className={s.publicity}>
       <div className='container'>

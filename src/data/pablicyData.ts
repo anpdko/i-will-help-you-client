@@ -1,11 +1,10 @@
-import {v4 as uuidv4} from 'uuid';
-
+import { v4 as uuidv4 } from 'uuid';
 
 export interface ITranslation {
   language: 'en' | 'ua';
   description: string;
   title: string;
-  _id: string,
+  _id: string;
 }
 
 export interface IPablicyData {
@@ -17,7 +16,7 @@ const pablicyData: IPablicyData[] = [
   {
     _id: uuidv4(),
     translations: [
-      { 
+      {
         _id: uuidv4(),
         language: 'en',
         title: 'Publicity Consent',
@@ -60,7 +59,7 @@ const pablicyData: IPablicyData[] = [
         language: 'en',
         title: 'Opting Out',
         description:
-          "Should you wish not to be featured or have your story shared for publicity purposes, you have the right to opt out. Please communicate your preferences clearly to our team, and we will respect your wishes.",
+          'Should you wish not to be featured or have your story shared for publicity purposes, you have the right to opt out. Please communicate your preferences clearly to our team, and we will respect your wishes.',
       },
       {
         _id: uuidv4(),
@@ -79,7 +78,7 @@ const pablicyData: IPablicyData[] = [
         language: 'en',
         title: 'Accuracy in Reporting',
         description:
-          "While we make every effort to ensure the accuracy and truthfulness of our publicity materials, we ask participants and contributors to inform us immediately if they find any discrepancies or misrepresentations.",
+          'While we make every effort to ensure the accuracy and truthfulness of our publicity materials, we ask participants and contributors to inform us immediately if they find any discrepancies or misrepresentations.',
       },
       {
         _id: uuidv4(),

@@ -22,7 +22,11 @@ const ConditionsPage = () => {
     <section className={s.сonditions}>
       <div className='container'>
         <ListSection
-          title={t("Conditions for Using the 'I Will Help You Foundation' Website") || ''}
+          title={
+            t(
+              "Conditions for Using the 'I Will Help You Foundation' Website",
+            ) || ''
+          }
           subTitle={t('Conditions') || ''}
           items={translations()}
           variant='list'
@@ -33,5 +37,3 @@ const ConditionsPage = () => {
 };
 
 export default ConditionsPage;
-
-
