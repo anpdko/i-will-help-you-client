@@ -87,5 +87,42 @@
         margin-right: em(10, 24);
       }
     }
+    &__list {
+      position: relative;
+      line-height: 150%;
+      h4 {
+        padding-left: toRem(24);
+        &:not(:last-child) {
+          @include adaptiveValue('margin-bottom', 8, 6, 0, 1200, 390);
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          width: toRem(3);
+          height: toRem(3);
+          top: em(12,16);
+          left: toRem(10);
+          background-color: var(--black);
+        }
+      }
+      li {
+        padding-left: toRem(34);
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          border-radius: toRem(4);
+          width: toRem(4);
+          height: toRem(1);
+          top: em(12,16);
+          left: toRem(24);
+          background-color: var(--black);
+        }
+        span {
+          font-weight: 600;
+        }
+      }
+    }
   }
 }

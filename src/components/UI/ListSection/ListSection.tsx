@@ -1,13 +1,22 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import s from './ListSection.module.scss';
 
-interface IList {
-  title: string;
+interface IListItem {
+  _id: string;
   listTitle: string;
-  list: [];
+  subItems?: string[];
+}
+
+interface IList {
+  _id: string;
+  language: string;
+  title: string;
+  list: IListItem[];
 }
 interface IParagraph {
+  _id: string;
   title: string;
   description: string;
 }
@@ -26,20 +35,31 @@ const ListSection: React.FC<IListProps> = ({
   variant,
 }) => {
   const renderItems = () => {
-    console.log('items', items);
-
     if (variant === 'list') {
       return (
         <ul className={s.list}>
           {(items as IList[]).map((item, index) => (
-            <li key={index.toString()} className={s.item}>
-              <h3>{item.title}</h3>
-              <ul>
-                {item.listTitle}
-                {item.list?.map((item, i) => (
-                  <li key={i.toString()}>{item}</li>
-                ))}
-              </ul>
+            <li key={item._id} className={s.item}>
+              <h3 data-count={index + 1 + '.'}>{item.title}</h3>
+              {item.list.map((list) => (
+                <ul key={list._id} className={s.item__list}>
+                  <h4>{list.listTitle}</h4>
+                  {(list.subItems || []).map((subItem) => {
+                    const [beforeColon, afterColon] = subItem.split(':');
+                    return (
+                      <li key={uuidv4()} className={s.item__list}>
+                        {afterColon ? ( // Check if there is a colon
+                          <>
+                            <span>{beforeColon}:</span> {afterColon}
+                          </>
+                        ) : (
+                          <>{subItem}</>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ))}
             </li>
           ))}
         </ul>
@@ -48,7 +68,7 @@ const ListSection: React.FC<IListProps> = ({
       return (
         <ul className={s.list}>
           {(items as IParagraph[]).map((item, index) => (
-            <li key={index.toString()} className={s.item}>
+            <li key={item._id} className={s.item}>
               <h3 data-count={index + 1 + '.'}>{item.title}</h3>
               <p className='text'>{item.description}</p>
             </li>

@@ -5,25 +5,27 @@ export interface ITranslation {
   language: 'en' | 'ua';
   description: string;
   title: string;
+  _id: string,
 }
 
 export interface IPablicyData {
-  id: string;
+  _id: string;
   translations: ITranslation[];
 }
 
 const pablicyData: IPablicyData[] = [
   {
-    id: uuidv4(),
+    _id: uuidv4(),
     translations: [
       { 
-        
+        _id: uuidv4(),
         language: 'en',
         title: 'Publicity Consent',
         description:
           'By interacting with, donating to, or participating in any programs associated with the "I Will Help You Foundation," you grant the Foundation permission unless explicitly indicated otherwise, to use your name, image, likeness, and related content for promotional, marketing, and publicity purposes. This could be in various formats, including print, broadcast, or online platforms, without any further permission or payment.',
       },
       {
+        _id: uuidv4(),
         language: 'ua',
         title: 'Згода на рекламу',
         description:
@@ -32,15 +34,17 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: uuidv4(),
+    _id: uuidv4(),
     translations: [
       {
+        _id: uuidv4(),
         language: 'en',
         title: 'Media Collaborations',
         description:
           "The Foundation may collaborate with media outlets and agencies to promote its initiatives and share success stories. Participants and beneficiaries of the Foundation's programs may be featured, and their stories may be shared, albeit with utmost respect and sensitivity.",
       },
       {
+        _id: uuidv4(),
         language: 'ua',
         title: 'Співпраця зі ЗМІ',
         description:
@@ -49,15 +53,17 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: uuidv4(),
+    _id: uuidv4(),
     translations: [
       {
+        _id: uuidv4(),
         language: 'en',
         title: 'Opting Out',
         description:
           "Should you wish not to be featured or have your story shared for publicity purposes, you have the right to opt out. Please communicate your preferences clearly to our team, and we will respect your wishes.",
       },
       {
+        _id: uuidv4(),
         language: 'ua',
         title: 'Відмова',
         description:
@@ -66,15 +72,17 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: uuidv4(),
+    _id: uuidv4(),
     translations: [
       {
+        _id: uuidv4(),
         language: 'en',
         title: 'Accuracy in Reporting',
         description:
           "While we make every effort to ensure the accuracy and truthfulness of our publicity materials, we ask participants and contributors to inform us immediately if they find any discrepancies or misrepresentations.",
       },
       {
+        _id: uuidv4(),
         language: 'ua',
         title: 'Точність у звітності',
         description:
@@ -83,15 +91,17 @@ const pablicyData: IPablicyData[] = [
     ],
   },
   {
-    id: uuidv4(),
+    _id: uuidv4(),
     translations: [
       {
+        _id: uuidv4(),
         language: 'en',
         title: 'Use of Foundation Name and Logo',
         description:
           'Unauthorized use of the "I Will Help You Foundation" name, logo, or any associated materials for publicity or any other purposes is strictly prohibited unless explicit permission is granted by the Foundation.',
       },
       {
+        _id: uuidv4(),
         language: 'ua',
         title: 'Використання назви та логотипу фонду',
         description:
