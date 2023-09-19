@@ -32,8 +32,7 @@ interface DataForm {
   firstName: string;
   lastName: string;
   dateOfBirth: number;
-  countryCode: string;
-  phone: string;
+  phoneNumber: string;
   country: string;
   network: string;
   networkLogo: string;
@@ -61,7 +60,7 @@ const FormReadyHelp = () => {
       firstName: data.firstName,
       lastName: data.lastName,
       dateOfBirth: convertUnixTimestampToDate(data.dateOfBirth),
-      phone: data.countryCode + data.phone,
+      phone: data.phoneNumber,
       country: data.country,
       network: generateSocialMediaLink(data.network, data.networkLogo),
       email: data.email,
