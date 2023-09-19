@@ -4,7 +4,6 @@ Disallow: /donate/
 Disallow: /volunteer/
 Disallow: /needhelp/
 Disallow: /completion/
-Disallow: /panel/
 
 User-Agent: MJ12bot
 Disallow: /
