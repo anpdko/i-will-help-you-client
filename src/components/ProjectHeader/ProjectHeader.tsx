@@ -18,16 +18,16 @@ import SlideImage from './SlideImage/SlideImage';
 import SlideAbout from './SlideAbout/SlideAbout';
 
 const ProjectHeader: React.FC<
-  IProjectsState & { selectedId: string | undefined }
-> = ({ projects, loading, selectedId }) => {
+  IProjectsState & { selectedUrl: string | undefined }
+> = ({ projects, loading, selectedUrl }) => {
   const navigate = useNavigate();
 
   const handleSlideChange = (swiper: any) => {
     const activeSlide = swiper.realIndex;
-    const newId = projects[activeSlide]._id;
+    const newUrl = projects[activeSlide].url;
 
-    if (newId) {
-      navigate(`/projects/${newId}`);
+    if (newUrl) {
+      navigate(`/projects/${newUrl}`);
     }
   };
 
@@ -39,7 +39,7 @@ const ProjectHeader: React.FC<
   const [thirdSwiper, setThirdSwiper] = useState<any>(null);
 
   const initialSlideIndex = projects.findIndex(
-    (project) => project._id === selectedId,
+    (project) => project.url === selectedUrl,
   );
 
   useEffect(() => {}, [firstSwiper, secondSwiper, thirdSwiper]);

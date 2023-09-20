@@ -15,6 +15,7 @@ export interface IProjectsContent {
 
 export interface IProject {
   _id: string;
+  url: string;
   translations: IProjectsContent[];
   imgCover: string;
   publisher: boolean;
