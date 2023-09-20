@@ -1,23 +1,29 @@
 import { useState } from 'react';
-import { IFaqData } from '../../../data/faqData';
+
+import { ITranslation } from '../../../data/faqData';
+
 import sprite from '../../../assets/sprite.svg';
 import s from './FAQItem.module.scss';
 
 interface FAQProps {
-  tab: IFaqData;
+  translation?: ITranslation;
 }
 
-const FAQItem = ({ tab }: FAQProps) => {
+const FAQItem = ({ translation }: FAQProps) => {
   const [toggleFAQ, setToggleFAQ] = useState(false);
 
   const handleToggleFAQ = (): void => {
     setToggleFAQ((prev) => !prev);
   };
 
+  if (!translation) {
+    return null;
+  }
+
   return (
-    <li key={tab.id} className={s.item} onClick={handleToggleFAQ}>
+    <li key={translation._id} className={s.item} onClick={handleToggleFAQ}>
       <div className={s.item__body}>
-        <h4 className={s.item__title}>{tab.title}</h4>
+        <h4 className={s.item__title}>{translation.title}</h4>
         <button type='button' className={s.item__btn}>
           <svg
             className={
@@ -34,7 +40,7 @@ const FAQItem = ({ tab }: FAQProps) => {
         }
       >
         <div className={s.item__descr}>
-          <p className={s.text}>{tab.description}</p>
+          <p className={s.text}>{translation.description}</p>
         </div>
       </div>
     </li>
