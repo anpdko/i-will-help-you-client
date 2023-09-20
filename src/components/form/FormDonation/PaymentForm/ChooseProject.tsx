@@ -26,7 +26,7 @@ const ChooseProject = () => {
                 id={item.id}
                 onChange={field.onChange}
                 value={field.value}
-                title={item.title}
+                title={item.title as string}
               />
             </>
           )}
