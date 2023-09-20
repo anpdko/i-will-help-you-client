@@ -86,27 +86,32 @@ const ArticleSection: React.FC<IArticleProps> = ({
     <>
       {listItems.map((list, index) => (
         <ul key={list._id} className={s.list_count}>
-          <h3 data-count={index + 1 + '.'}>
-            {list.listTitle.includes(':') ? (
-              <>
-                <span>{list.listTitle.split(':')[0]}:</span>
-                {list.listTitle.split(':').slice(1).join(':')}
-              </>
-            ) : (
-              <>{list.listTitle}</>
-            )}
-          </h3>
-          {(list.subItems || []).map((subItem) => (
-            <li key={uuidv4()}>
-              {subItem.includes(':') ? (
+          <li>
+            <h3 data-count={index + 1 + '.'}>
+              {list.listTitle.includes(':') ? (
                 <>
-                  <span>{subItem.split(':')[0]}:</span>
-                  {subItem.split(':')[1]}
+                  <span>{list.listTitle.split(':')[0]}:</span>
+                  {list.listTitle.split(':').slice(1).join(':')}
                 </>
               ) : (
-                <>{subItem}</>
+                <>{list.listTitle}</>
               )}
-            </li>
+            </h3>
+          </li>
+
+          {(list?.subItems || []).map((subItem) => (
+            <ul>
+              <li key={uuidv4()}>
+                {subItem.includes(':') ? (
+                  <>
+                    <span>{subItem.split(':')[0]}:</span>
+                    {subItem.split(':')[1]}
+                  </>
+                ) : (
+                  <>{subItem}</>
+                )}
+              </li>
+            </ul>
           ))}
         </ul>
       ))}
