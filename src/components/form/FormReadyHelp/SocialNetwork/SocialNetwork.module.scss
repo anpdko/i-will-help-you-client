@@ -22,7 +22,7 @@
       flex: 0 1 20.3125%; /* 78/384 */
       min-width: toRem(78);
       text-align: center;
-
+      
       & > div {
         padding: toRem(11) toRem(4) !important;
       }
@@ -55,3 +55,5 @@
     margin-top: -0.5rem;
   }
 }
+
+

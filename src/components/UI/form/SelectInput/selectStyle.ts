@@ -4,6 +4,12 @@ const customStyles: StylesConfig<any> = {
   indicatorSeparator: (styles) => ({ ...styles, display: 'none' }),
   // indicatorsContainer: (styles) => ({ ...styles, padding: ' 8px 8px 8px 0' }),
 
+  dropdownIndicator: (baseStyles, state) => ({
+    ...baseStyles,
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+    transition: 'transform 0.2s',
+  }),
+
   option: (baseStyles, state) => ({
     ...baseStyles,
     color: 'var(--black)',
@@ -56,7 +62,9 @@ const customStyles: StylesConfig<any> = {
   menu: (baseStyles) => ({
     ...baseStyles,
     padding: '2rem',
-    margin: '0',
+    marginTop: '.5rem',
+    borderRadius: '0.6rem',
+    border: '1px solid  var(--black)',
   }),
 
   multiValueRemove: (baseStyles) => ({
@@ -79,6 +87,18 @@ const customStyles: StylesConfig<any> = {
   menuList: (baseStyles) => ({
     ...baseStyles,
     padding: '0',
+    '::-webkit-scrollbar': {
+      width: '4px',
+      height: '0rem',
+    },
+    '::-webkit-scrollbar-track': {
+      background: 'var(--light-grey)',
+      borderRadius: '10px',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: 'var(--dark-grey)',
+      borderRadius: '10px',
+    },
     // display: 'grid',
     // gridTemplateColumns: '1fr 1fr',
   }),

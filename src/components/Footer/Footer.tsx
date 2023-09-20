@@ -45,13 +45,13 @@ const Footer = () => {
         <nav className={s.nav}>
           <ul className={s.nav__list}>
             <li>
-              <Link to='#'>{t('Conditions')}</Link>
+              <Link to='/conditions'>{t('Conditions')}</Link>
             </li>
             <li>
-              <Link to='#'>{t('Publicity')}</Link>
+              <Link to='/publicity'>{t('Publicity')}</Link>
             </li>
             <li>
-              <Link to='#'>{t('Documents')}</Link>
+              <Link to='/privacy'>{t('Privacy Policy')}</Link>
             </li>
           </ul>
 
@@ -97,7 +97,7 @@ const Footer = () => {
                 to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
                 target='_blank'
                 className={s.social__link}
-                aria-label="link instagram"
+                aria-label='link instagram'
               >
                 <svg>
                   <use href={sprite + '#instagram'} />
@@ -109,7 +109,7 @@ const Footer = () => {
                 to='https://t.me/IWillHelpYouCharity'
                 target='_blank'
                 className={s.social__link}
-                aria-label="link telegram"
+                aria-label='link telegram'
               >
                 <svg>
                   <use href={sprite + '#telegram'} />
@@ -121,7 +121,7 @@ const Footer = () => {
                 to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
                 target='_blank'
                 className={s.social__link}
-                aria-label="link linkedin"
+                aria-label='link linkedin'
               >
                 <svg>
                   <use href={sprite + '#linkedin'} />

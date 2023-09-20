@@ -6,7 +6,7 @@ import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
 import { CheckboxInput } from '@components/UI';
 import s from './TypeOfAssistance.module.scss';
-import checkLabelsNearby from '@/services/form/checkLabelsNearby'
+import checkLabelsNearby from '@/services/form/checkLabelsNearby';
 
 interface AssistanceTranslation {
   language: string;
@@ -66,11 +66,10 @@ const TypeOfAssistance = () => {
     fetchData();
   }, [language]);
 
-
-  const checkButtonsNearbySide = () =>{
-    const elems = document.querySelectorAll('#list_projects li')
-    checkLabelsNearby(elems, s)
-  }
+  const checkButtonsNearbySide = () => {
+    const elems = document.querySelectorAll('#list_projects li');
+    checkLabelsNearby(elems, s);
+  };
 
   return (
     <FormItemWrapper
@@ -95,14 +94,15 @@ const TypeOfAssistance = () => {
                       if (e.target.checked) {
                         onChange([...value, item.id]);
                       } else {
-                        onChange(value.filter((val: string) => val !== item.id));
+                        onChange(
+                          value.filter((val: string) => val !== item.id),
+                        );
                       }
-                      checkButtonsNearbySide()
+                      checkButtonsNearbySide();
                     }}
                   />
-                  </li>
-                ),
-              )}
+                </li>
+              ))}
             </ul>
             {errors.typeOfAssistance && (
               <p className={s.error}>
@@ -123,7 +123,7 @@ const TypeOfAssistance = () => {
                 } else {
                   onChange([]);
                 }
-                checkButtonsNearbySide()
+                checkButtonsNearbySide();
               }}
             />
           </div>
