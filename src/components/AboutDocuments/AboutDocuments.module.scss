@@ -137,7 +137,7 @@
     @media (any-hover: hover) {
       &:hover {
         box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.3);
-        background-color: var(--total-white);
+        background-color: var(--light-black);
         &.arrow_next {
           svg {
             transform: translate(toRem(4), 0px);
