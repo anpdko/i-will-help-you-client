@@ -87,6 +87,18 @@ const customStyles: StylesConfig<any> = {
   menuList: (baseStyles) => ({
     ...baseStyles,
     padding: '0',
+    '::-webkit-scrollbar': {
+      width: '4px',
+      height: '0rem',
+    },
+    '::-webkit-scrollbar-track': {
+      background: 'var(--light-grey)',
+      borderRadius: '10px',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: 'var(--dark-grey)',
+      borderRadius: '10px',
+    },
     // display: 'grid',
     // gridTemplateColumns: '1fr 1fr',
   }),
