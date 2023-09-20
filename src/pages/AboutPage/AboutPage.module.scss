@@ -19,7 +19,7 @@
     }
   }
 
-  &_objectives {
+  &_our_activities {
     :global {
       .container {
         @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);

@@ -34,7 +34,7 @@ const AboutHeader = () => {
               (translation) => translation.language === i18n.language,
             );
             return (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={item._id}>
                 <div className={s.content}>
                   <img
                     src={API_URL + IMAGE_PREFIX + item.imgPhath}
