@@ -8,7 +8,7 @@ interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
   placeholder?: string;
   required?: boolean;
   regexp?: RegExp;
-  message?: { required: string; pattern: string; };
+  message?: { required: string; pattern: string };
   title?: string;
   classNameContainer?: string;
   classNameLabel?: string;
@@ -24,7 +24,10 @@ const TextInput = ({
   placeholder = '',
   required = false,
   regexp = /^.+$/,
-  message = { required: 'Please fill in this field', pattern: 'Please fill in this field' },
+  message = {
+    required: 'Please fill in this field',
+    pattern: 'Please fill in this field',
+  },
   title = '',
   classNameContainer,
   classNameLabel,
@@ -42,14 +45,16 @@ const TextInput = ({
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    const capitalizedInput = capitalizeFirstLetter ? inputValue.charAt(0).toUpperCase() + inputValue.slice(1) : inputValue;
+    const capitalizedInput = capitalizeFirstLetter
+      ? inputValue.charAt(0).toUpperCase() + inputValue.slice(1)
+      : inputValue;
     setValue(id, capitalizedInput);
     trigger(id);
   };
 
   return (
-    <div className={`${s.form__container} ${classNameContainer}`}>
-      <label className={`${s.form__label} ${classNameLabel}`}>
+    <div className={`${s.container} ${classNameContainer}`}>
+      <label className={`${s.label} ${classNameLabel}`}>
         {title}
         <input
           type={type}
@@ -62,16 +67,16 @@ const TextInput = ({
               message: message.pattern,
             },
           })}
-          className={`${s.form__input} ${classNameInput}`}
+          className={`${s.input} ${classNameInput}`}
           onChange={handleInputChange}
           {...rest}
         />
+        {errors[id] && (
+          <p className={`${s.error} ${classNameError}`}>
+            {errors[id]?.message as string}
+          </p>
+        )}
       </label>
-      {errors[id] && (
-        <p className={`${s.form__error} ${classNameError}`}>
-          {errors[id]?.message as string}
-        </p>
-      )}
     </div>
   );
 };

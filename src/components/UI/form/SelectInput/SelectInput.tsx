@@ -40,7 +40,7 @@ const SelectInput = ({
       defaultValue={null}
       rules={{ required: required }}
       render={({ field }) => (
-        <>
+        <div className={s.wrap}>
           <Select
             {...field}
             options={options}
@@ -59,7 +59,7 @@ const SelectInput = ({
           {required && errorMessage && errors.country && (
             <p className={s.error}>{errorMessage}</p>
           )}
-        </>
+        </div>
       )}
     />
   );

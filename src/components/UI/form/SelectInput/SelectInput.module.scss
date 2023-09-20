@@ -1,6 +1,12 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
 .error {
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--red-for-error);
-  margin-top: -0.5rem;
+  position: absolute;
+  top: calc(100% + 6px);
 }
