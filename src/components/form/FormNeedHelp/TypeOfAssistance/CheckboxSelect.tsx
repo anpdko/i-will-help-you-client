@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 interface CheckboxSelectProps {
   title: string;
   name: string;
@@ -24,7 +26,9 @@ const CheckboxSelect = ({
         checked={checked}
         onChange={onChange}
       />
-      <label onClick={onClick} htmlFor={id}>{title}</label>
+      <label onClick={onClick} htmlFor={id}>
+        {title}
+      </label>
     </>
   );
 };
