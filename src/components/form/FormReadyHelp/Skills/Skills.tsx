@@ -10,6 +10,7 @@ import s from './Skills.module.scss';
 interface ISkills {
   value: string;
   label: string;
+  isSelected: boolean;
 }
 
 const Skills = () => {
@@ -18,6 +19,7 @@ const Skills = () => {
   const { t } = useTranslation();
 
   const skills = skillsList.map((item) => ({
+    isSelected: false,
     value: `${t(item.skill)}`,
     label: `${t(item.skill)}`,
   }));
