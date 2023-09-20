@@ -57,7 +57,7 @@ const AboutTeam = () => {
               (translation) => translation.language === i18n.language,
             );
             return (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={item._id}>
                 <div className={s.content}>
                   <div className={s.image}>
                     <img
