@@ -2,47 +2,59 @@
 
 .footer {
   box-shadow: 0px -4px 10px 0px rgba(14, 14, 14, 0.05);
-  line-height: 1.5;
+  line-height: 100%;
   @media (min-width: $mobileSmall) {
     background-color: var(--milky);
   }
+  //========================================================================================================================================================
   :global {
     .container {
-      @include adaptiveValue('padding-top', 40, 28, 0, 1200, 390);
-      padding-bottom: toRem(44);
-      @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
-      gap: 3rem;
-
-      @media (max-width: em(1126)) {
-        flex-wrap: wrap;
-      }
-
-      @media screen and (min-width: 24.41rem) {
-        flex-direction: row;
-      }
+      @include adaptiveValue('padding-top', 40, 28, 0, 1200, 390);
+      @include adaptiveValue('gap', 64, 42, 0, 1200, 390);
     }
   }
-  .column {
+  //========================================================================================================================================================
+  .top {
     display: flex;
-
-    justify-content: space-between;
-    gap: toRem(12);
-    @media (min-width: em(608)) {
+    @include adaptiveValue('gap', 64, 42, 0, 1200, 992);
+    @media (max-width: $mobile) {
       flex-direction: column;
     }
-    @media (max-width: em(608)) {
-      width: 100%;
+  }
+  //========================================================================================================================================================
+  .bottom {
+    border-top: toRem(1) solid var(--dark-grey);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding-top: toRem(24);
+    @include adaptiveValue('padding-bottom', 40, 28, 0, 1200, 390);
+    gap: toRem(42);
+    @media (min-width: $mobile) {
+      align-items: center;
+      justify-content: space-between;
     }
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+  //========================================================================================================================================================
 
-    &__logo {
-      display: inline-block;
-      height: toRem(48);
+  .logo {
+    display: flex;
+    flex: 1 1 auto;
+    @include adaptiveValue("gap", 63, 40,1,380,320);
+    @media (max-width: $mobile) {
+      
+      width: 100%;
+      justify-content: space-between;
+    }
+    a {
+      display: inline-flex;
       svg {
         max-width: toRem(132);
-        height: toRem(48);
+        max-height: toRem(48);
         transition: opacity 0.3s;
         @media (any-hover: hover) {
           &:hover {
@@ -51,98 +63,84 @@
         }
       }
     }
-    &__text {
-      font-size: toRem(14);
-    }
+  }
+  //========================================================================================================================================================
+  .links {
+    display: flex;
+    flex: 0 1 74.5%; /* 894/1200 */
+    @include adaptiveValue('gap', 93, 40, 0, 1200, 992);
   }
 
+  //========================================================================================================================================================
   .nav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    @include adaptiveValue('column-gap', 100, 60);
-    row-gap: toRem(30);
-    @media (max-width: $mobile) {
-      flex-wrap: wrap;
-    }
-    &__list {
-      display: flex;
-      flex-direction: column;
-      @include adaptiveValue('gap', 10, 24, 3, 768, 390);
-    }
-  }
+    flex: 1 1 auto;
+    gap: toRem(30);
+    
+      justify-content: space-evenly;
+      
+    
 
-  .social {
-    display: flex;
-    flex-direction: column;
-    gap: toRem(8);
-    @include adaptiveValue('gap', 8, 16, 0, 1200, 390);
-    @media (max-width: $mobile) {
-      font-weight: 600;
-    }
-    &__items {
-      gap: toRem(25);
-      width: fit-content;
-      @media (min-width: em(437)) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-      }
-      @media (max-width: em(436)) {
-        display: flex;
-        align-items: center;
-      }
-    }
-    &__link {
-      svg {
-        width: toRem(33);
-        height: toRem(33);
+    @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
+    &__column {
+      @media (min-width: $mobile) {
+        h2 {
+          font-weight: 600;
+          position: relative;
+          padding-left: toRem(26);
+          &:not(:last-child) {
+            margin-bottom: toRem(28);
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            width: toRem(18);
+            height: toRem(1);
+            border-radius: toRem(1);
+            top: em(9, 18);
 
-        transition:
-          fill,
-          stroke 0.4s;
-        @media (any-hover: hover) {
-          &:hover {
-            fill: var(--orange);
-            stroke: var(--orange);
+            left: 0;
+            background-color: var(--black);
           }
         }
       }
-    }
-  }
-
-  .contacts {
-    line-height: 150%;
-    p {
-      font-size: toRem(16);
-    }
-    @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
-    @media (min-width: em(437)) {
-      min-width: toRem(204);
-      &__btn {
-        &:not(:last-child) {
-          margin-bottom: toRem(24);
+      @media (max-width: $mobile) {
+        h2 {
+          display: none;
         }
       }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(24);
+      }
+    }
+  }
+  //========================================================================================================================================================
+  .button {
+    @media (min-width: $mobile) {
+      min-width: toRem(213);
+      &:not(:last-child) {
+        margin-bottom: toRem(24);
+      }
+    }
+    @media (max-width: $mobile) {
+      width: 100%;
+      max-height: fit-content;
+    }
+  }
+  //========================================================================================================================================================
+  .contacts {
+    line-height: 100%;
+    @media (min-width: $mobile) {
       &__list {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-
-        @media screen and (min-width: 48rem) {
-          gap: 0.5rem;
-        }
+        gap: toRem(16);
       }
     }
-    @media (max-width: em(436)) {
-      min-width: 100%;
-      &__btn {
-        min-width: 100%;
-        padding: toRem(20);
-        &:not(:last-child) {
-          margin-bottom: toRem(48);
-        }
-      }
-
+    @media (max-width: $mobile) {
       &__item {
         padding: toRem(14) toRem(30);
         border: toRem(2) solid var(--light-grey);
@@ -176,6 +174,44 @@
     @media (max-width: em(360)) {
       &__item {
         padding: toRem(8) toRem(12);
+      }
+    }
+  }
+  //========================================================================================================================================================
+  .text {
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptiveValue('column-gap', 32, 20, 0, 1200, 390);
+    row-gap: toRem(16);
+    @media (max-width: $mobileSmall) {
+      flex-direction: column;
+      font-size: toRem(14);
+    }
+  }
+  //========================================================================================================================================================
+  .social {
+    &__items {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: toRem(20);
+    }
+    &__link {
+      svg {
+        transition: stroke 0.4s;
+        @media (min-width: $mobile) {
+          width: toRem(18);
+          height: toRem(18);
+        }
+        @media (max-width: $mobile) {
+          width: toRem(24);
+          height: toRem(24);
+        }
+        @media (any-hover: hover) {
+          &:hover {
+            stroke: var(--orange);
+          }
+        }
       }
     }
   }
