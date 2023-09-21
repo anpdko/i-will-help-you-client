@@ -24,10 +24,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    @include adaptiveValue('padding-top', 28, 21, 0, 1200, 390);
-    @include adaptiveValue('padding-bottom', 32, 28, 0, 1200, 390);
-    @include adaptiveValue('padding-left', 24, 18, 0, 1200, 390);
-    padding-right: toRem(2);
+    @include adaptiveValue('padding-top', 18, 21, 0, 1200, 390);
+    @include adaptiveValue('padding-bottom', 20, 28, 0, 1200, 390);
 
     width: calc(100vw - 60px);
     max-width: 40rem;
@@ -37,8 +35,10 @@
 
     .container {
       max-height: calc(100vh - 50px);
-      @include adaptiveValue('padding-right', 22, 16, 0, 1200, 390);
+      padding-right: 0;
       padding-left: 0;
+      padding-top: toRem(5);
+      padding-bottom: toRem(5);
       overflow-y: auto;
       overflow-x: hidden;
 
@@ -64,6 +64,8 @@
     .header {
       position: relative;
       padding-bottom: 1.5rem;
+      @include adaptiveValue('padding-left', 24, 18, 0, 1200, 390);
+      @include adaptiveValue('padding-right', 24, 18, 0, 1200, 390);
       border-bottom: 1px solid var(--dark-grey);
 
       .title {
@@ -81,7 +83,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 0rem;
+        right: 1.2rem;
 
         width: 2.25rem;
         height: 2.25rem;
@@ -113,6 +115,8 @@
       align-items: center;
       justify-content: center;
       padding-top: toRem(24);
+      @include adaptiveValue('padding-left', 24, 18, 0, 1200, 390);
+      @include adaptiveValue('padding-right', 24, 18, 0, 1200, 390);
     }
   }
 }
