@@ -1,14 +1,14 @@
-import { AppDispatch } from '../../../store/store';
-import { adminLogout } from '../../../store/admin/adminSlice';
-import { useDispatch } from 'react-redux';
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { adminLogout } from '../../../store/admin/adminSlice';
+import { AppDispatch } from '../../../store/store';
 import { ButtonApp } from '../../UI';
+
 import s from './NavbarAdmin.module.scss';
 import sprite from '../../../assets/sprite.svg';
-import { useState } from 'react';
-import { useGsapFrom } from '../../../hooks/useGsap';
-//   /panel/reviews
-//   /panel/projects
+
 interface ILinks {
   text: string;
   link: string;
@@ -17,6 +17,8 @@ interface ILinks {
 const NavbarAdmin = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isOpen, setIsOpen] = useState(true);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
   const links: ILinks[] = [
     {
       text: 'Projects',
@@ -28,15 +30,23 @@ const NavbarAdmin = () => {
     },
   ];
 
-  const refAboutItem = useGsapFrom({
-    opacity: 0,
-    x: -60,
-    delay: 0,
-    duration: 1,
-  });
+  useEffect(() => {
+    const content = contentRef.current;
+
+    if (content) {
+      gsap.set(content, { opacity: 0, x: -100 });
+      if (isOpen) {
+        gsap.to(content, { opacity: 1, x: 0, duration: 0.5 });
+      } else {
+        gsap.to(content, { opacity: 0, x: -100, duration: 0.5 });
+      }
+    }
+  }, [isOpen]);
+
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <aside
       className={`${s.navbar_admin} ${
@@ -51,7 +61,7 @@ const NavbarAdmin = () => {
         </svg>
       </button>
       {isOpen && (
-        <div ref={refAboutItem}>
+        <div ref={contentRef} className={s.navbar_admin__content}>
           <h1 className={s.navbar_admin__title}>Admin Panel</h1>
           <ul className={s.navbar_admin__list}>
             {links.map((link, i) => (
@@ -70,4 +80,5 @@ const NavbarAdmin = () => {
     </aside>
   );
 };
+
 export default NavbarAdmin;
