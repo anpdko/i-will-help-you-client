@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ArticleSection from '@/components/UI/ArticleSection/ArticleSection';
 import AboutTeam from '@/components/AboutTeam/AboutTeam';
 
-import { Volunteer, AboutHeader } from '../../components';
+import { Volunteer, AboutHeader, AboutDocuments } from '../../components';
 
 import aboutArticleData from '../../data/aboutArticleData';
 
@@ -68,6 +68,8 @@ const AboutPage = () => {
           />
         </div>
       </section>
+
+      <AboutDocuments />
 
       <Volunteer />
     </>

@@ -62,6 +62,12 @@ a {
   font-family: var(--font-nunito);
   @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
   font-weight: 600;
+  @media (min-width: $mobile) {
+    line-height: 150%;
+  }
+  @media (max-width:$mobile){
+    line-height: 135%;
+  }
 }
 
 .bunner-title {

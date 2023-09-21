@@ -83,9 +83,9 @@ const ArticleSection: React.FC<IArticleProps> = ({
   };
 
   const renderListCount = (listItems: IListCount[]) => (
-    <>
+    <ul className={s.list_count}>
       {listItems.map((list, index) => (
-        <ul key={list._id} className={s.list_count}>
+        <li key={list._id}>
           <h3 data-count={index + 1 + '.'}>
             {list.listTitle.includes(':') ? (
               <>
@@ -96,21 +96,23 @@ const ArticleSection: React.FC<IArticleProps> = ({
               <>{list.listTitle}</>
             )}
           </h3>
-          {(list.subItems || []).map((subItem) => (
-            <li key={uuidv4()}>
-              {subItem.includes(':') ? (
-                <>
-                  <span>{subItem.split(':')[0]}:</span>
-                  {subItem.split(':')[1]}
-                </>
-              ) : (
-                <>{subItem}</>
-              )}
-            </li>
-          ))}
-        </ul>
+          <ul>
+            {(list?.subItems || []).map((subItem) => (
+              <li key={uuidv4()}>
+                {subItem.includes(':') ? (
+                  <>
+                    <span>{subItem.split(':')[0]}:</span>
+                    {subItem.split(':')[1]}
+                  </>
+                ) : (
+                  <>{subItem}</>
+                )}
+              </li>
+            ))}
+          </ul>
+        </li>
       ))}
-    </>
+    </ul>
   );
 
   return (

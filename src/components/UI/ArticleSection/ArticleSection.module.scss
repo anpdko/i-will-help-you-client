@@ -143,58 +143,62 @@
   &:not(:last-child) {
     margin-bottom: toRem(8);
   }
-  h3 {
-    position: relative;
-    &:not(:last-child) {
-      margin-bottom: toRem(6);
-    }
-    @media (max-width: $mobile) {
-      padding-left: toRem(20);
-    }
-    &::before {
-      align-self: end;
-      content: attr(data-count);
-      position: absolute;
-      top: 0;
-      font-weight: 600;
-
-      @media (min-width: $mobile) {
-        left: toRem(-30);
+  li {
+    h3 {
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: toRem(6);
       }
       @media (max-width: $mobile) {
-        left: 0;
+        padding-left: toRem(20);
       }
-    }
-    span {
-      font-weight: 800;
+      &::before {
+        align-self: end;
+        content: attr(data-count);
+        position: absolute;
+        top: 0;
+        font-weight: 600;
+
+        @media (min-width: $mobile) {
+          left: toRem(-30);
+        }
+        @media (max-width: $mobile) {
+          left: 0;
+        }
+      }
+      span {
+        font-weight: 800;
+      }
     }
   }
-  li {
-    position: relative;
-    &:not(:last-child) {
-      margin-bottom: toRem(4);
-    }
-    @media (max-width: $mobile) {
-      padding-left: toRem(32);
-    }
-
-    padding-left: toRem(14);
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      border-radius: toRem(4);
-      width: toRem(4);
-      height: toRem(1);
-      top: em(12, 16);
-      left: toRem(0);
-      background-color: var(--black);
-      @media (max-width: $mobile) {
-        margin-left: toRem(20);
+  ul {
+    li {
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: toRem(4);
       }
-    }
-    span {
-      font-weight: 600;
+      @media (max-width: $mobile) {
+        padding-left: toRem(32);
+      }
+
+      padding-left: toRem(14);
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        border-radius: toRem(4);
+        width: toRem(4);
+        height: toRem(1);
+        top: em(12, 16);
+        left: toRem(0);
+        background-color: var(--black);
+        @media (max-width: $mobile) {
+          margin-left: toRem(20);
+        }
+      }
+      span {
+        font-weight: 600;
+      }
     }
   }
 }
