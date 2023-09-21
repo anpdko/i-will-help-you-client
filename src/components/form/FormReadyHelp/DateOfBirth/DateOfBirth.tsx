@@ -13,7 +13,6 @@ const DateOfBirth = () => {
       placeholder={t('MM/DD/YYYY')}
       format='MM/DD/YYYY'
       classNameContainer={s.dob}
-      classNameError={s.dob__error}
     />
   );
 };

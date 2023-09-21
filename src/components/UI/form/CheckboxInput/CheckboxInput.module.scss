@@ -1,5 +1,6 @@
 .checkboxes {
   &__wrap {
+    position: relative;
     display: grid;
     align-items: center;
     grid-template-areas: 'checkbox text' 'error error';
@@ -41,9 +42,10 @@
 
   &__error {
     grid-area: error;
+    position: absolute;
+    top: calc(100% + 6px);
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--red-for-error);
-    margin-top: 0.5rem;
   }
 }

@@ -27,7 +27,6 @@
   }
 }
 
-
 .assistance {
   grid-area: assistance;
 
@@ -251,8 +250,18 @@
   }
 }
 
+.wrap {
+  position: relative;
+  width: 100%;
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
 .error {
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--red-for-error);
+  position: absolute;
+  top: calc(100% + toRem(6));
 }

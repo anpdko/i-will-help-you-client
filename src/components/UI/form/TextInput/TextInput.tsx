@@ -53,8 +53,8 @@ const TextInput = ({
   };
 
   return (
-    <div className={`${s.form__container} ${classNameContainer}`}>
-      <label className={`${s.form__label} ${classNameLabel}`}>
+    <div className={`${s.container} ${classNameContainer}`}>
+      <label className={`${s.label} ${classNameLabel}`}>
         {title}
         <input
           type={type}
@@ -67,16 +67,16 @@ const TextInput = ({
               message: message.pattern,
             },
           })}
-          className={`${s.form__input} ${classNameInput}`}
+          className={`${s.input} ${classNameInput}`}
           onChange={handleInputChange}
           {...rest}
         />
+        {errors[id] && (
+          <p className={`${s.error} ${classNameError}`}>
+            {errors[id]?.message as string}
+          </p>
+        )}
       </label>
-      {errors[id] && (
-        <p className={`${s.form__error} ${classNameError}`}>
-          {errors[id]?.message as string}
-        </p>
-      )}
     </div>
   );
 };
