@@ -19,9 +19,8 @@ const PhoneNumber = () => {
           minLength: 7,
         }}
         defaultValue=''
-        render={({ field: { value, ref, onChange }, fieldState }) => (
+        render={({ field: { value, onChange }, fieldState }) => (
           <div className={s.wrap}>
-            {console.log(ref)}
             <PhoneInput
               value={value}
               onChange={(value) => onChange(value)}
