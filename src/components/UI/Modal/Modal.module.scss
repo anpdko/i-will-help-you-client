@@ -24,25 +24,48 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100vw - 60px);
+    @include adaptiveValue('padding-top', 18, 21, 0, 1200, 390);
+    @include adaptiveValue('padding-bottom', 20, 28, 0, 1200, 390);
 
+    width: calc(100vw - 60px);
     max-width: 40rem;
-    max-height: calc(100vh - 20px);
-    overflow-y: auto;
-    overflow-x: hidden;
+
     background-color: var(--total-white);
     @include adaptiveValue('border-radius', 25, 20, 0, 1200, 768);
 
-    // фіксция бага скролу на Android 12 Chrome
-    scrollbar-width: thin;
+    .container {
+      max-height: calc(100vh - 50px);
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: toRem(5);
+      padding-bottom: toRem(5);
+      overflow-y: auto;
+      overflow-x: hidden;
 
-    &__modal::-webkit-scrollbar {
-      width: 6px;
+      // фіксция бага скролу на Android 12 Chrome
+      scrollbar-width: thin;
+
+      &::-webkit-scrollbar {
+        width: toRem(4);
+        height: 0rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--light-grey);
+        border-radius: toRem(10);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--dark-grey);
+        border-radius: toRem(10);
+      }
     }
 
     .header {
       position: relative;
-      padding: 1.5rem;
+      padding-bottom: 1.5rem;
+      @include adaptiveValue('padding-left', 24, 18, 0, 1200, 390);
+      @include adaptiveValue('padding-right', 24, 18, 0, 1200, 390);
       border-bottom: 1px solid var(--dark-grey);
 
       .title {
@@ -60,7 +83,7 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 1.5rem;
+        right: 1.2rem;
 
         width: 2.25rem;
         height: 2.25rem;
@@ -91,8 +114,9 @@
       height: 100%;
       align-items: center;
       justify-content: center;
-      @include adaptiveValue('padding-block', 24, 18, 0, 1200, 390);
-      @include adaptiveValue('padding-inline', 24, 18, 0, 1200, 390);
+      padding-top: toRem(24);
+      @include adaptiveValue('padding-left', 24, 18, 0, 1200, 390);
+      @include adaptiveValue('padding-right', 24, 18, 0, 1200, 390);
     }
   }
 }

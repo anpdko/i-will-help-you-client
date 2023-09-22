@@ -54,6 +54,7 @@ const Modal = ({
         <>
           <div className={s.overlay} onClick={onBackdropClose}>
             <div className={[s.overlay__modal, s[size], className].join(' ')}>
+              <div className={s.container}>
               <div className={s.header}>
                 <div className={s.title}>{title}</div>
                 <button type='button' className={s.button} onClick={onClose}>
@@ -63,6 +64,7 @@ const Modal = ({
                 </button>
               </div>
               <div className={s.content}>{children}</div>
+              </div>
             </div>
           </div>
         </>,
