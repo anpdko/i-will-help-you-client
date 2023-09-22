@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { v4 as uuidv4 } from 'uuid';
 
 import { Translation } from '@/components';
 import { ButtonApp } from '../UI';
@@ -48,10 +47,11 @@ const Navbar = () => {
   };
 
   const handleMenuLinkClick = () => {
-    setIsMenuOpen(false);
-    document.body.classList.remove('scroll-lock');
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.classList.remove('scroll-lock');
+    }
   };
-
   const handleLogoClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -93,10 +93,9 @@ const Navbar = () => {
           </div>
           <ul className={s.nav__list}>
             {links?.map((link) => (
-              <li key={uuidv4()} className={s.nav__item}>
+              <li key={link.text} className={s.nav__item}>
                 <NavLink
                   to={link.link}
-                  className={s.nav__link}
                   onClick={handleMenuLinkClick}
                 >
                   {t(link.text)}

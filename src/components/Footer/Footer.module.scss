@@ -44,9 +44,8 @@
   .logo {
     display: flex;
     flex: 1 1 auto;
-    @include adaptiveValue("gap", 63, 40,1,380,320);
+    @include adaptiveValue('gap', 63, 40, 1, 380, 320);
     @media (max-width: $mobile) {
-      
       width: 100%;
       justify-content: space-between;
     }
@@ -76,10 +75,8 @@
     display: flex;
     flex: 1 1 auto;
     gap: toRem(30);
-    
-      justify-content: space-evenly;
-      
-    
+
+    justify-content: space-evenly;
 
     @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
     &__column {
@@ -114,6 +111,28 @@
         display: flex;
         flex-direction: column;
         gap: toRem(24);
+        :global {
+          a {
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: toRem(1);
+              bottom: toRem(-6);
+              left: 0;
+              background-color: var(--black);
+            }
+            &.active {
+              color: var(--black);
+              pointer-events: none;
+              &::after {
+                transition: width 0.3s;
+                width: 100%;
+              }
+            }
+          }
+        }
       }
     }
   }

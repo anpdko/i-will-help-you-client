@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import MediaQuery from 'react-responsive';
 
@@ -46,13 +46,13 @@ const Footer = () => {
                     <h2>{t('Documents')}</h2>
                     <ul>
                       <li>
-                        <Link to='/publicity'>{t('Publicity')}</Link>
+                        <NavLink to='/publicity'>{t('Publicity')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/conditions'>{t('Conditions')}</Link>
+                        <NavLink to='/conditions'>{t('Conditions')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/privacy'>{t('Privacy Policy')}</Link>
+                        <NavLink to='/privacy'>{t('Privacy Policy')}</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -60,13 +60,13 @@ const Footer = () => {
                     <h2>{t('Foundation')}</h2>
                     <ul>
                       <li>
-                        <Link to='/projects'>{t('Projects')}</Link>
+                        <NavLink to='/projects'>{t('Projects')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/about'>{t('About Us')}</Link>
+                        <NavLink to='/about'>{t('About Us')}</NavLink>
                       </li>
                       <li>
-                        <Link to='#'>{t('FAQ')}</Link>
+                        <NavLink to='/faq'>{t('FAQ')}</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -74,10 +74,10 @@ const Footer = () => {
                     <h2>{t('Assistance')}</h2>
                     <ul>
                       <li>
-                        <Link to='/volunteer'>{t('Ready to Help')}</Link>
+                        <NavLink to='/volunteer'>{t('Ready to Help')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/needhelp'>{t('Need Help')}</Link>
+                        <NavLink to='/needhelp'>{t('Need Help')}</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -88,32 +88,32 @@ const Footer = () => {
                   <div className={s.nav__column}>
                     <ul>
                       <li>
-                        <Link to='/publicity'>{t('Publicity')}</Link>
+                        <NavLink to='/publicity'>{t('Publicity')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/conditions'>{t('Conditions')}</Link>
+                        <NavLink to='/conditions'>{t('Conditions')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/privacy'>{t('Privacy Policy')}</Link>
+                        <NavLink to='/privacy'>{t('Privacy Policy')}</NavLink>
                       </li>
                       <li>
-                        <Link to='#'>{t('FAQ')}</Link>
+                        <NavLink to='/faq'>{t('FAQ')}</NavLink>
                       </li>
                     </ul>
                   </div>
                   <div className={s.nav__column}>
                     <ul>
                       <li>
-                        <Link to='/projects'>{t('Projects')}</Link>
+                        <NavLink to='/projects'>{t('Projects')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/about'>{t('About Us')}</Link>
+                        <NavLink to='/about'>{t('About Us')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/volunteer'>{t('Ready to Help')}</Link>
+                        <NavLink to='/volunteer'>{t('Ready to Help')}</NavLink>
                       </li>
                       <li>
-                        <Link to='/needhelp'>{t('Need Help')}</Link>
+                        <NavLink to='/needhelp'>{t('Need Help')}</NavLink>
                       </li>
                     </ul>
                   </div>
@@ -144,32 +144,32 @@ const Footer = () => {
               <div className={s.nav__column}>
                 <ul>
                   <li>
-                    <Link to='/publicity'>{t('Publicity')}</Link>
+                    <NavLink to='/publicity'>{t('Publicity')}</NavLink>
                   </li>
                   <li>
-                    <Link to='/conditions'>{t('Conditions')}</Link>
+                    <NavLink to='/conditions'>{t('Conditions')}</NavLink>
                   </li>
                   <li>
-                    <Link to='/privacy'>{t('Privacy Policy')}</Link>
+                    <NavLink to='/privacy'>{t('Privacy Policy')}</NavLink>
                   </li>
                   <li>
-                    <Link to='#'>{t('FAQ')}</Link>
+                    <NavLink to='/faq'>{t('FAQ')}</NavLink>
                   </li>
                 </ul>
               </div>
               <div className={s.nav__column}>
                 <ul>
                   <li>
-                    <Link to='/projects'>{t('Projects')}</Link>
+                    <NavLink to='/projects'>{t('Projects')}</NavLink>
                   </li>
                   <li>
-                    <Link to='/about'>{t('About Us')}</Link>
+                    <NavLink to='/about'>{t('About Us')}</NavLink>
                   </li>
                   <li>
-                    <Link to='/volunteer'>{t('Ready to Help')}</Link>
+                    <NavLink to='/volunteer'>{t('Ready to Help')}</NavLink>
                   </li>
                   <li>
-                    <Link to='/needhelp'>{t('Need Help')}</Link>
+                    <NavLink to='/needhelp'>{t('Need Help')}</NavLink>
                   </li>
                 </ul>
               </div>
