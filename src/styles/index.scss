@@ -72,9 +72,8 @@ $mobileSmall: em(479.98); // Телефони S
   }
 }
 
-.css-k7wtyt-control:hover {
-  box-shadow: none !important;
-  border: 1px solid var(--black) !important;
+.css-1l33k41-placeholder {
+  background: transparent !important;
 }
 
 .css-pu7pq9-control:hover,
@@ -83,12 +82,14 @@ $mobileSmall: em(479.98); // Телефони S
   border: 1px solid var(--black) !important;
 }
 
-.css-11p73xy-control:hover,
-.css-1mannzm-control:hover {
-  border: 1px solid var(--black) !important
+.css-1t4qa81-control:hover,
+.css-1ndf14h-control:hover,
+.css-kiqddk-control:hover {
+  border: 1px solid var(--black) !important;
+  background: transparent !important;
 }
 
-.css-1mannzm-control {
+.css-kiqddk-control {
   box-shadow: none !important;
 }
 
@@ -100,12 +101,19 @@ $mobileSmall: em(479.98); // Телефони S
   font-size: 1rem !important;
   font-style: normal !important;
   font-weight: 400 !important;
-  line-height: 150% !important;
+  line-height: 135% !important;
 }
 
-.ant-picker:hover, .ant-picker-focused {
+.ant-picker:hover {
   box-shadow: none !important;
   border: 1px solid var(--black) !important;
+  background: transparent !important;
+}
+
+.ant-picker-focused {
+  box-shadow: none !important;
+  border: 2px solid var(--black) !important;
+  background: var(--total-white) !important;
 }
 
 /* іконка календаря в інпуті */
@@ -149,12 +157,23 @@ $mobileSmall: em(479.98); // Телефони S
   border-radius: 0.625rem !important;
   border: 1px solid var(--black) !important;
   background: var(--total-white) !important;
-  padding: 1.8rem 1.5rem !important;
+  padding: 1.58rem 1.5rem !important;
+  color: var(--black) !important;
+  font-size: 1rem !important;
 
   &::placeholder {
     color: var(--dark-grey) !important;
     font-size: 1rem !important;
     line-height: 1rem;
+  }
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  &:focus {
+    border: 2px solid var(--black) !important;
+    background: var(--total-white) !important;
   }
 }
 
@@ -164,17 +183,56 @@ $mobileSmall: em(479.98); // Телефони S
   background: var(--total-white) !important;
   width: 100%;
   height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  &--active {
+    border: 2px solid var(--black) !important;
+    background: var(--total-white) !important;
+  }
 }
 
 .react-international-phone-flag-emoji {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2.2rem;
+  height: 2rem;
 }
 
-.react-international-phone-country-selector-button__button-content {
-  width: 100%;
-  height: 100%;
-  padding: 0.2rem 0.5rem;
+.react-international-phone-country-selector-button__flag-emoji {
+  margin: 0.6rem 0.7rem 0.6rem 0.75rem;
+}
+
+.react-international-phone-country-selector-button__dropdown-arrow {
+  margin-right: toRem(12);
+}
+
+.react-international-phone-country-selector-dropdown {
+  z-index: 3;
+  border-radius: toRem(10);
+  border: 1px solid var(--black);
+  background: var(--total-white);
+  top: toRem(55);
+  padding: 1rem;
+  clip-path: inset(0 0 0 0 round 10px);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-grey) var(--light-grey);
+
+  &::-webkit-scrollbar {
+    width: toRem(4);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: toRem(10);
+    background: var(--light-grey);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-grey);
+    border-radius: toRem(10);
+  }
 }
 
 
