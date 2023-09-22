@@ -73,10 +73,12 @@
   //========================================================================================================================================================
   .nav {
     display: flex;
-    flex: 1 1 auto;
     gap: toRem(30);
 
-    justify-content: space-evenly;
+    @media (min-width: $mobileSmall) {
+      flex: 1 1 auto;
+      justify-content: space-evenly;
+    }
 
     @include adaptiveValue('font-size', 18, 16, 0, 1200, 390);
     &__column {
@@ -106,7 +108,9 @@
           display: none;
         }
       }
-
+      @media (max-width: $mobileSmall) {
+        flex: 0 1 50%;
+      }
       ul {
         display: flex;
         flex-direction: column;
