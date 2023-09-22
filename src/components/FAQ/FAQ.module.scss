@@ -25,13 +25,60 @@
       flex-direction: column;
       align-items: start;
     }
-    :global {
-      .heading1 {
+    .column {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media (min-width: $mobile) {
         flex: 0 1 65.916667%; /* 791/1200 */
-        text-transform: uppercase;
-        margin-bottom: 0;
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+      :global {
+        .heading1 {
+          text-transform: uppercase;
+          margin-bottom: 0;
+        }
+      }
+      .search {
+        display: flex;
+        gap: toRem(20);
+        position: relative;
+        .input {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s;
+          transform: translate(15%, 0px);
+          border-radius: toRem(8);
+          padding: toRem(10) toRem(20);
+          border: toRem(1) solid var(--light-grey);
+          &:focus {
+            border: toRem(1) solid var(--dark-grey);
+          }
+          @media (max-width: $mobileSmall) {
+            max-width: toRem(160);
+          }
+
+          &.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0px, 0px);
+          }
+        }
+        svg {
+          width: toRem(24);
+          height: toRem(24);
+          transition: opacity 0.3s;
+          @media (any-hover: hover) {
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
       }
     }
+
     .subtitle {
       position: relative;
       font-weight: 600;
