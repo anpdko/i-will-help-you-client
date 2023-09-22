@@ -2,7 +2,6 @@ import { StylesConfig } from 'react-select';
 
 const customStyles: StylesConfig<any> = {
   indicatorSeparator: (styles) => ({ ...styles, display: 'none' }),
-  // indicatorsContainer: (styles) => ({ ...styles, padding: ' 8px 8px 8px 0' }),
 
   dropdownIndicator: (baseStyles, state) => ({
     ...baseStyles,
@@ -28,12 +27,12 @@ const customStyles: StylesConfig<any> = {
     lineHeight: '100%',
   }),
 
-  control: (baseStyles) => ({
+  control: (baseStyles, { isFocused }) => ({
     ...baseStyles,
     backgroundColor: '#fff',
-    border: '1px solid #0e0e0e',
+    border: isFocused ? '2px solid #0e0e0e' : '1px solid #0e0e0e',
     borderRadius: '10px',
-    padding: '0.7rem 1.5rem',
+    padding: '0.45rem 1.5rem',
   }),
 
   valueContainer: (baseStyles) => ({
@@ -64,7 +63,7 @@ const customStyles: StylesConfig<any> = {
     padding: '2rem',
     marginTop: '.5rem',
     borderRadius: '0.6rem',
-    border: '1px solid  var(--black)',
+    border: '1px solid var(--black)',
   }),
 
   multiValueRemove: (baseStyles) => ({
