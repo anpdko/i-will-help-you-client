@@ -102,7 +102,21 @@
     }
 
     &_custom {
-      padding: 1.125rem 2rem;
+      padding: 0.898rem 2rem;
+
+      &:hover {
+        background: transparent;
+      }
+
+      input:hover {
+        background: transparent;
+      }
+
+      // &:focus,
+      // &:active {
+      //   border: 2px solid var(--black);
+      //   background: var(--total-white);
+      // }
     }
   }
 }
