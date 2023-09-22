@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { v4 as uuidv4 } from 'uuid';
 
-import { Translation } from '../../components';
-import ButtonApp from '../UI/ButtonApp/ButtonApp';
+import { Translation } from '@/components';
+import { ButtonApp } from '../UI';
 
 import s from './Navbar.module.scss';
 import sprite from '../../assets/sprite.svg';
@@ -39,7 +40,6 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    // 'scroll-lock' для body
     if (!isMenuOpen) {
       document.body.classList.add('scroll-lock');
     } else {
@@ -57,6 +57,7 @@ const Navbar = () => {
       setIsMenuOpen(false);
       document.body.classList.remove('scroll-lock');
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const facebookProfileIdEn = '61551308008265';
@@ -91,22 +92,20 @@ const Navbar = () => {
             </ButtonApp>
           </div>
           <ul className={s.nav__list}>
-            {links
-              ? links.map((link, i) => (
-                  <li key={i} className={s.nav__item}>
-                    <NavLink
-                      to={link.link}
-                      className={s.nav__link}
-                      onClick={handleMenuLinkClick}
-                    >
-                      {t(link.text)}
-                      <svg>
-                        <use href={sprite + '#arrow-menu'}></use>
-                      </svg>
-                    </NavLink>
-                  </li>
-                ))
-              : null}
+            {links?.map((link) => (
+              <li key={uuidv4()} className={s.nav__item}>
+                <NavLink
+                  to={link.link}
+                  className={s.nav__link}
+                  onClick={handleMenuLinkClick}
+                >
+                  {t(link.text)}
+                  <svg>
+                    <use href={sprite + '#arrow-menu'}></use>
+                  </svg>
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
           <div className={s.social}>
