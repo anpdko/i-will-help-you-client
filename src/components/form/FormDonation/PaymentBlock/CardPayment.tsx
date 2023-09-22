@@ -1,20 +1,19 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
 import { Controller, useFormContext } from 'react-hook-form';
+
+import { ButtonApp } from '@components/UI';
 import { paymentFrequency, donationAmount } from '@utils/donationOptions';
 import RadioInput from '../RadioInput/RadioInput';
 import Email from '../../Email/Email';
 import Comment from '../../Comment/Comment';
-import { ButtonApp } from '@components/UI';
+
 import s from './PaymentBlock.module.scss';
 
 const CardPayment = () => {
   const { t } = useTranslation();
   const { control, setValue, getValues } = useFormContext();
   const [customAmount, setCustomAmount] = useState('');
-
-  const isMobile = useMediaQuery({ minWidth: 480, maxWidth: 767 });
 
   const handleCustomInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -101,7 +100,6 @@ const CardPayment = () => {
       <Comment title='Comment' placeholder='Type here...' maxLength={255} />
       <ButtonApp
         type='submit'
-        size={isMobile ? 'Xlarge' : 'medium'}
         className={s.card__button}
       >
         {t('Pay urgent!')}

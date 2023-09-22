@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ArticleSection from '@/components/UI/ArticleSection/ArticleSection';
 import AboutTeam from '@/components/AboutTeam/AboutTeam';
 
-import { Volunteer, AboutHeader } from '../../components';
+import { Volunteer, AboutHeader, AboutDocuments } from '../../components';
 
 import aboutArticleData from '../../data/aboutArticleData';
 
@@ -13,12 +13,22 @@ const AboutPage = () => {
   const { i18n } = useTranslation();
 
   const translations = (id: string) => {
-    const article = aboutArticleData.find((item) => item.id === id);
+    const article = aboutArticleData.find((item) => item.section === id);
     const translation = article?.translations.find(
       (item) => item.language === i18n.language,
     );
     return translation;
   };
+
+  const aboutOurActivitiesTranslation = translations('about_our_activities');
+
+  const adaptedItems = aboutOurActivitiesTranslation?.list
+    ? aboutOurActivitiesTranslation.list.map((item) => ({
+        _id: item._id,
+        listTitle: item.listTitle,
+        subItems: item.subItems,
+      }))
+    : [];
 
   return (
     <>
@@ -48,16 +58,18 @@ const AboutPage = () => {
 
       <AboutTeam />
 
-      <section className={s.about_objectives}>
+      <section className={s.about_our_activities}>
         <div className='container'>
           <ArticleSection
-            title={translations('our_objectives')?.title || ''}
-            subtitle={translations('our_objectives')?.subtitle || ''}
-            items={[translations('our_objectives')?.description || '']}
+            title={translations('about_our_activities')?.title || ''}
+            subtitle={translations('about_our_activities')?.subtitle || ''}
+            items={adaptedItems}
             variant='list-count'
           />
         </div>
       </section>
+
+      <AboutDocuments />
 
       <Volunteer />
     </>

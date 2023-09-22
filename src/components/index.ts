@@ -9,6 +9,7 @@ import Volunteer from './Volunteer/Volunteer';
 import ProjectHeader from './ProjectHeader/ProjectHeader';
 import ProjectsFund from './ProjectsFund/ProjectsFund';
 import FormHeader from './FormHeader/FormHeader';
+import AboutDocuments from './AboutDocuments/AboutDocuments';
 import FAQ from './FAQ/FAQ';
 import FormReadyHelp from './form/FormReadyHelp/FormReadyHelp';
 import FormNeedHelp from './form/FormNeedHelp/FormNeedHelp';
@@ -36,4 +37,5 @@ export {
   Payment,
   AboutHeader,
   NotFoundBlock,
+  AboutDocuments,
 };

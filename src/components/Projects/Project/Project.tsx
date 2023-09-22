@@ -50,7 +50,7 @@ const Project = ({ project }: ProjectProps) => {
 
         <Link
           className={s.content__btn}
-          to={`/projects/${project._id}`}
+          to={`/projects/${project.url}`}
           aria-label='link to progect'
         >
           <svg>

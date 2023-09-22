@@ -17,6 +17,10 @@
   "Incorrect password. Please try again": "Невірний пароль. Будь ласка, спробуйте ще раз",
 
   "Donate": "Задонатити",
+
+  "Foundation": "Фундація",
+  "Documents": "Документи",
+  "Assistance": "Допомога",
   "Donate Now": "Задонатити зараз",
   "Become a Volunteer": "Стати волонтером",
   "Conditions": "Умови",
@@ -247,7 +251,12 @@
 
   "Publicity and Media Relations": "Реклама та зв'язки зі ЗМІ",
   "Privacy Policy for iwillhelpyou.charity": "Політика конфіденційності iwillhelpyou.charity",
-  "Conditions for Using the 'I Will Help You Foundation' Website": "Умови користування веб-сайтом фонду «Я допоможу тобі»."
+  "Conditions for Using the 'I Will Help You Foundation' Website": "Умови користування веб-сайтом фонду «Я допоможу тобі».",
+
+
+  
+  "Charter and registration documents of the Fund": "Статут та реєстраційні документи Фонду",
+  "Open more FAQ": "Відкрити ще FAQ"
 
 
 }

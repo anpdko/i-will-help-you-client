@@ -51,8 +51,8 @@ const DateInput = ({
   };
 
   return (
-    <div className={`${s.form__container} ${classNameContainer}`}>
-      <label className={`${s.form__label} ${classNameLabel}`}>
+    <div className={`${s.container} ${classNameContainer}`}>
+      <label className={`${s.label} ${classNameLabel}`}>
         {title}
         <Controller
           control={control}
@@ -78,7 +78,7 @@ const DateInput = ({
                       onChange={(date) => {
                         field.onChange(date ? date.valueOf() : null);
                       }}
-                      className={`${s.form__input} ${classNameDate}`}
+                      className={`${s.input} ${classNameDate}`}
                       inputReadOnly
                       disabledDate={disabledDate}
                     />
@@ -94,13 +94,13 @@ const DateInput = ({
                     onChange={(date) => {
                       field.onChange(date ? date.valueOf() : null);
                     }}
-                    className={`${s.form__input} ${classNameDate}`}
+                    className={`${s.input} ${classNameDate}`}
                     inputReadOnly
                     disabledDate={disabledDate}
                   />
                 )}
                 {fieldState.error ? (
-                  <p className={`${s.form__error} ${classNameError}`}>
+                  <p className={`${s.error} ${classNameError}`}>
                     {fieldState.error?.message}
                   </p>
                 ) : null}

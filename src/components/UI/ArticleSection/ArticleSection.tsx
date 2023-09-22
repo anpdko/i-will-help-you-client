@@ -1,17 +1,23 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import s from './ArticleSection.module.scss';
+
+interface IListCount {
+  _id: string;
+  listTitle: string;
+  subItems?: string[];
+}
 
 interface ITags {
   _id: string;
   tag: string;
   desc: string;
 }
-
 interface IArticleProps {
   title: string;
   subtitle: string;
-  items: ITags[] | string[];
+  items: ITags[] | string[] | IListCount[];
   variant: 'list' | 'paragraphs' | 'paragraphs-3' | 'list-count';
 }
 
@@ -22,63 +28,92 @@ const ArticleSection: React.FC<IArticleProps> = ({
   variant,
 }) => {
   const renderItems = () => {
-    if (variant === 'list') {
-      return (
-        <ul className={s.list}>
-          {(items as ITags[]).map((item) => (
-            <li key={item._id} className={s.item}>
-              <h3 className={s.tag}>{item.tag}</h3>
-              <p className='text'>{item.desc}</p>
-            </li>
-          ))}
-        </ul>
-      );
-    } else if (variant === 'paragraphs') {
-      return (
-        <div className={s.list}>
-          {(items as string[]).map(
-            (item, index) =>
-              item.trim() !== '' && (
-                <p className='text' key={index}>
-                  {item}
-                </p>
-              ),
-          )}
-        </div>
-      );
-    } else if (variant === 'paragraphs-3') {
-      const paragraphs = (items as string[])
-        .map((item) => item.split(/(?<=\.\s{2})/)) // ".  " Розділяємо текст за допомогою регулярного виразу для збереження крапки
-        .flat() // Робимо масив плоским
-        .filter((item) => item.trim() !== ''); // Видаляємо пусті рядки
-
-      return (
-        <div className={s.list}>
-          {paragraphs.map((paragraph, index) => (
-            <p className='text' key={index}>
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      );
-    } else if (variant === 'list-count') {
-      const sentences = (items as string[])[0].split('. ');
-      return (
-        <ul className={s.list}>
-          {sentences.map((sentence, index) => (
-            <li
-              key={index}
-              className={s.item__count}
-              data-count={index + 1 + '.'}
-            >
-              {sentence + '.'}
-            </li>
-          ))}
-        </ul>
-      );
+    switch (variant) {
+      case 'list':
+        return renderTagList(items as ITags[]);
+      case 'paragraphs':
+        return renderParagraphs(items as string[]);
+      case 'paragraphs-3':
+        return renderParagraphs3(items as string[]);
+      case 'list-count':
+        return renderListCount(items as IListCount[]);
+      default:
+        return null;
     }
-    return null;
   };
+
+  const renderTagList = (tags: ITags[]) => (
+    <ul className={s.list}>
+      {tags.map((tag) => (
+        <li key={tag._id} className={s.item}>
+          <h3 className={s.tag}>{tag.tag}</h3>
+          <p className='text'>{tag.desc}</p>
+        </li>
+      ))}
+    </ul>
+  );
+
+  const renderParagraphs = (paragraphs: string[]) => (
+    <div className={s.list}>
+      {paragraphs
+        .filter((item) => item.trim() !== '')
+        .map((paragraph) => (
+          <p className='text' key={uuidv4()}>
+            {paragraph}
+          </p>
+        ))}
+    </div>
+  );
+
+  const renderParagraphs3 = (paragraphs: string[]) => {
+    const flattenedParagraphs = paragraphs
+      .map((item) => item.split(/(?<=\.\s{2})/))
+      .flat()
+      .filter((item) => item.trim() !== '');
+
+    return (
+      <div className={s.list}>
+        {flattenedParagraphs.map((paragraph) => (
+          <p className='text' key={uuidv4()}>
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    );
+  };
+
+  const renderListCount = (listItems: IListCount[]) => (
+    <ul className={s.list_count}>
+      {listItems.map((list, index) => (
+        <li key={list._id}>
+          <h3 data-count={index + 1 + '.'}>
+            {list.listTitle.includes(':') ? (
+              <>
+                <span>{list.listTitle.split(':')[0]}:</span>
+                {list.listTitle.split(':').slice(1).join(':')}
+              </>
+            ) : (
+              <>{list.listTitle}</>
+            )}
+          </h3>
+          <ul>
+            {(list?.subItems || []).map((subItem) => (
+              <li key={uuidv4()}>
+                {subItem.includes(':') ? (
+                  <>
+                    <span>{subItem.split(':')[0]}:</span>
+                    {subItem.split(':')[1]}
+                  </>
+                ) : (
+                  <>{subItem}</>
+                )}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <article className={s.content}>

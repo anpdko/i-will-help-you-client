@@ -40,7 +40,7 @@ const ReviewsDesktop = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(reviews);
+    
   }, [reviews]);
 
   const handlePrevSlide = () => {

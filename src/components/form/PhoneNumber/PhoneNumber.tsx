@@ -20,7 +20,7 @@ const PhoneNumber = () => {
         }}
         defaultValue=''
         render={({ field: { value, onChange }, fieldState }) => (
-          <>
+          <div className={s.wrap}>
             <PhoneInput
               value={value}
               onChange={(value) => onChange(value)}
@@ -29,11 +29,11 @@ const PhoneNumber = () => {
               disableDialCodePrefill={true}
             />
             {fieldState.error && (
-              <p className={`${s.phone__error}`}>
+              <p className={`${s.error}`}>
                 {fieldState.error.message as string}
               </p>
             )}
-          </>
+          </div>
         )}
       />
     </FormItemWrapper>

@@ -173,13 +173,17 @@
   &__list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: toRem(16);
   }
 
   &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     svg {
-      width: toRem(34);
-      height: toRem(34);
+      width: toRem(24);
+      height: toRem(24);
     }
   }
 }

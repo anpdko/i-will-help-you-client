@@ -3,7 +3,7 @@
 .paymentBlock {
   display: grid;
   gap: 2.75rem;
-  
+
   &__method {
     display: grid;
     align-items: center;
@@ -125,22 +125,18 @@
   display: flex;
   flex-direction: column;
   gap: toRem(44);
-
   &__button {
-    width: 17.625rem;
     border-radius: 0.75rem;
-    padding: 1.5rem 0;
-
-    @media (max-width: $mobileSmall) {
-      width: 18rem;
+    padding: toRem(24) toRem(10) ;
+    @media (min-width: $mobile) {
+      min-width: toRem(282);
     }
-
     @media (max-width: $mobile) {
-      width: 100%;
+      min-width: 100%;
     }
 
     &:disabled {
-      background: var(--light-grey)
+      background: var(--light-grey);
     }
   }
 }
@@ -179,7 +175,7 @@
   }
 
   &__account {
-    word-break:break-all;
+    word-break: break-all;
   }
 
   &__btn {

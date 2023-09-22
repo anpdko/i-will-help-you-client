@@ -1,23 +1,38 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, Pagination } from 'swiper/modules';
-import i18n from '@/translation/i18n';
+import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
-import aboutTeamData from '@/data/aboutTeamData';
-
-import s from './AboutTeam.module.scss';
+import s from './AboutDocuments.module.scss';
 import sprite from '../../assets/sprite.svg';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const AboutTeam = () => {
-  const IMAGE_PREFIX = '/static/images/team/';
+const AboutDocuments = () => {
+  const { t } = useTranslation();
+
+  const IMAGE_PREFIX = '/static/images/documents/';
+
+  const slides = [
+    'documents-1.jpg',
+    'documents-2.jpg',
+    'documents-3.jpg',
+    'documents-4.jpg',
+    'documents-4.jpg',
+  ];
 
   const getTotalSlides = () => {
-    return Math.ceil(aboutTeamData.length);
+    return Math.ceil(slides.length);
   };
   return (
     <section className={s.about_team}>
       <div className='container'>
+        <div className={s.header}>
+          <h2 className={`${s.title} heading2`}>
+            {t('Charter and registration documents of the Fund')}
+          </h2>
+          <h3 className={s.subtitle}>{t('Documents')}</h3>
+        </div>
         <Swiper
           modules={[Navigation, Scrollbar, Pagination]}
           navigation={{
@@ -52,25 +67,18 @@ const AboutTeam = () => {
           }}
           spaceBetween={24}
         >
-          {aboutTeamData?.map((item) => {
-            const translation = item.translations.find(
-              (translation) => translation.language === i18n.language,
-            );
-            return (
-              <SwiperSlide key={item._id}>
-                <div className={s.content}>
-                  <div className={s.image}>
-                    <img
-                      src={API_URL + IMAGE_PREFIX + item.imgPhath}
-                      alt={translation?.fullName}
-                    />
-                  </div>
-                  <h3>{translation?.fullName}</h3>
-                  <h4>{translation?.activity}</h4>
-                </div>
-              </SwiperSlide>
-            );
-          })}
+          {slides?.map((item) => (
+            <SwiperSlide key={uuidv4()}>
+              <div className={s.content}>
+                <a href={API_URL + IMAGE_PREFIX + item} className={s.image}>
+                  <img src={API_URL + IMAGE_PREFIX + item} alt={item} />
+                  <svg>
+                    <use href={sprite + '#lens'}></use>
+                  </svg>
+                </a>
+              </div>
+            </SwiperSlide>
+          ))}
 
           <div className={s.arrows}>
             <button
@@ -105,4 +113,4 @@ const AboutTeam = () => {
   );
 };
 
-export default AboutTeam;
+export default AboutDocuments;

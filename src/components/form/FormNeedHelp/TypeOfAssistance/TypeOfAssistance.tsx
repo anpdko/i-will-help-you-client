@@ -1,70 +1,20 @@
-import { useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { getTypeOfAssistance } from '@/api/getTypeOfAssistance';
+import { useProjectTitles } from '@/hooks/useProjectTitles';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import CheckboxSelect from './CheckboxSelect';
 import { CheckboxInput } from '@components/UI';
 import s from './TypeOfAssistance.module.scss';
 import checkLabelsNearby from '@/services/form/checkLabelsNearby';
 
-interface AssistanceTranslation {
-  language: string;
-  title: string;
-}
-
-interface AssistanceItem {
-  _id: string;
-  translations: AssistanceTranslation[];
-}
-
-interface TypeOfAssistance {
-  title: string | undefined;
-  id: string;
-}
-
 const TypeOfAssistance = () => {
   const {
     control,
     formState: { errors },
   } = useFormContext();
-  const { t } = useTranslation();
-  const [typeOfAssistanceList, setTypeOfAssistanceList] = useState<
-    TypeOfAssistance[]
-  >([]);
-
-  const storedLanguage = localStorage.getItem('language');
-  const language = storedLanguage && JSON.parse(storedLanguage);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data: AssistanceItem[] = await getTypeOfAssistance();
-
-        const filteredData = data
-          .filter((item) =>
-            item.translations.some(
-              (translation: AssistanceTranslation) =>
-                translation.language === language,
-            ),
-          )
-          .map((item) => ({
-            title: item.translations.find(
-              (translation: AssistanceTranslation) =>
-                translation.language === language,
-            )?.title,
-            id: item._id,
-          }));
-
-        setTypeOfAssistanceList(filteredData);
-      } catch (error) {
-        console.error('Error fetching assistance list:', error);
-        setTypeOfAssistanceList([]);
-      }
-    };
-
-    fetchData();
-  }, [language]);
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
+  const typeOfAssistanceList = useProjectTitles(language);
 
   const checkButtonsNearbySide = () => {
     const elems = document.querySelectorAll('#list_projects li');
@@ -81,8 +31,8 @@ const TypeOfAssistance = () => {
         name='typeOfAssistance'
         rules={{ required: t('Please select at least one type of assistance') }}
         render={({ field: { onChange, value = [] } }) => (
-          <>
-            <ul className={s.assistance__wrap} id='list_projects'>
+          <div className={s.wrap}>
+            <ul className={s.assistance__wrap} id="list_projects">
               {typeOfAssistanceList.map((item) => (
                 <li key={item.id}>
                   <CheckboxSelect
@@ -126,7 +76,7 @@ const TypeOfAssistance = () => {
                 checkButtonsNearbySide();
               }}
             />
-          </>
+          </div>
         )}
       />
     </FormItemWrapper>
