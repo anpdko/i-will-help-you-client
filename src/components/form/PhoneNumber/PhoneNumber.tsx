@@ -19,13 +19,11 @@ const PhoneNumber = () => {
           minLength: 7,
         }}
         defaultValue=''
-        render={({ field: { value, ref, onChange }, fieldState }) => (
+        render={({ field: { value, onChange }, fieldState }) => (
           <>
-            {console.log(ref)}
             <PhoneInput
               value={value}
               onChange={(value) => onChange(value)}
-              hideDropdown={true}
               defaultCountry={t('pl')}
               placeholder={t('+48 605 555 555')}
               disableDialCodePrefill={true}
