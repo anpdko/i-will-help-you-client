@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import s from './PhoneNumber.module.scss';
+import './PhoneNumber.scss';
 
 const PhoneNumber = () => {
   const { control } = useFormContext();
