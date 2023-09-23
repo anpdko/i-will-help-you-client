@@ -10,6 +10,7 @@ export interface ITranslation {
 export interface IAboutTeamData {
   _id: string;
   imgPhath: string;
+  linkedIn: string;
   translations: ITranslation[];
 }
 
@@ -31,6 +32,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Bohdan_Nemyrovskyi.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -49,6 +51,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Natalia_Irgovtsij.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -67,6 +70,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Olena Varlamova.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -85,6 +89,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Jessica_Sahun.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -103,6 +108,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Andrii_Priadko.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -121,6 +127,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Dmytro_Kuts.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -139,6 +146,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Sofiia_Voloshyn.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -157,6 +165,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Anastasiia Chernyshova.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -175,6 +184,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Iryna_Petrenko.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -193,6 +203,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Anastasiia_Koptylova.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -211,6 +222,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Tsyhykal_Olha.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -229,6 +241,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Alina_Astanina.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -247,6 +260,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Vita_Polishchuk.jpg',
+    linkedIn: '',
   },
   {
     translations: [
@@ -265,6 +279,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Volodymyr_Pyts.jpg',
+    linkedIn: '',
   },
 ];
 
