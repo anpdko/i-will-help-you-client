@@ -15,7 +15,7 @@
     border-radius: 0.625rem;
     border: 1px solid var(--black);
     background: var(--total-white);
-    padding: 1.125rem 1.5rem;
+    padding: 0.83rem 1.5rem;
 
     color: var(--dark-grey);
     font-family: Open Sans;
@@ -27,6 +27,15 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &:focus {
+      border: 2px solid var(--black);
+      background: var(--total-white);
+    }
   }
 
   &__input {

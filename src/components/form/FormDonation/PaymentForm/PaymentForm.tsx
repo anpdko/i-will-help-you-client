@@ -35,10 +35,15 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
     mode: 'onChange',
   });
 
+  const { reset } = methods;
+
   const onSubmit = (data: any) => {
     console.log(data);
     setDataForm(data);
     toggleModal();
+    reset({
+      donationAmount: '10'
+    });
   };
 
   const toggleModal = () => {

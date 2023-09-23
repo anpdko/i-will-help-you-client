@@ -24,6 +24,10 @@ const CardPayment = () => {
     }
   };
 
+  const handleResetCustomDonationAmount = () => {
+    setCustomAmount('');
+  };
+
   useEffect(() => {
     const selectedValue = getValues('donationAmount');
     if (!selectedValue) {

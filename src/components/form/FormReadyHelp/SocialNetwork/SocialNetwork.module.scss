@@ -17,14 +17,13 @@
   &__input {
     width: 100%;
 
-    
     &_logo {
       flex: 0 1 20.3125%; /* 78/384 */
       min-width: toRem(78);
       text-align: center;
       
       & > div {
-        padding: toRem(11) toRem(4) !important;
+        padding: 0.45rem 0.25rem !important;
       }
 
     }
@@ -37,7 +36,7 @@
       border-radius: toRem(10);
       border: 1px solid var(--black);
       background: var(--total-white);
-      padding: toRem(18) toRem(24);
+      padding: 0.9rem 1.5rem;
   
       &::placeholder {
         color: var(--dark-grey);
@@ -45,6 +44,15 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1rem; 
+      }
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:focus {
+        border: 2px solid var(--black);
+        background: var(--total-white);
       }
     }
   }
