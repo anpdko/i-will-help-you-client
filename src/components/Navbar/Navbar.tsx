@@ -94,10 +94,7 @@ const Navbar = () => {
           <ul className={s.nav__list}>
             {links?.map((link) => (
               <li key={link.text} className={s.nav__item}>
-                <NavLink
-                  to={link.link}
-                  onClick={handleMenuLinkClick}
-                >
+                <NavLink to={link.link} onClick={handleMenuLinkClick}>
                   {t(link.text)}
                   <svg>
                     <use href={sprite + '#arrow-menu'}></use>
