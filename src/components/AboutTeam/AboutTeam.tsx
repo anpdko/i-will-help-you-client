@@ -58,16 +58,34 @@ const AboutTeam = () => {
             );
             return (
               <SwiperSlide key={item._id}>
-                <div className={s.content}>
-                  <div className={s.image}>
-                    <img
-                      src={API_URL + IMAGE_PREFIX + item.imgPhath}
-                      alt={translation?.fullName}
-                    />
+                {item.linkedIn ? (
+                  <a
+                    href={item.linkedIn}
+                    target='_blank'
+                    className={`${s.content} ${s._link}`}
+                  >
+                    <div className={s.image}>
+                      <img
+                        src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                        alt={translation?.fullName}
+                      />
+                    </div>
+                    <h3>{translation?.fullName}</h3>
+                    <h4>{translation?.activity}</h4>
+                    <span>LinkedIn</span>
+                  </a>
+                ) : (
+                  <div className={`${s.content}`}>
+                    <div className={s.image}>
+                      <img
+                        src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                        alt={translation?.fullName}
+                      />
+                    </div>
+                    <h3>{translation?.fullName}</h3>
+                    <h4>{translation?.activity}</h4>
                   </div>
-                  <h3>{translation?.fullName}</h3>
-                  <h4>{translation?.activity}</h4>
-                </div>
+                )}
               </SwiperSlide>
             );
           })}

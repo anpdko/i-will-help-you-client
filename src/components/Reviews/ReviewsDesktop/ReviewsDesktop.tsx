@@ -39,9 +39,7 @@ const ReviewsDesktop = () => {
     dispatch(getReviews());
   }, [dispatch]);
 
-  useEffect(() => {
-    
-  }, [reviews]);
+  useEffect(() => {}, [reviews]);
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev();

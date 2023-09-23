@@ -34,10 +34,6 @@ a {
       color: var(--orange);
     }
   }
-  &.active {
-    color: var(--black);
-    pointer-events: none;
-  }
 }
 
 /* Texts style */
@@ -50,7 +46,7 @@ a {
   @media (min-width: $mobile) {
     line-height: 150%;
   }
-  @media (max-width:$mobile){
+  @media (max-width: $mobile) {
     line-height: 135%;
   }
   &:not(:last-child) {
@@ -65,7 +61,7 @@ a {
   @media (min-width: $mobile) {
     line-height: 150%;
   }
-  @media (max-width:$mobile){
+  @media (max-width: $mobile) {
     line-height: 135%;
   }
 }
@@ -139,7 +135,7 @@ a {
 
 //Modal icons
 .errorIcon,
-.successIcon{
+.successIcon {
   width: 2rem !important;
   height: 2rem !important;
 }
@@ -149,5 +145,5 @@ a {
 }
 
 .errorIcon {
-  color:var(--red-for-error);
+  color: var(--red-for-error);
 }

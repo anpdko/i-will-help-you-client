@@ -32,7 +32,7 @@ const TypeOfAssistance = () => {
         rules={{ required: t('Please select at least one type of assistance') }}
         render={({ field: { onChange, value = [] } }) => (
           <div className={s.wrap}>
-            <ul className={s.assistance__wrap} id="list_projects">
+            <ul className={s.assistance__wrap} id='list_projects'>
               {typeOfAssistanceList.map((item) => (
                 <li key={item.id}>
                   <CheckboxSelect
