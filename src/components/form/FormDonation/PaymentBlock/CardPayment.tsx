@@ -24,6 +24,10 @@ const CardPayment = () => {
     }
   };
 
+  const handleResetCustomDonationAmount = () => {
+    setCustomAmount('');
+  };
+
   useEffect(() => {
     const selectedValue = getValues('donationAmount');
     if (!selectedValue) {
@@ -101,6 +105,7 @@ const CardPayment = () => {
       <ButtonApp
         type='submit'
         className={s.card__button}
+        onClick={handleResetCustomDonationAmount}
       >
         {t('Pay urgent!')}
       </ButtonApp>

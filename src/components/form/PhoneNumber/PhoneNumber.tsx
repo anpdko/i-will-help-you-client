@@ -24,7 +24,6 @@ const PhoneNumber = () => {
             <PhoneInput
               value={value}
               onChange={(value) => onChange(value)}
-              hideDropdown={true}
               defaultCountry={t('pl')}
               placeholder={t('+48 605 555 555')}
               disableDialCodePrefill={true}

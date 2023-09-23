@@ -19,6 +19,7 @@
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
+    cursor: pointer;
 
     &::before {
       content: "";
@@ -33,6 +34,15 @@
 
     &:checked::before {
       transform: scale(1);
+    }
+
+    &:hover {
+      background: transparent;
+    }
+
+    &:focus {
+      border: 2px solid var(--black);
+      background: var(--total-white);
     }
   }
 
