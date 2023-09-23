@@ -5,6 +5,7 @@ import type { RangePickerProps } from 'antd/es/date-picker';
 import locale from 'antd/locale/uk_UA';
 import dayjs from 'dayjs';
 import s from '../Form.module.scss';
+import './DateInput.scss';
 
 import 'dayjs/locale/uk';
 

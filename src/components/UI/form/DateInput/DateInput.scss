@@ -1,0 +1,44 @@
+.ant-picker-input input::placeholder,
+.ant-picker .ant-picker-input > input {
+  color: var(--dark-grey) !important;
+  font-family: Open Sans !important;
+  font-size: 1rem !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 135% !important;
+}
+
+.ant-picker:hover {
+  box-shadow: none !important;
+  border: 1px solid var(--black) !important;
+  background: transparent !important;
+}
+
+.ant-picker-focused {
+  box-shadow: none !important;
+  border: 2px solid var(--black) !important;
+  background: var(--total-white) !important;
+}
+
+/* іконка календаря в інпуті */
+.anticon {
+  color: var(--dark-grey) !important;
+  font-size: 1rem;
+}
+
+/* налаштування стилів для календаря */
+.ant-picker-dropdown .ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: var(--orange-for-states) !important;
+}
+
+.ant-picker-dropdown  .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: var(--orange-for-states);
+}
+
+.ant-picker-dropdown .ant-picker-today-btn {
+  color: var(--orange-for-states);
+}
+
+.ant-picker-dropdown .ant-picker-today-btn:hover {
+  color: var(--dark-grey);
+}
