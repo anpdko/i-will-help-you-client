@@ -1,7 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import Select from 'react-select';
-import customStyles from './selectStyle';
+import { Select } from 'antd';
 import s from './SelectInput.module.scss';
+import './SelectStyles.scss';
 
 interface SelectInputProps {
   name: string;
@@ -22,7 +22,6 @@ const SelectInput = ({
   index,
   options,
   placeholder,
-  isMulti = false,
   isSearchable = true,
   required = false,
   errorMessage,
@@ -45,15 +44,7 @@ const SelectInput = ({
             {...field}
             options={options}
             placeholder={placeholder}
-            isMulti={isMulti}
-            isSearchable={isSearchable}
-            value={options.find((option: any) => option.value === field.value)}
-            onChange={(selectedOption) => {
-              field.onChange(
-                (selectedOption as { value: string; label: string })?.value,
-              );
-            }}
-            styles={customStyles}
+            showSearch={isSearchable}
             className={`${className}`}
           />
           {required && errorMessage && errors.country && (
