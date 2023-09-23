@@ -89,7 +89,7 @@
   "Please enter your country code" : "Будь ласка, введіть код вашої країни",
   "The country code should start with the «+» symbol and be followed by exactly two digits": "Код країни має починатися із символу «+», після якого слідують рівно дві цифри.",
   "605 555 555": "095 55 55 555",
-  "Please enter your phone number": "Будь ласка, введіть ваш номер телефону",
+  "Please type your phone number": "Будь ласка, введіть ваш номер телефону",
 
   "Email ": "Електронна адреса ",
   "Please type your email address" : "Будь ласка, введіть вашу електронну адресу",
