@@ -28,7 +28,9 @@ const AboutDocuments = () => {
     <section className={s.about_team}>
       <div className='container'>
         <div className={s.header}>
-          <h2 className={`${s.title} heading2`}>{t('Charter and registration documents of the Fund')}</h2>
+          <h2 className={`${s.title} heading2`}>
+            {t('Charter and registration documents of the Fund')}
+          </h2>
           <h3 className={s.subtitle}>{t('Documents')}</h3>
         </div>
         <Swiper
@@ -68,9 +70,12 @@ const AboutDocuments = () => {
           {slides?.map((item) => (
             <SwiperSlide key={uuidv4()}>
               <div className={s.content}>
-                <div className={s.image}>
+                <a href={API_URL + IMAGE_PREFIX + item} className={s.image}>
                   <img src={API_URL + IMAGE_PREFIX + item} alt={item} />
-                </div>
+                  <svg>
+                    <use href={sprite + '#lens'}></use>
+                  </svg>
+                </a>
               </div>
             </SwiperSlide>
           ))}

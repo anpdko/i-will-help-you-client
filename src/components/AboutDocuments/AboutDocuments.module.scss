@@ -75,12 +75,22 @@
   cursor: grab;
   @include adaptiveValue('margin-bottom', 24, 36, 0, 1200, 768);
   .image {
+    display: block;
     position: relative;
     overflow: hidden;
-
     border-radius: toRem(20);
     border: toRem(1) solid var(--black);
-    
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        svg {
+          transform: scale(1.2);
+        }
+      }
+    }
     @media (min-width: $mobile) {
       padding-bottom: 122.695035%; /* 346/282 */
       &:not(:last-child) {
@@ -95,6 +105,9 @@
     }
 
     img {
+      will-change: transform;
+      transform-origin: center center;
+      transition: transform 0.6s;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -102,6 +115,23 @@
       left: 0;
       object-fit: cover;
       object-position: center top;
+    }
+    svg {
+      color: var(--black);
+      position: absolute;
+      transition: transform 0.6s;
+      @media (min-width: $mobile) {
+        width: toRem(24);
+        height: toRem(24);
+        bottom: toRem(16);
+        right: toRem(16);
+      }
+      @media (max-width: $mobile) {
+        width: toRem(24);
+        height: toRem(24);
+        top: toRem(24);
+        right: toRem(24);
+      }
     }
   }
   h3 {
@@ -131,7 +161,7 @@
     cursor: pointer;
     transition: all 0.3s;
     @include adaptiveValue('padding', 12, 11, 0, 1200, 768);
-    background-color: var(--dark-grey);;
+    background-color: var(--dark-grey);
     box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
     @include adaptiveValue('border-radius', 12, 10, 0, 1200, 768);
     @media (any-hover: hover) {
