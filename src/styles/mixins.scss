@@ -1,73 +1,270 @@
 
 //REM
 @function toRem($px, $current: 16) {
-	$result: math.div($px, $current) + rem;
-	@return $result;
+  $result: math.div($px, $current) + rem;
+  @return $result;
 }
 //EM
 @function em($px, $current: 16) {
-	$result: math.div($px, $current) + em;
-	@return $result;
+  $result: math.div($px, $current) + em;
+  @return $result;
 }
 
 
 // Адаптивна властивість (clamp)
 @mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
-	@if ($startSize==0) {
-		$startSize: 0.000001;
-	}
-	@if ($minSize==0) {
-		$minSize: 0.000001;
-	}
+  @if ($startSize==0) {
+    $startSize: 0.000001;
+  }
+  @if ($minSize==0) {
+    $minSize: 0.000001;
+  }
 
-	// Для calc();
-	$addSize: math.div($startSize - $minSize, 16);
+  // Для calc();
+  $addSize: math.div($startSize - $minSize, 16);
 
-	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
-		$widthFrom: $maxWidth;
-	}
+  @if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+    $widthFrom: $maxWidth;
+  }
 
-	// Брейк-поїнти в EM
-	$widthFromMedia: em($widthFrom);
-	$widthToMedia: em($widthTo);
+  // Брейк-поїнти в EM
+  $widthFromMedia: em($widthFrom);
+  $widthToMedia: em($widthTo);
 
-	// Формула плаваючого значення
-	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
-	$yIntersection: -$widthTo * $slope + $minSize;
-	@if ($yIntersection==0) {
-		$yIntersection: 0.000001;
-	}
-	$flyValue: #{toRem($yIntersection)}" + " #{$slope * 100}vw;
+  // Формула плаваючого значення
+  // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+  $yIntersection: -$widthTo * $slope + $minSize;
+  @if ($yIntersection==0) {
+    $yIntersection: 0.000001;
+  }
+  $flyValue: #{toRem($yIntersection)}" + " #{$slope * 100}vw;
 
-	// Отримання значення властивості
-	$propertyValue: #{"clamp(" toRem($minSize) "," $flyValue "," toRem($startSize) ")"};
-	// Якщо негативні значення
-	@if ($minSize > $startSize) {
-		$propertyValue: #{"clamp(" toRem($startSize) "," $flyValue "," toRem($minSize) ")"};
-	}
+  // Отримання значення властивості
+  $propertyValue: #{"clamp(" toRem($minSize) "," $flyValue "," toRem($startSize) ")"};
+  // Якщо негативні значення
+  @if ($minSize > $startSize) {
+    $propertyValue: #{"clamp(" toRem($startSize) "," $flyValue "," toRem($minSize) ")"};
+  }
 
-	// Встановлюємо значення за замовчуванням
-	@if $keepSize != 1 and $keepSize != 3 {
-		@media (min-width: $widthFromMedia) {
-			#{$property}: toRem($startSize);
-		}
-	}
-	// Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
-	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
-		// Якщо підтримується clamp();
-		@supports (#{$property}: $propertyValue) {
-			#{$property}: $propertyValue;
-		}
-		// Якщо не підтримується clamp();
-		@supports not (#{$property}: $propertyValue) {
-			#{$property}: calc(#{toRem($minSize)} + #{$addSize} * (100vw - #{toRem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
-		}
-	}
-	@if $keepSize != 1 and $keepSize != 2 {
-		@media (max-width: $widthToMedia) {
-			#{$property}: toRem($minSize);
-		}
-	}
+  // Встановлюємо значення за замовчуванням
+  @if $keepSize != 1 and $keepSize != 3 {
+    @media (min-width: $widthFromMedia) {
+      #{$property}: toRem($startSize);
+    }
+  }
+  // Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
+  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+    // Якщо підтримується clamp();
+    @supports (#{$property}: $propertyValue) {
+      #{$property}: $propertyValue;
+    }
+    // Якщо не підтримується clamp();
+    @supports not (#{$property}: $propertyValue) {
+      #{$property}: calc(#{toRem($minSize)} + #{$addSize} * (100vw - #{toRem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
+    }
+  }
+  @if $keepSize != 1 and $keepSize != 2 {
+    @media (max-width: $widthToMedia) {
+      #{$property}: toRem($minSize);
+    }
+  }
 }
+
+/* PC: міксин для відображення колонок з кнопками форми (type of assistance, project list) */
+@mixin formButtonsGridBasic($columns, $border-radius: 0.625rem, $include-after: false) {
+  & > label:first-of-type,
+  & > label:nth-of-type(5) {
+    border-left: 1px solid var(--black);
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    @if $include-after {
+      &::after {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+    }
+  }
+
+  & > label:last-of-type,
+  & > label:nth-of-type(4) {
+    border-right: 1px solid var(--black);
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+
+    @if $include-after {
+      &::after {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+}
+
+/* TABLET, MOBILE: міксин для адаптивного відображення колонок з кнопками форми (type of assistance, project list) */
+@mixin formButtonsGridResponsive($columns, $border-radius: 0.625rem, $include-after: false, $include-mobile: false) {
+  grid-template-columns: repeat(#{$columns}, 1fr);
+
+  @if $columns == 1 {
+    > label {
+      border-radius: $border-radius !important;
+      border: 1px solid var(--black) !important;
+
+      @if $include-after {
+        &::after {
+          border-radius: $border-radius !important;
+        }
+      }
+    }
+  }
+
+  & > label:nth-of-type(#{$columns}) {
+    border-right: 1px solid var(--black);
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    @if $include-after {
+      &::after {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+
+  & > label:nth-of-type(#{$columns + 1}) {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: 1px solid var(--black);
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    @if $include-after {
+      &::after {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+      }
+    }
+  }
+
+  & > label:nth-of-type(#{$columns + 2}) {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    @if $include-after {
+      &::after {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    @if $include-mobile {
+      border-right: 1px solid var(--black);
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+
+      @if $include-after {
+        &::after {
+          border-top-right-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+        }
+      }
+    }
+  }
+
+  @if $include-mobile {
+    & > label:nth-of-type(#{$columns + 3}) {
+      border-left: 1px solid var(--black);
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+
+      @if $include-after {
+        &::after {
+          border-top-left-radius: $border-radius;
+          border-bottom-left-radius: $border-radius;
+        }
+      }
+    }
+  } @else {
+    & > label:nth-of-type(#{$columns + 3}) {
+      border-right: 1px solid var(--black);
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+
+      @if $include-after {
+        &::after {
+          border-top-right-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+        }
+      }
+    }
+  }
+
+  & > label:last-of-type {
+    border-left: 1px solid var(--black);
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    @if $include-after {
+      &::after {
+        border-radius: $border-radius;
+      }
+    }
+  }
+}
+
+/* міксин для приховування елементів декору для кнопок форми (type of assistance, project list) */
+@mixin hideDecorativeLine {
+  &:first-of-type,
+  &:nth-of-type(5) {
+    &:before {
+      display: none;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &:nth-of-type(4),
+    &:nth-of-type(7) {
+      &:before {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(5) {
+      &:before {
+        display: inline-block;
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    &:nth-of-type(3),
+    &:nth-of-type(5) {
+      &:before {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(4) {
+      &:before {
+        display: inline-block;
+      }
+    }
+  }
+
+  @media (max-width: $mobileSmall) {
+    &:nth-of-type(even) {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+
 

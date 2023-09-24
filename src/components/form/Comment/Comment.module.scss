@@ -1,14 +1,5 @@
-@import '../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .comment {
   grid-area: comment;
-  width: 49.563rem;
-
-  @media (max-width: $tablet) {
-    width: 46.25rem;
-  }
-
-  @media (max-width: $mobile) {
-    width: 22.875rem;
-  }
 }

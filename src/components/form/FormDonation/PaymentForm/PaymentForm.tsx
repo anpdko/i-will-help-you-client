@@ -1,36 +1,49 @@
+import { useState } from 'react';
 import {
   FieldValues,
   FormProvider,
   SubmitHandler,
   useForm,
 } from 'react-hook-form';
-import {useState} from 'react'
-import { ButtonApp } from '../../../UI';
+import { Modal } from '@components/UI';
 import PaymentBlock from '../PaymentBlock/PaymentBlock';
-import Email from '../../Email/Email';
-import Comment from '../../Comment/Comment';
 import ChooseProject from './ChooseProject';
+import Payment from '@components/payment/Payment/Payment';
 import s from './PaymentForm.module.scss';
-import {Modal} from '../../../UI'
-import Payment from '@components/payment/Payment/Payment'
 
 interface PaymentFormProps {
   content?: string;
 }
 
+interface IDataForm {
+  comment?: string;
+  donationAmount: string;
+  email: string;
+  paymentFrequency?: string;
+  paymentMethod?: string;
+}
+
+const initialDataForm = {
+  email: '',
+  donationAmount: '10',
+};
+
 const PaymentForm = ({ content }: PaymentFormProps) => {
+  const [dataForm, setDataForm] = useState<IDataForm>(initialDataForm);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const methods = useForm({
     mode: 'onChange',
   });
 
-  const {
-    formState: { isValid },
-  } = methods;
+  const { reset } = methods;
 
   const onSubmit = (data: any) => {
     console.log(data);
-    toggleModal()
+    setDataForm(data);
+    toggleModal();
+    reset({
+      donationAmount: '10'
+    });
   };
 
   const toggleModal = () => {
@@ -41,7 +54,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
     <FormProvider {...methods}>
       {isOpenModal && (
         <Modal onClose={toggleModal} title='Payment'>
-          <Payment/>
+          <Payment email={dataForm.email} amount={dataForm.donationAmount} />
         </Modal>
       )}
       <form
@@ -51,16 +64,6 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
       >
         {content === 'donateProject' && <ChooseProject />}
         <PaymentBlock />
-        <Email className={s.form__email} />
-        <Comment />
-        <ButtonApp
-          type='submit'
-          size='medium'
-          className={s.form__button}
-          disabled={!isValid}
-        >
-          Pay urgent!
-        </ButtonApp>
       </form>
     </FormProvider>
   );

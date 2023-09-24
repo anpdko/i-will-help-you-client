@@ -1,13 +1,17 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { typeOfAssistanceList } from '../../../../utils/typeOfAssistanceList';
+import { useTranslation } from 'react-i18next';
+import { useProjectTitles } from '@/hooks/useProjectTitles';
 import RadioInput from '../RadioInput/RadioInput';
 import s from './PaymentForm.module.scss';
 
 const ChooseProject = () => {
   const { control } = useFormContext();
+  const { i18n } = useTranslation();
+  const language = i18n.language;
+  const typeOfAssistanceList = useProjectTitles(language);
 
   return (
-    <div className={`border-style ${s.projectList}`}>
+    <div className={s.projectList}>
       {typeOfAssistanceList.map((item) => (
         <Controller
           key={item.id}
@@ -22,9 +26,8 @@ const ChooseProject = () => {
                 id={item.id}
                 onChange={field.onChange}
                 value={field.value}
-                title={item.title}
+                title={item.title as string}
               />
-              {/* <span className={s.decorativeLine}></span> */}
             </>
           )}
         />

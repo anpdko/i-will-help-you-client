@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { Translation } from '../../components';
-import ButtonApp from '../UI/ButtonApp/ButtonApp';
+import { Translation } from '@/components';
+import { ButtonApp } from '../UI';
 
 import s from './Navbar.module.scss';
 import sprite from '../../assets/sprite.svg';
@@ -14,12 +14,12 @@ interface ILinks {
 }
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const links: ILinks[] = [
     {
       text: 'Ready to Help',
-      link: '/readyneed',
+      link: '/volunteer',
     },
     {
       text: 'Need Help',
@@ -39,7 +39,6 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    // 'scroll-lock' для body
     if (!isMenuOpen) {
       document.body.classList.add('scroll-lock');
     } else {
@@ -48,22 +47,32 @@ const Navbar = () => {
   };
 
   const handleMenuLinkClick = () => {
-    setIsMenuOpen(false);
-    document.body.classList.remove('scroll-lock');
-  };
-
-  const handleLogoClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
       document.body.classList.remove('scroll-lock');
     }
   };
+  const handleLogoClick = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+      document.body.classList.remove('scroll-lock');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const facebookProfileIdEn = '61551308008265';
+  const facebookProfileIdUa = '61551465054599';
+
+  const facebookProfileId =
+    i18n.language === 'en' ? facebookProfileIdEn : facebookProfileIdUa;
+
+  const facebookLink = `https://www.facebook.com/profile.php?id=${facebookProfileId}`;
 
   return (
     <header className={`${s.nav} ${isMenuOpen ? `${s.open}` : ''}`}>
       <div className='container'>
         <div className={s.nav__logo}>
-          <Link to='/' onClick={handleLogoClick}>
+          <Link to='/' onClick={handleLogoClick} aria-label='Logo'>
             <svg>
               <use href={sprite + '#logo-header'} />
             </svg>
@@ -83,38 +92,66 @@ const Navbar = () => {
             </ButtonApp>
           </div>
           <ul className={s.nav__list}>
-            {links
-              ? links.map((link, i) => (
-                  <li key={i} className={s.nav__item}>
-                    <NavLink
-                      to={link.link}
-                      className={s.nav__link}
-                      onClick={handleMenuLinkClick}
-                    >
-                      {t(link.text)}
-                      <svg>
-                        <use href={sprite + '#arrow-menu'}></use>
-                      </svg>
-                    </NavLink>
-                  </li>
-                ))
-              : null}
+            {links?.map((link) => (
+              <li key={link.text} className={s.nav__item}>
+                <NavLink to={link.link} onClick={handleMenuLinkClick}>
+                  {t(link.text)}
+                  <svg>
+                    <use href={sprite + '#arrow-menu'}></use>
+                  </svg>
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
           <div className={s.social}>
             <h3 className={s.social__title}>{t('Follow us')}</h3>
             <ul className={s.social__list}>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link
+                  to={facebookLink}
+                  target='_blank'
+                  className={s.social__link}
+                  aria-label='link facebook'
+                >
                   <svg className={s.facebook}>
                     <use href={sprite + '#facebook'} />
                   </svg>
                 </Link>
               </li>
               <li>
-                <Link to='#' className={s.social__link}>
+                <Link
+                  to='https://www.instagram.com/iwillhelpyoucharity/?fbclid=IwARlX-K6LDvtT-73bOxav9ni37oh20veCSDBfo9auoIU36aoFamKCSK41Qfg'
+                  aria-label='link instagram'
+                  target='_blank'
+                  className={s.social__link}
+                >
                   <svg className={s.instagram}>
                     <use href={sprite + '#instagram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='https://t.me/IWillHelpYouCharity'
+                  aria-label='link telegram'
+                  target='_blank'
+                  className={s.social__link}
+                >
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#telegram'} />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='https://www.linkedin.com/company/charity-foundation-i-will-help-you/'
+                  target='_blank'
+                  aria-label='link linkedin'
+                  className={s.social__link}
+                >
+                  <svg className={s.instagram}>
+                    <use href={sprite + '#linkedin'} />
                   </svg>
                 </Link>
               </li>
@@ -135,12 +172,12 @@ const Navbar = () => {
             </li>
             <li className={s.contacts__item}>
               <Link
-                to='mailto:admin@iwillhelpyou.charity'
+                to='mailto:contact@iwillhelpyou.charity'
                 className={s.contacts__link}
               >
                 <div className={s.contacts__link_text}>
                   <span>{t('Email')}</span>
-                  admin@iwillhelpyou.charity
+                  contact@iwillhelpyou.charity
                 </div>
                 <svg>
                   <use href={sprite + '#mail'} />

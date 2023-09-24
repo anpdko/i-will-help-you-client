@@ -34,10 +34,6 @@ a {
       color: var(--orange);
     }
   }
-  &.active {
-    color: var(--black);
-    pointer-events: none;
-  }
 }
 
 /* Texts style */
@@ -50,7 +46,7 @@ a {
   @media (min-width: $mobile) {
     line-height: 150%;
   }
-  @media (max-width:$mobile){
+  @media (max-width: $mobile) {
     line-height: 135%;
   }
   &:not(:last-child) {
@@ -62,6 +58,12 @@ a {
   font-family: var(--font-nunito);
   @include adaptiveValue('font-size', 40, 22, 0, 1200, 390);
   font-weight: 600;
+  @media (min-width: $mobile) {
+    line-height: 150%;
+  }
+  @media (max-width: $mobile) {
+    line-height: 135%;
+  }
 }
 
 .bunner-title {
@@ -129,4 +131,19 @@ a {
   border-radius: 0.625rem;
   border: 1px solid var(--black);
   background: var(--total-white);
+}
+
+//Modal icons
+.errorIcon,
+.successIcon {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.successIcon {
+  color: var(--green-for-success);
+}
+
+.errorIcon {
+  color: var(--red-for-error);
 }

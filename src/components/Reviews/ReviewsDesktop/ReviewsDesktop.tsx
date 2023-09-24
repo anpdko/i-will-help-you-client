@@ -39,9 +39,7 @@ const ReviewsDesktop = () => {
     dispatch(getReviews());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(reviews);
-  }, [reviews]);
+  useEffect(() => {}, [reviews]);
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev();
@@ -167,6 +165,7 @@ const ReviewsDesktop = () => {
             className={`${s.slide_navigation__button} ${
               isFirst ? s.slide_navigation__disabled : ''
             }`}
+            aria-label='previous slide'
           >
             <svg>
               <use href={sprite + '#arrow-left'}></use>
@@ -177,6 +176,7 @@ const ReviewsDesktop = () => {
             className={`${s.slide_navigation__button} ${
               isLast ? s.slide_navigation__disabled : ''
             }`}
+            aria-label='previous slide'
           >
             <svg>
               <use href={sprite + '#arrow-right'}></use>

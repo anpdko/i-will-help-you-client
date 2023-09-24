@@ -1,0 +1,10 @@
+@import '../../styles/index.scss';
+
+.reviews {
+  :global {
+    .container {
+      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-bottom', 112, 80, 0, 1200, 390);
+    }
+  }
+}

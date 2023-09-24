@@ -1,0 +1,30 @@
+@import '../../styles/index.scss';
+
+.about {
+  &_goals {
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 52, 40, 0, 1200, 390);
+      }
+    }
+  }
+
+  &_team {
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 52, 40, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 28, 16, 0, 1200, 390);
+      }
+    }
+  }
+
+  &_our_activities {
+    :global {
+      .container {
+        @include adaptiveValue('padding-top', 56, 51, 0, 1200, 390);
+        @include adaptiveValue('padding-bottom', 56, 51, 0, 1200, 390);
+      }
+    }
+  }
+}

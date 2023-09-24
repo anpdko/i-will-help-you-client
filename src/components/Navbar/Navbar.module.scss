@@ -116,28 +116,51 @@
         bottom: 0;
       }
     }
-  }
-  &__link {
-    white-space: nowrap;
-    @media (min-width: $tablet) {
-      svg {
-        display: none;
+    :global {
+      a {
+        position: relative;
+        white-space: nowrap;
+        @media (min-width: $tablet) {
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: toRem(1);
+            bottom: toRem(-6);
+            left: 0;
+            background-color: var(--black);
+          }
+          svg {
+            display: none;
+          }
+        }
+        @media (max-width: $tablet) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: toRem(10);
+          svg {
+            display: inline-block;
+            max-width: toRem(19);
+            width: 100%;
+            height: toRem(14);
+            margin-right: toRem(3);
+          }
+        }
+
+        &.active {
+          // font-weight: 600; //! вважаю недоцільно використовувати font-weight для активної ссилки як в макеті так як це буде міняти розмір тексту!!!
+          color: var(--black);
+          pointer-events: none;
+          &::after {
+            transition: width 0.3s;
+            width: 100%;
+          }
+        }
       }
     }
-    @media (max-width: $tablet) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: toRem(10);
-      svg {
-        display: inline-block;
-        max-width: toRem(19);
-        width: 100%;
-        height: toRem(14);
-        margin-right: toRem(3);
-      }
-    }
   }
+
   &__actions {
     display: inline-flex;
     align-items: center;
@@ -154,7 +177,7 @@
     }
   }
 }
-
+//========================================================================================================================================================
 .social {
   @media (min-width: $tablet) {
     display: none;
@@ -173,17 +196,21 @@
   &__list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: toRem(16);
   }
 
   &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     svg {
-      width: toRem(40);
-      height: toRem(40);
+      width: toRem(24);
+      height: toRem(24);
     }
   }
 }
-
+//========================================================================================================================================================
 .contacts {
   @media (min-width: $tablet) {
     display: none;
@@ -227,6 +254,7 @@
     }
   }
 }
+//========================================================================================================================================================
 .actions {
   @media (min-width: $tablet) {
     display: none;

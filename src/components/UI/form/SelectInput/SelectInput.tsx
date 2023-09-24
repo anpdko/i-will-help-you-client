@@ -1,6 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import Select from 'react-select';
 import customStyles from './selectStyle';
+import s from './SelectInput.module.scss';
 
 interface SelectInputProps {
   name: string;
@@ -11,6 +12,7 @@ interface SelectInputProps {
   isMulti?: boolean;
   isSearchable?: boolean;
   required?: boolean;
+  errorMessage?: string;
   className?: string;
 }
 
@@ -23,9 +25,13 @@ const SelectInput = ({
   isMulti = false,
   isSearchable = true,
   required = false,
+  errorMessage,
   className,
 }: SelectInputProps) => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <Controller
@@ -34,21 +40,26 @@ const SelectInput = ({
       defaultValue={null}
       rules={{ required: required }}
       render={({ field }) => (
-        <Select
-          {...field}
-          options={options}
-          placeholder={placeholder}
-          isMulti={isMulti}
-          isSearchable={isSearchable}
-          value={options.find((option: any) => option.value === field.value)}
-          onChange={(selectedOption) => {
-            field.onChange(
-              (selectedOption as { value: string; label: string })?.value,
-            );
-          }}
-          styles={customStyles}
-          className={`${className}`}
-        />
+        <div className={s.wrap}>
+          <Select
+            {...field}
+            options={options}
+            placeholder={placeholder}
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            value={options.find((option: any) => option.value === field.value)}
+            onChange={(selectedOption) => {
+              field.onChange(
+                (selectedOption as { value: string; label: string })?.value,
+              );
+            }}
+            styles={customStyles}
+            className={`${className}`}
+          />
+          {required && errorMessage && errors.country && (
+            <p className={s.error}>{errorMessage}</p>
+          )}
+        </div>
       )}
     />
   );

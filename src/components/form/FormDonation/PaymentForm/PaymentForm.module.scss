@@ -1,14 +1,18 @@
-@import '../../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 2.75rem;
-
+  
   &__button {
-    width: 17.625rem;
+    max-width: toRem(282);
     border-radius: 0.75rem;
-    padding: 1.5rem 0;
+    padding: toRem(24) toRem(10);
+
+    @media (max-width: $mobile) {
+      min-width: 100%;
+    }
 
     &:disabled {
       background: var(--light-grey)
@@ -18,14 +22,44 @@
 
 .projectList {
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 0.75rem;
+  border-radius: 0.625rem;
+
+  & > label {
+    border-radius: 0;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    background: var(--total-white);
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15%;
+      display: inline-block;
+      width: 1px;
+      height: 2.25rem;
+      background: var(--black);
+    }
+
+    @include hideDecorativeLine;
+  }
+
+  @include formButtonsGridBasic(4);
 
   @media (max-width: $tablet) {
-    grid-template-columns: repeat(3, 1fr);
+    @include formButtonsGridResponsive(3);
   }
 
   @media (max-width: $mobile) {
-    grid-template-columns: repeat(2, 1fr);
+    @include formButtonsGridResponsive(2, $include-mobile: true);
+  }
+
+  @media (max-width: $mobileSmall) {
+    @include formButtonsGridResponsive(1, $include-mobile: true);
+    row-gap: 0.5rem;
   }
 }

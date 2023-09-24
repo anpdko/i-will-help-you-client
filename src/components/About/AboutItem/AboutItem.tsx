@@ -24,21 +24,30 @@ const AboutItem = ({ tab }: AboutProps) => {
   });
 
   return (
-    <article className={s.about__item} ref={refAboutItem}>
-      <div>
-        <h2 className={`${s.item__title} heading2`}>{transAbout()?.title}</h2>
-        <p className={`${s.item__text} text`}>{transAbout()?.description}</p>
-      </div>
+    <article className={s.item} ref={refAboutItem}>
+      <h3 className={`${s.item__title} heading2`}>{transAbout()?.title}</h3>
+      <p className={`${s.item__text} text`}>{transAbout()?.description}</p>
 
       <div>
         <Link className={s.item__link} to={tab.link}>
           {t('Share Your Story')}
         </Link>
         <div className={s.item__buttons}>
-          <ButtonApp size='large' className={s.item__button}>
+          <ButtonApp
+            type='link'
+            to='/donate'
+            size='large'
+            className={s.item__button}
+          >
             {t('Donate Now')}
           </ButtonApp>
-          <ButtonApp size='large' color='white' className={s.item__button}>
+          <ButtonApp
+            type='link'
+            to='/volunteer'
+            size='large'
+            color='white'
+            className={s.item__button}
+          >
             {t('Become a Volunteer')}
           </ButtonApp>
         </div>

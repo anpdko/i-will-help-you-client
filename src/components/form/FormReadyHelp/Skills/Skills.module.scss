@@ -1,18 +1,44 @@
-@import '../../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .skills {
   grid-area: skills;
 
   &__input {
-    font-weight: 400;
-    width: 49.563rem;
-
-    @media (max-width: $tablet) {
-      width: 46.25rem;
-    }
-
-    @media (max-width: $mobile) {
-      width: 22.875rem;
-    }
+    width: 100%;
   }
+}
+
+.checkboxes {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.label {
+  flex-grow: 1; 
+  transition: color 0.2s; 
+  display: flex; 
+  align-items: center; 
+}
+
+.checkboxes + .label::before {
+  content: '';
+  display: inline-block;
+  width: toRem(24);
+  height: toRem(24);
+  margin-right: toRem(16); 
+  border: 1px solid var(--black); 
+  border-radius: toRem(4); 
+  background-color: var(--milky);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.checkboxes:checked + .label::before {
+  background-color: var(--orange-for-states); 
+  border-color: transparent; 
+}
+
+.checkboxes:checked + .label {
+  color: var(--black); 
 }

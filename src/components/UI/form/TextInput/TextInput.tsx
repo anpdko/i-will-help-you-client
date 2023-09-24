@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
 import s from '../Form.module.scss';
 
@@ -7,12 +8,13 @@ interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
   placeholder?: string;
   required?: boolean;
   regexp?: RegExp;
-  message?: string;
+  message?: { required: string; pattern: string };
   title?: string;
   classNameContainer?: string;
   classNameLabel?: string;
   classNameInput?: string;
   classNameError?: string;
+  capitalizeFirstLetter?: boolean;
   rest?: Record<string, any>;
 }
 
@@ -22,43 +24,59 @@ const TextInput = ({
   placeholder = '',
   required = false,
   regexp = /^.+$/,
-  message = 'Please fill in this field',
+  message = {
+    required: 'Please fill in this field',
+    pattern: 'Please fill in this field',
+  },
   title = '',
   classNameContainer,
   classNameLabel,
   classNameInput,
   classNameError,
+  capitalizeFirstLetter = false,
   ...rest
 }: TextInputProps) => {
   const {
     register,
+    setValue,
+    trigger,
     formState: { errors },
   } = useFormContext();
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const capitalizedInput = capitalizeFirstLetter
+      ? inputValue.charAt(0).toUpperCase() + inputValue.slice(1)
+      : inputValue;
+    setValue(id, capitalizedInput);
+    trigger(id);
+  };
+
   return (
-    <div className={`${s.form__container} ${classNameContainer}`}>
-      <label className={`${s.form__label} ${classNameLabel}`}>
+    <div className={`${s.container} ${classNameContainer}`}>
+      <label className={`${s.label} ${classNameLabel}`}>
         {title}
         <input
           type={type}
           id={id}
           placeholder={placeholder}
           {...register(id, {
-            required: required,
+            required: required ? message.required : false,
             pattern: {
               value: regexp,
-              message: message,
+              message: message.pattern,
             },
           })}
-          className={`${s.form__input} ${classNameInput}`}
+          className={`${s.input} ${classNameInput}`}
+          onChange={handleInputChange}
           {...rest}
         />
+        {errors[id] && (
+          <p className={`${s.error} ${classNameError}`}>
+            {errors[id]?.message as string}
+          </p>
+        )}
       </label>
-      {errors[id] && (
-        <p className={`${s.form__error} ${classNameError}`}>
-          {errors[id]?.message as string}
-        </p>
-      )}
     </div>
   );
 };

@@ -19,8 +19,8 @@ const ProjectsPage = () => {
   );
   const filteredProjects = useFilteredProjects();
 
-  const currentProject = filteredProjects.find((project) => project._id === id);
-  const currentId = currentProject ? id : filteredProjects[0]?._id;
+  const currentProject = filteredProjects.find((project) => project.url === id);
+  const currentUrl = currentProject ? id : filteredProjects[0]?.url;
 
   useEffect(() => {
     dispatch(getProjects());
@@ -28,9 +28,9 @@ const ProjectsPage = () => {
 
   useEffect(() => {
     if (!id) {
-      const firstSlideId = filteredProjects[0]?._id;
-      if (firstSlideId) {
-        navigate(`/projects/${firstSlideId}`);
+      const firstSlideUrl = filteredProjects[0]?.url;
+      if (firstSlideUrl) {
+        navigate(`/projects/${firstSlideUrl}`);
       }
     }
   }, [id, filteredProjects, navigate]);
@@ -40,7 +40,7 @@ const ProjectsPage = () => {
       projects={filteredProjects}
       loading={loading}
       message={message}
-      selectedId={currentId}
+      selectedUrl={currentUrl}
     />
   );
 };

@@ -1,14 +1,30 @@
+@import '@/styles/index.scss';
+
 .paymentBlock {
   display: grid;
   gap: 2.75rem;
-  
+
   &__method {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
 
-    & span:last-child {
-      display: none;
+    @media (max-width: $mobileSmall) {
+      border: none !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      grid-template-columns: 1fr;
+      row-gap: 0.5rem;
+
+      & > label {
+        border-radius: 0.625rem;
+        border: 1px solid var(--black);
+        background: var(--total-white);
+
+        &:after {
+          border: none;
+        }
+      }
     }
   }
 
@@ -17,8 +33,22 @@
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
 
-    & span:last-child {
-      display: none;
+    @media (max-width: $mobileSmall) {
+      border: none !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      grid-template-columns: 1fr;
+      row-gap: 0.5rem;
+
+      & > label {
+        border-radius: 0.625rem;
+        border: 1px solid var(--black);
+        background: var(--total-white);
+
+        &:after {
+          border: none;
+        }
+      }
     }
   }
 
@@ -27,24 +57,135 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    
-    &_number {
-      display: flex;
-      align-items: center;
+    input {
+      user-select: none;
+    }
 
-      & span:last-child {
-        display: none;
+    &_number {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-radius: 0.625rem;
+      border: 1px solid var(--black);
+      background: var(--total-white);
+
+      @media (max-width: $mobile) {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0.5rem;
+        border: none;
+        background: transparent;
+
+        & > label {
+          border-radius: 0;
+          background: var(--total-white);
+          border-top: 1px solid var(--black);
+          border-bottom: 1px solid var(--black);
+
+          &:first-of-type,
+          &:nth-of-type(4) {
+            border-left: 1px solid var(--black);
+            border-top-left-radius: 0.625rem;
+            border-bottom-left-radius: 0.625rem;
+          }
+
+          &:nth-of-type(3),
+          &:last-of-type {
+            border-right: 1px solid var(--black);
+            border-top-right-radius: 0.625rem;
+            border-bottom-right-radius: 0.625rem;
+          }
+
+          &:nth-of-type(4):before {
+            display: none;
+          }
+        }
       }
     }
 
     &_custom {
-      padding: 1.125rem 2rem;
+      padding: 0.898rem 2rem;
+
+      &:hover {
+        background: transparent;
+      }
+
+      input:hover {
+        background: transparent;
+      }
+
+      // &:focus,
+      // &:active {
+      //   border: 2px solid var(--black);
+      //   background: var(--total-white);
+      // }
     }
   }
 }
 
-.decorativeLine {
-  width: 0.5px;
-  height: 2.25rem;
-  background: black;
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(44);
+  &__button {
+    border-radius: 0.75rem;
+    padding: toRem(24) toRem(10) ;
+    @media (min-width: $mobile) {
+      min-width: toRem(282);
+    }
+    @media (max-width: $mobile) {
+      min-width: 100%;
+    }
+
+    &:disabled {
+      background: var(--light-grey);
+    }
+  }
+}
+
+.invoice {
+  @include adaptiveValue('font-size', 16, 13, 0, 1200, 390);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12);
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1rem 1rem 1.75rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12);
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__account {
+    word-break: break-all;
+  }
+
+  &__btn {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: toRem(6);
+  }
+
+  &__SWIFT {
+    font-weight: 600;
+  }
 }

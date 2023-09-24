@@ -1,10 +1,13 @@
+import { useState } from 'react';
+import axios from 'axios';
 import {
   useForm,
   FormProvider,
   SubmitHandler,
   FieldValues,
 } from 'react-hook-form';
-import FormWrapper from '../../wrapper/FormWrapper/FormWrapper';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import FormWrapper from '@components/wrapper/FormWrapper/FormWrapper';
 import FirstName from '../FirstName/FirstName';
 import LastName from '../LastName/LastName';
 import DateOfBirth from './DateOfBirth/DateOfBirth';
@@ -17,11 +20,11 @@ import Language from './Language/Language';
 import Skills from './Skills/Skills';
 import Comment from '../Comment/Comment';
 import Checkboxes from '../Checkboxes/Checkboxes';
-import { ButtonApp } from '../../UI';
-import { convertUnixTimestampToDate } from '../../../utils/convertUnixTimestampToDate';
-import { generateSocialMediaLink } from '../../../utils/generateSocialMediaLink';
+import { ButtonApp, Modal } from '@components/UI';
+import { convertUnixTimestampToDate } from '@utils/convertUnixTimestampToDate';
+import { generateSocialMediaLink } from '@utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
-import axios from 'axios'
+import { useTranslation } from 'react-i18next';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -29,8 +32,7 @@ interface DataForm {
   firstName: string;
   lastName: string;
   dateOfBirth: number;
-  countryCode: string;
-  phone: string;
+  phoneNumber: string;
   country: string;
   network: string;
   networkLogo: string;
@@ -44,20 +46,21 @@ interface DataForm {
 }
 
 const FormReadyHelp = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const { t } = useTranslation();
+
   const methods = useForm({
     mode: 'onChange',
   });
-
-  const {
-    formState: { isValid },
-  } = methods;
 
   const onSubmit = async (data: DataForm) => {
     const formattedData = {
       firstName: data.firstName,
       lastName: data.lastName,
       dateOfBirth: convertUnixTimestampToDate(data.dateOfBirth),
-      phone: data.countryCode + data.phone,
+      phone: data.phoneNumber,
       country: data.country,
       network: generateSocialMediaLink(data.network, data.networkLogo),
       email: data.email,
@@ -70,15 +73,32 @@ const FormReadyHelp = () => {
 
     console.log(formattedData);
     try {
-      const res = await axios.post(API_URL + '/api/readyneed', formattedData)
-      console.log(res)
-    } catch (error) {
-      console.log(error)
+      const res = await axios.post(API_URL + '/api/readyneed', formattedData);
+      console.log(res);
+      setIsPopupVisible(true);
+      setIsSuccess(true);
+    } catch (error: any) {
+      console.log(error);
+      setIsPopupVisible(true);
+      setIsSuccess(false);
+      setErrorMessage(error.response?.data?.message || 'An error occurred');
     }
   };
 
+  const modalTitle = isSuccess ? (
+    <>
+      <AiFillCheckCircle className='successIcon' />
+      Success!
+    </>
+  ) : (
+    <>
+      <AiFillCloseCircle className='errorIcon' />
+      Something went wrong!
+    </>
+  );
+
   return (
-    <FormWrapper subtitle='Form' title='Volunteer application form'>
+    <FormWrapper subtitle={t('Form')} title={t('Volunteer application form')}>
       <FormProvider {...methods}>
         <form
           id='formReadyToHelp'
@@ -97,18 +117,25 @@ const FormReadyHelp = () => {
           <DaysOfVolunteering />
           <Language />
           <Skills />
-          <Comment />
+          <Comment
+            title='Comment (what do you to do? in what areas?)'
+            placeholder='Type here...'
+            maxLength={2500}
+          />
           <Checkboxes />
-          <ButtonApp
-            type='submit'
-            size='Xlarge'
-            className={s.form__button}
-            disabled={!isValid}
-          >
-            Send my form
+          <ButtonApp type='submit' size='Xlarge' className={s.form__button}>
+            {t('Send my form')}
           </ButtonApp>
         </form>
       </FormProvider>
+      {isPopupVisible && (
+        <Modal title={modalTitle} onClose={() => setIsPopupVisible(false)}>
+          {isSuccess
+            ? 'Your form was successfully submitted!'
+            : errorMessage ||
+              'There was an error submitting the form. Please try again.'}
+        </Modal>
+      )}
     </FormWrapper>
   );
 };

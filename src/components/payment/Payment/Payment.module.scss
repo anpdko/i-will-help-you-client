@@ -1,4 +1,41 @@
+@import '../../../styles/index.scss';
 
 .payment{
    width: 100%;
+
+   .details{
+      @include adaptiveValue('border-radius', 16, 10, 0, 1200, 768);
+      background: var(--white, #F1F1F1);
+      @include adaptiveValue('padding-block', 20, 14, 0, 1200, 390);
+      @include adaptiveValue('padding-inline', 24, 14, 0, 1200, 390);
+      @include adaptiveValue('margin-bottom', 40, 24, 0, 1200, 390);
+
+      h3{
+         font-weight: 600;
+         font-size: 16px;
+      }
+
+      .aid{
+         margin-block: 0.75rem 1.25rem;
+      }
+
+      p {
+         @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+         color: var(--dark-grey, #505050);
+         span{
+            color: var(--black, #0E0E0E);
+         }
+      }
+
+      .amount{
+         @include adaptiveValue('font-size', 20, 18, 0, 1200, 390);
+      }
+   }
+   
+   .preloader{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 5rem;
+   }
 }

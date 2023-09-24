@@ -20,19 +20,19 @@ const aboutTab: ITabName[] = [
         tabName: 'Mission',
         title: 'Our Mission',
         description:
-          "To stand as a guiding light for the millions of Ukrainians who sought refuge beyond their homeland's borders. We extend unwavering support, providing comprehensive assistance to navigate unfamiliar territories, and empowering individuals to rebuild with dignity and resilience.",
+          'To assist Ukrainians worldwide in overcoming the aftermath of the war by providing a diverse range of support, including addressing basic needs, legal and psychological aid, job search assistance, and facilitating their integration into new environments.',
       },
       {
         language: 'ua',
         tabName: 'Місія',
         title: 'Наша Місія',
         description:
-          'Стати вказівною зіркою для мільйонів українців, які шукають притулку за межами Батьківщини. Ми надаємо непохитну підтримку, забезпечуючи всебічну допомогу в орієнтуванні на незнайомих територіях і надаючи людям можливість відновлюватися з гідністю та стійкістю.',
+          'Допомогти українцям у всьому світі подолати наслідки війни, надаючи різноманітну підтримку, включаючи задоволення базових потреб, юридичну та психологічну допомогу, допомогу в пошуку роботи та сприяння інтеграції в нове середовище.',
       },
     ],
     id: 'mission',
     tabIcon: '#mission',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -41,19 +41,19 @@ const aboutTab: ITabName[] = [
         tabName: 'Vision',
         title: 'Our Vision',
         description:
-          'A future where every Ukrainian refugee can find solace in the assurance of competent legal aid, where creative expression thrives, where education knows no boundaries, and where opportunities abound for professional growth and fulfillment.',
+          'To create a resilient and friendly environment for Ukrainians everywhere, where each individual has the opportunity to realize their potential, receiving the necessary support in the face of war and societal challenges.',
       },
       {
         language: 'ua',
         tabName: 'Бачення',
         title: 'Наше Бачення',
         description:
-          'Майбутнє, де кожен український біженець може знайти розраду в гарантії компетентної правової допомоги, де процвітає творче самовираження, де освіта не має меж та існують можливості для професійного зростання і реалізації.',
+          'Створити стійке та дружнє середовище для українців у всьому світі, де кожен українець має можливість реалізувати свій потенціал, отримавши необхідну підтримку в умовах війни та суспільних викликів.',
       },
     ],
     id: 'vision',
     tabIcon: '#vision',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -61,28 +61,38 @@ const aboutTab: ITabName[] = [
         language: 'en',
         tabName: 'Key Objectives',
         title: 'Key Objectives',
-        description: `1. Holistic Legal Assistance: Providing legal guidance to navigate foreign systems.
-      2. Creative Empowerment: Enriching global discourse through Ukrainian creativity.
-      3. Educational Rebuilding: Bridging educational gaps and nurturing a generation of scholars.
-      4. Empowering Professional Growth: Connecting Ukrainians to meaningful work opportunities.
-      5. Psychological Healing: Extending support and resources to overcome trauma.
-      6. Sustainable Change: Cultivating lasting partnerships and continuous refinement.`,
+        description: `1. Address the basic needs of Ukrainians worldwide: food, clothing, money, and other essential resources.
+      2. Assistance in job searching and professional development.
+      3. Legal support: assistance with documentation, status, and other legal matters.
+      4. Psychological support for various citizens' categories: parents, children, etc.
+      5. Organizing educational courses, clubs, and other events to integrate and develop the Ukrainian diaspora.
+      6. Efficient financial oversight and transparency in reporting.
+      7. Regularly informing the public about the foundation's activities and financial state.
+      8. Engaging donors and contributions to support the foundation's operations.
+      9. Organizing a volunteer program to assist Ukrainians.
+      10. Establishing partnerships with other organizations and government institutions for collaborative project implementation.      
+      11. Raising public awareness about the needs of Ukrainians and promoting their integration.`,
       },
       {
         language: 'ua',
         tabName: 'Ключові Цілі',
         title: 'Ключові Цілі',
-        description: `1. Комплексна юридична допомога: надання юридичних вказівок щодо навігації закордонними системами.
-        2. Творча автономія: збагачення глобального дискурсу через українську творчість.
-        3. Реконструкція освіти: заповнення освітніх прогалин і виховання покоління вчених.
-        4. Заохочення професійного зростання: підключення українців до можливостей значущої роботи.
-        5. Психологічне відновлення: надання підтримки та ресурсів для подолання травм.
-        6. Стійкі зміни: розвиток тривалих партнерських відносин і постійне вдосконалення.`,
+        description: `1. Задоволення базових потреб українців у всьому світі: їжа, одяг, гроші та інші необхідні ресурси.
+        2. Допомога у пошуку роботи та професійному розвитку.
+        3. Юридична підтримка: допомога з документацією, статусом та іншими правовими питаннями.
+        4. Психологічна підтримка для різних категорій громадян: батьків, дітей та ін.
+        5. Організація навчальних курсів, гуртків та інших заходів для інтеграції та розвитку української діаспори.
+        6. Ефективний фінансовий контроль та прозорість звітності.
+        7. Регулярне інформування громадськості про діяльність та фінансовий стан фонду.
+        8. Залучення донорів та пожертвувань для підтримки діяльності фонду.
+        9. Організація волонтерської програми для допомоги українцям.
+        10. Встановлення партнерських відносин з іншими організаціями та державними установами для спільної реалізації проєктів.
+        11. Підвищення обізнаності громадськості про потреби українців та сприяння їхній інтеграції.`,
       },
     ],
     id: 'objectives',
     tabIcon: '#objectives',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -103,7 +113,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'values',
     tabIcon: '#values',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -124,7 +134,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'impact',
     tabIcon: '#impact',
-    link: '#',
+    link: '/needhelp',
   },
   {
     translations: [
@@ -145,7 +155,7 @@ const aboutTab: ITabName[] = [
     ],
     id: 'journey',
     tabIcon: '#journey',
-    link: '#',
+    link: '/needhelp',
   },
 ];
 

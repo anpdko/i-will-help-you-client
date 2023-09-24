@@ -7,7 +7,7 @@ const Banners = () => {
     <section className={s.banners}>
       <div className='container'>
         {bannersData.map((item) => (
-          <Bunner key={item.id} tab={item} />
+          <Bunner key={item._id} tab={item} />
         ))}
       </div>
     </section>

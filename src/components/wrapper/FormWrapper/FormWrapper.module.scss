@@ -3,47 +3,55 @@
 .section {
   :global {
     .container {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding-top: 4rem;
-      padding-bottom: 7rem;
+      @include adaptiveValue('padding-bottom', 56, 40, 0, 1200, 390);
+      @include adaptiveValue('padding-top', 64, 56, 0, 1200, 390);
 
-      @media (max-width: $tablet) {
-        justify-content: center;
+      @media (min-width:$tablet){
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
       }
+      @include adaptiveValue('gap', 139, 20, 0, 1200, 992);
+
     }
   }
 
   &__subtitle {
-    max-width: 17.5rem;
     font-weight: 600;
     line-height: 150%;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    position: relative;
+    @include adaptiveValue('font-size', 16, 13, 0, 1200, 992);
+    @include adaptiveValue('padding-left', 56, 30, 0, 1200, 992);
+    margin-top: toRem(8);
 
-    @media (max-width: $pc) {
-      max-width: 10rem;
+    @media (min-width: $tablet) {
+      flex: 0 1 22.416667%; /* 269/1200 */
     }
-
     @media (max-width: $tablet) {
       display: none;
-      justify-content: center;
-      max-width: 10rem;
     }
 
     &::before {
       content: '';
-      display: inline-block;
-      width: 2.75rem;
-      height: 0.125rem;
+      position: absolute;
+      @include adaptiveValue('width', 44, 22, 0, 1200, 992);
+      height: toRem(2);
+      top: em(12, 16);
+      left: 0;
       background: var(--black);
-      border-radius: 1rem;
+      border-radius: toRem(8);
+    }
+  }
+
+  &__wrap {
+    @media (min-width: $tablet) {
+      flex: 1 1 66%; /* 792/1200 */
     }
   }
 
   &__title {
-    margin-bottom: 2rem;
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 44, 32, 0, 1200, 390);
+    }
   }
 }

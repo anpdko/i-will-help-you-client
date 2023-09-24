@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useStripe, useElements } from '@stripe/react-stripe-js';
 import { ButtonApp } from '../../UI';
 import PaymentButtons from '../PaymentButtons/PaymentButtons';
+import s from './CheckoutForm.module.scss';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -10,7 +11,6 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = useState<any>(null);
   const [isProcessing, setIsProcessing] = useState<any>(false);
-
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -37,12 +37,15 @@ export default function CheckoutForm() {
     setIsProcessing(false);
   };
 
-
   return (
-    <form id='payment-form' onSubmit={handleSubmit}>
-      <PaymentButtons stripe={stripe}/>
-      <PaymentElement id='payment-element'/>
-      <ButtonApp disabled={isProcessing || !stripe || !elements} type='submit'>
+    <form id='payment-form' onSubmit={handleSubmit} className={s.paymentForm}>
+      <PaymentButtons stripe={stripe} />
+      <PaymentElement id='payment-element' />
+      <ButtonApp
+        disabled={isProcessing || !stripe || !elements}
+        type='submit'
+        className={s.btn}
+      >
         {isProcessing ? 'Processing ... ' : 'Pay now'}
       </ButtonApp>
       {message && <div id='payment-message'>{message}</div>}

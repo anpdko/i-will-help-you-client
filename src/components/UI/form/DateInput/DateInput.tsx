@@ -1,7 +1,12 @@
+import { useState, useEffect } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { DatePicker } from 'antd';
+import { ConfigProvider, DatePicker } from 'antd';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import locale from 'antd/locale/uk_UA';
 import dayjs from 'dayjs';
 import s from '../Form.module.scss';
+
+import 'dayjs/locale/uk';
 
 interface DateInputProps {
   title?: string;
@@ -29,10 +34,25 @@ const DateInput = ({
   classNameError,
 }: DateInputProps) => {
   const { control } = useFormContext();
+  const value = localStorage.getItem('language');
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    if (value) {
+      setLang(JSON.parse(value));
+    } else {
+      return;
+    }
+  }, [value]);
+
+  const disabledDate: RangePickerProps['disabledDate'] = (current) => {
+    const year = current.year();
+    return year < 1923 || year > 2023;
+  };
 
   return (
-    <div className={`${s.form__container} ${classNameContainer}`}>
-      <label className={`${s.form__label} ${classNameLabel}`}>
+    <div className={`${s.container} ${classNameContainer}`}>
+      <label className={`${s.label} ${classNameLabel}`}>
         {title}
         <Controller
           control={control}
@@ -46,20 +66,41 @@ const DateInput = ({
           render={({ field, fieldState }) => {
             return (
               <>
-                <DatePicker
-                  placeholder={placeholder}
-                  format={format}
-                  ref={field.ref}
-                  name={field.name}
-                  onBlur={field.onBlur}
-                  value={field.value ? dayjs(field.value) : null}
-                  onChange={(date) => {
-                    field.onChange(date ? date.valueOf() : null);
-                  }}
-                  className={`${s.form__input} ${classNameDate}`}
-                />
+                {lang === 'ua' ? (
+                  <ConfigProvider locale={locale}>
+                    <DatePicker
+                      placeholder={placeholder}
+                      format={format}
+                      ref={field.ref}
+                      name={field.name}
+                      onBlur={field.onBlur}
+                      value={field.value ? dayjs(field.value) : null}
+                      onChange={(date) => {
+                        field.onChange(date ? date.valueOf() : null);
+                      }}
+                      className={`${s.input} ${classNameDate}`}
+                      inputReadOnly
+                      disabledDate={disabledDate}
+                    />
+                  </ConfigProvider>
+                ) : (
+                  <DatePicker
+                    placeholder={placeholder}
+                    format={format}
+                    ref={field.ref}
+                    name={field.name}
+                    onBlur={field.onBlur}
+                    value={field.value ? dayjs(field.value) : null}
+                    onChange={(date) => {
+                      field.onChange(date ? date.valueOf() : null);
+                    }}
+                    className={`${s.input} ${classNameDate}`}
+                    inputReadOnly
+                    disabledDate={disabledDate}
+                  />
+                )}
                 {fieldState.error ? (
-                  <p className={`${s.form__error} ${classNameError}`}>
+                  <p className={`${s.error} ${classNameError}`}>
                     {fieldState.error?.message}
                   </p>
                 ) : null}

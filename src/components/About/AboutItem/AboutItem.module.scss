@@ -1,69 +1,52 @@
 @import '../../../styles/index.scss';
 
-.about__item {
+.item {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  max-width: 49.5rem;
-  height: 30.25rem;
-  padding: 3rem;
-  border-radius: 2.25rem;
+  @include adaptiveValue('padding-top', 48, 32, 0, 1200, 390);
+  @include adaptiveValue('padding-bottom', 48, 24, 0, 1200, 390);
+  @include adaptiveValue('padding-left', 48, 22, 0, 1200, 390);
+  @include adaptiveValue('padding-right', 48, 22, 0, 1200, 390);
+  border-radius: toRem(36);
   background-color: var(--milky);
 
-  @media (max-width: $pc) {
-    gap: 3rem;
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 18, 16, 0, 1200, 390);
+    }
   }
 
-  @media (max-width: $tablet) {
-    max-width: 40rem;
-    max-height: 29rem;
-    padding: 2rem 1.375rem 1.5rem;
-    gap: 2rem;
-  }
-
-  @media (max-width: $mobile) {
-    max-width: toRem(366);
-    max-height: toRem(518);
-  }
-}
-
-.item {
   &__text {
-    padding: 1.1rem 0 0.6rem 0;
     white-space: pre-line;
-
-    @media (max-width: $pc) {
-      max-height: 15rem;
-      margin-top: 0.5rem;
-      overflow-y: auto;
+    flex: 1 1 auto;
+    &:not(:last-child) {
+      margin-bottom: em(32, 16);
     }
-
-    @media (max-width: $tablet) {
-      max-height: 10rem;
-    }
-
-    @media (max-width: $mobile) {
-      max-height: 11rem;
-    }
-
-    @media (max-width: $mobileSmall) {
-      max-height: 13rem;
+    @media (min-width:$tablet){
+      max-height: toRem(170);
+      overflow-y: auto; 
     }
   }
 
   &__link {
+    display: inline-block;
     @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
     font-weight: 600;
-    text-decoration: none;
     color: var(--black);
     position: relative;
+    padding-bottom: toRem(6);
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 24, 16, 0, 1200, 390);
+    }
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
+      bottom: 0;
       left: 0;
-      height: 1px;
+      height: toRem(1);
       width: 100%;
       background-color: var(--black);
       transition: background-color 0.2s linear;
@@ -71,19 +54,19 @@
   }
 
   &__buttons {
-    margin-top: 1.5rem;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+    justify-content: space-between;
+    gap: toRem(16);
 
-    @media (max-width: $tablet) {
-      flex-wrap: wrap;
+    @media (max-width: $mobileSmall) {
+      flex-direction: column;
     }
   }
 
   &__button {
-    @media (max-width: $tablet) {
-      padding: 1rem 0;
+    @media (max-width:$mobileSmall){
+      padding: toRem(17) toRem(10);
+      min-width: 100%;
     }
   }
 }

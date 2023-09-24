@@ -1,10 +1,11 @@
-import s from './TypeOfAssistance.module.scss';
-
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 interface CheckboxSelectProps {
   title: string;
   name: string;
   id: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent) => void;
   checked?: boolean;
 }
 
@@ -14,6 +15,7 @@ const CheckboxSelect = ({
   id,
   onChange,
   checked,
+  onClick,
 }: CheckboxSelectProps) => {
   return (
     <>
@@ -21,11 +23,10 @@ const CheckboxSelect = ({
         type='checkbox'
         name={name}
         id={id}
-        className={s.checkboxItem_input}
         checked={checked}
         onChange={onChange}
       />
-      <label htmlFor={id} className={s.checkboxItem_label}>
+      <label onClick={onClick} htmlFor={id}>
         {title}
       </label>
     </>

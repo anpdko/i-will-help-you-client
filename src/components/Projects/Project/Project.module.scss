@@ -56,13 +56,12 @@
       flex: 1 1 auto;
     }
     &__btn {
-      height: toRem(64);
-      width: toRem(64);
-      display: flex;
+      width: fit-content;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: toRem(8);
-      border-radius: toRem(20);
+      @include adaptiveValue('padding', 8, 7, 0, 1200, 390);
+      @include adaptiveValue('border-radius', 20, 18, 0, 1200, 390);
       color: var(--total-white);
       background-color: var(--light-black);
       transition: background-color 0.2s linear;
@@ -72,8 +71,8 @@
         color: var(--total-white);
       }
       svg {
-        height: toRem(48);
-        width: toRem(48);
+        @include adaptiveValue('height', 48, 40, 0, 1200, 390);
+        @include adaptiveValue('width', 48, 40, 0, 1200, 390);
         fill: currentColor;
       }
     }
@@ -87,7 +86,7 @@
       flex: 1 1 51.166667%; /* 614/1200 */
     }
     @media (max-width: $mobile) {
-      padding-bottom: 65.14658%; /* 400/614 */
+      padding-bottom: 54.644809%; /* 200/366 */
     }
     img {
       position: absolute;

@@ -1,3 +1,5 @@
+@import '@/styles/index.scss';
+
 .list {
   display: flex;
   flex-direction: column;
@@ -12,6 +14,8 @@
   gap: 1.25rem;
 
   &__img {
+    width: toRem(50);
+    height: toRem(50);
     border-radius: 1rem;
     border: 1px solid var(--black);
     background: var(--white);
@@ -36,6 +40,10 @@
 
 .address {
   padding: 1.5rem;
+
+  @media (max-width: $mobileSmall) {
+    padding: 1.5rem 2rem;
+  }
 
   &__title {
     font-size: 1.125rem;

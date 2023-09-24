@@ -11,11 +11,15 @@ function useGsapFrom(settings: IGsapSettings) {
   useLayoutEffect(() => {
     if (boxRef?.current) {
       const box = boxRef.current;
+      console.log('Animating element:', box);
       gsap.from(box, {
         duration: 0.8,
         delay: 0.2,
         ease: Power3.easeInOut,
         ...settings,
+        onComplete: () => {
+          console.log('Animation completed');
+        },
       });
     }
   }, [settings]);

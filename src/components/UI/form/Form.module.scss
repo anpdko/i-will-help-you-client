@@ -1,34 +1,43 @@
-.form {
-  &__label {
-    color: var(--black);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1rem;
-    display: grid;
-    gap: 1rem;
-  }
+.label {
+  color: var(--black);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  display: grid;
+  gap: 1rem;
+  position: relative;
+}
 
-  &__input {
-    width: 100%;
-    border-radius: 0.625rem;
-    border: 1px solid var(--black);
-    background: var(--total-white);
-    padding: 1.125rem 1.5rem;
+.input {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid var(--black);
+  background: var(--total-white);
+  padding: 0.9rem 1.5rem;
 
     &::placeholder {
       color: var(--dark-grey);
       font-size: 1rem;
       font-style: normal;
       font-weight: 400;
-      line-height: 1rem; 
+      line-height: 1rem;
+    }
+
+    &:hover {
+      background: transparent;
+    }
+  
+    &:focus {
+      border: 2px solid var(--black);
+      background: var(--total-white);
     }
   }
 
-  &__error {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--red-for-error);
-    margin-top: 0.5rem;
-  }
+.error {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--red-for-error);
+  position: absolute;
+  top: calc(100% + 4px);
 }

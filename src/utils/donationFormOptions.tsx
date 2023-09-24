@@ -11,7 +11,7 @@ export const donationTypes = [
   {
     id: 'donateFund',
     title: 'Find out about our fund:',
-    text: 'At I Will Help You Foundation, we are driven by a profound commitment to make a difference in the lives of war-affected individuals. Our foundation is a sanctuary of hope, compassion, and empowerment. Through innovative initiatives and dedicated efforts, we aim to create a brighter future for those who have faced the darkness of conflict.',
+    text: 'At I Will Help You Foundation, we are driven by a profound commitment to make a difference in the lives of war-affected individuals. Our foundation is a sanctuary of hope, compassion, and empowerment. Through innovative initiatives and dedicated efforts, we aim to create a brighter future for those who have faced the darkness of the war.',
     content: <PaymentForm />,
   },
   {

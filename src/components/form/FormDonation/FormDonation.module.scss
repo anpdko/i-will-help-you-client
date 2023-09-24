@@ -1,31 +1,54 @@
-@import '../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .wrapper {
-  width: 49.563rem;
-
-  @media (max-width: $tablet) {
-    width: 46.25rem;
-  }
-
-  @media (max-width: $mobile) {
-    width: 22.875rem;
-  }
+  width: 100%;
 }
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 0.5rem;
+
+  @media (max-width: $mobileSmall) {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+  }
 }
 
 .button {
+  @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
   border-radius: 0.625rem;
-  padding: 1.125rem 0;
+  padding: 1.125rem 0.5rem;
   text-align: center;
-  font-style: normal;
   font-weight: 600;
+  position: relative;
+
+  &:not(:first-child):before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    display: inline-block;
+    width: 1px;
+    height: 2.25rem;
+    background: var(--black);
+
+    @media (max-width: $mobileSmall) {
+      display: none;
+    }
+  }
+  @media (max-width: $mobileSmall) {
+    border-radius: 0.625rem;
+    border: 1px solid var(--black);
+    background: var(--total-white);
+  }
 }
 
 .active {
   background: var(--orange-for-states);
+  border-left: 1px solid var(--black);
+  border-right: 1px solid var(--black);
 }

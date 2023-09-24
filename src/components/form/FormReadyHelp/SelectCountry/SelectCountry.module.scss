@@ -1,14 +1,9 @@
-@import '../../../../styles/index.scss';
+@import '@/styles/index.scss';
 
 .country {
   grid-area: country;
 
   &__input {
-    font-weight: 400;
-    width: 24rem;
-
-    @media (max-width: $tablet) {
-      width: 22.875rem;
-    }
+    width: 100%;
   }
 }
