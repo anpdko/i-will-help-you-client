@@ -77,6 +77,7 @@ const FormReadyHelp = () => {
       console.log(res);
       setIsPopupVisible(true);
       setIsSuccess(true);
+      methods.reset();
     } catch (error: any) {
       console.log(error);
       setIsPopupVisible(true);
