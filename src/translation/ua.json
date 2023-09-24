@@ -90,6 +90,7 @@
   "The country code should start with the «+» symbol and be followed by exactly two digits": "Код країни має починатися із символу «+», після якого слідують рівно дві цифри.",
   "605 555 555": "095 55 55 555",
   "Please type your phone number": "Будь ласка, введіть ваш номер телефону",
+  "Phone number should be at least 7 digits long" : "Номер телефону повинен містити не менше 7 цифр",
 
   "Email ": "Електронна адреса ",
   "Please type your email address" : "Будь ласка, введіть вашу електронну адресу",

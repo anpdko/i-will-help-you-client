@@ -19,6 +19,14 @@ const PhoneNumber = () => {
     return !['ru', 'by'].includes(iso2);
   });
 
+  const validatePhoneNumber = (phoneNumber: string) => {
+    const cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+    if (cleanedPhoneNumber.length < 7) {
+      return t('Phone number should be at least 7 digits long');
+    }
+    return true;
+  }
+
   return (
     <FormItemWrapper className={s.phone} title={t('Phone Number *')}>
       <Controller
@@ -26,7 +34,7 @@ const PhoneNumber = () => {
         control={control}
         rules={{
           required: t('Please type your phone number'),
-          minLength: 7,
+          validate: (value) => validatePhoneNumber(value),
         }}
         defaultValue=''
         render={({ field: { value, onChange }, fieldState }) => (
