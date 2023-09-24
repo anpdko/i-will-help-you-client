@@ -1,4 +1,4 @@
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import {
   PhoneInput,
@@ -11,8 +11,14 @@ import s from './PhoneNumber.module.scss';
 import './PhoneNumber.scss';
 
 const PhoneNumber = () => {
-  const { control } = useFormContext();
   const { t } = useTranslation();
+  const {
+    register,
+    watch,
+    setValue,
+    clearErrors,
+    formState: { errors },
+  } = useFormContext();
 
   const countries = defaultCountries.filter((country) => {
     const { iso2 } = parseCountry(country);
@@ -25,36 +31,31 @@ const PhoneNumber = () => {
       return t('Phone number should be at least 7 digits long');
     }
     return true;
-  }
+  };
+
+  {register('phoneNumber', {
+    required: t('Please type your phone number'),
+    validate: (value) => validatePhoneNumber(value),
+  })}
 
   return (
     <FormItemWrapper className={s.phone} title={t('Phone Number *')}>
-      <Controller
-        name='phoneNumber'
-        control={control}
-        rules={{
-          required: t('Please type your phone number'),
-          validate: (value) => validatePhoneNumber(value),
-        }}
-        defaultValue=''
-        render={({ field: { value, onChange }, fieldState }) => (
-          <div className={s.wrap}>
-            <PhoneInput
-              countries={countries}
-              defaultCountry={t('pl')}
-              placeholder={t('+48 605 555 555')}
-              value={value}
-              onChange={(value) => onChange(value)}
-              disableDialCodePrefill={true}
-            />
-            {fieldState.error && (
-              <p className={`${s.error}`}>
-                {fieldState.error.message as string}
-              </p>
-            )}
-          </div>
+      <div className={s.wrap}>
+        <PhoneInput
+          countries={countries}
+          defaultCountry={'pl'}
+          placeholder={'+48 605 555 555'}
+          value={watch('phoneNumber')}
+          onChange={(value) => {
+            setValue('phoneNumber', value);
+            clearErrors('phoneNumber');
+          }}
+          disableDialCodePrefill={true}
+        />
+        {errors.phoneNumber && (
+          <p className={`${s.error}`}>{errors.phoneNumber.message as string}</p>
         )}
-      />
+      </div>
     </FormItemWrapper>
   );
 };
