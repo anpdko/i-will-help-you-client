@@ -1,7 +1,11 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import { useTranslation } from 'react-i18next';
-import { PhoneInput } from 'react-international-phone';
+import {
+  PhoneInput,
+  defaultCountries,
+  parseCountry,
+} from 'react-international-phone';
+import FormItemWrapper from '../FormItemWrapper/FormItemWrapper';
 import 'react-international-phone/style.css';
 import s from './PhoneNumber.module.scss';
 import './PhoneNumber.scss';
@@ -9,6 +13,11 @@ import './PhoneNumber.scss';
 const PhoneNumber = () => {
   const { control } = useFormContext();
   const { t } = useTranslation();
+
+  const countries = defaultCountries.filter((country) => {
+    const { iso2 } = parseCountry(country);
+    return !['ru', 'by'].includes(iso2);
+  });
 
   return (
     <FormItemWrapper className={s.phone} title={t('Phone Number *')}>
@@ -23,10 +32,11 @@ const PhoneNumber = () => {
         render={({ field: { value, onChange }, fieldState }) => (
           <div className={s.wrap}>
             <PhoneInput
-              value={value}
-              onChange={(value) => onChange(value)}
+              countries={countries}
               defaultCountry={t('pl')}
               placeholder={t('+48 605 555 555')}
+              value={value}
+              onChange={(value) => onChange(value)}
               disableDialCodePrefill={true}
             />
             {fieldState.error && (
