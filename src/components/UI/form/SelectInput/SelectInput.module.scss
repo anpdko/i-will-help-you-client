@@ -1,5 +1,4 @@
 .wrap {
-  position: relative;
   width: 100%;
 }
 
@@ -7,6 +6,5 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--red-for-error);
-  position: absolute;
-  top: calc(100% + 6px);
+  margin-top: 0.4rem;
 }
