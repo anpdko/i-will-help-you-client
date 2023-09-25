@@ -43,8 +43,8 @@ const PhoneNumber = () => {
       <div className={s.wrap}>
         <PhoneInput
           countries={countries}
-          defaultCountry={'pl'}
-          placeholder={'+48 605 555 555'}
+          defaultCountry={t('pl')}
+          placeholder={t('+48 605 555 555')}
           value={watch('phoneNumber')}
           onChange={(value) => {
             setValue('phoneNumber', value);
