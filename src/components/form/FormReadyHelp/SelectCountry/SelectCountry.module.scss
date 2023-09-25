@@ -2,8 +2,16 @@
 
 .country {
   grid-area: country;
+}
 
-  &__input {
-    width: 100%;
-  }
+.wrap {
+  width: 100%;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.error {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--red-for-error);
 }
