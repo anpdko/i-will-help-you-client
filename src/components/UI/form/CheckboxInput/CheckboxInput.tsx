@@ -39,16 +39,18 @@ const CheckboxInput = ({
 
   return (
     <div className={`${s.checkboxes__wrap} ${className}`}>
-      <input
-        type='checkbox'
-        id={id}
-        {...register(id, {
-          required: required,
-        })}
-        className={s.checkboxes__input}
-        onChange={handleCheckboxChange}
-      />
-      <p className={s.checkboxes__text}>{text}</p>
+      <label htmlFor={id} className={s.checkboxes__label}>
+        <input
+          type='checkbox'
+          id={id}
+          {...register(id, {
+            required: required,
+          })}
+          className={s.checkboxes__input}
+          onChange={handleCheckboxChange}
+        />
+        <p className={s.checkboxes__text}>{text}</p>
+      </label>
       {required && errors[id] && (
         <p className={s.checkboxes__error}>{t('Please check the checkbox')}</p>
       )}
