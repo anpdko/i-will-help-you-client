@@ -75,6 +75,7 @@ const TypeOfAssistance = () => {
                 }
                 checkButtonsNearbySide();
               }}
+              checked={value.length === typeOfAssistanceList.length}
             />
           </div>
         )}

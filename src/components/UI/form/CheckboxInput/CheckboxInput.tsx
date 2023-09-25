@@ -6,6 +6,7 @@ interface CheckboxInputProps {
   id: string;
   required: boolean;
   text: string;
+  checked?: boolean;
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -14,6 +15,7 @@ const CheckboxInput = ({
   id,
   required = false,
   text,
+  checked,
   className,
   onChange,
 }: CheckboxInputProps) => {
@@ -46,8 +48,9 @@ const CheckboxInput = ({
           {...register(id, {
             required: required,
           })}
-          className={s.checkboxes__input}
+          checked={checked}
           onChange={handleCheckboxChange}
+          className={s.checkboxes__input}
         />
         <p className={s.checkboxes__text}>{text}</p>
       </label>
