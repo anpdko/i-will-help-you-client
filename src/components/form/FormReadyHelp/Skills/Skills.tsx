@@ -1,19 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import { useFormContext, Controller } from 'react-hook-form';
-import Select, { OnChangeValue, StylesConfig } from 'react-select';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import Option from './Option';
 import { skillsList } from '@utils/skillsList';
-import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import s from './Skills.module.scss';
+import './Skills.scss';
 
-interface ISkills {
-  value: string;
-  label: string;
-}
+import { Select, ConfigProvider } from 'antd';
+
 
 const Skills = () => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   const { t } = useTranslation();
 
@@ -21,37 +20,6 @@ const Skills = () => {
     value: `${t(item.skill)}`,
     label: `${t(item.skill)}`,
   }));
-
-  const skillsStyles: StylesConfig<any> = {
-    ...customStyles,
-    menu: (baseStyles) => ({
-      ...baseStyles,
-      paddingTop: '2rem',
-      paddingBottom: '2rem',
-      borderRadius: '0.6rem',
-      border: '1px solid  var(--black)',
-    }),
-    multiValue: (baseStyles) => ({
-      ...baseStyles,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      backgroundColor: 'var(--orange-for-states)',
-      padding: '0.63rem 1.13rem',
-      margin: '0',
-      borderRadius: '0.5rem',
-    }),
-    option: (provided) => ({
-      ...provided,
-      display: 'flex',
-      alignItems: 'center',
-      backgroundColor: 'transparent',
-      transition: 'background-color 0.2s',
-      '&:hover': {
-        backgroundColor: 'var(--light-grey)',
-      },
-    }),
-  };
 
   return (
     <FormItemWrapper
@@ -69,26 +37,44 @@ const Skills = () => {
         }}
         defaultValue={null}
         render={({ field }) => (
-          <Select
-            {...field}
-            options={skills}
-            placeholder={t('Search your skills')}
-            styles={skillsStyles}
-            isMulti
-            closeMenuOnSelect={false}
-            value={skills.find((option) => option.value === field.value)}
-            hideSelectedOptions={false}
-            components={{
-              Option,
-            }}
-            onChange={(selectedOption: OnChangeValue<ISkills, boolean>) => {
-              field.onChange(
-                (selectedOption as ISkills[])?.map((skill) => skill.value),
-              );
-            }}
-            className={s.skills__input}
-            // menuIsOpen={true}
-          />
+          <>
+            <ConfigProvider
+              theme={{
+                components: {
+                  Select: {
+                    multipleItemBg: '#FFA787',
+                    multipleItemHeight: 34,
+                    optionFontSize: 14,
+                    optionSelectedBg: '#EEE',
+                    optionPadding: '12px 24px',
+                  },
+                },
+                token: {
+                  colorBorder: '#000',
+                  colorPrimaryHover: '#000',
+                  borderRadius: 10,
+                  boxShadowSecondary: 'none',
+                  fontFamily: 'Open Sans',
+                  fontSize: 16,
+                  colorTextPlaceholder: '#505050',
+                  controlPaddingHorizontal: 24,
+                },
+              }}
+            >
+              <Select
+                {...field}
+                options={skills}
+                placeholder={t('Search your skills')}
+                mode='multiple'
+                maxTagCount='responsive'
+                className={s.skills__input}
+                value={field.value || []}
+              />
+            </ConfigProvider>
+            {errors?.skills && (
+              <p className={s.error}>{errors?.skills.message as string}</p>
+            )}
+          </>
         )}
       />
     </FormItemWrapper>
