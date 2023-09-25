@@ -4,15 +4,21 @@
   grid-area: days;
 
   &__inputs {
-    display: flex;
     width: 100%;
-    gap: toRem(24);
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: toRem(24);
+    row-gap: toRem(24);
+
     &:not(:first-of-type) .volunteer__title {
       display: none;
     }
 
     @media (max-width: $mobile) {
+      display: flex;
       flex-direction: column;
+
       &:not(:first-of-type) .volunteer__title {
         display: block;
       }
@@ -27,11 +33,13 @@
     justify-content: center;
     gap: 0.875rem;
   }
-  &__column {
-    flex: 0 1 50%;
+
+  &__day {
+    width: 100%;
   }
-  &__columns {
-    flex: 0 1 50%;
+
+  &__time {
+    width: 100%;
     display: flex;
     gap: toRem(24);
   }
@@ -39,20 +47,6 @@
   &__title {
     font-size: toRem(14);
     line-height: 100%;
-
-    &_wrap {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: 24.063rem 11.25rem 11.25rem;
-    }
-  }
-
-  &__button {
-    &_add {
-      display: flex;
-      align-items: center;
-      gap: 0.563rem;
-    }
   }
 
   &__input {
@@ -65,4 +59,27 @@
       width: 100%;
     }
   }
+}
+
+.button {
+  &_add {
+    display: flex;
+    align-items: center;
+    gap: 0.563rem;
+  }
+
+  &_remove {
+    display: flex;
+    align-items: center;
+    gap: 0.563rem;
+    margin-top: 0.3rem;
+    color: var(--red-for-error);
+  }
+}
+
+.error {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--red-for-error);
+  margin-top: -0.5rem;
 }
