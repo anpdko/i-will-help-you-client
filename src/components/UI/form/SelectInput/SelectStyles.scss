@@ -1,13 +1,12 @@
 .ant-select {
   height: 52px !important;
-  font-size: 1rem !important;
 
   &-arrow {
-    margin-right: 0.85rem !important;
+    margin-right: 0.85rem  ;
   }
 
   &-selection-search {
-    padding-left: 0.85rem !important;
+    padding-left: 0.85rem;
   }
 
   &-focused .ant-select-selector {
@@ -17,24 +16,18 @@
 }
 
 .ant-select-selector {
-  border-radius: 0.625rem !important;
-  border: 1px solid var(--black) !important;
-  padding: 0.9rem 1.5rem !important;
-  font-size: 16px !important;
-  box-shadow: none !important;
+  padding: 0.9rem 1.5rem;
+  box-shadow: none;
 
   &:hover {
     background: transparent !important;
   }
 }
 
-.ant-select-selection-item,
-.ant-select-selection-search-input,
-.ant-select-selection-placeholder {
-  color: var(--grey) !important;
-  font-family: Open Sans !important;
+.ant-select-selection-search-input {
+  caret-color: transparent;
 }
 
-.ant-select-selection-search-input {
-  caret-color: transparent !important;
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  padding: 0 1.5rem;
 }
