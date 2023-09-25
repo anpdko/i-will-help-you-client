@@ -1,14 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import Select from 'react-select';
-import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import { daysOfWeekOptions, timeOptions } from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { SelectInput } from '@/components/UI';
 import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import s from './DaysOfVolunteering.module.scss';
 
 const DaysOfVolunteering = () => {
-  const { control } = useFormContext();
+  const { control, formState } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'daysVolunteer',
@@ -34,6 +33,8 @@ const DaysOfVolunteering = () => {
     label: item.time,
   }));
 
+  const hasError = formState.errors.daysVolunteer;
+
   return (
     <FormItemWrapper
       className={s.volunteer}
@@ -43,7 +44,7 @@ const DaysOfVolunteering = () => {
     >
       {fields.map((item, index) => (
         <div key={item.id} className={s.volunteer__inputs}>
-          <div className={s.volunteer__column}>
+          <div className={s.volunteer__day}>
             <div className={s.volunteer__wrap}>
               <p className={s.volunteer__title}>{t('Day of the week')}</p>
               <Controller
@@ -52,19 +53,10 @@ const DaysOfVolunteering = () => {
                 rules={{ required: true }}
                 defaultValue={null}
                 render={({ field }) => (
-                  <Select
-                    {...field}
+                  <SelectInput
+                    field={field}
                     options={days}
                     placeholder={t('Day')}
-                    isSearchable={false}
-                    value={days.find((option) => option.value === field.value)}
-                    onChange={(selectedOption) => {
-                      field.onChange(
-                        (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
-                    styles={customStyles}
                     className={s.volunteer__input_days}
                   />
                 )}
@@ -72,7 +64,7 @@ const DaysOfVolunteering = () => {
             </div>
           </div>
 
-          <div className={s.volunteer__columns}>
+          <div className={s.volunteer__time}>
             <div className={s.volunteer__wrap}>
               <p className={s.volunteer__title}>{t('Time (start)')}</p>
               <Controller
@@ -81,19 +73,10 @@ const DaysOfVolunteering = () => {
                 rules={{ required: true }}
                 defaultValue={null}
                 render={({ field }) => (
-                  <Select
-                    {...field}
+                  <SelectInput
+                    field={field}
                     options={times}
                     placeholder={t('Start Time')}
-                    isSearchable={false}
-                    value={times.find((option) => option.value === field.value)}
-                    onChange={(selectedOption) => {
-                      field.onChange(
-                        (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
-                    styles={customStyles}
                     className={s.volunteer__input_time}
                   />
                 )}
@@ -107,19 +90,10 @@ const DaysOfVolunteering = () => {
                 rules={{ required: true }}
                 defaultValue={null}
                 render={({ field }) => (
-                  <Select
-                    {...field}
+                  <SelectInput
+                    field={field}
                     options={times}
                     placeholder={t('End Time')}
-                    isSearchable={false}
-                    value={times.find((option) => option.value === field.value)}
-                    onChange={(selectedOption) => {
-                      field.onChange(
-                        (selectedOption as { value: string; label: string })
-                          ?.value,
-                      );
-                    }}
-                    styles={customStyles}
                     className={s.volunteer__input_time}
                   />
                 )}
@@ -131,20 +105,21 @@ const DaysOfVolunteering = () => {
             <button
               type='button'
               onClick={() => remove(index)}
-              className={s.volunteer__button_remove}
+              className={s.button_remove}
             >
-              <HiOutlineX />
+              {t('Remove')} <HiOutlineX />
             </button>
           )}
         </div>
       ))}
-      <button
-        type='button'
-        onClick={addDaysField}
-        className={s.volunteer__button_add}
-      >
+
+      <button type='button' onClick={addDaysField} className={s.button_add}>
         {t('Add one more')} <HiOutlinePlus />
       </button>
+
+      {hasError && (
+        <p className={s.error}>{t('Please fill in all the fields')}</p>
+      )}
     </FormItemWrapper>
   );
 };

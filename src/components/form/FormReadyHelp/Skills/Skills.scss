@@ -1,0 +1,22 @@
+.ant-select-selection-item {
+  gap: 8px;
+}
+
+.ant-select-multiple .ant-select-selector {
+  align-content: center;
+}
+
+.ant-select-selection-item-remove {
+  span {
+    font-size: 0.7rem;
+    color: #000 !important;
+  }
+}
+
+.ant-select-selection-placeholder {
+  padding-left: 0.9rem;
+}
+
+.ant-select-multiple .ant-select-selection-item {
+  padding: 0 18px;
+}

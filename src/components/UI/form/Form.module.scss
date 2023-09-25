@@ -6,7 +6,6 @@
   line-height: 1rem;
   display: grid;
   gap: 1rem;
-  position: relative;
 }
 
 .input {
@@ -38,6 +37,5 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--red-for-error);
-  position: absolute;
-  top: calc(100% + 4px);
+  margin-top: -0.7rem;
 }

@@ -18,16 +18,15 @@
     column-gap: toRem(24);
     row-gap: toRem(44);
   }
+
   @media (max-width: $mobile) {
     display: flex;
     flex-direction: column;
     gap: toRem(24);
   }
-  
 
   &__email {
     grid-area: email;
-
   }
 
   &__button {
