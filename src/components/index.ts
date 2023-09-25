@@ -17,6 +17,7 @@ import FormDonation from './form/FormDonation/FormDonation';
 import Payment from './payment/Payment/Payment';
 import AboutHeader from './AboutHeader/AboutHeader';
 import NotFoundBlock from './NotFoundBlock/NotFoundBlock';
+import LazyImage from './LazyImage/LazyImage';
 
 export {
   Banners,
@@ -38,4 +39,5 @@ export {
   AboutHeader,
   NotFoundBlock,
   AboutDocuments,
+  LazyImage,
 };
