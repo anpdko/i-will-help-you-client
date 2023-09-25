@@ -4,10 +4,10 @@ import { ConfigProvider, DatePicker } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import locale from 'antd/locale/uk_UA';
 import dayjs from 'dayjs';
+import 'dayjs/locale/uk';
 import s from '../Form.module.scss';
 import './DateInput.scss';
 
-import 'dayjs/locale/uk';
 
 interface DateInputProps {
   title?: string;
@@ -47,8 +47,11 @@ const DateInput = ({
   }, [value]);
 
   const disabledDate: RangePickerProps['disabledDate'] = (current) => {
-    const year = current.year();
-    return year < 1923 || year > 2023;
+    const today = dayjs();
+    const minDate = dayjs('1923-01-01');
+    const maxDate = today.endOf('day');
+
+    return current.isBefore(minDate) || current.isAfter(maxDate);
   };
 
   return (
