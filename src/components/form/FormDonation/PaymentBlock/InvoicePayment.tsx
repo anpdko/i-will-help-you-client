@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { RxCopy } from 'react-icons/rx';
 import s from './PaymentBlock.module.scss';
 
@@ -7,6 +8,7 @@ interface InvoicePaymentProps {
 }
 
 const InvoicePayment = ({ list, method }: InvoicePaymentProps) => {
+  const { t } = useTranslation();
   const handleCopy = (
     value: string,
     event: React.MouseEvent<HTMLButtonElement>,
@@ -28,7 +30,7 @@ const InvoicePayment = ({ list, method }: InvoicePaymentProps) => {
               className={s.invoice__btn}
               onClick={(event) => handleCopy(item.account, event)}
             >
-              Copy <RxCopy />
+              {t('Copy')} <RxCopy />
             </button>
           </li>
         ))}
