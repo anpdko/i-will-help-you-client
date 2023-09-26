@@ -36,7 +36,7 @@ const Language = () => {
     label: `${t(item.level)}`,
   }));
 
-  const hasError = errors.daysVolunteer;
+  const hasError = errors.languages;
 
   return (
     <FormItemWrapper className={s.languages} title={t('Language knowledge *')}>
