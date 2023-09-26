@@ -10,11 +10,12 @@ import s from './FAQ.module.scss';
 
 interface FAQProps {
   data: IFaqData[];
+  showMoreButton?: boolean;
 }
 
-const FAQ = ({ data }: FAQProps) => {
+const FAQ = ({ data, showMoreButton = true }: FAQProps) => {
   const { t, i18n } = useTranslation();
-  const [visibleFAQCount, setVisibleFAQCount] = useState(4);
+  const [visibleFAQCount, setVisibleFAQCount] = useState(showMoreButton ? 4 : data.length);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<IFaqData[]>([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -67,7 +68,7 @@ const FAQ = ({ data }: FAQProps) => {
         <div className={s.body}>
           <AccordionList selectedTranslation={selectedTranslation as ITranslation[]} />
         </div>
-        {visibleFAQCount < data.length && !searchQuery && (
+        {showMoreButton && visibleFAQCount < data.length && !searchQuery && (
           <div className={s.more}>
             <button onClick={handleOpenAllFAQ}>{t('Open more FAQ')}</button>
           </div>
