@@ -18,6 +18,7 @@ import Payment from './payment/Payment/Payment';
 import AboutHeader from './AboutHeader/AboutHeader';
 import NotFoundBlock from './NotFoundBlock/NotFoundBlock';
 
+
 export {
   Banners,
   Navbar,
@@ -37,5 +38,5 @@ export {
   Payment,
   AboutHeader,
   NotFoundBlock,
-  AboutDocuments,
+  AboutDocuments
 };
