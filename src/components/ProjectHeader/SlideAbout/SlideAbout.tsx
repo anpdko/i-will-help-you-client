@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { IProject } from '../../../store/projects/projectsType';
 
-import { ButtonApp } from '../../UI';
+import { AccordionList, ButtonApp } from '../../UI';
 
 import s from './SlideAbout.module.scss';
 
@@ -24,7 +24,7 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
         items={description.split('\n') || []}
         variant='paragraphs'
       />
-      <ArticleSection
+      {/* <ArticleSection
         title={t('Key Objectives')}
         subtitle={t('Our main goals')}
         items={goals || []}
@@ -35,7 +35,29 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
         subtitle={t('Selection criteria')}
         items={criteria || []}
         variant='list'
-      />
+      /> */}
+      <article className={s.content}>
+        <div className={s.header}>
+          <h2 className={`${s.title} heading2`}>{t('Key Objectives')}</h2>
+          <h3 className={s.subtitle}>{t('Our main goals')}</h3>
+        </div>
+        <div className={s.body}>
+          <AccordionList selectedTranslation={goals || []} />
+        </div>
+      </article>
+
+      <article className={s.content}>
+        <div className={s.header}>
+          <h2 className={`${s.title} heading2`}>
+            {t('Selection Criteria for Participation')}
+          </h2>
+          <h3 className={s.subtitle}>{t('Selection criteria')}</h3>
+        </div>
+        <div className={s.body}>
+          <AccordionList selectedTranslation={criteria || []} />
+        </div>
+      </article>
+
       <ButtonApp type='link' to='/donate' color='white' size='medium'>
         {t(`Join the OpportunityConnect`)}
       </ButtonApp>

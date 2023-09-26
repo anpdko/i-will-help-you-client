@@ -6,9 +6,60 @@
   @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
   &:last-child {
     align-items: center;
-    @media (max-width: $mobile) {
-      button {
-        min-width: 100%;
+  }
+  .content{
+    .header {
+      display: flex;
+      justify-content: start;
+  
+      &:not(:last-child) {
+        @include adaptiveValue('margin-bottom', 32, 24, 0, 1200, 390);
+      }
+      @media (min-width: $mobile) {
+        align-items: center;
+        flex-direction: row-reverse;
+      }
+      @media (max-width: $mobile) {
+        gap: toRem(24);
+        flex-direction: column;
+        align-items: start;
+      }
+  
+      .title {
+        @include adaptiveValue('font-size', 40, 28, 0, 1200, 390);
+        @media (min-width: $mobile) {
+          flex: 0 1 59.416667%; /* 713/1200 */
+        }
+      }
+      .subtitle {
+        position: relative;
+        font-weight: 600;
+        line-height: 150%;
+  
+        @include adaptiveValue('padding-left', 56, 39, 0, 1200, 390);
+        @include adaptiveValue('font-size', 16, 14, 0, 1200, 390);
+        @media (min-width: $mobile) {
+          flex: 0 1 40.5%; /* 486/1200 */
+          padding-right: toRem(20);
+        }
+        @media (max-width: $mobile) {
+          display: none;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          height: toRem(2);
+          top: 50%;
+          left: 0;
+          background-color: var(--black);
+          border-radius: toRem(8);
+          @include adaptiveValue('width', 44, 24, 0, 1200, 390);
+        }
+      }
+    }
+    .body {
+      @media (min-width: $mobile) {
+        padding-left: 40.5%;
       }
     }
   }

@@ -1,21 +1,12 @@
 import { useState } from 'react';
 
-
 import sprite from '../../../assets/sprite.svg';
 import s from './AccordionList.module.scss';
 
-interface IListItem {
-  _id: string;
-  listTitle: string;
-  subItems?: string[];
-}
-
 interface ITranslation {
-  language: 'en' | 'ua';
-  description?: string;
-  list?: IListItem[];
-  title?: string;
-  subtitle?: string;
+  language?: 'en' | 'ua';
+  desc: string;
+  tag: string;
   _id: string;
 }
 interface IAccordionList {
@@ -33,7 +24,6 @@ const AccordionList = ({ selectedTranslation }: IAccordionList) => {
     }
   };
 
-
   return (
     <ul>
       {selectedTranslation?.map((translation, index) => (
@@ -43,13 +33,11 @@ const AccordionList = ({ selectedTranslation }: IAccordionList) => {
           onClick={() => handleToggleFAQ(index)}
         >
           <div className={s.item__body}>
-            <h4 className={s.item__title}>{translation.title}</h4>
+            <h4 className={s.item__title}>{translation.tag}</h4>
             <button type='button' className={s.item__btn}>
               <svg
                 className={
-                  openItems.includes(index)
-                    ? `${s.item__icon_open}`
-                    : `${s.item__icon_closed}`
+                  openItems.includes(index) ? `${s.open}` : `${s.closed}`
                 }
               >
                 <use href={sprite + '#chevron-down'} />
@@ -57,14 +45,11 @@ const AccordionList = ({ selectedTranslation }: IAccordionList) => {
             </button>
           </div>
           <div
-            className={
-              openItems.includes(index)
-                ? `${s.item__content_open}`
-                : `${s.item__content_closed}`
-            }
+            className={`${s.item__content}
+              ${openItems.includes(index) ? `${s.open}` : `${s.closed}`}`}
           >
             <div className={s.item__descr}>
-              <p className={s.text}>{translation.description}</p>
+              <p className={s.text}>{translation.desc}</p>
             </div>
           </div>
         </li>

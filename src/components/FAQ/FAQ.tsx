@@ -15,25 +15,35 @@ interface FAQProps {
 
 const FAQ = ({ data, showMoreButton = true }: FAQProps) => {
   const { t, i18n } = useTranslation();
-  const [visibleFAQCount, setVisibleFAQCount] = useState(showMoreButton ? 4 : data.length);
+  const [visibleFAQCount, setVisibleFAQCount] = useState(
+    showMoreButton ? 4 : data.length,
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<IFaqData[]>([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   const getTranslation = (faq: IFaqData): ITranslation | undefined =>
-    faq.translations.find((translation) => translation.language === i18n.language);
+    faq.translations.find(
+      (translation) => translation.language === i18n.language,
+    );
 
   const handleOpenAllFAQ = () => setVisibleFAQCount(data.length);
 
   const handleSearchButtonClick = () => setIsSearchActive(!isSearchActive);
 
-  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
     const results = query
       ? data.filter((faq) => {
           const translation = getTranslation(faq);
-          return translation && translation.title.toLowerCase().includes(query);
+          return (
+            translation &&
+            (translation.tag.toLowerCase().includes(query) ||
+              translation.desc.toLowerCase().includes(query))
+          );
         })
       : [];
     setSearchResults(results);
@@ -66,7 +76,9 @@ const FAQ = ({ data, showMoreButton = true }: FAQProps) => {
           <h3 className={s.subtitle}>FAQ</h3>
         </div>
         <div className={s.body}>
-          <AccordionList selectedTranslation={selectedTranslation as ITranslation[]} />
+          <AccordionList
+            selectedTranslation={selectedTranslation as ITranslation[]}
+          />
         </div>
         {showMoreButton && visibleFAQCount < data.length && !searchQuery && (
           <div className={s.more}>

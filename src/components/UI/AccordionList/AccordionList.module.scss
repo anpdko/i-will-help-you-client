@@ -20,9 +20,10 @@
   }
 
   &__body {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: toRem(20);
   }
 
   &__title,
@@ -32,21 +33,18 @@
   }
 
   &__title {
+    flex: 1 1 auto;
     font-weight: 600;
   }
 
   &__content {
-    &_open,
-    &_closed {
-      display: grid;
-      transition: grid-template-rows 500ms;
-    }
-
-    &_open {
+    display: grid;
+    transition: grid-template-rows 500ms;
+    &.open {
       grid-template-rows: 1fr;
     }
 
-    &_closed {
+    &.closed {
       grid-template-rows: 0fr;
     }
   }
@@ -61,18 +59,14 @@
     }
   }
 
-  &__icon {
-    transform: translate(0%, 0%) rotate(-90deg);
-
-    &_open,
-    &_closed {
-      width: toRem(28);
-      height: toRem(28);
-      transition: all 0.25s ease-in-out;
-    }
-
-    &_open {
-      transform: translate(0%, 0%) rotate(-90deg);
+  &__btn {
+    svg {
+      transition: transform 0.3s;
+      width: toRem(14);
+      height: toRem(8);
+      &.open {
+        transform: translate(0%, 0%) rotate(-180deg);
+      }
     }
   }
 }
