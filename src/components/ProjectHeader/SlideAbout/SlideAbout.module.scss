@@ -1,12 +1,10 @@
 @import '../../../styles/index';
 .about {
+  height: 100%;
   cursor: grab;
   display: flex;
   flex-direction: column;
   @include adaptiveValue('gap', 112, 80, 0, 1200, 390);
-  &:last-child {
-    align-items: center;
-  }
   .content{
     .header {
       display: flex;
@@ -58,9 +56,11 @@
       }
     }
     .body {
+      min-height: 100%;
       @media (min-width: $mobile) {
         padding-left: 40.5%;
       }
+      
     }
   }
 }

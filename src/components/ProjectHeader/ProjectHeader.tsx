@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Preloader } from '../UI';
+import { ButtonApp, Preloader } from '../UI';
 import { IProjectsState } from '../../store/projects/projectsType';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -16,6 +16,7 @@ import 'swiper/css/effect-fade';
 import SlideContent from './SlideContent/SlideContent';
 import SlideImage from './SlideImage/SlideImage';
 import SlideAbout from './SlideAbout/SlideAbout';
+import { t } from 'i18next';
 
 const ProjectHeader: React.FC<
   IProjectsState & { selectedUrl: string | undefined }
@@ -50,7 +51,7 @@ const ProjectHeader: React.FC<
         {loading ? (
           <Preloader />
         ) : (
-          <>
+          <div className={s.body}>
             <div className={s.swipers_header}>
               <div className={s.swiper_content}>
                 <Swiper
@@ -153,8 +154,13 @@ const ProjectHeader: React.FC<
                 ))}
               </Swiper>
             </div>
-          </>
+          </div>
         )}
+        <div className={s.actions}>
+          <ButtonApp type='link' to='/donate' color='white' size='medium'>
+            {t(`Join the OpportunityConnect`)}
+          </ButtonApp>
+        </div>
       </div>
     </section>
   );

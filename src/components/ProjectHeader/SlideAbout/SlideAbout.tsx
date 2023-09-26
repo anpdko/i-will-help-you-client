@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { IProject } from '../../../store/projects/projectsType';
 
-import { AccordionList, ButtonApp } from '../../UI';
+import { AccordionList } from '../../UI';
 
 import s from './SlideAbout.module.scss';
 
@@ -24,18 +24,7 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
         items={description.split('\n') || []}
         variant='paragraphs'
       />
-      {/* <ArticleSection
-        title={t('Key Objectives')}
-        subtitle={t('Our main goals')}
-        items={goals || []}
-        variant='list'
-      />
-      <ArticleSection
-        title={t('Selection Criteria for Participation')}
-        subtitle={t('Selection criteria')}
-        items={criteria || []}
-        variant='list'
-      /> */}
+
       <article className={s.content}>
         <div className={s.header}>
           <h2 className={`${s.title} heading2`}>{t('Key Objectives')}</h2>
@@ -57,10 +46,6 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
           <AccordionList selectedTranslation={criteria || []} />
         </div>
       </article>
-
-      <ButtonApp type='link' to='/donate' color='white' size='medium'>
-        {t(`Join the OpportunityConnect`)}
-      </ButtonApp>
     </div>
   );
 };
