@@ -16,6 +16,8 @@
     border: 1px solid var(--black);
     background: var(--total-white);
     padding: 0.83rem 1.5rem;
+    user-select: none;
+    cursor: pointer;
 
     color: var(--dark-grey);
     font-family: Open Sans;

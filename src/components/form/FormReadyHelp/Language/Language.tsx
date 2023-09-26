@@ -1,14 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form';
-import Select from 'react-select';
-import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
-import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import { languageList, languageLevel } from '@utils/languageList';
+import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
+import { SelectInput } from '@/components/UI';
 import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import s from './Language.module.scss';
 
 const Language = () => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'languages',
@@ -34,27 +36,22 @@ const Language = () => {
     label: `${t(item.level)}`,
   }));
 
+  const hasError = errors.daysVolunteer;
+
   return (
-    <FormItemWrapper className={s.languages} title={t('Language knowledge')}>
+    <FormItemWrapper className={s.languages} title={t('Language knowledge *')}>
       {fields.map((item, index) => (
         <div key={item.id} className={s.language}>
           <Controller
             name={`languages[${index}].language`}
             control={control}
+            rules={{ required: true }}
             defaultValue={null}
             render={({ field }) => (
-              <Select
-                {...field}
+              <SelectInput
+                field={field}
                 options={languages}
-                styles={customStyles}
                 placeholder={t('Choose language')}
-                isSearchable={false}
-                value={languages.find((option) => option.value === field.value)}
-                onChange={(selectedOption) => {
-                  field.onChange(
-                    (selectedOption as { value: string; label: string })?.value,
-                  );
-                }}
                 className={s.language__input}
               />
             )}
@@ -63,20 +60,13 @@ const Language = () => {
           <Controller
             name={`languages[${index}].level`}
             control={control}
+            rules={{ required: true }}
             defaultValue={null}
             render={({ field }) => (
-              <Select
-                {...field}
+              <SelectInput
+                field={field}
                 options={listOfLevels}
-                styles={customStyles}
                 placeholder={t('Choose level')}
-                isSearchable={false}
-                value={languages.find((option) => option.value === field.value)}
-                onChange={(selectedOption) => {
-                  field.onChange(
-                    (selectedOption as { value: string; label: string })?.value,
-                  );
-                }}
                 className={s.language__input}
               />
             )}
@@ -97,6 +87,10 @@ const Language = () => {
       >
         {t('Add one more')} <HiOutlinePlus />
       </button>
+
+      {hasError && (
+        <p className={s.error}>{t('Please fill in all the fields')}</p>
+      )}
     </FormItemWrapper>
   );
 };

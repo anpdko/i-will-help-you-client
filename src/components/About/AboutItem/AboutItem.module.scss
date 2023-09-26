@@ -21,6 +21,20 @@
   &__text {
     white-space: pre-line;
     flex: 1 1 auto;
+    
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 0rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--light-grey);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--dark-grey);
+      border-radius: 10px;
+    }
+
     &:not(:last-child) {
       margin-bottom: em(32, 16);
     }

@@ -1,10 +1,9 @@
 .checkboxes {
-  &__wrap {
-    position: relative;
-    display: grid;
+  &__label {
+    display: flex;
     align-items: center;
-    grid-template-areas: 'checkbox text' 'error error';
-    column-gap: 1rem;
+    gap: 1rem;
+    cursor: pointer;
   }
 
   &__input {
@@ -52,10 +51,9 @@
 
   &__error {
     grid-area: error;
-    position: absolute;
-    top: calc(100% + 6px);
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--red-for-error);
+    margin-top: 0.5rem;
   }
 }

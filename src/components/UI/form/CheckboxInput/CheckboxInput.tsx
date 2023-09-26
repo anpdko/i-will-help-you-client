@@ -6,6 +6,7 @@ interface CheckboxInputProps {
   id: string;
   required: boolean;
   text: string;
+  checked?: boolean;
   className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -14,6 +15,7 @@ const CheckboxInput = ({
   id,
   required = false,
   text,
+  checked,
   className,
   onChange,
 }: CheckboxInputProps) => {
@@ -39,16 +41,19 @@ const CheckboxInput = ({
 
   return (
     <div className={`${s.checkboxes__wrap} ${className}`}>
-      <input
-        type='checkbox'
-        id={id}
-        {...register(id, {
-          required: required,
-        })}
-        className={s.checkboxes__input}
-        onChange={handleCheckboxChange}
-      />
-      <p className={s.checkboxes__text}>{text}</p>
+      <label htmlFor={id} className={s.checkboxes__label}>
+        <input
+          type='checkbox'
+          id={id}
+          {...register(id, {
+            required: required,
+          })}
+          checked={checked}
+          onChange={handleCheckboxChange}
+          className={s.checkboxes__input}
+        />
+        <p className={s.checkboxes__text}>{text}</p>
+      </label>
       {required && errors[id] && (
         <p className={s.checkboxes__error}>{t('Please check the checkbox')}</p>
       )}

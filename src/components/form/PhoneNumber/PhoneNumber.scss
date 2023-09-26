@@ -1,0 +1,97 @@
+@import '@/styles/index.scss';
+
+.react-international-phone-input-container {
+  width: 100%;
+
+  @media (min-width: $mobile) {
+    gap: toRem(24);
+  }
+
+  @media (max-width: $mobile) {
+    gap: toRem(4);
+  }
+}
+
+.react-international-phone-input {
+  width: 100% !important;
+  font-size: 1rem !important;
+  border-radius: 0.625rem !important;
+  border: 1px solid var(--black) !important;
+  background: var(--total-white) !important;
+  padding: 1.58rem 1.5rem !important;
+  color: var(--black) !important;
+  font-size: 1rem !important;
+
+  &::placeholder {
+    color: var(--dark-grey) !important;
+    font-size: 1rem !important;
+    line-height: 1rem;
+  }
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  &:focus {
+    border: 2px solid var(--black) !important;
+    background: var(--total-white) !important;
+  }
+}
+
+.react-international-phone-country-selector-button {
+  border-radius: 0.625rem !important;
+  border: 1px solid var(--black) !important;
+  background: var(--total-white) !important;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  &--active {
+    border: 2px solid var(--black) !important;
+    background: var(--total-white) !important;
+  }
+}
+
+.react-international-phone-flag-emoji {
+  width: 2.2rem;
+  height: 2rem;
+}
+
+.react-international-phone-country-selector-button__flag-emoji {
+  margin: 0.6rem 0.7rem 0.6rem 0.75rem;
+}
+
+.react-international-phone-country-selector-button__dropdown-arrow {
+  margin-right: toRem(12);
+}
+
+.react-international-phone-country-selector-dropdown {
+  z-index: 3;
+  border-radius: toRem(10);
+  border: 1px solid var(--black);
+  background: var(--total-white);
+  top: toRem(55);
+  padding: 1rem;
+  clip-path: inset(0 0 0 0 round 10px);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--dark-grey) var(--light-grey);
+
+  &::-webkit-scrollbar {
+    width: toRem(4);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: toRem(10);
+    background: var(--light-grey);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-grey);
+    border-radius: toRem(10);
+  }
+}
