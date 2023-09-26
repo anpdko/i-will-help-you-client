@@ -746,3 +746,696 @@ export const faqDonateData: IFaqData[] = [
     _id: uuidv4(),
   },
 ];
+export const faqData: IFaqData[] = [
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'What is the "I Will Help You" Foundation?',
+        description:
+          'The "I Will Help You" Foundation is a humanitarian organization dedicated to assisting Ukrainians affected by the war, wherever they are in the world.',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Що таке фонд «Я допоможу тобі»?',
+        description:
+          'Фонд «Я тобі допоможу» — це гуманітарна організація, яка займається допомогою постраждалим від війни українцям, де б вони не були.',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'What is the mission of the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яка місія фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: "What is the foundation's vision?",
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яке бачення фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'What kind of humanitarian aid does the foundation provide?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яку гуманітарну допомогу надає фонд?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'What support services are available?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Які послуги підтримки доступні?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Can the foundation help with legal challenges?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи може фонд допомогти з судовими проблемами?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'How does the foundation support the mental well-being of Ukrainians?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як фонд підтримує психічне благополуччя українців?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Is there assistance for job-seeking Ukrainians?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є допомога українцям, які шукають роботу?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'How does the foundation promote Ukrainian culture and heritage?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'к фонд популяризує українську культуру та спадщину?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How transparent is the foundation regarding its finances?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Наскільки фонд прозорий щодо своїх фінансів?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How can I donate to the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як я можу пожертвувати фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are there volunteering opportunities?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є можливості для волонтерства?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are there volunteering opportunities?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є можливості для волонтерства?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: "How can I raise awareness about the foundation's efforts?",
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як я можу підвищити обізнаність про зусилля фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'Where can I find more detailed information about the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Де можна знайти більш детальну інформацію про фонд?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How are the educational courses organized?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як організовані навчальні курси?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Can non-Ukrainians volunteer or donate?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи можуть неукраїнці бути волонтерами чи жертвувати?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How are the funds utilized?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як використовуються кошти?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How often are financial reports released?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як часто публікуються фінансові звіти?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Is the foundation registered and recognized officially?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи фонд зареєстрований та визнаний офіційно?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Who started the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Хто започаткував фонд?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How can I get involved?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як я можу взяти участь?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are there any physical offices I can visit?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є фізичні офіси, які я можу відвідати?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'How can I get psychological support for a friend affected by the war?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title:
+          'Як я можу отримати психологічну підтримку для друга, який постраждав від війни?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Do you have resources for children specifically?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є у вас ресурси спеціально для дітей?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'How does the foundation ensure the quality of its support services?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яким чином фонд забезпечує якість своїх послуг підтримки?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          'How does the foundation ensure the quality of its support services?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яким чином фонд забезпечує якість своїх послуг підтримки?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are donations tax-deductible?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи оподатковуються пожертви?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How does the foundation engage with local communities?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як фонд взаємодіє з місцевими громадами?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Can I suggest a project or initiative for the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи можу я запропонувати проект чи ініціативу для фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are there any upcoming events?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи є якісь найближчі події?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How does the foundation manage its volunteers?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як фонд керує своїми волонтерами?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: "What's the foundation's stance on political involvement?",
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Яка позиція фонду щодо політичної участі?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How can businesses partner with the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як бізнес може співпрацювати з фондом?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Are there specific regions the foundation operates in?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи існують конкретні регіони, в яких працює фонд?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How can I get regular updates from the foundation?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як я можу отримувати регулярні оновлення від фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'Can I choose a specific program to donate to?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Чи можу я вибрати конкретну програму для пожертвувань?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'How does the foundation handle data privacy?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'Як фонд забезпечує конфіденційність даних?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title: 'What challenges does the foundation currently face?',
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title: 'З якими викликами зараз стикається фонд?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+  {
+    translations: [
+      {
+        _id: uuidv4(),
+        language: 'en',
+        title:
+          "How can I offer feedback or concerns about the foundation's operations?",
+        description: '',
+      },
+      {
+        _id: uuidv4(),
+        language: 'ua',
+        title:
+          'Як я можу надати відгук або занепокоєння щодо діяльності фонду?',
+        description: '',
+      },
+    ],
+    _id: uuidv4(),
+  },
+];

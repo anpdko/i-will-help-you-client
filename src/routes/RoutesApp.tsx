@@ -28,6 +28,7 @@ const ConditionsPage = React.lazy(
 const PrivacyPage = React.lazy(
   () => import('../pages/PrivacyPage/PrivacyPage'),
 );
+const FAQPage = React.lazy(() => import('../pages/FAQPage/FAQPage'));
 
 import { Navbar, Footer } from '../components';
 import { Preloader } from '../components/UI';
@@ -116,6 +117,14 @@ const RoutesApp = () => {
             element={
               <Suspense fallback={<Preloader withContainer />}>
                 <PrivacyPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/faq'
+            element={
+              <Suspense fallback={<Preloader withContainer />}>
+                <FAQPage />
               </Suspense>
             }
           />
