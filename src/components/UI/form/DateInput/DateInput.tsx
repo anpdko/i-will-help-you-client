@@ -8,7 +8,6 @@ import 'dayjs/locale/uk';
 import s from '../Form.module.scss';
 import './DateInput.scss';
 
-
 interface DateInputProps {
   title?: string;
   name: string;

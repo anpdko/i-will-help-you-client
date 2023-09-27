@@ -31,7 +31,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Bohdan_Nemyrovskyi.jpg',
+    imgPhath: 'Bohdan_Nemyrovskyi.webp',
     linkedIn: '',
   },
   {
@@ -50,7 +50,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Natalia_Irgovtsij.jpg',
+    imgPhath: 'Natalia_Irgovtsij.webp',
     linkedIn: '',
   },
   {
@@ -69,7 +69,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Mariia_Irhovtsii.jpg',
+    imgPhath: 'Mariia_Irhovtsii.webp',
     linkedIn: '',
   },
   {
@@ -88,7 +88,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Olena_Varlamova.jpg',
+    imgPhath: 'Olena_Varlamova.webp',
     linkedIn: 'www.linkedin.com/in/olena-varlamova-86a85724a',
   },
   {
@@ -107,7 +107,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Svitlana_Sugak.jpg',
+    imgPhath: 'Svitlana_Sugak.webp',
     linkedIn: 'https://www.linkedin.com/in/svitlanasugak/',
   },
   {
@@ -126,8 +126,9 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Zhanna_Sorokina.jpg',
-    linkedIn: 'https://www.linkedin.com/in/%D0%B6%D0%B0%D0%BD%D0%BD%D0%B0-%D1%81%D0%BE%D1%80%D0%BE%D0%BA%D1%96%D0%BD%D0%B0-059511284/',
+    imgPhath: 'Zhanna_Sorokina.webp',
+    linkedIn:
+      'https://www.linkedin.com/in/%D0%B6%D0%B0%D0%BD%D0%BD%D0%B0-%D1%81%D0%BE%D1%80%D0%BE%D0%BA%D1%96%D0%BD%D0%B0-059511284/',
   },
   {
     translations: [
@@ -145,7 +146,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Anastasiia_Chernyshova.jpg',
+    imgPhath: 'Anastasiia_Chernyshova.webp',
     linkedIn: 'https://www.linkedin.com/in/anastasiia-chernyshova/',
   },
   {
@@ -164,7 +165,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Jessica_Sahun.jpg',
+    imgPhath: 'Jessica_Sahun.webp',
     linkedIn: 'http://linkedin.com/in/jessica-sahun',
   },
   {
@@ -183,7 +184,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Tetiana_Tarataiko.jpg',
+    imgPhath: 'Tetiana_Tarataiko.webp',
     linkedIn: 'https://www.linkedin.com/in/tetiana-tarataiko-884434227/',
   },
   {
@@ -202,7 +203,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Andrii_Priadko.jpg',
+    imgPhath: 'Andrii_Pryadko.webp',
     linkedIn: 'https://www.linkedin.com/in/andriy-pryadko-a897211b2',
   },
   {
@@ -221,7 +222,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Dmytro_Kuts.jpg',
+    imgPhath: 'Dmytro_Kuts.webp',
     linkedIn: 'https://www.linkedin.com/in/dmytro-kuts-v/',
   },
   {
@@ -240,7 +241,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Iryna_Petrenko.jpg',
+    imgPhath: 'Iryna_Petrenko.webp',
     linkedIn: 'https://www.linkedin.com/in/iryna-petrenko-x/',
   },
   {
@@ -259,7 +260,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Alina_Shtykh.jpg',
+    imgPhath: 'Alina_Shtykh.webp',
     linkedIn: 'https://www.linkedin.com/in/alina-shtykh-2b6070188/',
   },
   {
@@ -278,7 +279,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Anastasiia_Koptylova.jpg',
+    imgPhath: 'Anastasiia_Koptylova.webp',
     linkedIn: 'https://www.linkedin.com/in/anastasiia-koptylova/',
   },
   {
@@ -297,7 +298,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Olesia_Andreiko.jpg',
+    imgPhath: 'Olesia_Andreiko.webp',
     linkedIn: '',
   },
   {
@@ -316,7 +317,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Anna_Yefimchuk.jpg',
+    imgPhath: 'Anna_Yefimchuk.webp',
     linkedIn: 'https://www.linkedin.com/in/anna-yefimchuk/',
   },
   {
@@ -335,7 +336,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Volodymyr_Pyts.jpg',
+    imgPhath: 'Volodymyr_Pyts.webp',
     linkedIn: 'https://www.linkedin.com/in/volodymyr-pyts/',
   },
   {
@@ -354,7 +355,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Sofiia_Voloshyn.jpg',
+    imgPhath: 'Sofiia_Voloshyn.webp',
     linkedIn: 'https://www.linkedin.com/in/sofiiavoloshyn/',
   },
 
@@ -374,7 +375,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Tsyhykal_Olha.jpg',
+    imgPhath: 'Tsyhykal_Olha.webp',
     linkedIn: '',
   },
   {
@@ -393,7 +394,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Alina_Astanina.jpg',
+    imgPhath: 'Alina_Astanina.webp',
     linkedIn: 'www.linkedin.com/in/alina-astanina-466b0223a',
   },
   {
@@ -412,7 +413,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Vita_Polishchuk.jpg',
+    imgPhath: 'Vita_Polishchuk.webp',
     linkedIn: 'https://www.linkedin.com/in/vita-polishchuk-296a48266/',
   },
   {
@@ -431,10 +432,10 @@ const aboutTeamData: IAboutTeamData[] = [
       },
     ],
     _id: uuidv4(),
-    imgPhath: 'Tetiana_Sych.jpg',
-    linkedIn: 'https://www.linkedin.com/in/%D1%82%D0%B5%D1%82%D1%8F%D0%BD%D0%B0-%D1%81%D0%B8%D1%87-0380a0284/',
+    imgPhath: 'Tetiana_Sych.webp',
+    linkedIn:
+      'https://www.linkedin.com/in/%D1%82%D0%B5%D1%82%D1%8F%D0%BD%D0%B0-%D1%81%D0%B8%D1%87-0380a0284/',
   },
-  
 ];
 
 export default aboutTeamData;
