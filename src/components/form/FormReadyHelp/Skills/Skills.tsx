@@ -7,7 +7,6 @@ import './Skills.scss';
 
 import { Select, ConfigProvider } from 'antd';
 
-
 const Skills = () => {
   const {
     control,

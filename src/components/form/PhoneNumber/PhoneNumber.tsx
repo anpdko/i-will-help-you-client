@@ -33,10 +33,12 @@ const PhoneNumber = () => {
     return true;
   };
 
-  {register('phoneNumber', {
-    required: t('Please type your phone number'),
-    validate: (value) => validatePhoneNumber(value),
-  })}
+  {
+    register('phoneNumber', {
+      required: t('Please type your phone number'),
+      validate: (value) => validatePhoneNumber(value),
+    });
+  }
 
   return (
     <FormItemWrapper className={s.phone} title={t('Phone Number *')}>

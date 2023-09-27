@@ -16,7 +16,7 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project, swiperRef }) => {
   const { t } = useTranslation();
 
   const { title, description, goals, criteria } = project.translations[0];
-  
+
   return (
     <>
       <div className={s.about}>
