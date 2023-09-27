@@ -3,7 +3,7 @@
   :global {
     .container {
       @include adaptiveValue('padding-top', 64, 30);
-      @include adaptiveValue('padding-bottom', 76, 80, 0, 1200, 390);
+      
     }
   }
   .body {
@@ -13,8 +13,12 @@
   }
   .actions {
     width: 100%;
-    text-align: center;
-    @media (max-width: $mobileSmall) {
+    @media (min-width: $mobile) {
+      padding-left: 40.5%;
+    }
+    
+    @media (max-width: $mobile) {
+      text-align: center;
       a {
         min-width: 100%;
       }
@@ -69,6 +73,15 @@
 
 .swiper_about {
   @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
+  // :global {
+  //   .swiper-wrapper {
+  //     align-items: stretch;
+  //   }
+    
+  //   .swiper-slide {
+  //     max-height: min-content;
+  //   }
+  // }
 }
 
 //========================================================================================================================================================

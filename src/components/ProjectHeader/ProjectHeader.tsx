@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { ButtonApp, Preloader } from '../UI';
+import { Preloader } from '../UI';
 import { IProjectsState } from '../../store/projects/projectsType';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -16,12 +16,13 @@ import 'swiper/css/effect-fade';
 import SlideContent from './SlideContent/SlideContent';
 import SlideImage from './SlideImage/SlideImage';
 import SlideAbout from './SlideAbout/SlideAbout';
-import { t } from 'i18next';
 
 const ProjectHeader: React.FC<
   IProjectsState & { selectedUrl: string | undefined }
 > = ({ projects, loading, selectedUrl }) => {
   const navigate = useNavigate();
+
+  const swiperRef = useRef<any>(null);
 
   const handleSlideChange = (swiper: any) => {
     const activeSlide = swiper.realIndex;
@@ -138,10 +139,14 @@ const ProjectHeader: React.FC<
             </div>
             <div className={s.swiper_about}>
               <Swiper
+                ref={swiperRef}
                 modules={[Controller]}
                 spaceBetween={100}
                 slidesPerView={1}
-                onSwiper={setThirdSwiper}
+                onSwiper={(swiper) => {
+                  setThirdSwiper(swiper);
+                  swiperRef.current = swiper;
+                }}
                 controller={{ control: [firstSwiper, secondSwiper] }}
                 onSlideChange={handleSlideChange}
                 initialSlide={initialSlideIndex}
@@ -149,18 +154,13 @@ const ProjectHeader: React.FC<
               >
                 {projects.map((project) => (
                   <SwiperSlide key={project._id}>
-                    <SlideAbout project={project} />
+                    <SlideAbout project={project} swiperRef={swiperRef} />
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
           </div>
         )}
-        <div className={s.actions}>
-          <ButtonApp type='link' to='/donate' color='white' size='medium'>
-            {t(`Join the OpportunityConnect`)}
-          </ButtonApp>
-        </div>
       </div>
     </section>
   );

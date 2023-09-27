@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import sprite from '../../../assets/sprite.svg';
 import s from './AccordionList.module.scss';
@@ -12,10 +12,19 @@ interface ITranslation {
 interface IAccordionList {
   selectedTranslation: ITranslation[];
   variant?: 'projects';
+  swiperRef?: any;
 }
 
-const AccordionList = ({ selectedTranslation, variant }: IAccordionList) => {
+const AccordionList = ({
+  selectedTranslation,
+  variant,
+  swiperRef,
+}: IAccordionList) => {
   const [openItems, setOpenItems] = useState<number[]>([]);
+
+  useEffect(() => {
+    swiperRef.current?.update();
+  }, [ openItems]);
 
   const handleToggleFAQ = (index: number): void => {
     if (openItems.includes(index)) {

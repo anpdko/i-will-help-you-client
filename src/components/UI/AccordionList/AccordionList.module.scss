@@ -1,6 +1,7 @@
 @import '../../../styles/index';
 
 .item {
+  min-height: auto;
   position: relative;
   @include adaptiveValue('padding-bottom', 22, 24, 0, 1200, 390);
   cursor: pointer;
