@@ -40,57 +40,63 @@ const Language = () => {
 
   return (
     <FormItemWrapper className={s.languages} title={t('Language knowledge *')}>
-      {fields.map((item, index) => (
-        <div key={item.id} className={s.language}>
-          <Controller
-            name={`languages[${index}].language`}
-            control={control}
-            rules={{ required: true }}
-            defaultValue={null}
-            render={({ field }) => (
-              <SelectInput
-                field={field}
-                options={languages}
-                placeholder={t('Choose language')}
-                className={s.language__input}
-              />
+      <div className={s.languages__block}>
+        {fields.map((item, index) => (
+          <div key={item.id} className={s.language}>
+            <Controller
+              name={`languages[${index}].language`}
+              control={control}
+              rules={{ required: true }}
+              defaultValue={null}
+              render={({ field }) => (
+                <SelectInput
+                  field={field}
+                  options={languages}
+                  placeholder={t('Choose language')}
+                  className={s.language__input}
+                />
+              )}
+            />
+
+            <Controller
+              name={`languages[${index}].level`}
+              control={control}
+              rules={{ required: true }}
+              defaultValue={null}
+              render={({ field }) => (
+                <SelectInput
+                  field={field}
+                  options={listOfLevels}
+                  placeholder={t('Choose level')}
+                  className={s.language__input}
+                />
+              )}
+            />
+
+            {index > 0 && (
+              <button
+                type='button'
+                onClick={() => remove(index)}
+                className={s.button_remove}
+              >
+                {t('Delete previous one')} <HiOutlineX />
+              </button>
             )}
-          />
+          </div>
+        ))}
 
-          <Controller
-            name={`languages[${index}].level`}
-            control={control}
-            rules={{ required: true }}
-            defaultValue={null}
-            render={({ field }) => (
-              <SelectInput
-                field={field}
-                options={listOfLevels}
-                placeholder={t('Choose level')}
-                className={s.language__input}
-              />
-            )}
-          />
+        <button
+          type='button'
+          onClick={addLanguageField}
+          className={s.button_add}
+        >
+          {t('Add one more')} <HiOutlinePlus />
+        </button>
 
-          {index > 0 && (
-            <button type='button' onClick={() => remove(index)}>
-              <HiOutlineX />
-            </button>
-          )}
-        </div>
-      ))}
-
-      <button
-        type='button'
-        onClick={addLanguageField}
-        className={s.language__button_add}
-      >
-        {t('Add one more')} <HiOutlinePlus />
-      </button>
-
-      {hasError && (
-        <p className={s.error}>{t('Please fill in all the fields')}</p>
-      )}
+        {hasError && (
+          <p className={s.error}>{t('Please fill in all the fields')}</p>
+        )}
+      </div>
     </FormItemWrapper>
   );
 };
