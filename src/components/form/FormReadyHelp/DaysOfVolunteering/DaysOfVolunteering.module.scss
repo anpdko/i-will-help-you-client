@@ -3,13 +3,20 @@
 .volunteer {
   grid-area: days;
 
+  &__block {
+    width: 100%;
+    display: grid;
+    justify-items: start;
+    gap: 1rem;
+  }
+
   &__inputs {
     width: 100%;
     display: grid;
     align-items: center;
+    justify-items: end;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: toRem(24);
-    row-gap: toRem(24);
+    @include adaptiveValue('gap', 24, 16, 0, 1200, 390);
 
     &:not(:first-of-type) .volunteer__title {
       display: none;
@@ -61,6 +68,10 @@
   }
 }
 
+.volunteer__block .button_add:not(:nth-child(2)) {
+  margin-top: -3rem;
+}
+
 .button {
   &_add {
     display: flex;
@@ -69,10 +80,11 @@
   }
 
   &_remove {
+    grid-column: 1 / span 2;
     display: flex;
     align-items: center;
+    align-self: flex-end;
     gap: 0.563rem;
-    margin-top: -1rem;
     color: var(--red-for-error);
   }
 }

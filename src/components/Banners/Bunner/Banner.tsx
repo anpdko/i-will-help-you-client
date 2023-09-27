@@ -4,8 +4,7 @@ import s from './Banner.module.scss';
 import sprite from '../../../assets/sprite.svg';
 import { IBannersData } from '../../../data/bannersData';
 import { useTranslation } from 'react-i18next';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { LazyImage } from '@/components';
 
 interface BunnerProps {
   tab: IBannersData;
@@ -21,11 +20,7 @@ const Bunner = ({ tab }: BunnerProps) => {
   return (
     <article className={s.banner}>
       <Link to={tab.link}>
-        <img
-          className={s.banner__img}
-          src={API_URL + tab.img}
-          alt='banner img'
-        />
+        <LazyImage className={s.banner__img} src={tab.img} alt='banner img' />
         <div className={s.banner__filter}></div>
 
         <div className={s.banner__content}>
