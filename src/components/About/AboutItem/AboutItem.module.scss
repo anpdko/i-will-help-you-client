@@ -39,7 +39,8 @@
       margin-bottom: em(32, 16);
     }
     @media (min-width:$tablet){
-      max-height: toRem(170);
+      max-height: toRem(168);
+      height: 100%;
       overflow-y: auto; 
     }
   }

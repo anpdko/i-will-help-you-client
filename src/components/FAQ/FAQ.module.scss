@@ -108,12 +108,16 @@
     @media (min-width: $mobile) {
       padding-left: 33.916667%; /* 407/1200 */
     }
-    ul {
-      &:not(:last-child) {
-        @include adaptiveValue('margin-bottom', 42, 32, 0, 1200, 390);
-      }
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 42, 32, 0, 1200, 390);
     }
-    .more {
+  }
+  .more {
+    @media (min-width: $mobile) {
+      padding-left: 33.916667%; /* 407/1200 */
+    }
+    button {
+      display: inline-block;
       font-weight: 600;
       padding-bottom: toRem(8);
       border-bottom: toRem(2) solid var(--black);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,6 +21,8 @@ const ProjectHeader: React.FC<
   IProjectsState & { selectedUrl: string | undefined }
 > = ({ projects, loading, selectedUrl }) => {
   const navigate = useNavigate();
+
+  const swiperRef = useRef<any>(null);
 
   const handleSlideChange = (swiper: any) => {
     const activeSlide = swiper.realIndex;
@@ -50,7 +52,7 @@ const ProjectHeader: React.FC<
         {loading ? (
           <Preloader />
         ) : (
-          <>
+          <div className={s.body}>
             <div className={s.swipers_header}>
               <div className={s.swiper_content}>
                 <Swiper
@@ -137,10 +139,14 @@ const ProjectHeader: React.FC<
             </div>
             <div className={s.swiper_about}>
               <Swiper
+                ref={swiperRef}
                 modules={[Controller]}
                 spaceBetween={100}
                 slidesPerView={1}
-                onSwiper={setThirdSwiper}
+                onSwiper={(swiper) => {
+                  setThirdSwiper(swiper);
+                  swiperRef.current = swiper;
+                }}
                 controller={{ control: [firstSwiper, secondSwiper] }}
                 onSlideChange={handleSlideChange}
                 initialSlide={initialSlideIndex}
@@ -148,12 +154,12 @@ const ProjectHeader: React.FC<
               >
                 {projects.map((project) => (
                   <SwiperSlide key={project._id}>
-                    <SlideAbout project={project} />
+                    <SlideAbout project={project} swiperRef={swiperRef} />
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-          </>
+          </div>
         )}
       </div>
     </section>

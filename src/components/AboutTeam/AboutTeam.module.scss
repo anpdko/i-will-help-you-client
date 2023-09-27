@@ -21,21 +21,22 @@
   display: block;
 
   @include adaptiveValue('margin-bottom', 24, 36, 0, 1200, 768);
+
   @media (any-hover: hover) {
     &:hover {
       color: currentColor;
       cursor: grab;
+      .image {
+        img {
+          transform: scale(1.03);
+        }
+      }
     }
   }
   &._link {
     @media (any-hover: hover) {
       &:hover {
         cursor: pointer;
-        .image {
-          img {
-            transform: scale(1.03);
-          }
-        }
         span {
           &::after {
             width: 100%;

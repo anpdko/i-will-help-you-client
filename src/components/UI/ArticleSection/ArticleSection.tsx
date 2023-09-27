@@ -18,7 +18,7 @@ interface IArticleProps {
   title: string;
   subtitle: string;
   items: ITags[] | string[] | IListCount[];
-  variant: 'list' | 'paragraphs' | 'paragraphs-3' | 'list-count';
+  variant: 'paragraphs' | 'paragraphs-3' | 'list-count';
 }
 
 const ArticleSection: React.FC<IArticleProps> = ({
@@ -29,8 +29,6 @@ const ArticleSection: React.FC<IArticleProps> = ({
 }) => {
   const renderItems = () => {
     switch (variant) {
-      case 'list':
-        return renderTagList(items as ITags[]);
       case 'paragraphs':
         return renderParagraphs(items as string[]);
       case 'paragraphs-3':
@@ -41,17 +39,6 @@ const ArticleSection: React.FC<IArticleProps> = ({
         return null;
     }
   };
-
-  const renderTagList = (tags: ITags[]) => (
-    <ul className={s.list}>
-      {tags.map((tag) => (
-        <li key={tag._id} className={s.item}>
-          <h3 className={s.tag}>{tag.tag}</h3>
-          <p className='text'>{tag.desc}</p>
-        </li>
-      ))}
-    </ul>
-  );
 
   const renderParagraphs = (paragraphs: string[]) => (
     <div className={s.list}>
