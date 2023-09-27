@@ -14,27 +14,45 @@
     content: '';
     height: toRem(1);
     width: 100%;
-    @include adaptiveValue('margin-top', 22, 24, 0, 1200, 390);
+    bottom: 0;
     border-radius: toRem(4);
     background: var(--dark-grey);
   }
+  &.projects {
+    padding-top: toRem(24);
+    padding-bottom: toRem(24);
 
+    &:not(:last-child) {
+      &::after {
+        height: toRem(2);
+        color: var(--black);
+      }
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
   &__body {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: toRem(20);
   }
 
   &__title,
   &__descr {
     line-height: 150%;
-    color: var(--black);
   }
 
   &__title {
-    flex: 1 1 auto;
     font-weight: 600;
+    .projects & {
+      color: var(--dark-grey);
+    }
   }
 
   &__content {
@@ -51,21 +69,30 @@
 
   &__descr {
     overflow: hidden;
-
-    .text {
+    p {
       @include adaptiveValue('margin-top', 18, 16, 0, 1200, 390);
       @include adaptiveValue('padding-left', 39, 12, 0, 1200, 390);
       @include adaptiveValue('padding-right', 70, 12, 0, 1200, 390);
+      .projects & {
+        margin-top: toRem(16);
+        padding-left: toRem(0);
+      }
     }
   }
 
   &__btn {
     svg {
       transition: transform 0.3s;
-      width: toRem(14);
-      height: toRem(8);
+      width: toRem(16);
+      height: toRem(9);
+      transform: rotate(-90deg);
+      .projects & {
+        width: toRem(14);
+        height: toRem(8);
+        transform: rotate(0deg);
+      }
       &.open {
-        transform: translate(0%, 0%) rotate(-180deg);
+        transform: rotate(-180deg);
       }
     }
   }

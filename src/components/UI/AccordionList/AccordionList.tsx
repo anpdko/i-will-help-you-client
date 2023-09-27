@@ -11,9 +11,10 @@ interface ITranslation {
 }
 interface IAccordionList {
   selectedTranslation: ITranslation[];
+  variant?: 'projects';
 }
 
-const AccordionList = ({ selectedTranslation }: IAccordionList) => {
+const AccordionList = ({ selectedTranslation, variant }: IAccordionList) => {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const handleToggleFAQ = (index: number): void => {
@@ -29,7 +30,7 @@ const AccordionList = ({ selectedTranslation }: IAccordionList) => {
       {selectedTranslation?.map((translation, index) => (
         <li
           key={translation._id}
-          className={s.item}
+          className={`${s.item} ${variant ? `${s[variant]}` : ''}`}
           onClick={() => handleToggleFAQ(index)}
         >
           <div className={s.item__body}>
@@ -49,7 +50,7 @@ const AccordionList = ({ selectedTranslation }: IAccordionList) => {
               ${openItems.includes(index) ? `${s.open}` : `${s.closed}`}`}
           >
             <div className={s.item__descr}>
-              <p className={s.text}>{translation.desc}</p>
+              <p>{translation.desc}</p>
             </div>
           </div>
         </li>

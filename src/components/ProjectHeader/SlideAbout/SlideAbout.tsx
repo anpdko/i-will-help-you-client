@@ -31,7 +31,7 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
           <h3 className={s.subtitle}>{t('Our main goals')}</h3>
         </div>
         <div className={s.body}>
-          <AccordionList selectedTranslation={goals || []} />
+          <AccordionList selectedTranslation={goals || []} variant='projects' />
         </div>
       </article>
 
@@ -43,7 +43,10 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project }) => {
           <h3 className={s.subtitle}>{t('Selection criteria')}</h3>
         </div>
         <div className={s.body}>
-          <AccordionList selectedTranslation={criteria || []} />
+          <AccordionList
+            selectedTranslation={criteria || []}
+            variant='projects'
+          />
         </div>
       </article>
     </div>
