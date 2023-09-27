@@ -23,7 +23,7 @@ const AccordionList = ({
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   useEffect(() => {
-    swiperRef.current?.update();
+    swiperRef?.current?.update();
   }, [ openItems]);
 
   const handleToggleFAQ = (index: number): void => {
