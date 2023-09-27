@@ -42,84 +42,86 @@ const DaysOfVolunteering = () => {
         'Days and hours you can volunteer (you can select several options) *',
       )}
     >
-      {fields.map((item, index) => (
-        <div key={item.id} className={s.volunteer__inputs}>
-          <div className={s.volunteer__day}>
-            <div className={s.volunteer__wrap}>
-              <p className={s.volunteer__title}>{t('Day of the week')}</p>
-              <Controller
-                name={`daysVolunteer[${index}].day`}
-                control={control}
-                rules={{ required: true }}
-                defaultValue={null}
-                render={({ field }) => (
-                  <SelectInput
-                    field={field}
-                    options={days}
-                    placeholder={t('Day')}
-                    className={s.volunteer__input_days}
-                  />
-                )}
-              />
+      <div className={s.volunteer__block}>
+        {fields.map((item, index) => (
+          <div key={item.id} className={s.volunteer__inputs}>
+            <div className={s.volunteer__day}>
+              <div className={s.volunteer__wrap}>
+                <p className={s.volunteer__title}>{t('Day of the week')}</p>
+                <Controller
+                  name={`daysVolunteer[${index}].day`}
+                  control={control}
+                  rules={{ required: true }}
+                  defaultValue={null}
+                  render={({ field }) => (
+                    <SelectInput
+                      field={field}
+                      options={days}
+                      placeholder={t('Day')}
+                      className={s.volunteer__input_days}
+                    />
+                  )}
+                />
+              </div>
             </div>
+
+            <div className={s.volunteer__time}>
+              <div className={s.volunteer__wrap}>
+                <p className={s.volunteer__title}>{t('Time (start)')}</p>
+                <Controller
+                  name={`daysVolunteer[${index}].timeStart`}
+                  control={control}
+                  rules={{ required: true }}
+                  defaultValue={null}
+                  render={({ field }) => (
+                    <SelectInput
+                      field={field}
+                      options={times}
+                      placeholder={t('Start Time')}
+                      className={s.volunteer__input_time}
+                    />
+                  )}
+                />
+              </div>
+              <div className={s.volunteer__wrap}>
+                <p className={s.volunteer__title}>{t('Time (finish)')}</p>
+                <Controller
+                  name={`daysVolunteer[${index}].timeFinish`}
+                  control={control}
+                  rules={{ required: true }}
+                  defaultValue={null}
+                  render={({ field }) => (
+                    <SelectInput
+                      field={field}
+                      options={times}
+                      placeholder={t('End Time')}
+                      className={s.volunteer__input_time}
+                    />
+                  )}
+                />
+              </div>
+            </div>
+
+            {index > 0 && (
+              <button
+                type='button'
+                onClick={() => remove(index)}
+                className={s.button_remove}
+              >
+                {t('Delete previous one')} <HiOutlineX />
+              </button>
+            )}
           </div>
+        ))}
 
-          <div className={s.volunteer__time}>
-            <div className={s.volunteer__wrap}>
-              <p className={s.volunteer__title}>{t('Time (start)')}</p>
-              <Controller
-                name={`daysVolunteer[${index}].timeStart`}
-                control={control}
-                rules={{ required: true }}
-                defaultValue={null}
-                render={({ field }) => (
-                  <SelectInput
-                    field={field}
-                    options={times}
-                    placeholder={t('Start Time')}
-                    className={s.volunteer__input_time}
-                  />
-                )}
-              />
-            </div>
-            <div className={s.volunteer__wrap}>
-              <p className={s.volunteer__title}>{t('Time (finish)')}</p>
-              <Controller
-                name={`daysVolunteer[${index}].timeFinish`}
-                control={control}
-                rules={{ required: true }}
-                defaultValue={null}
-                render={({ field }) => (
-                  <SelectInput
-                    field={field}
-                    options={times}
-                    placeholder={t('End Time')}
-                    className={s.volunteer__input_time}
-                  />
-                )}
-              />
-            </div>
-          </div>
+        <button type='button' onClick={addDaysField} className={s.button_add}>
+          {t('Add one more')} <HiOutlinePlus />
+        </button>
 
-          {index > 0 && (
-            <button
-              type='button'
-              onClick={() => remove(index)}
-              className={s.button_remove}
-            >
-              {t('Remove')} <HiOutlineX />
-            </button>
-          )}
-        </div>
-      ))}
-
-      <button type='button' onClick={addDaysField} className={s.button_add}>
-        {t('Add one more')} <HiOutlinePlus />
-      </button>
-
-      {hasError && (
-        <p className={s.error}>{t('Please fill in all the fields')}</p>
-      )}
+        {hasError && (
+          <p className={s.error}>{t('Please fill in all the fields')}</p>
+        )}
+      </div>
     </FormItemWrapper>
   );
 };
