@@ -1,35 +1,82 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
+import { ConfigProvider, Select } from 'antd';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import { TelegramIcon } from '@components/icons/TelegramIcon';
-import { ViberIcon } from '@components/icons/ViberIcon';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 import { InstagramIcon } from '@components/icons/InstagramIcon';
 import { FacebookIcon } from '@components/icons/FacebookIcon';
-import customStyles from '@components/UI/form/SelectInput/selectStyle';
 import s from './SocialNetwork.module.scss';
-import { useTranslation } from 'react-i18next';
+import './SocialNetwork.scss';
 
 const SocialNetwork = () => {
   const {
     control,
     register,
-    formState: { errors },
     setValue,
+    formState: { errors },
   } = useFormContext();
 
   const { t } = useTranslation();
+  const [selectedSocialNetwork, setSelectedSocialNetwork] =
+    useState<string>('telegram');
 
   const options = [
-    { value: 'telegram', label: 'telegram', icon: <TelegramIcon /> },
-    { value: 'viber', label: 'viber', icon: <ViberIcon /> },
-    { value: 'instagram', label: 'instagram', icon: <InstagramIcon /> },
-    { value: 'facebook', label: 'facebook', icon: <FacebookIcon /> },
+    { value: 'telegram', label: <TelegramIcon /> },
+    { value: 'whatsapp', label: <WhatsAppIcon /> },
+    { value: 'instagram', label: <InstagramIcon /> },
+    { value: 'facebook', label: <FacebookIcon /> },
   ];
 
-  useEffect(() => {
-    setValue('networkLogo', options[0].value);
-  }, [setValue, options]);
+  const handleSelectedSocialNetworkChange = (value: string) => {
+    setValue('network', '');
+    setSelectedSocialNetwork(value);
+  };
+
+  const getPlaceholder = () => {
+    if (
+      selectedSocialNetwork === 'telegram' ||
+      selectedSocialNetwork === 'instagram'
+    ) {
+      return t('@YourNickname');
+    } else if (selectedSocialNetwork === 'facebook') {
+      return t('Link');
+    } else if (selectedSocialNetwork === 'whatsapp') {
+      return t('Phone number');
+    } else {
+      return '';
+    }
+  };
+
+  const getPattern = () => {
+    if (selectedSocialNetwork === 'telegram') {
+      return /^[a-zA-Z0-9@_]{5,32}$/;
+    } else if (selectedSocialNetwork === 'instagram') {
+      return /^(?!.*\.\.)[a-zA-Z0-9.,_]{2,30}$/;
+    } else if (selectedSocialNetwork === 'facebook') {
+      return /^https:\/\/www\.facebook\.com\/.+$/;
+    } else if (selectedSocialNetwork === 'whatsapp') {
+      return /^\+\d{1,15}$/;
+    } else {
+      return /(?:)/;
+    }
+  };
+
+  const getPatternMessage = () => {
+    if (
+      selectedSocialNetwork === 'telegram' ||
+      selectedSocialNetwork === 'instagram'
+    ) {
+      return `${t('Please write your nickname')}`;
+    } else if (selectedSocialNetwork === 'facebook') {
+      return `${t('Please provide a valid Facebook link')}`;
+    } else if (selectedSocialNetwork === 'whatsapp') {
+      return `${t('Please type a valid phone number that starts with +')}`;
+    } else {
+      return '';
+    }
+  };
 
   const nicknameValidation = errors.network && (
     <p className={s.networks__error}>{errors?.network?.message as string}</p>
@@ -42,37 +89,44 @@ const SocialNetwork = () => {
           name='networkLogo'
           control={control}
           render={({ field }) => (
-            <Select
-              options={options}
-              styles={customStyles}
-              isSearchable={false}
-              defaultValue={options[0]}
-              onChange={(selectedOption) =>
-                field.onChange(
-                  (
-                    selectedOption as {
-                      value: string;
-                      label: string;
-                      icon: React.ReactNode;
-                    }
-                  )?.value,
-                )
-              }
-              formatOptionLabel={({ icon }: { icon: any }) => <>{icon}</>}
-              className={s.networks__input_logo}
-            />
+            <div className='social-network-logo'>
+              <ConfigProvider
+                theme={{
+                  components: {
+                    Select: {
+                      optionPadding: '15px 20px',
+                    },
+                  },
+                  token: {
+                    colorBorder: '#000',
+                    colorPrimaryHover: '#000',
+                    borderRadius: 10,
+                  },
+                }}
+              >
+                <Select
+                  onChange={(value: string) =>
+                    handleSelectedSocialNetworkChange(value)
+                  }
+                  onBlur={field.onBlur}
+                  value={selectedSocialNetwork}
+                  ref={field.ref}
+                  options={options}
+                />
+              </ConfigProvider>
+            </div>
           )}
           rules={{ required: false }}
         />
         <input
           type='text'
           id='network'
-          placeholder={t('@YourNickname')}
+          placeholder={getPlaceholder()}
           {...register('network', {
             required: false,
             pattern: {
-              value: /^[^0-9]\w+$/,
-              message: `${t('Please write your nickname')}`,
+              value: getPattern(),
+              message: getPatternMessage(),
             },
           })}
           className={`${s.networks__input_network}`}
