@@ -89,7 +89,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Olena_Varlamova.webp',
-    linkedIn: 'www.linkedin.com/in/olena-varlamova-86a85724a',
+    linkedIn: 'https://www.linkedin.com/in/olena-varlamova-86a85724a',
   },
   {
     translations: [
@@ -166,7 +166,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Jessica_Sahun.webp',
-    linkedIn: 'http://linkedin.com/in/jessica-sahun',
+    linkedIn: 'https://linkedin.com/in/jessica-sahun',
   },
   {
     translations: [
@@ -395,7 +395,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Alina_Astanina.webp',
-    linkedIn: 'www.linkedin.com/in/alina-astanina-466b0223a',
+    linkedIn: 'https://www.linkedin.com/in/alina-astanina-466b0223a/',
   },
   {
     translations: [
