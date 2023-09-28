@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export const ViberIcon = (props: SVGProps<SVGSVGElement>) => {
+export const WhatsAppIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
