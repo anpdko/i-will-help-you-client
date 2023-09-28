@@ -53,16 +53,18 @@ const Modal = ({
     ? createPortal(
         <>
           <div className={s.overlay} onClick={onBackdropClose}>
-            <div className={[s.overlay__modal, s[size], className].join(' ')}>
-              <div className={s.header}>
-                <div className={s.title}>{title}</div>
-                <button type='button' className={s.button} onClick={onClose}>
-                  <svg width={24} height={24}>
-                    <use href={sprite + '#cross'} />
-                  </svg>
-                </button>
+            <div className={s.center}>
+              <div className={[s.overlay__modal, s[size], className].join(' ')}>
+                <div className={s.header}>
+                  <div className={s.title}>{title}</div>
+                  <button type='button' className={s.button} onClick={onClose}>
+                    <svg width={24} height={24}>
+                      <use href={sprite + '#cross'} />
+                    </svg>
+                  </button>
+                </div>
+                <div className={s.content}>{children}</div>
               </div>
-              <div className={s.content}>{children}</div>
             </div>
           </div>
         </>,
