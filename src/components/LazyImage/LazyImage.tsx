@@ -3,7 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface LazyImageProps {
   src: string;
-  alt: string;
+  alt: string | undefined;
   className?: string;
 }
 
@@ -11,35 +11,40 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [imagePath, setImagePath] = useState<string | null>(null);
 
   useEffect(() => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    //Перевірка підтримки формату браузером
+    const supportsWebP = () => {
+      const webpSupported = document
+        .createElement('canvas')
+        .toDataURL('image/webp')
+        .startsWith('data:image/webp');
+      return webpSupported;
+    };
 
-    // Перевірка форматів
-    const supportsFormat = async () => {
-      const img = new Image();
+    //Перевірка наявності формату вебп за шляхом
+    const checkWebPFileExists = async () => {
+      const webpFilePath = `${src.replace(/\.[a-z]+$/i, '')}.webp`;
+
       try {
-        await img.decode();
-        return true;
+        const response = await fetch(webpFilePath);
+        if (response.status === 200) {
+          return true;
+        }
       } catch (error) {
         return false;
       }
+      return false;
     };
 
-    const checkFormats = async () => {
-      const formats = ['avif', 'webp', 'jpg', 'png', 'jpeg'];
-      for (const format of formats) {
-        if (await supportsFormat()) {
-          return format;
-        }
-      }
-      return 'jpg';
-    };
-
+    //Завантаження відповідного формату
     const loadImage = async () => {
-      const imageFormat = await checkFormats();
+      const webpSupported = supportsWebP();
+      const webpFileExists = await checkWebPFileExists();
+
+      const imageFormat = webpSupported && webpFileExists ? 'webp' : 'jpg';
 
       // Шлях до зображення
       const formattedPath = `${src.replace(/\.[a-z]+$/i, '')}.${imageFormat}`;
-      const finalImagePath = `${API_URL}${formattedPath}`;
+      const finalImagePath = `${formattedPath}`;
       setImagePath(finalImagePath);
     };
 
