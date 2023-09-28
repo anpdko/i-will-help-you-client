@@ -1,0 +1,29 @@
+@import '../../../../styles/index';
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+
+  h2 {
+    @include adaptiveValue('font-size', 40, 30);
+    &:not(:last-child) {
+      margin-bottom: em(16, 44);
+    }
+  }
+  p {
+    font-family: var(--nunito);
+    @include adaptiveValue('font-size', 24, 20);
+    line-height: 130%;
+    &:not(:last-child) {
+      margin-bottom: em(56, 24);
+    }
+  }
+}
+.actions {
+  display: flex;
+  gap: toRem(20);
+}

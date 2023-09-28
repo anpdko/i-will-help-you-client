@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import ArticleSection from '@/components/UI/ArticleSection/ArticleSection';
-import AboutTeam from '@/components/AboutTeam/AboutTeam';
+import AboutTeam from '@/components/about/AboutTeam/AboutTeam';
 
 import { Volunteer, AboutHeader, AboutDocuments } from '../../components';
 

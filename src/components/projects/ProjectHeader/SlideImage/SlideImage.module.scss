@@ -1,0 +1,19 @@
+@import '../../../../styles/index';
+
+.image {
+  cursor: grab;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 71.069182%; /* 452/636 */
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: toRem(30);
+    user-select: none;
+  }
+}
