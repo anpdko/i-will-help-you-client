@@ -36,9 +36,9 @@ function Completion() {
             }
           />
         </div>
-        <p className={s.completionAmount}>
+        {/* <p className={s.completionAmount}>
           {success ? '\u0024100' : 'Oh no...'}
-        </p>
+        </p> */}
         {/* <p className={s.completionAmount}>{success && donationAmount ? '\u0024' + `${donationAmount}` : 'Oh no...'}</p> */}
         <p className='text'>
           {success
