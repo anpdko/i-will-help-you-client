@@ -6,6 +6,7 @@ import aboutTeamData from '@/data/aboutTeamData';
 
 import s from './AboutTeam.module.scss';
 import sprite from '../../assets/sprite.svg';
+import { LazyImage } from '..';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -60,12 +61,13 @@ const AboutTeam = () => {
               <SwiperSlide key={item._id}>
                 {item.linkedIn ? (
                   <a
+                    rel='noreferrer'
                     href={item.linkedIn}
                     target='_blank'
                     className={`${s.content} ${s._link}`}
                   >
                     <div className={s.image}>
-                      <img
+                      <LazyImage
                         src={API_URL + IMAGE_PREFIX + item.imgPhath}
                         alt={translation?.fullName}
                       />
@@ -77,7 +79,7 @@ const AboutTeam = () => {
                 ) : (
                   <div className={`${s.content}`}>
                     <div className={s.image}>
-                      <img
+                      <LazyImage
                         src={API_URL + IMAGE_PREFIX + item.imgPhath}
                         alt={translation?.fullName}
                       />
