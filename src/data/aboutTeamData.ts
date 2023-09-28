@@ -204,7 +204,7 @@ const aboutTeamData: IAboutTeamData[] = [
     ],
     _id: uuidv4(),
     imgPhath: 'Andrii_Pryadko.webp',
-    linkedIn: 'https://www.linkedin.com/in/andriy-pryadko-a897211b2',
+    linkedIn: 'https://www.linkedin.com/in/anpdko',
   },
   {
     translations: [
