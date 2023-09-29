@@ -20,7 +20,7 @@ const AboutDocuments = () => {
     'documents-4.jpg',
     'documents-4.jpg',
   ];
-  
+
   return (
     <section className={s.about_team}>
       <div className='container'>

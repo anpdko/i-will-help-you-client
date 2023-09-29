@@ -1,7 +1,7 @@
 export const ArrowDownSelect = ({
   size,
 }: {
-  size: string
+  size: string;
 }): JSX.Element | null => {
   return size === 'large' ? (
     <svg
