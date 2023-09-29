@@ -7,7 +7,10 @@ interface ISlideContentProps {
   title: string;
   slogan: string;
 }
-const SlideContent: React.FC<ISlideContentProps> = ({ title, slogan }) => {
+const SlideContent: React.FC<ISlideContentProps> = ({
+  title,
+  slogan,
+}: ISlideContentProps) => {
   const { t } = useTranslation();
 
   return (

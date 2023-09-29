@@ -16,8 +16,7 @@ import s from './ProjectsFund.module.scss';
 import sprite from '@/assets/sprite.svg';
 
 import 'swiper/scss';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { LazyImage } from '@/components';
 
 const ProjectsFund = () => {
   const dispatch = useAppDispatch();
@@ -84,8 +83,8 @@ const ProjectsFund = () => {
                       </div>
                     </div>
                     <div className={s.image}>
-                      <img
-                        src={API_URL + IMAGE_PREFIX + project.imgCover}
+                      <LazyImage
+                        src={IMAGE_PREFIX + project.imgCover}
                         alt={project.translations[0].title}
                       />
                     </div>

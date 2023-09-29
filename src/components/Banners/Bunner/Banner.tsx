@@ -9,7 +9,7 @@ import { LazyImage } from '@/components';
 interface BunnerProps {
   tab: IBannersData;
 }
-const API_URL = import.meta.env.VITE_API_URL;
+
 const Bunner = ({ tab }: BunnerProps) => {
   const IMAGE_PREFIX = '/static/images/banners/';
   const { i18n } = useTranslation();
@@ -23,7 +23,7 @@ const Bunner = ({ tab }: BunnerProps) => {
       <Link to={tab.link}>
         <LazyImage
           className={s.banner__img}
-          src={API_URL + IMAGE_PREFIX + tab.img}
+          src={IMAGE_PREFIX + tab.img}
           alt='banner img'
         />
         <div className={s.banner__filter}></div>

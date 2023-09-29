@@ -6,8 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Preloader } from '../../UI';
 import { IProjectsState } from '@/store/projects/projectsType';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 import s from './ProjectHeader.module.scss';
 import sprite from '@/assets/sprite.svg';
 
@@ -17,9 +15,11 @@ import SlideContent from './SlideContent/SlideContent';
 import SlideImage from './SlideImage/SlideImage';
 import SlideAbout from './SlideAbout/SlideAbout';
 
-const ProjectHeader: React.FC<
-  IProjectsState & { selectedUrl: string | undefined }
-> = ({ projects, loading, selectedUrl }) => {
+const ProjectHeader: React.FC<IProjectsState> = ({
+  projects,
+  loading,
+  selectedUrl,
+}: IProjectsState) => {
   const navigate = useNavigate();
 
   const swiperRef = useRef<any>(null);
@@ -111,7 +111,7 @@ const ProjectHeader: React.FC<
                   {projects.map((project) => (
                     <SwiperSlide key={project._id}>
                       <SlideImage
-                        imgCover={`${API_URL}${IMAGE_PREFIX}${project.imgCover}`}
+                        imgCover={`${IMAGE_PREFIX}${project.imgCover}`}
                         title={project.translations[0].title}
                       />
                     </SwiperSlide>

@@ -10,6 +10,8 @@ interface LazyImageProps {
   effect?: string;
 }
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [imagePath, setImagePath] = useState<string | null>(null);
 
@@ -47,7 +49,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
 
       // Шлях до зображення
       const formattedPath = `${src.replace(/\.[a-z]+$/i, '')}.${imageFormat}`;
-      const finalImagePath = `${formattedPath}`;
+      const finalImagePath = `${API_URL}${formattedPath}`;
       setImagePath(finalImagePath);
     };
 
