@@ -54,7 +54,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   return imagePath ? (
     <LazyLoadImage className={className} src={imagePath} alt={alt} />
   ) : (
-    <div>Loading...</div>
+    <></>
   );
 };
 
