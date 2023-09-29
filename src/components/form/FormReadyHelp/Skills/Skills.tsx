@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useFormContext, Controller } from 'react-hook-form';
+import { Select, ConfigProvider } from 'antd';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import { skillsList } from '@utils/skillsList';
+import { ArrowDownSelect } from '@/components/icons/ArrowDownSelect';
 import s from './Skills.module.scss';
 import './Skills.scss';
-
-import { Select, ConfigProvider } from 'antd';
 
 const Skills = () => {
   const {
@@ -68,6 +68,7 @@ const Skills = () => {
                 maxTagCount='responsive'
                 className={s.skills__input}
                 value={field.value || []}
+                suffixIcon={<ArrowDownSelect size='large' />}
               />
             </ConfigProvider>
             {errors?.skills && (
