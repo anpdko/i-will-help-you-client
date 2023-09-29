@@ -11,6 +11,7 @@ import FileInput from './form/FileInput/FileInput';
 import Modal from './Modal/Modal';
 
 import Preloader from './Preloader/Preloader';
+import AccordionList from './AccordionList/AccordionList';
 
 export {
   ButtonApp,
@@ -24,4 +25,5 @@ export {
   FileInput,
   Preloader,
   Modal,
+  AccordionList,
 };

@@ -42,7 +42,7 @@ const PaymentForm = ({ content }: PaymentFormProps) => {
     setDataForm(data);
     toggleModal();
     reset({
-      donationAmount: '10'
+      donationAmount: '10',
     });
   };
 

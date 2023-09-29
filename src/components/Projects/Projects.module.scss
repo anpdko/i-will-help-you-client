@@ -1,9 +1,0 @@
-@import '../../styles/index.scss';
-.projects {
-  :global {
-    .container {
-      @include adaptiveValue('padding-top', 56, 40, 0, 1200, 390);
-      @include adaptiveValue('padding-bottom', 56, 40, 0, 1200, 390);
-    }
-  }
-}
