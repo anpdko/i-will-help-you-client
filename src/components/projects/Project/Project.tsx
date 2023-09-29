@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { IProject } from '../../../store/projects/projectsType';
+import { LazyImage } from '@/components';
 
 import s from './Project.module.scss';
 import sprite from '../../../assets/sprite.svg';
@@ -60,7 +61,7 @@ const Project = ({ project }: ProjectProps) => {
       </div>
 
       <div className={s.image}>
-        <img src={imageUrl} alt={translation.title} />
+        <LazyImage src={imageUrl} alt={translation.title} />
       </div>
     </article>
   );
