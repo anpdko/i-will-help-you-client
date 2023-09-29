@@ -107,6 +107,7 @@
     }
   }
 }
+//========================================================================================================================================================
 
 .arrows {
   .arrow_prev,
@@ -118,7 +119,7 @@
     @include adaptiveValue('top', 150, 120, 2, 1200, 1000);
     @include adaptiveValue('top', 175, 100, 1, 999, 768);
     @include adaptiveValue('top', 160, 90, 1, 767, 480);
-    @include adaptiveValue('top', 420, 265, 1, 479, 320);
+    @include adaptiveValue('top', 428, 270, 1, 479, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -137,10 +138,24 @@
           svg {
             transform: translate(toRem(4), 0px);
           }
+          &:disabled {
+            background-color: var(--bg);
+            box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
+            svg {
+              transform: translate(toRem(0), 0px);
+            }
+          }
         }
         &.arrow_prev {
           svg {
             transform: translate(toRem(-4), 0px);
+          }
+          &:disabled {
+            background-color: var(--bg);
+            box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
+            svg {
+              transform: translate(toRem(0), 0px);
+            }
           }
         }
       }
@@ -153,8 +168,7 @@
     }
     &:disabled {
       opacity: 0.6;
-      pointer-events: none;
-      cursor: not-allowed;
+      cursor: auto;
     }
   }
   .arrow_prev {
@@ -172,6 +186,8 @@
     }
   }
 }
+//========================================================================================================================================================
+
 .navigation {
   display: flex;
   align-items: center;

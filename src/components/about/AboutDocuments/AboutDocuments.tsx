@@ -20,10 +20,7 @@ const AboutDocuments = () => {
     'documents-4.jpg',
     'documents-4.jpg',
   ];
-
-  const getTotalSlides = () => {
-    return Math.ceil(slides.length);
-  };
+  
   return (
     <section className={s.about_team}>
       <div className='container'>
@@ -47,9 +44,6 @@ const AboutDocuments = () => {
           pagination={{
             el: '.swiper-pagination',
             type: 'fraction',
-            renderFraction: (currentClass) => {
-              return `<span class="${currentClass}"></span> / ${getTotalSlides()}`;
-            },
           }}
           breakpoints={{
             319: {
