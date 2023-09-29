@@ -94,6 +94,7 @@
       bottom: 0;
       left: 0;
       background-color: rgba(30, 30, 30, 0.6);
+      z-index: 1;
     }
     img {
       position: absolute;
@@ -117,6 +118,7 @@
       @include adaptiveValue('padding-bottom', 30, 32, 0, 1200, 390);
       @include adaptiveValue('padding-left', 40, 16, 0, 1200, 390);
       @include adaptiveValue('padding-right', 620, 16, 0, 1200, 390);
+      z-index: 1;
     }
   }
 }

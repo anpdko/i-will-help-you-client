@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 interface LazyImageProps {
   src: string;
   alt: string | undefined;
   className?: string;
+  effect?: string;
 }
 
 const LazyImage = ({ src, alt, className }: LazyImageProps) => {
@@ -52,7 +55,12 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   }, [src]);
 
   return imagePath ? (
-    <LazyLoadImage className={className} src={imagePath} alt={alt} />
+    <LazyLoadImage
+      effect='blur'
+      className={className}
+      src={imagePath}
+      alt={alt}
+    />
   ) : (
     <></>
   );

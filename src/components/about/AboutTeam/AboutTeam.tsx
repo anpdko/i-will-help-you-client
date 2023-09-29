@@ -30,7 +30,6 @@ const AboutTeam = () => {
           pagination={{
             el: '.swiper-pagination',
             type: 'fraction',
-
           }}
           breakpoints={{
             319: {
