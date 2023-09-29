@@ -7,6 +7,7 @@ import { TelegramIcon } from '@components/icons/TelegramIcon';
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 import { InstagramIcon } from '@components/icons/InstagramIcon';
 import { FacebookIcon } from '@components/icons/FacebookIcon';
+import { ArrowDownSelect } from '@/components/icons/ArrowDownSelect';
 import s from './SocialNetwork.module.scss';
 import './SocialNetwork.scss';
 
@@ -112,6 +113,7 @@ const SocialNetwork = () => {
                   value={selectedSocialNetwork}
                   ref={field.ref}
                   options={options}
+                  suffixIcon={<ArrowDownSelect size='small' />}
                 />
               </ConfigProvider>
             </div>
