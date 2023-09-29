@@ -22,7 +22,6 @@ import Comment from '../Comment/Comment';
 import Checkboxes from '../Checkboxes/Checkboxes';
 import { ButtonApp, Modal } from '@components/UI';
 import { convertUnixTimestampToDate } from '@utils/convertUnixTimestampToDate';
-import { generateSocialMediaLink } from '@utils/generateSocialMediaLink';
 import s from './FormReadyHelp.module.scss';
 import { useTranslation } from 'react-i18next';
 
@@ -62,7 +61,7 @@ const FormReadyHelp = () => {
       dateOfBirth: convertUnixTimestampToDate(data.dateOfBirth),
       phone: data.phoneNumber,
       country: data.country,
-      network: generateSocialMediaLink(data.network, data.networkLogo),
+      network: data.network,
       email: data.email,
       daysVolunteer: data.daysVolunteer,
       languages: data.languages,
