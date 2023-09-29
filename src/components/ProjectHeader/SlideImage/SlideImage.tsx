@@ -1,6 +1,7 @@
 import React from 'react';
 
 import s from './SlideImage.module.scss';
+import { LazyImage } from '@/components';
 
 interface ISlideImageProps {
   imgCover: string;
@@ -10,7 +11,7 @@ interface ISlideImageProps {
 const SlideImage: React.FC<ISlideImageProps> = ({ imgCover, title }) => {
   return (
     <div className={s.image}>
-      <img src={imgCover} alt={title} />
+      <LazyImage src={imgCover} alt={title} />
     </div>
   );
 };

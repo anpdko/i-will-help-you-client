@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import s from './AboutDocuments.module.scss';
 import sprite from '../../assets/sprite.svg';
+import { LazyImage } from '..';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -71,7 +72,7 @@ const AboutDocuments = () => {
             <SwiperSlide key={uuidv4()}>
               <div className={s.content}>
                 <a href={API_URL + IMAGE_PREFIX + item} className={s.image}>
-                  <img src={API_URL + IMAGE_PREFIX + item} alt={item} />
+                  <LazyImage src={API_URL + IMAGE_PREFIX + item} alt={item} />
                   <svg>
                     <use href={sprite + '#lens'}></use>
                   </svg>

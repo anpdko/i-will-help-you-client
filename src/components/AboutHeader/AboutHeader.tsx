@@ -6,6 +6,7 @@ import aboutHeaderData from '@/data/aboutHeaderData';
 
 import s from './AboutHeader.module.scss';
 import sprite from '../../assets/sprite.svg';
+import { LazyImage } from '..';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -36,7 +37,7 @@ const AboutHeader = () => {
             return (
               <SwiperSlide key={item._id}>
                 <div className={s.content}>
-                  <img
+                  <LazyImage
                     src={API_URL + IMAGE_PREFIX + item.imgPhath}
                     alt='Find out about our foundation'
                   />
