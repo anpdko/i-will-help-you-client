@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ConfigProvider, Select, SelectProps } from 'antd';
+import { ArrowDownSelect } from '@/components/icons/ArrowDownSelect';
 import './SelectStyles.scss';
 
 interface SelectInputProps {
@@ -53,6 +54,7 @@ const SelectInput = ({
         placeholder={placeholder}
         showSearch={isSearchable}
         className={className}
+        suffixIcon={<ArrowDownSelect size='large' />}
       />
     </ConfigProvider>
   );
