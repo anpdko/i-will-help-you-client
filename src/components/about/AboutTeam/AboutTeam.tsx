@@ -13,9 +13,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 const AboutTeam = () => {
   const IMAGE_PREFIX = '/static/images/team/';
 
-  const getTotalSlides = () => {
-    return Math.ceil(aboutTeamData.length);
-  };
   return (
     <section className={s.about_team}>
       <div className='container'>
@@ -33,9 +30,7 @@ const AboutTeam = () => {
           pagination={{
             el: '.swiper-pagination',
             type: 'fraction',
-            renderFraction: (currentClass) => {
-              return `<span class="${currentClass}"></span> / ${getTotalSlides()}`;
-            },
+
           }}
           breakpoints={{
             319: {
