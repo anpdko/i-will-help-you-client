@@ -8,8 +8,6 @@ import s from './AboutTeam.module.scss';
 import sprite from '@/assets/sprite.svg';
 import { LazyImage } from '@components/index';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const AboutTeam = () => {
   const IMAGE_PREFIX = '/static/images/team/';
 
@@ -62,7 +60,7 @@ const AboutTeam = () => {
                   >
                     <div className={s.image}>
                       <LazyImage
-                        src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                        src={IMAGE_PREFIX + item.imgPhath}
                         alt={translation?.fullName}
                       />
                     </div>
@@ -74,7 +72,7 @@ const AboutTeam = () => {
                   <div className={`${s.content}`}>
                     <div className={s.image}>
                       <LazyImage
-                        src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                        src={IMAGE_PREFIX + item.imgPhath}
                         alt={translation?.fullName}
                       />
                     </div>

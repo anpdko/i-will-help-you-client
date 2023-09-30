@@ -6,8 +6,6 @@ import s from './AboutHeader.module.scss';
 import sprite from '@/assets/sprite.svg';
 import { LazyImage } from '../..';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const AboutHeader = () => {
   const { t, i18n } = useTranslation();
 
@@ -36,7 +34,7 @@ const AboutHeader = () => {
               <SwiperSlide key={item._id}>
                 <div className={s.content}>
                   <LazyImage
-                    src={API_URL + IMAGE_PREFIX + item.imgPhath}
+                    src={IMAGE_PREFIX + item.imgPhath}
                     alt='Find out about our foundation'
                   />
                   <p>{translation?.text}</p>

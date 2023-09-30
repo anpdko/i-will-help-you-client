@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 interface LazyImageProps {
   src: string;
   alt: string | undefined;
   className?: string;
+  effect?: string;
 }
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [imagePath, setImagePath] = useState<string | null>(null);
@@ -44,7 +49,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
 
       // Шлях до зображення
       const formattedPath = `${src.replace(/\.[a-z]+$/i, '')}.${imageFormat}`;
-      const finalImagePath = `${formattedPath}`;
+      const finalImagePath = `${API_URL}${formattedPath}`;
       setImagePath(finalImagePath);
     };
 
@@ -52,7 +57,12 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   }, [src]);
 
   return imagePath ? (
-    <LazyLoadImage className={className} src={imagePath} alt={alt} />
+    <LazyLoadImage
+      effect='blur'
+      className={className}
+      src={imagePath}
+      alt={alt}
+    />
   ) : (
     <></>
   );

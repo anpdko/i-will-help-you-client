@@ -27,6 +27,7 @@ export interface IProjectsState {
   projects: IProject[];
   loading: boolean | null;
   message: string | null;
+  selectedUrl?: string | undefined;
 }
 
 export interface IProjectsError {

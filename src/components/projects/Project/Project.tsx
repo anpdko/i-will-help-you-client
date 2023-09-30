@@ -10,11 +10,9 @@ interface ProjectProps {
   project: IProject;
 }
 
-const API_URL = import.meta.env.VITE_API_URL;
-
 const Project = ({ project }: ProjectProps) => {
   const IMAGE_PREFIX = '/static/images/projects/';
-  const imageUrl = API_URL + IMAGE_PREFIX + project.imgCover;
+  const imageUrl = IMAGE_PREFIX + project.imgCover;
   const translation = project.translations[0];
 
   //! З бази данних description приходить більшого розміру ніж по макету!!!!!!

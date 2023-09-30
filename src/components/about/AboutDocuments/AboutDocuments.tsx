@@ -66,7 +66,7 @@ const AboutDocuments = () => {
             <SwiperSlide key={uuidv4()}>
               <div className={s.content}>
                 <a href={API_URL + IMAGE_PREFIX + item} className={s.image}>
-                  <LazyImage src={API_URL + IMAGE_PREFIX + item} alt={item} />
+                  <LazyImage src={IMAGE_PREFIX + item} alt={item} />
                   <svg>
                     <use href={sprite + '#lens'}></use>
                   </svg>
