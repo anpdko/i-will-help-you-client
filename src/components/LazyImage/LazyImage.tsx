@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import 'react-loading-skeleton/dist/skeleton.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface LazyImageProps {
@@ -14,6 +16,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [imagePath, setImagePath] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     //Перевірка підтримки формату браузером
@@ -56,15 +59,26 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
     loadImage();
   }, [src]);
 
-  return imagePath ? (
-    <LazyLoadImage
-      effect='blur'
-      className={className}
-      src={imagePath}
-      alt={alt}
-    />
-  ) : (
-    <></>
+  useEffect(() => {
+    if (imagePath) {
+      setLoading(false);
+    }
+  }, [imagePath]);
+
+  return (
+    <div className={`lazy-image ${loading ? 'loading' : ''}`}>
+      {imagePath && (
+        <LazyLoadImage
+          effect='blur'
+          className={className}
+          src={imagePath}
+          alt={alt}
+        />
+      )}
+      <SkeletonTheme baseColor='#d9d9d9' highlightColor='#505050'>
+        <Skeleton className='skeleton' />
+      </SkeletonTheme>
+    </div>
   );
 };
 
