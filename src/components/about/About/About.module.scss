@@ -63,6 +63,7 @@
     }
     @media (max-width: $mobileSmall) {
       padding: toRem(18) toRem(10) toRem(10) toRem(10);
+      aspect-ratio: 1 / 1;
       gap: 0;
     }
 
