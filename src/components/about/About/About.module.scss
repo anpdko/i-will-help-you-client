@@ -43,9 +43,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-around;
     align-items: center;
-    @include adaptiveValue('gap', 18, 14, 0, 1200, 390);
+    @include adaptiveValue('gap', 10, 2, 0, 1200, 390);
     padding: toRem(22) toRem(22) toRem(22) toRem(22);
     border-radius: toRem(20);
     background-color: var(--milky);
@@ -63,6 +63,7 @@
     }
     @media (max-width: $mobileSmall) {
       padding: toRem(18) toRem(10) toRem(10) toRem(10);
+      gap: 0;
     }
 
     svg {
