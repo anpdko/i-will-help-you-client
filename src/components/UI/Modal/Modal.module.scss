@@ -1,34 +1,32 @@
 @import '../../../styles/index';
 
-// .smaller {
-
-// }
-
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   background-color: var(--black-for-banners);
   z-index: 1200;
 
+  .center{
+    width: 100vw;
+    min-height: 100vh;
+    margin: 10px 0 90px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
   &__modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100vw - 60px);
+    width: calc(100vw - 30px);
 
     max-width: 40rem;
-    max-height: calc(100vh - 20px);
-    overflow-y: auto;
     overflow-x: hidden;
     background-color: var(--total-white);
     @include adaptiveValue('border-radius', 25, 20, 0, 1200, 768);

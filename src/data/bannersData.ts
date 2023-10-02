@@ -32,7 +32,7 @@ const bannersData: IBannersData[] = [
       },
     ],
     _id: uuidv4(),
-    img: '/static/images/banners/banner-1.jpg',
+    img: 'banner-1',
     link: '/volunteer',
   },
   {
@@ -53,7 +53,7 @@ const bannersData: IBannersData[] = [
       },
     ],
     _id: uuidv4(),
-    img: '/static/images/banners/banner-2.jpg',
+    img: 'banner-2',
     link: '/donate',
   },
   {
@@ -74,7 +74,7 @@ const bannersData: IBannersData[] = [
       },
     ],
     _id: uuidv4(),
-    img: '/static/images/banners/banner-3.jpg',
+    img: 'banner-3',
     link: '/needhelp',
   },
 ];

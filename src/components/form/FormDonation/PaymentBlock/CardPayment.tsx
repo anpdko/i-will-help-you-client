@@ -102,7 +102,11 @@ const CardPayment = () => {
       </div>
       <Email required={false} />
       <Comment title='Comment' placeholder='Type here...' maxLength={255} />
-      <ButtonApp type='submit' className={s.card__button} onClick={handleResetCustomDonationAmount}>
+      <ButtonApp
+        type='submit'
+        className={s.card__button}
+        onClick={handleResetCustomDonationAmount}
+      >
         {t('Pay urgent!')}
       </ButtonApp>
     </div>
