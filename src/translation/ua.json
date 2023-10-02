@@ -78,7 +78,7 @@
   "Phone number" : "Номер телефону",
   "Please write your nickname": "Будь ласка, введіть ваш нікнейм",
   "Please provide a valid Facebook link" : "Будь ласка, вкажіть дійсне посилання на Facebook",
-  "Please type a valid phone number that starts with +" : "Будь ласка, введіть дійсний номер телефону, який розпочинається з +",
+  "The number must start with + and contain only digits" : "Номер повинен починатися з + та містити лише цифри",
 
   "First Name *": "Ім'я *",
   "Enter your first name": "Введіть ваше ім'я",

@@ -73,7 +73,7 @@ const SocialNetwork = () => {
     } else if (selectedSocialNetwork === 'facebook') {
       return `${t('Please provide a valid Facebook link')}`;
     } else if (selectedSocialNetwork === 'whatsapp') {
-      return `${t('Please type a valid phone number that starts with +')}`;
+      return `${t('The number must start with + and contain only digits')}`;
     } else {
       return '';
     }
