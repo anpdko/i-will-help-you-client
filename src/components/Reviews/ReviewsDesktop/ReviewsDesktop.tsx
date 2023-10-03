@@ -29,6 +29,9 @@ const ReviewsDesktop = () => {
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const tabsContainerRef = useRef<HTMLDivElement | null>(null);
+  const activeTabRef = useRef<HTMLDivElement | null>(null);
+
   const swiperRef = useRef<SwiperRef | null>(null);
 
   const { i18n } = useTranslation();
@@ -39,7 +42,20 @@ const ReviewsDesktop = () => {
     dispatch(getReviews());
   }, [dispatch]);
 
-  useEffect(() => {}, [reviews]);
+  useEffect(() => {
+    if (tabsContainerRef.current && activeTabRef.current) {
+      const containerRect = tabsContainerRef.current.getBoundingClientRect();
+      const activeTabRect = activeTabRef.current.getBoundingClientRect();
+
+      if (activeTabRect.bottom > containerRect.bottom) {
+        tabsContainerRef.current.scrollTop +=
+          activeTabRect.bottom - containerRect.bottom;
+      } else if (activeTabRect.top < containerRect.top) {
+        tabsContainerRef.current.scrollTop +=
+          activeTabRect.top - containerRect.top;
+      }
+    }
+  }, [isActive]);
 
   const handlePrevSlide = () => {
     swiperRef.current?.slidePrev();
@@ -87,6 +103,7 @@ const ReviewsDesktop = () => {
       handleTabClick(index);
     }
   };
+
   return (
     <div className={s.reviews_desktop}>
       <div
@@ -94,6 +111,7 @@ const ReviewsDesktop = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        ref={tabsContainerRef}
         role='button'
         tabIndex={0}
         onKeyDown={(e) => handleTabKeyDown(isActive, e)}
@@ -106,6 +124,11 @@ const ReviewsDesktop = () => {
           };
           return (
             <div
+              ref={(ref) => {
+                if (isActive === index) {
+                  activeTabRef.current = ref;
+                }
+              }}
               key={tab._id}
               onClick={() => handleTabClick(index)}
               className={`${s.reviews_desktop__tab} ${

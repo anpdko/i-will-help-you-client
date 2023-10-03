@@ -8,12 +8,13 @@
     height: 22.5rem;
     gap: 1rem;
     min-width: 22rem;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     direction: rtl;
     padding-left: .5rem;
     border-radius: .94rem;
     cursor: grab;
+    scroll-behavior: smooth;
     &::-webkit-scrollbar{
       width: .5rem;
       border-radius: 0.5rem;
