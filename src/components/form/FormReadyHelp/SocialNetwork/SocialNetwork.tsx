@@ -69,7 +69,7 @@ const SocialNetwork = () => {
       selectedSocialNetwork === 'telegram' ||
       selectedSocialNetwork === 'instagram'
     ) {
-      return `${t('Please write your nickname')}`;
+      return `${t('Please write your nickname that starts with @')}`;
     } else if (selectedSocialNetwork === 'facebook') {
       return `${t('Please provide a valid Facebook link')}`;
     } else if (selectedSocialNetwork === 'whatsapp') {
