@@ -178,7 +178,7 @@ const aboutTeamData: IAboutTeamData[] = [
       },
       {
         language: 'ua',
-        fullName: 'Tetiana Tarataiko',
+        fullName: 'Тетяна Таратайко',
         activity: 'Волонтер, UI/UX Designer',
         _id: uuidv4(),
       },
