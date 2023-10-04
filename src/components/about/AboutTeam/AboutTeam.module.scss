@@ -38,7 +38,7 @@
     @media (any-hover: hover) {
       &:hover {
         cursor: pointer;
-        span {
+        .linkedin {
           &::after {
             width: 100%;
           }
@@ -91,7 +91,7 @@
       margin-bottom: toRem(16);
     }
   }
-  span {
+  .linkedin {
     font-weight: 600;
     position: relative;
     line-height: 150%;
