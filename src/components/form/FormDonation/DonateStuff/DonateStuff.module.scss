@@ -1,40 +1,62 @@
 @import '@/styles/index.scss';
 
 .list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   width: 100%;
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .item {
-  padding: 1.5rem 2rem 1.25rem 2rem;
-  display: flex;
+  padding: 1rem 2rem;
+  display: grid;
   align-items: center;
-  gap: 1.25rem;
-
-  &__img {
-    width: toRem(50);
-    height: toRem(50);
-    border-radius: 1rem;
-    border: 1px solid var(--black);
-    background: var(--white);
-    padding: 0.813rem;
-  }
-
-  &__wrap {
+  align-self: start;
+  column-gap: 1.25rem;
+  
+  &_header {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    justify-content: space-between;
+    cursor: pointer;
   }
 
-  &__title {
+  &_wrap {
+    display: flex;
+    align-items: center;
+    gap: toRem(14);
+  }
+
+  &_img {
+    width: toRem(32);
+    height: toRem(32);
+    border-radius: 0.5rem;
+    border: 1px solid var(--black);
+    background: var(--bg);
+    padding: 0.5rem;
+  }
+
+  &_title {
     font-weight: 600;
+    padding-right: 0.7rem;
   }
 
-  &__desc {
+  &_btn {
+    transition: transform 0.7s;
+
+    &_rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  &_desc {
+    margin-top: toRem(12);
     font-size: 0.875rem;
-    line-height: 130%; 
+    line-height: 130%;
   }
 }
 
@@ -45,18 +67,18 @@
     padding: 1.5rem 2rem;
   }
 
-  &__title {
+  &_title {
     font-size: 1.125rem;
     line-height: 150%; 
   }
 
-  &__subtitle {
+  &_subtitle {
     color: var(--orange);
     font-weight: 600;
     margin: 2rem 0 0.5rem;
   }
 
-  &__text {
+  &_text {
     font-size: 0.875rem;
     line-height: 130%;
   }
