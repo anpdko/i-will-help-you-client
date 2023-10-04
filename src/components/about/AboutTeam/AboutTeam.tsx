@@ -66,7 +66,7 @@ const AboutTeam = () => {
                     </div>
                     <h3>{translation?.fullName}</h3>
                     <h4>{translation?.activity}</h4>
-                    <span>LinkedIn</span>
+                    <span className={s.linkedin}>LinkedIn</span>
                   </a>
                 ) : (
                   <div className={`${s.content}`}>
