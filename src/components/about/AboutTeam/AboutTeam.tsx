@@ -60,7 +60,7 @@ const AboutTeam = () => {
                   >
                     <div className={s.image}>
                       <LazyImage
-                        src={IMAGE_PREFIX + item.imgPhath}
+                        src={IMAGE_PREFIX + item.imgPath}
                         alt={translation?.fullName}
                       />
                     </div>
@@ -72,7 +72,7 @@ const AboutTeam = () => {
                   <div className={`${s.content}`}>
                     <div className={s.image}>
                       <LazyImage
-                        src={IMAGE_PREFIX + item.imgPhath}
+                        src={IMAGE_PREFIX + item.imgPath}
                         alt={translation?.fullName}
                       />
                     </div>
