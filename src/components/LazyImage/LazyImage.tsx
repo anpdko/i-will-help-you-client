@@ -76,7 +76,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
         />
       )}
       <SkeletonTheme
-        borderRadius='2rem'
+        borderRadius='1.8rem'
         baseColor='#eee'
         duration={5}
         highlightColor='#E5E5E5'
@@ -85,18 +85,6 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
       </SkeletonTheme>
     </div>
   );
-  //  imagePath ? (
-  //   <LazyLoadImage
-  //     effect='blur'
-  //     className={className}
-  //     src={imagePath}
-  //     alt={alt}
-  //   />
-  // ) : (
-  //   <SkeletonTheme baseColor='#d9d9d9' highlightColor='#505050'>
-  //     <Skeleton className='skeleton' />
-  //   </SkeletonTheme>
-  // );
 };
 
 export default LazyImage;
