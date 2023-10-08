@@ -28,6 +28,10 @@ const NavbarAdmin = () => {
       text: 'Reviews',
       link: '/admin/panel/reviews',
     },
+    {
+      text: 'Link sheets',
+      link: '/admin/panel/sheets',
+    }
   ];
 
   useEffect(() => {

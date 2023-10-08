@@ -1,7 +1,15 @@
+
+.navbar_control_admin{
+    width: 100%;
+    min-height: 80px;
+}
+
 .section_nav_control_admin_modules{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    width: 100%;
+    min-height: 80px;
     gap: 2rem;
     padding: 1.2rem 1rem;
     box-shadow: 0 0 2px var(--dark-grey);

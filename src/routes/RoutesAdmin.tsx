@@ -30,6 +30,10 @@ const ProjectsEditAdminPage = React.lazy(
   () => import('@/pages/admin/ProjectsEditAdminPage/ProjectsEditAdminPage'),
 );
 
+const SheetsAdminPage = React.lazy(
+  () => import('@/pages/admin/SheetsAdminPage/SheetsAdminPage'),
+);
+
 const RoutesAdmin = () => {
   const dispatch = useAppDispatch();
   const { isLoggedIn } = useSelector((state: RootState) => state.admin);
@@ -91,6 +95,14 @@ const RoutesAdmin = () => {
             element={
               <Suspense fallback={<Preloader />}>
                 <ProjectsEditAdminPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/panel/sheets'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <SheetsAdminPage />
               </Suspense>
             }
           />
