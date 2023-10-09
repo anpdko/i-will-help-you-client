@@ -103,6 +103,7 @@
 
     &_custom {
       overflow: hidden;
+      border-radius: 0.625rem;
 
       &:hover {
         background: transparent;
@@ -111,18 +112,18 @@
       input {
         width: 100%;
         padding: 0.898rem 2rem;
-        
+        border-radius: 0.625rem;
+
         &:hover {
           background: transparent;
         }
-      }
-      
 
-      // &:focus,
-      // &:active {
-      //   border: 2px solid var(--black);
-      //   background: var(--total-white);
-      // }
+        &:focus {
+          background: var(--total-white);
+          outline: 2px solid var(--black);
+          outline-offset: -0.9px;
+        }
+      }
     }
   }
 }

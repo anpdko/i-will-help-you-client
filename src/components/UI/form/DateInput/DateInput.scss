@@ -16,8 +16,9 @@
 
 .ant-picker-focused {
   box-shadow: none !important;
-  border: 2px solid var(--black) !important;
   background: var(--total-white) !important;
+  outline: 2px solid var(--black);
+  outline-offset: -2px;
 }
 
 /* іконка календаря в інпуті */

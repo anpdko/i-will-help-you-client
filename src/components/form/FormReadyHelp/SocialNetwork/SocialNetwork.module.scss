@@ -43,7 +43,7 @@
         font-size: 1rem;
         font-style: normal;
         font-weight: 400;
-        line-height: 1rem; 
+        line-height: 1rem;
       }
 
       &:hover {
@@ -51,8 +51,9 @@
       }
 
       &:focus {
-        border: 2px solid var(--black);
         background: var(--total-white);
+        outline: 2px solid var(--black);
+        outline-offset: -2px;
       }
     }
   }

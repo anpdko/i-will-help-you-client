@@ -33,8 +33,9 @@
   }
 
   &:focus {
-    border: 2px solid var(--black) !important;
     background: var(--total-white) !important;
+    outline: 2px solid var(--black) !important;
+    outline-offset: -2px !important;
   }
 }
 
@@ -51,8 +52,9 @@
   }
 
   &--active {
-    border: 2px solid var(--black) !important;
     background: var(--total-white) !important;
+    outline: 2px solid var(--black) !important;
+    outline-offset: -2px !important;
   }
 }
 
