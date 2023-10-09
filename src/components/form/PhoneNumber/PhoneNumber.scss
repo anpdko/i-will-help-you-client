@@ -51,6 +51,12 @@
     background: transparent !important;
   }
 
+  &:focus {
+    background: var(--total-white);
+    outline: 2px solid var(--black);
+    outline-offset: -2px;
+  }
+
   &--active {
     background: var(--total-white) !important;
     outline: 2px solid var(--black) !important;
