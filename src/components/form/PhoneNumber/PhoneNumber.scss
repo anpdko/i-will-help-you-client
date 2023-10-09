@@ -21,6 +21,7 @@
   padding: 1.58rem 1.5rem !important;
   color: var(--black) !important;
   font-size: 1rem !important;
+  transition: box-shadow 0.2s !important;
 
   &::placeholder {
     color: var(--dark-grey) !important;
@@ -33,8 +34,8 @@
   }
 
   &:focus {
-    border: 2px solid var(--black) !important;
     background: var(--total-white) !important;
+    box-shadow: inset 0 0 0 1px var(--black) !important;
   }
 }
 
@@ -45,14 +46,15 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  transition: box-shadow 0.2s !important;
 
   &:hover {
     background: transparent !important;
   }
 
   &--active {
-    border: 2px solid var(--black) !important;
     background: var(--total-white) !important;
+    box-shadow: inset 0 0 0 1px var(--black) !important;
   }
 }
 
