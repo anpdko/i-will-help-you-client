@@ -52,9 +52,9 @@ const SocialNetwork = () => {
 
   const getPattern = () => {
     if (selectedSocialNetwork === 'telegram') {
-      return /^@[a-zA-Z0-9_]{5,32}$/;
+      return /^[a-zA-Z0-9@_]{5,32}$/;
     } else if (selectedSocialNetwork === 'instagram') {
-      return /^(?!.*\.\.)@[a-zA-Z0-9.,_]{2,30}$/;
+      return /^(?!.*\.\.)[a-zA-Z0-9.,_@]{2,30}$/;
     } else if (selectedSocialNetwork === 'facebook') {
       return /^https:\/\/www\.facebook\.com\/.+$/;
     } else if (selectedSocialNetwork === 'whatsapp') {
@@ -69,7 +69,7 @@ const SocialNetwork = () => {
       selectedSocialNetwork === 'telegram' ||
       selectedSocialNetwork === 'instagram'
     ) {
-      return `${t('Please write your nickname that starts with @')}`;
+      return `${t('Please write your nickname')}`;
     } else if (selectedSocialNetwork === 'facebook') {
       return `${t('Please provide a valid Facebook link')}`;
     } else if (selectedSocialNetwork === 'whatsapp') {

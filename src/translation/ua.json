@@ -76,7 +76,7 @@
   "@YourNickname": "@ВашНікнейм",
   "Link" : "Посилання",
   "Phone number" : "Номер телефону",
-  "Please write your nickname that starts with @": "Будь ласка, введіть ваш нікнейм, що розпочинається з @",
+  "Please write your nickname": "Будь ласка, введіть ваш нікнейм",
   "Please provide a valid Facebook link" : "Будь ласка, вкажіть дійсне посилання на Facebook",
   "The number must start with + and contain only digits" : "Номер повинен починатися з + та містити лише цифри",
 
