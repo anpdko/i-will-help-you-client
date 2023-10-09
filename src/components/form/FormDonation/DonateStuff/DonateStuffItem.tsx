@@ -22,7 +22,7 @@ const DonateStuffItem = ({ item }: DonateStuffItemProps) => {
   };
 
   return (
-    <li className={`border-style ${s.item}`}>
+    <li className={`border-style ${s.item} ${isOpen ? s.item_open : ''}`}>
       <div className={s.item_header} onClick={handleItemClick}>
         <div className={s.item_wrap}>
           <img src={item.icon} alt={item.title} className={s.item_img} />
