@@ -251,7 +251,6 @@
 }
 
 .wrap {
-  position: relative;
   width: 100%;
   display: grid;
   justify-items: start;
@@ -262,6 +261,5 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: var(--red-for-error);
-  position: absolute;
-  top: calc(100% + toRem(6));
+  margin-top: -0.6rem;
 }

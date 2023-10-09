@@ -13,11 +13,16 @@
 }
 
 .item {
+  width: 100%;
   padding: 1rem 2rem;
   display: grid;
   align-items: center;
   align-self: start;
   column-gap: 1.25rem;
+
+  &_open {
+    height: 100%;
+  }
   
   &_header {
     display: flex;
