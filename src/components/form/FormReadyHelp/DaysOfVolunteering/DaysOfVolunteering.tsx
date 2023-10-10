@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { daysOfWeekOptions, timeOptions } from '@utils/daysOfVolunteeringList';
+import {
+  daysOfWeekOptions,
+  startTimeOptions,
+  finishTimeOptions,
+} from '@utils/daysOfVolunteeringList';
 import FormItemWrapper from '../../FormItemWrapper/FormItemWrapper';
 import { SelectInput } from '@/components/UI';
 import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
@@ -28,7 +32,12 @@ const DaysOfVolunteering = () => {
     label: `${t(item.day)}`,
   }));
 
-  const times = timeOptions.map((item) => ({
+  const startTimes = startTimeOptions.map((item) => ({
+    value: item.time,
+    label: item.time,
+  }));
+
+  const finishTimes = finishTimeOptions.map((item) => ({
     value: item.time,
     label: item.time,
   }));
@@ -76,7 +85,7 @@ const DaysOfVolunteering = () => {
                   render={({ field }) => (
                     <SelectInput
                       field={field}
-                      options={times}
+                      options={startTimes}
                       placeholder={t('Start Time')}
                       className={s.volunteer__input_time}
                     />
@@ -93,7 +102,7 @@ const DaysOfVolunteering = () => {
                   render={({ field }) => (
                     <SelectInput
                       field={field}
-                      options={times}
+                      options={finishTimes}
                       placeholder={t('End Time')}
                       className={s.volunteer__input_time}
                     />
