@@ -119,7 +119,7 @@
     @include adaptiveValue('top', 150, 120, 2, 1200, 1000);
     @include adaptiveValue('top', 175, 100, 1, 999, 768);
     @include adaptiveValue('top', 160, 90, 1, 767, 480);
-    @include adaptiveValue('top', 428, 270, 1, 479, 320);
+    @include adaptiveValue('top', 444, 286, 1, 479, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;
