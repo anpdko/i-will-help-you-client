@@ -73,15 +73,18 @@
 
 .swiper_about {
   @include adaptiveValue('padding-top', 75, 40, 0, 1200, 390);
-  // :global {
-  //   .swiper-wrapper {
-  //     align-items: stretch;
-  //   }
-    
-  //   .swiper-slide {
-  //     max-height: min-content;
-  //   }
-  // }
+  :global {
+    .swiper {
+      @media (max-width:$pc){
+        margin-right: toRem(-22);
+        margin-left: toRem(-22);
+  
+        padding-right: toRem(22);
+        padding-left: toRem(22);
+      }
+
+    }
+  }
 }
 
 //========================================================================================================================================================
