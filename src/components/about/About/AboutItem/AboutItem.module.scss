@@ -21,7 +21,7 @@
   &__text {
     white-space: pre-line;
     flex: 1 1 auto;
-    
+
     &::-webkit-scrollbar {
       width: 4px;
       height: 0rem;
@@ -38,10 +38,10 @@
     &:not(:last-child) {
       margin-bottom: em(32, 16);
     }
-    @media (min-width:$tablet){
+    @media (min-width: $tablet) {
       max-height: toRem(168);
       height: 100%;
-      overflow-y: auto; 
+      overflow-y: auto;
     }
   }
 
@@ -55,6 +55,13 @@
     &:not(:last-child) {
       @include adaptiveValue('margin-bottom', 24, 16, 0, 1200, 390);
     }
+    @media (any-hover: hover) {
+      &:hover {
+        &::after {
+          background-color: var(--orange);
+        }
+      }
+    }
 
     &::after {
       content: '';
@@ -64,7 +71,7 @@
       height: toRem(1);
       width: 100%;
       background-color: var(--black);
-      transition: background-color 0.2s linear;
+      transition: all 0.3s;
     }
   }
 
@@ -79,7 +86,7 @@
   }
 
   &__button {
-    @media (max-width:$mobileSmall){
+    @media (max-width: $mobileSmall) {
       padding: toRem(17) toRem(10);
       min-width: 100%;
     }
