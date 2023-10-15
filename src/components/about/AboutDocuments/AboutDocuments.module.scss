@@ -153,7 +153,7 @@
     @include adaptiveValue('top', 150, 120, 2, 1200, 1000);
     @include adaptiveValue('top', 175, 120, 1, 999, 768);
     @include adaptiveValue('top', 200, 115, 1, 767, 480);
-    @include adaptiveValue('top', 542, 345, 1, 479, 320);
+    @include adaptiveValue('top', 560, 362, 1, 479, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -161,19 +161,19 @@
     cursor: pointer;
     transition: all 0.3s;
     @include adaptiveValue('padding', 12, 11, 0, 1200, 768);
-    background-color: var(--bg);
+    background-color: var(--dark-grey);
     box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
     @include adaptiveValue('border-radius', 12, 10, 0, 1200, 768);
     @media (any-hover: hover) {
       &:hover {
         box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.3);
-        background-color: var(--total-white);
+        background-color: var(--dark-grey);
         &.arrow_next {
           svg {
             transform: translate(toRem(4), 0px);
           }
           &:disabled {
-            background-color: var(--bg);
+            background-color: var(--dark-grey);
             box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
             svg {
               transform: translate(toRem(0), 0px);
@@ -185,7 +185,7 @@
             transform: translate(toRem(-4), 0px);
           }
           &:disabled {
-            background-color: var(--bg);
+            background-color: var(--dark-grey);
             box-shadow: 0px toRem(4) toRem(10) 0px rgba(14, 14, 14, 0.15);
             svg {
               transform: translate(toRem(0), 0px);
@@ -196,7 +196,7 @@
     }
     svg {
       transition: all 0.3s;
-      fill: var(--black);
+      fill: var(--total-white);
       @include adaptiveValue('height', 24, 22, 0, 1200, 768);
       @include adaptiveValue('width', 24, 22, 0, 1200, 768);
     }
