@@ -3,6 +3,12 @@ export interface IProjectsTags {
   tag: string;
   desc: string;
 }
+export interface IProjectsImplementation {
+  _id: string;
+  top_desc: string;
+  items: IProjectsTags[];
+  bottom_desc: string;
+}
 
 export interface IProjectsContent {
   language: string;
@@ -11,6 +17,7 @@ export interface IProjectsContent {
   description: string;
   goals: IProjectsTags[];
   criteria: IProjectsTags[];
+  implementation?: IProjectsImplementation[];
 }
 
 export interface IProject {

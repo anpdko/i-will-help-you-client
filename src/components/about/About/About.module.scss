@@ -52,9 +52,7 @@
     color: var(--black);
     cursor: pointer;
     font-weight: 600;
-    transition:
-      color,
-      box-shadow 0.2s linear;
+    transition: all 0.3s;
     &:hover {
       color: var(--orange);
     }

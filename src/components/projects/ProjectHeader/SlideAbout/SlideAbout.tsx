@@ -15,7 +15,8 @@ interface ISlideAboutProps {
 const SlideAbout: React.FC<ISlideAboutProps> = ({ project, swiperRef }) => {
   const { t } = useTranslation();
 
-  const { title, description, goals, criteria } = project.translations[0];
+  const { title, description, goals, criteria, implementation } =
+    project.translations[0];
 
   return (
     <>
@@ -39,6 +40,16 @@ const SlideAbout: React.FC<ISlideAboutProps> = ({ project, swiperRef }) => {
             />
           </div>
         </article>
+
+        {implementation && (
+          <ArticleSection
+            title={t('Implementation process')}
+            subtitle={t('Implementation process')}
+            items={implementation || []}
+            variant='list-items'
+          />
+        )}
+
         <article className={s.content}>
           <div className={s.header}>
             <h2 className={`${s.title} heading2`}>

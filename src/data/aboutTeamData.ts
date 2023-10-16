@@ -211,13 +211,13 @@ const aboutTeamData: IAboutTeamData[] = [
       {
         language: 'en',
         fullName: 'Dmytro Kuts',
-        activity: 'Volunteer, Full Stack',
+        activity: 'Volunteer, Front-End',
         _id: uuidv4(),
       },
       {
         language: 'ua',
         fullName: 'Дмитро Куц',
-        activity: 'Волонтер, Full Stack',
+        activity: 'Волонтер, Front-End',
         _id: uuidv4(),
       },
     ],
