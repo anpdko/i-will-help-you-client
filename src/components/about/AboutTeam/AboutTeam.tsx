@@ -6,7 +6,8 @@ import aboutTeamData from '@/data/aboutTeamData';
 
 import s from './AboutTeam.module.scss';
 import sprite from '@/assets/sprite.svg';
-import { LazyImage } from '@components/index';
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AboutTeam = () => {
   const IMAGE_PREFIX = '/static/images/team/';
@@ -59,10 +60,18 @@ const AboutTeam = () => {
                     className={`${s.content} ${s._link}`}
                   >
                     <div className={s.image}>
-                      <LazyImage
-                        src={IMAGE_PREFIX + item.imgPath}
-                        alt={translation?.fullName}
-                      />
+                      <picture>
+                        <source
+                          srcSet={
+                            API_URL + IMAGE_PREFIX + item.imgPath + '.webp'
+                          }
+                          type='image/webp'
+                        />
+                        <img
+                          src={API_URL + IMAGE_PREFIX + item.imgPath + '.jpg'}
+                          alt={translation?.fullName}
+                        />
+                      </picture>
                     </div>
                     <h3>{translation?.fullName}</h3>
                     <h4>{translation?.activity}</h4>
@@ -71,10 +80,20 @@ const AboutTeam = () => {
                 ) : (
                   <div className={`${s.content}`}>
                     <div className={s.image}>
-                      <LazyImage
-                        src={IMAGE_PREFIX + item.imgPath}
-                        alt={translation?.fullName}
-                      />
+                      <picture>
+                        <source
+                          srcSet={
+                            API_URL + IMAGE_PREFIX + item.imgPath + '.webp'
+                          }
+                          type='image/webp'
+                        />
+                        <img
+                          loading='lazy'
+                          decoding='async'
+                          src={API_URL + IMAGE_PREFIX + item.imgPath + '.jpg'}
+                          alt={translation?.fullName}
+                        />
+                      </picture>
                     </div>
                     <h3>{translation?.fullName}</h3>
                     <h4>{translation?.activity}</h4>

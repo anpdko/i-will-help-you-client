@@ -31,7 +31,7 @@ const NavbarAdmin = () => {
     {
       text: 'Link sheets',
       link: '/admin/panel/sheets',
-    }
+    },
   ];
 
   useEffect(() => {
