@@ -9,7 +9,7 @@ const DateOfBirth = () => {
       title={t('Date of Birth *')}
       name='dateOfBirth'
       required={true}
-      message={t('Please enter your birthday in the format MM/DD/YYYY')}
+      message={t('Please select your birthday')}
       placeholder={t('MM/DD/YYYY')}
       format='MM/DD/YYYY'
       classNameContainer={s.dob}

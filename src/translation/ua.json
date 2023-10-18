@@ -51,7 +51,7 @@
   "Volunteer application form": "Анкета волонтера",
   "Send my form": "Відправити форму",
   "Date of Birth *": "Дата народження *",
-  "Please enter your birthday in the format MM/DD/YYYY": "Будь ласка, введіть дату свого народження в форматі ММ/ДД/РРРР",
+  "Please select your birthday": "Будь ласка, оберіть дату вашого народження",
   "MM/DD/YYYY": "ММ/ДД/РРРР",
   "Days and hours you can volunteer (you can select several options) *": "Дні та години, коли ви можете допомагати (можна обрати декілька варіантів) *",
   "Day of the week": "День тижня",
@@ -83,12 +83,12 @@
   "First Name *": "Ім'я *",
   "Enter your first name": "Введіть ваше ім'я",
   "Please type your first name": "Будь ласка, напишіть ваше ім'я",
-  "First name should be 2-30 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Ім'я повинно бути від 2 до 30 символів і може містити лише латинські та кириличні літери та дефіс",
+  "First name should be 2-30 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Ім'я може містити від 2 до 30 символів, лише латинські або кириличні літери, дефіс",
 
   "Last Name *": "Прізвище *",
   "Enter your last name": "Введіть ваше прізвище",
   "Please type your last name": "Будь ласка, напишіть ваше прізвище",
-  "Last name should be 2-100 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Прізвище повинно мати довжину від 2 до 100 символів і може містити лише латинські та кириличні літери та дефіс",
+  "Last name should be 2-100 characters long and can only contain Latin and Cyrillic letters and hyphens" : "Прізвище може містити від 2 до 100 символів, лише латинські або кириличні літери, дефіс",
 
   "Phone Number *": "Номер телефону *",
   "pl": "ua",
