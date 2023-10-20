@@ -75,12 +75,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
           alt={alt}
         />
       )}
-      <SkeletonTheme
-        borderRadius='1.8rem'
-        baseColor='#eee'
-        duration={5}
-        highlightColor='#E5E5E5'
-      >
+      <SkeletonTheme baseColor='#eee' duration={5} highlightColor='#E5E5E5'>
         <Skeleton className='skeleton' />
       </SkeletonTheme>
     </div>
