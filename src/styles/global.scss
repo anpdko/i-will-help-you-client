@@ -156,7 +156,8 @@ a {
 
 
 //Стилі до LazyImage
-.lazy-load-image-background.blur{
+.lazy-load-image-background.blur,
+.lazy-image{
   position: absolute;
   width: 100%;
   height: 100%;

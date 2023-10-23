@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import s from './AboutDocuments.module.scss';
 import sprite from '@/assets/sprite.svg';
-import { LazyImage } from '../..';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -15,11 +14,11 @@ const AboutDocuments = () => {
   const IMAGE_PREFIX = '/static/images/documents/';
 
   const slides = [
-    'documents-1.jpg',
-    'documents-2.jpg',
-    'documents-3.jpg',
-    'documents-4.jpg',
-    'documents-4.jpg',
+    'documents-1',
+    'documents-2',
+    'documents-3',
+    'documents-4',
+    'documents-4',
   ];
 
   return (
@@ -65,8 +64,20 @@ const AboutDocuments = () => {
           {slides?.map((item) => (
             <SwiperSlide key={uuidv4()}>
               <div className={s.content}>
-                <a href={API_URL + IMAGE_PREFIX + item} className={s.image}>
-                  <LazyImage src={IMAGE_PREFIX + item} alt={item} />
+                <a
+                  href={API_URL + IMAGE_PREFIX + item + '.jpg'}
+                  className={s.image}
+                >
+                  <picture>
+                    <source
+                      srcSet={API_URL + IMAGE_PREFIX + item + '.webp'}
+                      type='image/webp'
+                    />
+                    <img
+                      src={API_URL + IMAGE_PREFIX + item + '.jpg'}
+                      alt={item}
+                    />
+                  </picture>
                   <svg>
                     <use href={sprite + '#lens'}></use>
                   </svg>
