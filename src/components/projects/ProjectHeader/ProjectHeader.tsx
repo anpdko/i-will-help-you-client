@@ -74,6 +74,7 @@ const ProjectHeader: React.FC<IProjectsState> = ({
                       style={{ background: '#F1F1F1' }}
                     >
                       <SlideContent
+                        key={project._id}
                         title={project.translations[0].title}
                         slogan={project.translations[0].slogan}
                       />
@@ -111,6 +112,7 @@ const ProjectHeader: React.FC<IProjectsState> = ({
                   {projects.map((project) => (
                     <SwiperSlide key={project._id}>
                       <SlideImage
+                        tabIndex={-1}
                         imgCover={`${IMAGE_PREFIX}${project.imgCover}`}
                         title={project.translations[0].title}
                       />

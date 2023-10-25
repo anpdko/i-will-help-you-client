@@ -19,8 +19,9 @@ const Bunner = ({ tab }: BunnerProps) => {
   };
 
   return (
-    <article className={s.banner}>
-      <Link to={tab.link}>
+    //Змінила артікл на лінк для поклащення доступності, робота не порушилась, гугл каже що валідно
+    <Link to={tab.link} className={s.banner}>
+      <article>
         <LazyImage
           className={s.banner__img}
           src={IMAGE_PREFIX + tab.img}
@@ -40,8 +41,8 @@ const Bunner = ({ tab }: BunnerProps) => {
         <svg className={s.banner__icon}>
           <use href={sprite + '#arrow-up-right'} />
         </svg>
-      </Link>
-    </article>
+      </article>
+    </Link>
   );
 };
 

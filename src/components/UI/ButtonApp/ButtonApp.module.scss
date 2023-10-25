@@ -59,6 +59,7 @@
 }
 
 .Xlarge {
+  outline-color: var(--orange);
   max-width: toRem(366);
   width: 100%;
   padding: toRem(24) toRem(10);
@@ -82,4 +83,8 @@
   @media (max-width: $mobile) {
     border-radius: toRem(10);
   }
+}
+
+.link:focus{
+  outline: auto;
 }
