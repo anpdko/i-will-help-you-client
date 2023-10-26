@@ -43,5 +43,8 @@
       background: var(--light-black);
       color: var(--total-white);
     }
+    &:focus{
+      outline-color:var(--orange)
+    }
   }
 }
