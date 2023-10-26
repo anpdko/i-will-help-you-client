@@ -26,7 +26,7 @@ const ProjectsFund = () => {
 
   useEffect(() => {
     dispatch(getProjects());
-  }, []);
+  }, [dispatch]);
 
   const IMAGE_PREFIX = '/static/images/projects/';
 

@@ -20,7 +20,7 @@ const Projects = () => {
 
   useEffect(() => {
     dispatch(getProjects());
-  }, []);
+  }, [dispatch]);
 
   const filteredProjects = useFilteredProjects();
 

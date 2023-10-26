@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import sprite from '../../../assets/sprite.svg';
 import s from './AccordionList.module.scss';
+import { SwiperRef } from 'swiper/react';
 
 interface ITranslation {
   language?: 'en' | 'ua';
@@ -12,7 +13,7 @@ interface ITranslation {
 interface IAccordionList {
   selectedTranslation: ITranslation[];
   variant?: 'projects';
-  swiperRef?: any;
+  swiperRef?: SwiperRef;
 }
 
 const AccordionList = ({
@@ -24,7 +25,7 @@ const AccordionList = ({
 
   useEffect(() => {
     swiperRef?.current?.update();
-  }, [openItems]);
+  }, [openItems, swiperRef]);
 
   const handleToggleFAQ = (index: number): void => {
     if (openItems.includes(index)) {

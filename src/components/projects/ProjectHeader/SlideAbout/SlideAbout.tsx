@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleSection from '../../../UI/ArticleSection/ArticleSection';
 import { useTranslation } from 'react-i18next';
-
+import { SwiperRef } from 'swiper/react';
 import { IProject } from '@/store/projects/projectsType';
 
 import { AccordionList, ButtonApp } from '../../../UI';
@@ -10,7 +10,7 @@ import s from './SlideAbout.module.scss';
 
 interface ISlideAboutProps {
   project: IProject;
-  swiperRef: any;
+  swiperRef: SwiperRef | null;
 }
 const SlideAbout: React.FC<ISlideAboutProps> = ({ project, swiperRef }) => {
   const { t } = useTranslation();

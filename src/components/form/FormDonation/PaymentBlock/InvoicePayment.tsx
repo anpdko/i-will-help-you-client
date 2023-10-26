@@ -2,8 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { RxCopy } from 'react-icons/rx';
 import s from './PaymentBlock.module.scss';
 
+interface IlistProps {
+  title: string;
+  account: string;
+}
+
 interface InvoicePaymentProps {
-  list: { title: string; account: string }[];
+  list: IlistProps[];
   method?: string;
 }
 

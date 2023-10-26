@@ -1,12 +1,15 @@
 import { PaymentRequestButtonElement } from '@stripe/react-stripe-js';
+import { Stripe, PaymentRequest } from '@stripe/stripe-js';
 import { useState, useEffect } from 'react';
 
-const PaymentButtons = ({ stripe }: { stripe: any }) => {
-  const [paymentRequest, setPaymentRequest] = useState<any>(null);
+const PaymentButtons = ({ stripe }: { stripe: Stripe | null }) => {
+  const [paymentRequest, setPaymentRequest] = useState<PaymentRequest | null>(
+    null,
+  );
 
   useEffect(() => {
     if (stripe) {
-      const pr: any = stripe.paymentRequest({
+      const pr = stripe.paymentRequest({
         country: 'US',
         currency: 'usd',
         total: {
@@ -17,7 +20,7 @@ const PaymentButtons = ({ stripe }: { stripe: any }) => {
         requestPayerEmail: true,
       });
 
-      pr.canMakePayment().then((result: any) => {
+      pr.canMakePayment().then((result) => {
         if (result) {
           setPaymentRequest(pr);
         }

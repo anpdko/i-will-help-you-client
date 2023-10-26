@@ -1,16 +1,17 @@
-/* eslint-disable prettier/prettier */
-import { ConfigProvider, Select, SelectProps } from 'antd';
+import { ConfigProvider, Select, RefSelectProps } from 'antd';
+import { OptionProps } from 'antd/es/select';
 import { ArrowDownSelect } from '@/components/icons/ArrowDownSelect';
 import './SelectStyles.scss';
 
+interface SelectInputPropsField {
+  onChange: (value: string) => void;
+  onBlur: () => void;
+  value: string;
+  ref: React.Ref<RefSelectProps>;
+}
 interface SelectInputProps {
-  field: {
-    onChange: (value: string) => void;
-    onBlur: () => void;
-    value: string;
-    ref: React.Ref<any>;
-  };
-  options: SelectProps<any>['options'];
+  field: SelectInputPropsField;
+  options: OptionProps['options'];
   placeholder: string;
   isSearchable?: boolean;
   className?: string;
