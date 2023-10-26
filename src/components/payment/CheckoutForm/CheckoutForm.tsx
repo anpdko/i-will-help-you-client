@@ -9,10 +9,10 @@ export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [message, setMessage] = useState<any>(null);
-  const [isProcessing, setIsProcessing] = useState<any>(false);
+  const [message, setMessage] = useState<string | undefined>(undefined);
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!stripe || !elements) {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import s from './Payment.module.scss';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
-import { loadStripe } from '@stripe/stripe-js';
+import { Stripe, loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { Preloader } from '@components/UI';
 
@@ -17,7 +17,8 @@ const isNumber = (str: string) => {
 };
 
 function Payment({ email, amount }: IPaymentProps) {
-  const [stripePromise, setStripePromise] = useState<any>(null);
+  const [stripePromise, setStripePromise] =
+    useState<Promise<Stripe | null> | null>(null);
   const [clientSecret, setClientSecret] = useState<string>('');
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function Payment({ email, amount }: IPaymentProps) {
         const { clientSecret } = await result.data;
         setClientSecret(clientSecret);
       });
-  }, []);
+  }, [amount, email]);
 
   return (
     <div className={s.payment}>

@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowDownSelect } from '@/components/icons/ArrowDownSelect';
 import s from './DonateStuff.module.scss';
 
+interface IitemProps {
+  title: string;
+  icon: string;
+  desc: string;
+}
 interface DonateStuffItemProps {
-  item: {
-    title: string;
-    icon: string;
-    desc: string;
-  };
+  item: IitemProps;
 }
 
 const DonateStuffItem = ({ item }: DonateStuffItemProps) => {
@@ -21,9 +20,21 @@ const DonateStuffItem = ({ item }: DonateStuffItemProps) => {
     setIsOpen(!isOpen);
   };
 
+  const handleTabKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter') {
+      handleItemClick();
+    }
+  };
+
   return (
     <li className={`border-style ${s.item} ${isOpen ? s.item_open : ''}`}>
-      <div className={s.item_header} onClick={handleItemClick}>
+      <div
+        role='button'
+        tabIndex={0}
+        onKeyDown={(e) => handleTabKeyDown(e)}
+        className={s.item_header}
+        onClick={handleItemClick}
+      >
         <div className={s.item_wrap}>
           <img src={item.icon} alt={item.title} className={s.item_img} />
           <h3 className={s.item_title}>{t(item.title)}</h3>

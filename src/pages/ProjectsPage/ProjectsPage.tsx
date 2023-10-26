@@ -22,9 +22,10 @@ const ProjectsPage = () => {
   const currentProject = filteredProjects.find((project) => project.url === id);
   const currentUrl = currentProject ? id : filteredProjects[0]?.url;
 
+  //https://react.dev/learn/removing-effect-dependencies#to-change-the-dependencies-change-the-code
   useEffect(() => {
     dispatch(getProjects());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!id) {

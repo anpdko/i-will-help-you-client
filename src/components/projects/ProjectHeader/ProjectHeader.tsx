@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navigation, Controller, EffectFade } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperClass, SwiperRef, SwiperSlide } from 'swiper/react';
 
 import { Preloader } from '../../UI';
 import { IProjectsState } from '@/store/projects/projectsType';
@@ -22,11 +22,11 @@ const ProjectHeader: React.FC<IProjectsState> = ({
 }: IProjectsState) => {
   const navigate = useNavigate();
 
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperRef | null>(null);
 
-  const handleSlideChange = (swiper: any) => {
+  const handleSlideChange = (swiper: SwiperClass) => {
     const activeSlide = swiper.realIndex;
-    const newUrl = projects[activeSlide].url;
+    const newUrl = projects[activeSlide]?.url;
 
     if (newUrl) {
       navigate(`/projects/${newUrl}`);

@@ -20,7 +20,7 @@ const NotFoundPage = () => {
     if (redirect) {
       navigate('/');
     }
-  }, [redirect]);
+  }, [navigate, redirect]);
 
   return (
     <>

@@ -9,9 +9,9 @@ interface ButtonProps {
   to?: string;
   color?: 'orange' | 'white';
   size?: 'smaller' | 'small' | 'medium' | 'standard' | 'large' | 'Xlarge';
-  onClick?: any;
+  onClick?: (event: React.MouseEvent) => void;
   disabled?: boolean;
-  blank?: boolean; 
+  blank?: boolean;
 }
 
 const ButtonApp = ({
@@ -32,7 +32,7 @@ const ButtonApp = ({
         to={to}
         onClick={onClick}
         className={[s.btn, s[type], s[color], s[size], className].join(' ')}
-        target = { blank ? '_blank' : '_self' }
+        target={blank ? '_blank' : '_self'}
         {...props}
       >
         {children}
