@@ -173,7 +173,7 @@
     @media (min-width: $mobile) {
       top: 25%;
     }
-    @include adaptiveValue('top', 478, 174, 3, 767, 320);
+    @include adaptiveValue('top', 480, 178, 3, 767, 320);
     display: inline-flex;
     align-items: center;
     justify-content: center;

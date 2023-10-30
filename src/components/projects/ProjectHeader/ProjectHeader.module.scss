@@ -99,7 +99,7 @@
   bottom: toRem(-40);
   @include adaptiveValue('padding-left', 20, 10);
   @include adaptiveValue('padding-right', 20, 10);
-  @include adaptiveValue('bottom', -40, -20);
+  @include adaptiveValue('bottom', -40, -24);
   .arrow_prev,
   .arrow_next {
     cursor: pointer;

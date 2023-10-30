@@ -1,11 +1,18 @@
 import s from './NavbarControlAdmin.module.scss';
 import { ButtonApp } from '../../../components/UI';
 
-const NavbarControlAdmin = ({ createLink, children }: { createLink?: string, children?: React.ReactNode; }) => {
+const NavbarControlAdmin = ({
+  createLink,
+  children,
+}: {
+  createLink?: string;
+  children?: React.ReactNode;
+}) => {
   return (
     <div className={s.navbar_control_admin}>
       <nav className={s.section_nav_control_admin_modules}>
-        {createLink && <ButtonApp
+        {createLink && (
+          <ButtonApp
             className={s.submit}
             type='link'
             to={createLink}
@@ -13,8 +20,8 @@ const NavbarControlAdmin = ({ createLink, children }: { createLink?: string, chi
             size='smaller'
           >
             Create
-          </ButtonApp> 
-        }
+          </ButtonApp>
+        )}
         {children}
       </nav>
     </div>
