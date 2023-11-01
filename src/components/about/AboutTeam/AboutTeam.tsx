@@ -54,6 +54,7 @@ const AboutTeam = () => {
               <SwiperSlide key={item._id}>
                 {item.linkedIn ? (
                   <a
+                    tabIndex={-1}
                     rel='noreferrer'
                     href={item.linkedIn}
                     target='_blank'
@@ -78,7 +79,7 @@ const AboutTeam = () => {
                     <span className={s.linkedin}>LinkedIn</span>
                   </a>
                 ) : (
-                  <div className={`${s.content}`}>
+                  <div tabIndex={-1} className={`${s.content}`}>
                     <div className={s.image}>
                       <picture>
                         <source

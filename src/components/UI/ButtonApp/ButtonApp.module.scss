@@ -2,12 +2,12 @@
 
 .orange {
   background: var(--orange);
-  &:hover,
-  :focus {
+  &:hover{
     background: var(--orange-for-states);
     color: var(--black);
   }
-  &:active {
+  &:active
+  &:focus {
     font-weight: 700;
   }
 }
@@ -16,13 +16,13 @@
   border-radius: toRem(10);
   border: 2px solid var(--orange);
   background: transparent;
-  &:hover,
-  :focus {
+  &:hover {
     transition: all 0.3s;
     border: 2px solid var(--orange-for-states);
     color: var(--light-black);
   }
-  &:active {
+  &:active,
+  &:focus {
     font-weight: 700;
     color: var(--black);
   }
@@ -59,6 +59,7 @@
 }
 
 .Xlarge {
+  outline-color: var(--orange);
   max-width: toRem(366);
   width: 100%;
   padding: toRem(24) toRem(10);
@@ -75,11 +76,15 @@
   font-weight: 600;
   line-height: 1rem;
   border-radius: toRem(8);
-  outline: none;
+  // outline: none;
   color: var(--black);
 
   transition: background-color 0.5s ease-in;
   @media (max-width: $mobile) {
     border-radius: toRem(10);
   }
+}
+
+.link:focus{
+  outline: auto;
 }

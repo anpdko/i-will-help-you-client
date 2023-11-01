@@ -132,7 +132,7 @@ const ArticleSection: React.FC<IArticleProps> = ({
   );
 
   return (
-    <article className={s.content}>
+    <article tabIndex={-1} className={s.content}>
       <div className={s.header}>
         <h2 className={`${s.title} heading2`}>{title}</h2>
         <h3 className={s.subtitle}>{subtitle}</h3>

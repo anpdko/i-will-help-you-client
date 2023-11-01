@@ -112,9 +112,8 @@ const ReviewsDesktop = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         ref={tabsContainerRef}
-        role='button'
-        tabIndex={0}
-        onKeyDown={(e) => handleTabKeyDown(isActive, e)}
+        role='tablist'
+        tabIndex={-1}
       >
         {reviews.map((tab, index) => {
           const transReviews = () => {
@@ -134,13 +133,9 @@ const ReviewsDesktop = () => {
               className={`${s.reviews_desktop__tab} ${
                 isActive === index ? s.reviews_desktop__active : ''
               }`}
-              role='button'
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  handleTabClick(index);
-                }
-              }}
+              role='tab'
               tabIndex={0}
+              onKeyDown={(e) => handleTabKeyDown(isActive, e)}
             >
               <div className={s.reviews_desktop__img}>
                 <img

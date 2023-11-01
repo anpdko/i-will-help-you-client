@@ -6,10 +6,12 @@
   @include adaptiveValue('border-radius', 30, 20, 0, 1200, 768);
   @media (min-width: $mobile) {
     padding-bottom: 84.895833%; /* 326/384 */
-    &:hover .banner__content {
+    &:hover .banner__content, 
+    &:focus .banner__content{
       transform: translateY(0);
     }
-    &:hover .banner__discription {
+    &:hover .banner__discription,
+    &:focus .banner__discription {
       transition: opacity 0.3s;
       opacity: 1;
     }
